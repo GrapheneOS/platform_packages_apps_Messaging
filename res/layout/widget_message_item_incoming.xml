@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (C) 2015 The Android Open Source Project
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+         http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widget_message_item_incoming"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="8dp"
+    android:paddingLeft="8dip"
+    android:paddingRight="8dip" >
+
+    <FrameLayout
+        android:id="@+id/avatarFrame"
+        android:layout_gravity="top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/avatarShadow"
+            style="@style/WidgetConversationItemIncomingAvatarShadow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_widget_avatar_shadow"
+            android:layout_marginTop="-4dp"
+            android:importantForAccessibility="no"
+            android:contentDescription="@null" />
+        <ImageView
+            android:id="@+id/avatarView"
+            style="@style/WidgetConversationItemAvatarIncoming"
+            android:layout_width="@dimen/contact_icon_view_normal_size"
+            android:layout_height="@dimen/contact_icon_view_normal_size"
+            android:layout_centerVertical="true"
+            android:scaleType="fitXY"
+            android:importantForAccessibility="no"
+            android:contentDescription="@null" />
+        <ImageView
+            android:id="@+id/conversation_failed_status_icon"
+            style="@style/WidgetConversationItemFailed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_failed_status_red"
+            android:visibility="gone"
+            android:importantForAccessibility="no"
+            android:contentDescription="@null"/>
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_gravity="top"
+        android:orientation="vertical"
+        style="@style/WidgetConversationItemBodyIncoming"
+        android:background="@drawable/widget_msg_bubble_incoming"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <TextView android:id="@+id/message"
+            style="@style/WidgetConversationItemWidget"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmallInverse"
+            android:textSize="16sp"
+            android:paddingTop="6dp"
+            android:paddingLeft="6dp"
+            android:paddingRight="6dp"
+            android:layout_marginBottom="3dip"
+            android:layout_alignParentBottom="true"
+            android:textColor="@color/widget_incoming_text_color"
+            android:ellipsize="end" />
+
+        <TextView android:id="@+id/date"
+            style="@style/WidgetConversationItemDate"
+            android:paddingLeft="6dp"
+            android:paddingRight="6dp"
+            android:layout_marginBottom="9dip"
+            android:textSize="12sp"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmallInverse"
+            android:singleLine="true"
+            android:textColor="@color/timestamp_text_incoming" />
+
+        <FrameLayout
+            android:id="@+id/attachmentFrame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/attachment"
+                style="@style/WidgetConversationItemAttachment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:importantForAccessibility="no"
+                android:adjustViewBounds="true"
+                android:contentDescription="@null"/>
+            <ImageView
+                android:id="@+id/playButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                android:src="@drawable/ic_preview_play"
+                android:importantForAccessibility="no"
+                android:contentDescription="@null"/>
+        </FrameLayout>
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (C) 2015 The Android Open Source Project
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+         http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<resources>
+    <style name="AttachmentPreviewCloseButtonStyle">
+        <item name="android:gravity">start</item>
+    </style>
+
+    <style name="ComposeMessageViewAttachMediaButtonStyle">
+        <item name="android:paddingStart">@dimen/compose_message_attachment_padding_sides</item>
+        <item name="android:paddingEnd">@dimen/compose_message_attachment_padding_sides</item>
+        <item name="android:background">?android:attr/selectableItemBackground</item>
+    </style>
+
+    <style name="ConversationComposeSendText">
+        <item name="android:textColor">@color/compose_send_text_color</item>
+        <item name="android:singleLine">false</item>
+        <item name="android:textSize">@dimen/conversation_compose_send_text_size</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:paddingStart">@dimen/compose_message_text_box_padding_side</item>
+        <item name="android:paddingEnd">@dimen/compose_message_text_box_padding_side</item>
+        <item name="android:minHeight">@dimen/conversation_message_contact_icon_size</item>
+        <item name="android:maxLines">4</item>
+        <item name="android:background">@null</item>
+        <item name="android:scrollHorizontally">false</item>
+        <item name="android:textCursorDrawable">@null</item>
+        <item name="android:inputType">textShortMessage|textAutoCorrect|textCapSentences|textMultiLine</item>
+    </style>
+
+    <style name="ConversationComposeSubjectText" parent="ConversationComposeSendText">
+        <item name="android:paddingStart">18dp</item>
+        <item name="android:gravity">start|center_vertical</item>
+        <item name="android:layout_marginStart">@dimen/compose_message_subject_cancel_left_margin</item>
+    </style>
+
+    <style name="ContactListItemViewStyle">
+        <item name="android:paddingStart">16dp</item>
+    </style>
+
+    <style name="ContactListItemLinearLayoutStyle">
+        <item name="android:paddingStart">12dp</item>
+        <item name="android:paddingEnd">24dp</item>
+    </style>
+
+    <style name="ConversationListItemViewPaddingStyle">
+        <item name="android:paddingStart">@dimen/conversation_list_item_view_padding</item>
+        <item name="android:paddingEnd">@dimen/conversation_list_item_view_padding</item>
+    </style>
+
+    <style name="ConversationListItemViewTextStyle">
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:background">@null</item>
+        <item name="android:textAlignment">viewStart</item>
+        <item name="android:textColor">@color/conversation_list_details</item>
+    </style>
+
+    <style name="ConversationListItemViewConversationNameStyle" parent="ConversationListItemViewTextStyle">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/conversation_list_name</item>
+    </style>
+
+    <style name="ConversationListNotificationBellPaddingStyle">
+        <item name="android:paddingEnd">@dimen/conversation_list_notification_bell_padding</item>
+    </style>
+
+    <style name="ComposeMessageViewFrameLayoutStyle">
+        <item name="android:paddingEnd">@dimen/compose_message_send_button_padding_right</item>
+    </style>
+
+    <style name="ConversationListFragmentStartNewButtonStyle">
+        <item name="android:layout_marginEnd">@dimen/fab_left_right_margin</item>
+    </style>
+
+    <style name="GalleryGridItemViewCheckBoxStyle">
+        <item name="android:paddingEnd">4dp</item>
+    </style>
+
+    <style name="BugleActionBarTitleTextStyle" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
+      <item name="android:textColor">@color/action_bar_title_text_color</item>
+      <item name="android:textSize">@dimen/action_bar_text_size</item>
+      <item name="android:lines">1</item>
+      <item name="android:textAlignment">viewStart</item>
+    </style>
+
+    <style name="AttachmentPreviewAttachmentStyle">
+        <item name="android:layout_marginStart">10dp</item>
+    </style>
+
+    <style name="AudioAttachmentViewPlayPauseButtonStyle">
+        <item name="android:layout_marginEnd">16dp</item>
+    </style>
+
+    <style name="ComposeMessageViewDraftViewStyle">
+        <item name="android:layout_marginStart">53dp</item>
+        <item name="android:layout_marginEnd">63dp</item>
+    </style>
+
+    <style name="AudioAttachmentTimerText">
+        <item name="android:textSize">@dimen/audio_attachment_text_size</item>
+        <item name="android:textColor">@color/audio_attachment_timer_text_color</item>
+        <item name="android:layout_marginEnd">16dp</item>
+    </style>
+
+    <style name="ConversationMessageText">
+        <item name="android:background">@null</item>
+        <item name="android:textAlignment">viewStart</item>
+    </style>
+
+    <style name="ConversationMessageViewStyle">
+        <item name="android:paddingStart">12dp</item>
+        <item name="android:paddingEnd">12dp</item>
+    </style>
+
+    <style name="SnackBarMessageWrapper">
+        <item name="android:layout_marginStart">@dimen/snack_bar_left_right_margin</item>
+        <item name="android:layout_marginEnd">0dp</item>
+    </style>
+
+    <style name="SubjectViewStyle">
+        <item name="android:paddingStart">@dimen/compose_message_subject_left_padding</item>
+        <item name="android:paddingEnd">@dimen/compose_message_subject_right_padding</item>
+    </style>
+
+    <style name="SmsDeliverdBadge">
+        <item name="android:layout_marginStart">4dp</item>
+    </style>
+
+    <style name="ChipDeleteIconStyle">
+        <item name="android:paddingStart">8dp</item>
+    </style>
+
+    <style name="ChipIconStyle">
+        <item name="android:layout_marginEnd">12dp</item>
+    </style>
+
+    <style name="SimSelectorItem">
+        <item name="android:textSize">@dimen/sim_selector_text_size</item>
+        <item name="android:textColor">@color/sim_selector_text_primary</item>
+        <item name="android:background">@null</item>
+        <item name="android:layout_gravity">end</item>
+    </style>
+
+    <style name="SimSelectorItemDetail">
+        <item name="android:textSize">@dimen/sim_selector_detail_text_size</item>
+        <item name="android:textColor">@color/sim_selector_text_secondary</item>
+        <item name="android:background">@null</item>
+        <item name="android:layout_gravity">end</item>
+    </style>
+
+    <style name="SimSelectorItemLinearLayoutStyle">
+        <item name="android:paddingEnd">12dp</item>
+    </style>
+
+    <style name="MessageSimIndicator">
+        <item name="android:textSize">@dimen/conversation_status_text_size</item>
+        <item name="android:layout_marginStart">4dp</item>
+    </style>
+
+    <style name="ComposeMessageViewTextCounterStyle">
+        <item name="android:textColor">@color/message_text_counter_color</item>
+        <item name="android:textSize">@dimen/message_text_counter_size</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:layout_gravity">end|center_vertical</item>
+        <item name="android:paddingEnd">@dimen/compose_message_text_box_padding_side</item>
+    </style>
+
+    <style name="MmsIndicatorStyle">
+        <item name="android:textColor">@color/mms_indicator_color</item>
+        <item name="android:textSize">@dimen/mms_indicator_size</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:background">@null</item>
+        <item name="android:paddingEnd">@dimen/compose_message_send_button_padding_right</item>
+        <item name="android:paddingTop">@dimen/compose_message_mms_indicator_padding_top</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+    </style>
+
+    <style name="AttachmentGridItemViewCheckBoxStyle">
+        <item name="android:paddingEnd">4dp</item>
+    </style>
+
+    <style name="ParticipantListItem">
+        <item name="android:textSize">@dimen/participant_list_text_size</item>
+        <item name="android:textColor">@color/participant_list_text_primary</item>
+        <item name="android:background">@null</item>
+        <item name="android:layout_gravity">start|center_vertical</item>
+    </style>
+
+    <style name="WidgetConversationItemFailed">
+        <item name="android:layout_gravity">bottom|end</item>
+    </style>
+
+    <style name="WidgetConversationItemIncomingAvatarShadow">
+        <item name="android:layout_marginStart">4dp</item>
+    </style>
+
+    <style name="WidgetConversationItemOutgoingAvatarShadow">
+        <item name="android:layout_marginStart">-4dp</item>
+    </style>
+
+    <style name="WidgetConversationItemDate">
+        <item name="android:layout_marginEnd">8dp</item>
+        <item name="android:layout_marginStart">5dp</item>
+        <item name="android:layout_alignParentStart">true</item>
+    </style>
+
+    <style name="WidgetConversationItemWidget">
+        <item name="android:layout_marginEnd">8dp</item>
+        <item name="android:layout_marginStart">5dp</item>
+        <item name="android:layout_alignParentStart">true</item>
+    </style>
+
+    <style name="WidgetConversationListItemBody">
+        <item name="android:layout_toEndOf">@id/avatarFrame</item>
+    </style>
+
+    <style name="WidgetLoading">
+        <item name="android:layout_marginStart">16dp</item>
+    </style>
+
+    <style name="WidgetConversationItemBodyIncoming">
+        <item name="android:layout_toEndOf">@id/avatarFrame</item>
+    </style>
+
+    <style name="WidgetConversationItemBodyOutgoing">
+        <item name="android:layout_toStartOf">@id/avatarFrame</item>
+    </style>
+
+    <style name="WidgetConversationItemIncoming">
+        <item name="android:layout_marginEnd">5dp</item>
+        <item name="android:layout_alignParentStart">true</item>
+        <item name="android:layout_toStartOf">@id/date</item>
+    </style>
+
+    <style name="WidgetConversationItemAttachment">
+        <item name="android:layout_gravity">bottom|end</item>
+    </style>
+
+    <style name="WidgetConversationAppIcon" parent="WidgetHeaderImage">
+        <item name="android:layout_marginStart">-20dp</item>
+    </style>
+
+    <style name="WidgetConversationItemAvatarOutgoing">
+        <item name="android:layout_marginEnd">8dp</item>
+        <item name="android:layout_alignParentEnd">true</item>
+    </style>
+
+    <style name="WidgetConversationListItemFrom">
+        <item name="android:layout_marginEnd">5dp</item>
+        <item name="android:layout_alignParentStart">true</item>
+    </style>
+
+    <style name="WidgetConversationListItemDate">
+        <item name="android:layout_marginEnd">8dp</item>
+        <item name="android:layout_marginStart">5dp</item>
+        <item name="android:layout_gravity">start</item>
+    </style>
+
+</resources>

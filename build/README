@@ -1,0 +1,8 @@
+Files in this folder are build extensions specific to the Bugle project, but currently could be merged into the core Android build.
+
+gcheckstyle is a tool from google3 to validate java from google3.  The config file is baked into the jar, but can be updated with a little hackery.
+
+Files last pulled around CL 66008148:
+gcheckstyle/tools/java/checkstyle/googlestyle-5.0.xml is the config file which came from /home/build/nonconf/google3/tools/java/checkstyle and was modified to use Android specific styles.  It must keep the same name and path in order to correctly update the jar
+
+google-style-checker_deploy.jar is pulled from the build share at /google/data/ro/teams/devtools/glint/linters/live/google-style-checker_deploy.jar and can be pulled from there as needed.

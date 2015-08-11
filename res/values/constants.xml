@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (C) 2015 The Android Open Source Project
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+         http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<resources>
+
+    <!-- Preference keys for user-visible settings -->
+    <!-- Application-wide settings -->
+    <string name="notifications_category_pref_key" translatable="false">notifications_category</string>
+    <string name="mms_messaging_category_pref_key" translatable="false">mms_messaging_category</string>
+    <string name="advanced_category_pref_key" translatable="false">advanced_category</string>
+    <string name="notifications_enabled_pref_key" translatable="false">notifications_enabled</string>
+    <bool name="notifications_enabled_pref_default" translatable="false">true</bool>
+    <string name="notification_sound_pref_key" translatable="false">notification_sound</string>
+    <string name="notification_vibration_pref_key" translatable="false">notification_vibration</string>
+    <bool name="notification_vibration_pref_default" translatable="false">true</bool>
+    <string name="sms_disabled_pref_key" translatable="false">sms_disabled</string>
+    <string name="sms_enabled_pref_key" translatable="false">sms_enabled</string>
+    <string name="send_sound_pref_key" translatable="false">send_sound</string>
+    <bool name="send_sound_pref_default" translatable="false">true</bool>
+    <string name="advanced_pref_key" translatable="false">advanced_prefs</string>
+
+    <!-- Subscription-specific settings. The values of these pref keys must be prefixed with
+         "buglesub_" to allow for runtime sanity checks -->
+    <string name="delivery_reports_pref_key" translatable="false">buglesub_delivery_reports</string>
+    <bool name="delivery_reports_pref_default" translatable="false">false</bool>
+    <string name="auto_retrieve_mms_pref_key" translatable="false">buglesub_auto_retrieve_mms</string>
+    <bool name="auto_retrieve_mms_pref_default" translatable="false">true</bool>
+    <string name="auto_retrieve_mms_when_roaming_pref_key" translatable="false">buglesub_auto_retrieve_mms_when_roaming</string>
+    <bool name="auto_retrieve_mms_when_roaming_pref_default" translatable="false">false</bool>
+    <string name="group_mms_pref_key" translatable="false">buglesub_group_messaging</string>
+    <bool name="group_mms_pref_default" translatable="false">true</bool>
+    <string name="mms_phone_number_pref_key" translatable="false">buglesub_mms_phone_number</string>
+    <string name="wireless_alerts_key" translatable="false">buglesub_wireless_alerts_key</string>
+    <string name="apn_list_pref_key" translatable="false">buglesub_apn_list</string>
+
+    <!-- Debug preferences -->
+    <string name="debug_pref_key" translatable="false">debug_category</string>
+    <string name="dump_sms_pref_key" translatable="false">dump_sms</string>
+    <bool name="dump_sms_pref_default" translatable="false">false</bool>
+    <string name="dump_mms_pref_key" translatable="false">dump_mms</string>
+    <bool name="dump_mms_pref_default" translatable="false">false</bool>
+
+
+    <!-- SMS/MMS settings keys -->
+    <!--
+    TODO: Several of these are currently unused but are expected to be needed to
+    implement SMS/MMS delivery and basic settings. Once we have the core functionality in place
+    we should do a pass to remove any unused values here.
+    -->
+    <string name="sms_apns_key" translatable="false">sms_apns_key</string>
+    <string name="use_local_apn_pref_key" translatable="false">use_local_apn_pref_key</string>
+    <bool name="use_local_apn_pref_default" translatable="false">false</bool>
+
+    <integer name="mediapicker_transition_duration">600</integer><!-- ms -->
+    <integer name="asyncimage_transition_duration">300</integer><!-- ms -->
+    <integer name="compose_transition_duration">300</integer><!-- ms -->
+    <integer name="camera_shutter_duration">200</integer><!-- ms -->
+    <fraction name="camera_shutter_max_alpha">70%</fraction>
+
+    <integer name="snackbar_translation_duration_ms">300</integer>
+
+    <!-- Notification preferences -->
+    <string name="notifications_group_children_key" translatable="false">notifications_group_children</string>
+
+    <!-- format string for creating new image files. Passed to java.text.SimpleDateFormat. -->
+    <string name="new_image_file_name_format" translatable="false">"'IMG'_yyyyMMdd_HHmmss"</string>
+    <!-- format string for creating new files of unknown type. Passed to java.text.SimpleDateFormat. -->
+    <string name="new_file_name_format" translatable="false">"yyyyMMdd_HHmmss"</string>
+
+    <!-- Swipe to Archive consts -->
+    <integer name="swipe_duration_ms">300</integer>
+    <integer name="swipe_max_fling_velocity_px_per_s">4000</integer>
+
+    <!-- Fab animation const -->
+    <integer name="fab_animation_duration_ms">300</integer>
+
+    <!-- Conversation list -> conversation animation const -->
+    <integer name="list_to_conversation_animation_duration_ms">300</integer>
+
+    <!-- Generic reveal view animation duration -->
+    <integer name="reveal_view_animation_duration">300</integer>
+</resources>

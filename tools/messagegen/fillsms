@@ -1,0 +1,287 @@
+#!/bin/bash
+#  Copyright (C) 2015 The Android Open Source Project
+#
+#  Licensed under the Apache License, Version 2.0 (the "License");
+#  you may not use this file except in compliance with the License.
+#  You may obtain a copy of the License at
+#
+#       http://www.apache.org/licenses/LICENSE-2.0
+#
+#  Unless required by applicable law or agreed to in writing, software
+#  distributed under the License is distributed on an "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#  See the License for the specific language governing permissions and
+#  limitations under the License.
+###################################################################
+## Script that generates SMS and MMS messages and fills the Android
+## telephony provider mmssms.db. This is used for testing SMS/MMS.
+###################################################################
+
+AREA_CODE=605
+
+TABLE_CANONICAL_ADDRESSES_START_ID=100
+TABLE_THREADS_START_ID=100
+TABLE_SMS_START_ID=1000
+
+START_TIMESTAMP_IN_SECONDS=1357683093 # 1/8/2013 2:11:33 PM
+TIMESTAMP_INC_IN_SECONDS=120
+
+PART_DIR="/data/data/com.android.providers.telephony/app_parts"
+
+USAGE='fillsms [-f] [-x] <device_phone_number> <# of threads> <# of sms per thread> <# of mms per thread> <image list file> <sql file>
+    -f -- Only generates the SQL file, do not push to the device
+    -x -- Only execute a SQL file
+    -g -- For GB devices
+Examples:
+    # Generate 2 threads each with 10 SMSes and 10 MMSes on device with phone
+    # number +16508619525. MMS messages use images listed in ./images, which list
+    # *.jpg and *.gif files in local directory. The SQL commands are in sql.txt
+    fillsms +16508619525 2 10 10 images sql.txt
+
+    # Same as above but only creating the SQL command file without pushing to
+    # device
+    fillsms -f +16508619525 2 10 10 images sql.txt
+
+    # Just push the sql.txt to device without generating new SQLs
+    fillsms -x +16508619525 2 10 10 images sql.txt
+'
+
+SMIL='<smil> <head> <layout> <root-layout height="%dpx" width="%dpx"> <region fit="meet" height="%dpx" id="Image" left="0" top="0" width="%dpx"/></root-layout> </layout> </head> <body> <par dur="5000ms"> <img region="Image" src="%s"/> </par> </body> </smil>'
+
+MAX_WORDS_PER_MESSAGE=15
+
+DICT=american-english
+
+# don't actually run the sql on device
+opt_sql_only=0
+opt_exec_only=0
+opt_for_gb=0
+
+while test $# -gt 0
+do
+  case $1 in
+    -f)
+      opt_sql_only=1
+      shift
+      ;;
+    -x)
+      opt_exec_only=1
+      shift
+      ;;
+    -g)
+      opt_for_gb=1
+      shift
+      ;;
+    *)
+      break;
+  esac
+done
+
+
+if [ $opt_sql_only -eq "1" -a $opt_exec_only -eq "1" ]; then
+  echo "-f and -x can not coexist"
+  echo "$USAGE"
+  exit 1
+fi
+
+if [ $# -lt 6 ]; then
+  echo "$USAGE"
+  exit 1
+fi
+device_phone=$1
+shift
+num_of_threads=$1
+shift
+sms_per_thread=$1
+shift
+mms_per_thread=$1
+shift
+image_list_file=$1
+shift
+sql_file=$1
+shift
+
+dict_lines=`wc -l < $DICT`
+image_files=`wc -l < $image_list_file`
+
+if [ $mms_per_thread -gt "0" ]; then
+  if [ ! -f $image_list_file ]; then
+    echo "No image files for creating MMS messages"
+    exit 1
+  fi
+fi
+
+echoerr ()
+{
+  echo "$@" 1>&2;
+}
+
+random_value ()
+{
+  echo $(( $RANDOM % $1 + 1 ))
+}
+
+dict_word ()
+{
+  local v=$(random_value 30000)
+  sed $v"q;d" $DICT
+}
+
+gen_message ()
+{
+  local words=$(random_value $MAX_WORDS_PER_MESSAGE)
+  local message=
+  for k in `seq 1 $words`;
+  do
+    local word=$(dict_word)
+    message="$message $word"
+  done
+  echo $message | sed -e "s/'//g"
+}
+
+random_image ()
+{
+  local v=$(random_value $image_files)
+  sed $v"q;d" $image_list_file
+}
+
+add_sql ()
+{
+  echo $1 >> $sql_file
+}
+
+adb_sql ()
+{
+  echo $1
+  adb shell sqlite3 data/data/com.android.providers.telephony/databases/mmssms.db "$1"
+}
+
+######################################################################################
+######################################################################################
+
+if [ $opt_exec_only -eq "0" ]; then
+  # clean up sql file
+  rm -f $sql_file
+
+  # add sql to clean up database
+  add_sql "delete from pdu where _id>=$TABLE_SMS_START_ID;"
+  add_sql "delete from part where _id>=$TABLE_SMS_START_ID;"
+  add_sql "delete from addr where _id>=$TABLE_SMS_START_ID;"
+  add_sql "delete from sms where _id>=$TABLE_SMS_START_ID;"
+  add_sql "delete from threads where _id>=$TABLE_THREADS_START_ID;"
+  add_sql "delete from canonical_addresses where _id>=$TABLE_CANONICAL_ADDRESSES_START_ID;"
+
+  for i in `seq 1 $num_of_threads`;
+  do
+    echo
+    echo "Creating thread $i ......"
+    echo
+
+    # Get random phone number
+    value=$(random_value 1000)
+    middle=$(printf '%03d' $value)
+    value=$(random_value 10000)
+    last=$(printf '%04d' $value)
+    phone="+1$AREA_CODE$middle$last"
+    echo $phone
+    echo
+
+    timestamp=$(( $START_TIMESTAMP_IN_SECONDS + 5 * $TIMESTAMP_INC_IN_SECONDS * $i ))
+
+    # Generate threads
+    addr_id=$(( $TABLE_CANONICAL_ADDRESSES_START_ID + $i ))
+    add_sql "insert into canonical_addresses (_id,address) values ($addr_id,'$phone');"
+
+    thread_id=$(( $TABLE_THREADS_START_ID + $i ))
+    add_sql "insert into threads (_id,date,message_count,recipient_ids,snippet,snippet_cs,read,type,error,has_attachment) values ($thread_id, $timestamp, $sms_per_thread, $addr_id, 'snippet', 0, 1, 0, 0, 0);"
+
+    # Generate SMS
+    if [ $sms_per_thread -gt "0" ]; then
+      half_timestamp_inc=$(( 500 + ((($sms_per_thread + $mms_per_thread) * $TIMESTAMP_INC_IN_SECONDS) * 500 / $sms_per_thread) ))
+      for j in `seq 1 $sms_per_thread`;
+      do
+        message=$(gen_message)
+        date=$(( ( 1000 * $timestamp ) - $half_timestamp_inc * ( 2 * ($sms_per_thread - $j) + ( $i % 2 ) ) ))
+        message_id=$(( $TABLE_SMS_START_ID + $sms_per_thread * $i * 2 + (2 * $j) ))
+        message_type=$(( $j % 2 + 1 ))
+        add_sql "insert into sms (_id,thread_id,address,person,date,status,type,body,read,seen) values ($message_id, $thread_id, '$phone', '$phone', $date, -1, $message_type, '$message', 1, 1);"
+      done
+    fi
+
+    # Generate MMS
+    if [ $mms_per_thread -gt "0" ]; then
+      half_timestamp_inc=$(( 1 + ((($sms_per_thread + $mms_per_thread) * $TIMESTAMP_INC_IN_SECONDS) / ( 2 * $mms_per_thread) ) ))
+      for j in `seq 1 $mms_per_thread`;
+      do
+        image_line=$(random_image)
+        image=`echo $image_line | awk '{ print $1 }'`
+        width=`echo $image_line | awk '{ print $2 }'`
+        height=`echo $image_line | awk '{ print $3 }'`
+        size=`echo $image_line | awk '{ print $4 }'`
+        date=$(( $timestamp - $half_timestamp_inc * ( 2 * ($mms_per_thread - $j) + ( ($i+1) % 2 ) ) ))
+        message_id=$(( $TABLE_SMS_START_ID + $sms_per_thread * $i * 2 + (2 * $j + 1) ))
+        message_type=$(( $j % 2 + 1 ))
+        if [ $message_type -eq '1' ]; then
+          m_type=132
+        else
+          m_type=128
+        fi
+        if [ $opt_for_gb -eq "0" ]; then
+          add_sql "insert into pdu (_id,thread_id,date,date_sent,msg_box,read,m_id,sub,sub_cs,ct_t,m_cls,m_type,v,m_size,pri,rr,tr_id,d_rpt,locked,seen,text_only) values ($message_id, $thread_id, $date, 0, $message_type, 1, 'hmma3p5s1a3m526@w.tmomail.net', 'no subject', 106, 'application/vnd.wap.multipart.related', 'personal', $m_type, 18, $size, 129, 129 , '$message_id', 129, 0, 1, 0);"
+        else
+          add_sql "insert into pdu (_id,thread_id,date,msg_box,read,m_id,sub,sub_cs,ct_t,m_cls,m_type,v,m_size,pri,rr,tr_id,d_rpt,locked,seen) values ($message_id, $thread_id, $date, $message_type, 1, 'hmma3p5s1a3m526@w.tmomail.net', 'no subject', 106, 'application/vnd.wap.multipart.related', 'personal', $m_type, 18, $size, 129, 129 , '$message_id', 129, 0, 1);"
+        fi
+        id_1=$(( $message_id ))
+        id_2=$(( $message_id + 1 ))
+        smil=$(printf "$SMIL" $height $width $height $width $image)
+        add_sql "insert into part (_id,mid,seq,ct,cid,cl,text) values ($id_1, $message_id, -1, 'application/smil', '<smil>', 'smil.xml', '$smil');"
+        image_no_suffix=${image%.*}
+        add_sql "insert into part (_id,mid,seq,ct,cid,cl,_data) values ($id_2, $message_id, 0, 'image/jpeg', '$image_no_suffix', '$image', '$PART_DIR/$image');"
+        if [ $message_type -eq '1' ]; then
+          add_sql "insert into addr (_id,msg_id,address,type,charset) values ($id_1, $message_id, '$phone', 137, 106);"
+          add_sql "insert into addr (_id,msg_id,address,type,charset) values ($id_2, $message_id, '$device_phone', 151, 106);"
+        else
+          add_sql "insert into addr (_id,msg_id,address,type,charset) values ($id_1, $message_id, 'insert-address-token', 137, 106);"
+          add_sql "insert into addr (_id,msg_id,address,type,charset) values ($id_2, $message_id, '$phone', 151, 106);"
+        fi
+      done
+    fi
+  done
+fi
+
+# Push to device
+if [ $opt_sql_only -eq "0" ]; then
+  # make sure we have access
+  adb root
+
+  # Push all local jpgs or gifs to device, being lazy here.
+  if [ $mms_per_thread -gt "0" ]; then
+    for file in `ls *.jpg *.gif`;
+    do
+      echo "adb push $file $PART_DIR/$file"
+      adb push $file $PART_DIR/$file
+    done
+  fi
+
+  echo "adb push $sql_file /data/fillsms"
+  adb push $sql_file /data/fillsms
+  echo
+  adb_sql ".read /data/fillsms"
+  echo
+  adb_sql "select count(*) from canonical_addresses where _id>=$TABLE_CANONICAL_ADDRESSES_START_ID;"
+  echo
+  adb_sql "select count(*) from threads where _id>=$TABLE_THREADS_START_ID;"
+  echo
+  if [ $sms_per_thread -gt "0" ]; then
+    adb_sql "select count(*) from sms where _id>=$TABLE_SMS_START_ID;"
+    echo
+  fi
+  if [ $mms_per_thread -gt "0" ]; then
+    adb_sql "select count(*) from pdu where _id>=$TABLE_SMS_START_ID;"
+    echo
+    adb_sql "select count(*) from part where _id>=$TABLE_SMS_START_ID;"
+    echo
+    adb_sql "select count(*) from addr where _id>=$TABLE_SMS_START_ID;"
+    echo
+  fi
+fi

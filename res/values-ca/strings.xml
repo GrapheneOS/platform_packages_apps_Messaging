@@ -1,0 +1,519 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    Copyright (C) 2015 The Android Open Source Project
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+         http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+ -->
+
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name" msgid="3062916848713424329">"Missatges"</string>
+    <string name="share_intent_label" msgid="6920483598866144717">"Missatges"</string>
+    <string name="share_intent_activity_label" msgid="2939454246983196756">"Selecció de la conversa"</string>
+    <string name="action_settings" msgid="1329008122345201684">"Configuració"</string>
+    <string name="sendButtonContentDescription" msgid="8422114979691093956">"Envia el missatge"</string>
+    <string name="attachMediaButtonContentDescription" msgid="2758624209216276682">"Afegeix un fitxer adjunt"</string>
+    <string name="help_and_feedback_activity_label" msgid="8070710971014835182">"Ajuda"</string>
+    <string name="welcome" msgid="2857560951820802321">"Et donem la benvinguda"</string>
+    <string name="skip" msgid="7238879696319945853">"Omet"</string>
+    <string name="next_with_arrow" msgid="2840729397885031655">"Següent &gt;"</string>
+    <string name="next" msgid="4496962051601713843">"Següent"</string>
+    <string name="exit" msgid="1905187380359981199">"Surt"</string>
+    <string name="settings_with_arrow" msgid="8534633224579301342">"Configuració &gt;"</string>
+    <string name="settings" msgid="1045695083932447399">"Configuració"</string>
+    <string name="required_permissions_promo" msgid="3898014894175251590">"Missatges necessita permís per accedir als SMS, al telèfon i als contactes."</string>
+    <string name="enable_permission_procedure" msgid="2778471831376319587">"Pots canviar els permisos a Configuració &gt; Aplicacions &gt; Missatges &gt; Permisos."</string>
+    <string name="enable_permission_procedure_description" msgid="8672121020793945630">"Pots canviar els permisos a Configuració, Aplicacions, Missatges, Permisos."</string>
+    <string name="contact_picker_frequents_tab_title" msgid="7157326165824706883">"Freqüents"</string>
+    <string name="contact_picker_all_contacts_tab_title" msgid="1424746082040243161">"Tots els contactes"</string>
+    <string name="contact_list_send_to_text" msgid="3167455944684758290">"Envia al <xliff:g id="DESTINATION">%s</xliff:g>"</string>
+    <string name="mediapicker_cameraChooserDescription" msgid="8498255650058981250">"Captura fotos o vídeos"</string>
+    <string name="mediapicker_galleryChooserDescription" msgid="1227741581156455777">"Tria imatges d\'aquest dispositiu."</string>
+    <string name="mediapicker_audioChooserDescription" msgid="3660616501040372452">"Enregistra l\'àudio"</string>
+    <string name="mediapicker_gallery_title" msgid="3169528536727885763">"Triar una foto"</string>
+    <string name="mediapicker_gallery_item_selected_content_description" msgid="2569545441879514283">"S\'ha seleccionat el fitxer multimèdia."</string>
+    <string name="mediapicker_gallery_item_unselected_content_description" msgid="40021674722525910">"No hi ha cap fitxer multimèdia seleccionat."</string>
+    <string name="mediapicker_gallery_title_selection" msgid="3621616141966436510">"Seleccionats: <xliff:g id="COUNT">%d</xliff:g>"</string>
+    <string name="mediapicker_gallery_image_item_description" msgid="8812237405495409901">"imatge: <xliff:g id="DATE">%1$tB %1$te %1$tY %1$tl %1$tM %1$tp</xliff:g>"</string>
+    <string name="mediapicker_gallery_image_item_description_no_date" msgid="8142175029053370662">"imatge"</string>
+    <string name="mediapicker_audio_title" msgid="5455016591560739789">"Enregistra l\'àudio"</string>
+    <string name="action_share" msgid="2143483844803153871">"Comparteix"</string>
+    <string name="posted_just_now" msgid="6632467048088811568">"Ara mateix"</string>
+    <string name="posted_now" msgid="867560789350406701">"Ara"</string>
+    <plurals name="num_minutes_ago" formatted="false" msgid="4085627474543076735">
+      <item quantity="other"><xliff:g id="COUNT_1">%d</xliff:g> min</item>
+      <item quantity="one"><xliff:g id="COUNT_0">%d</xliff:g> min</item>
+    </plurals>
+    <plurals name="num_hours_ago" formatted="false" msgid="8010868301590914325">
+      <item quantity="other"><xliff:g id="COUNT_1">%d</xliff:g> hores</item>
+      <item quantity="one"><xliff:g id="COUNT_0">%d</xliff:g> hora</item>
+    </plurals>
+    <plurals name="num_days_ago" formatted="false" msgid="8753803762044567843">
+      <item quantity="other"><xliff:g id="COUNT_1">%d</xliff:g> dies</item>
+      <item quantity="one"><xliff:g id="COUNT_0">%d</xliff:g> dia</item>
+    </plurals>
+    <plurals name="week_count" formatted="false" msgid="1301973226125551953">
+      <item quantity="other"><xliff:g id="COUNT">%d</xliff:g> setmanes</item>
+      <item quantity="one">una setmana</item>
+    </plurals>
+    <plurals name="month_count" formatted="false" msgid="4858515363324110232">
+      <item quantity="other"><xliff:g id="COUNT">%d</xliff:g> mesos</item>
+      <item quantity="one">un mes</item>
+    </plurals>
+    <plurals name="year_count" formatted="false" msgid="4522546496183798317">
+      <item quantity="other"><xliff:g id="COUNT">%d</xliff:g> anys</item>
+      <item quantity="one">un any</item>
+    </plurals>
+    <string name="class_0_message_activity" msgid="4603850264073169854">"Missatge de classe 0"</string>
+    <string name="save" msgid="5081141452059463572">"Desa"</string>
+    <string name="sms_storage_low_auto_delete_enabled_dialog_text" msgid="8836401937872068406">"Queda poc espai al dispositiu. Per alliberar-ne, Missatgeria suprimirà automàticament els missatges antics."</string>
+    <string name="sms_storage_low_title" msgid="7985379565293259177">"L\'espai d\'emmagatzematge s\'està esgotant"</string>
+    <string name="sms_storage_low_text" msgid="7036247475855447830">"Pot ser que Missatges no enviï ni rebi missatges fins que no tinguis més espai disponible al dispositiu."</string>
+    <string name="sms_storage_low_notification_ticker" msgid="2393739822170029830">"Poc emmagatzematge per a SMS. És possible que et calgui suprimir missatges."</string>
+    <string name="enter_phone_number_title" msgid="7263355879949248448">"Confirma el teu número de telèfon"</string>
+    <string name="enter_phone_number_text" msgid="4539767473801195966">"Aquest pas únic garanteix que els missatges de grup s\'enviïn correctament amb Missatges."</string>
+    <string name="enter_phone_number_hint" msgid="6242965213882272822">"Número de telèfon"</string>
+    <string name="delete_all_media" msgid="5549693176734564386">"Suprimeix tots els missatges amb fitxers multimèdia"</string>
+    <string name="delete_oldest_messages" msgid="9204277306804390707">"Suprimeix els missatges de més de <xliff:g id="DURATION">%s</xliff:g>"</string>
+    <string name="auto_delete_oldest_messages" msgid="7766679943833404968">"Suprimeix automàticament els missatges de més de <xliff:g id="DURATION">%s</xliff:g>"</string>
+    <string name="ignore" msgid="7063392681130898793">"Ignora"</string>
+    <string name="delete_all_media_confirmation" msgid="4601960420953525559">"Confirmes que vols suprimir tots els missatges amb fitxers multimèdia?"</string>
+    <string name="delete_oldest_messages_confirmation" msgid="6172297718425265784">"Confirmes que vols suprimir els missatges de més de <xliff:g id="DURATION">%s</xliff:g>?"</string>
+    <string name="auto_delete_oldest_messages_confirmation" msgid="9071499976729145269">"Confirmes que vols suprimir els missatges de més de <xliff:g id="DURATION">%s</xliff:g> i activar la funció per suprimir-los automàticament?"</string>
+    <string name="incoming_text_sender_content_description" msgid="2481078288502342745">"<xliff:g id="SENDER">%s</xliff:g> ha dit:"</string>
+    <string name="outgoing_text_sender_content_description" msgid="3492116976256510272">"Has dit:"</string>
+    <string name="incoming_sender_content_description" msgid="7512757244515303701">"Missatge de: <xliff:g id="SENDER">%s</xliff:g>"</string>
+    <string name="outgoing_sender_content_description" msgid="5983163141994434778">"Has enviat un missatge."</string>
+    <string name="message_status_sending" msgid="3306260780518886107">"S\'està enviant…"</string>
+    <string name="message_status_send_failed" msgid="5443627648028194631">"No s\'ha enviat. Toca per tornar-ho a provar."</string>
+    <string name="message_status_send_retrying" msgid="650840088043267981">"No s\'ha enviat. S\'està tornant a provar…"</string>
+    <string name="message_status_resend" msgid="7718458416521355708">"Reenvia o suprimeix"</string>
+    <string name="message_status_send_failed_emergency_number" msgid="1738854184297159948">"Truca als serveis d\'emergència. En aquest moment, el missatge de text no s\'ha pogut enviar."</string>
+    <string name="message_status_failed" msgid="8009695010381848311">"S\'ha produït un error."</string>
+    <string name="message_title_manual_download" msgid="2761223322277801061">"Missatge MMS nou per baixar"</string>
+    <string name="message_title_downloading" msgid="6418481644146460124">"Missatge MMS nou"</string>
+    <string name="message_title_download_failed" msgid="3867223594671090459">"No s\'ha pogut baixar."</string>
+    <string name="message_status_download_failed" msgid="7298035414448355842">"Toca per tornar-ho a provar"</string>
+    <string name="message_status_download" msgid="6527275493954932656">"Toca per baixar"</string>
+    <string name="message_status_download_action" msgid="285219832844160">"Baixa o suprimeix"</string>
+    <string name="message_status_downloading" msgid="7159807805159805428">"S\'està baixant..."</string>
+    <string name="message_status_download_error" msgid="6957738686287397519">"El missatge ha caducat o no està disponible."</string>
+    <string name="mms_info" msgid="3402311750134118165">"mida: <xliff:g id="MESSAGESIZE">%1$s</xliff:g>, caducitat: <xliff:g id="MESSAGEEXPIRE">%2$s</xliff:g>"</string>
+    <string name="invalid_destination" msgid="8214889988397524630">"No es pot enviar. El destinatari no és vàlid."</string>
+    <string name="service_not_activated" msgid="5512558652052977817">"El servei no està activat a la xarxa."</string>
+    <string name="service_network_problem" msgid="3765738916704013318">"No s\'ha pogut enviar a causa d\'un problema de xarxa."</string>
+    <string name="service_message_not_found" msgid="8350935323904134751">"El missatge ha caducat o no està disponible."</string>
+    <string name="no_subject" msgid="5587715902648568767">"(Sense assumpte)"</string>
+    <string name="unknown_sender" msgid="504272434917395677">"Emissor desconegut"</string>
+    <string name="delivered_status_content_description" msgid="3433965196058436991">"Entregat"</string>
+    <string name="dl_failure_notification" msgid="8744588243554006189">"No s\'ha pogut baixar el missatge <xliff:g id="SUBJECT">%1$s</xliff:g> de <xliff:g id="FROM">%2$s</xliff:g>."</string>
+    <string name="low_memory" msgid="5300743415198486619">"No s\'ha pogut completar l\'operació de la base de dades perquè hi ha poca memòria."</string>
+    <string name="notification_send_failures_line1_singular" msgid="6783835440207655217">"No s\'ha enviat el missatge."</string>
+    <string name="notification_send_failures_line1_plural" msgid="7228944748028969272">"Alguns missatges no s\'han enviat a Missatges"</string>
+    <plurals name="notification_send_failures" formatted="false" msgid="6938919932879650691">
+      <item quantity="other"><xliff:g id="MESSAGES_1">%d</xliff:g> missatges en <xliff:g id="CONVERSATIONS">%d</xliff:g> converses</item>
+      <item quantity="one"><xliff:g id="MESSAGES_0">%d</xliff:g> missatges en una conversa</item>
+    </plurals>
+    <string name="notification_download_failures_line1_singular" msgid="4424772073720626885">"No s\'ha baixat el missatge"</string>
+    <string name="notification_download_failures_line1_plural" msgid="1697982467160426345">"Alguns missatges a Missatges no s\'han baixat"</string>
+    <plurals name="notification_download_failures" formatted="false" msgid="5341490525457911398">
+      <item quantity="other"><xliff:g id="MESSAGES_1">%d</xliff:g> missatges en <xliff:g id="CONVERSATIONS">%d</xliff:g> converses</item>
+      <item quantity="one"><xliff:g id="MESSAGES_0">%d</xliff:g> missatges en una conversa</item>
+    </plurals>
+    <string name="notification_emergency_send_failure_line1" msgid="6311715277789488996">"No s\'ha enviat el missatge al <xliff:g id="NUMBER">%1$s</xliff:g>"</string>
+    <string name="notification_emergency_send_failure_line2" msgid="6461481033351036996">"Truca als serveis d\'emergència. En aquest moment, el missatge de text al <xliff:g id="NUMBER">%1$s</xliff:g> no s\'ha pogut enviar."</string>
+    <plurals name="notification_new_messages" formatted="false" msgid="610594317958128842">
+      <item quantity="other"><xliff:g id="MESSAGES">%d</xliff:g> missatges nous</item>
+      <item quantity="one">Missatge nou</item>
+    </plurals>
+    <string name="start_conversation" msgid="7984539515326392793">"Inicia"</string>
+    <string name="camera_error_opening" msgid="2739332294400420426">"La càmera no està disponible."</string>
+    <string name="camera_error_unknown" msgid="4283956364220459608">"La càmera no està disponible."</string>
+    <string name="camera_error_video_init_fail" msgid="994632067015578879">"La captura de vídeo no està disponible."</string>
+    <string name="camera_error_storage_fail" msgid="5536300789483863989">"No es pot desar el fitxer multimèdia."</string>
+    <string name="camera_error_failure_taking_picture" msgid="4894133709734862250">"No es pot fer una foto."</string>
+    <string name="back" msgid="1477626055115561645">"Enrere"</string>
+    <string name="action_menu_show_archived" msgid="1628518043533374868">"Arxivades"</string>
+    <string name="action_delete" msgid="4076795795307486019">"Suprimeix"</string>
+    <string name="action_archive" msgid="5437034800324083170">"Arxiu"</string>
+    <string name="action_unarchive" msgid="139681611159869493">"Treu de l\'arxiu"</string>
+    <string name="action_notification_off" msgid="4823658797441716246">"Desactiva les notificacions"</string>
+    <string name="action_notification_on" msgid="8244389452685364211">"Activa les notificacions"</string>
+    <string name="action_add_contact" msgid="8248615862739848672">"Afegeix un contacte"</string>
+    <string name="action_download" msgid="7786338136368564146">"Baixa"</string>
+    <string name="action_send" msgid="377635240181672039">"Envia"</string>
+    <string name="action_delete_message" msgid="2728883749416365507">"Suprimeix"</string>
+    <string name="delete_message_confirmation_dialog_title" msgid="4723834210275712001">"Vols suprimir aquest missatge?"</string>
+    <string name="delete_message_confirmation_dialog_text" msgid="3952533622691031375">"Aquesta acció no es pot desfer."</string>
+    <string name="delete_message_confirmation_button" msgid="3888584614972573382">"Suprimeix"</string>
+    <plurals name="delete_conversations_confirmation_dialog_title" formatted="false" msgid="2285567882353326800">
+      <item quantity="other">Vols suprimir aquestes converses?</item>
+      <item quantity="one">Vols suprimir aquesta conversa?</item>
+    </plurals>
+    <string name="delete_conversation_confirmation_button" msgid="744574085809600863">"Suprimeix"</string>
+    <string name="delete_conversation_decline_button" msgid="5470021965641900456">"Cancel·la"</string>
+    <string name="recipient_hint" msgid="1819710673158265515">"Per a"</string>
+    <string name="action_multiselect" msgid="1219683118692013380">"Selecciona diverses imatges"</string>
+    <string name="action_confirm_multiselect" msgid="8283370294120913166">"Confirma la selecció"</string>
+    <string name="attachment_more_items" msgid="2861573099241369958">"+<xliff:g id="COUNT">%d</xliff:g>"</string>
+    <string name="audio_recording_start_failed" msgid="4442450764642560851">"No es pot enregistrar l\'àudio. Torna-ho a provar."</string>
+    <string name="audio_recording_replay_failed" msgid="3585760856463273828">"No es pot reproduir l\'àudio. Torna-ho a provar."</string>
+    <string name="audio_recording_error" msgid="7762310055059024872">"No s\'ha pogut desar l\'àudio. Torna-ho a provar."</string>
+    <string name="audio_picker_hint_text" msgid="6986250080467111491">"Toca i mantén premut"</string>
+    <string name="enumeration_comma" msgid="7032804261692931808">", "</string>
+    <string name="notification_separator" msgid="3472521786709813414">"  "</string>
+    <string name="notification_ticker_separator" msgid="2027929074008933906">": "</string>
+    <string name="notification_space_separator" msgid="9007689386066977972">"  "</string>
+    <string name="notification_picture" msgid="1176665337098921822">"Imatge"</string>
+    <string name="notification_audio" msgid="5926581589398218150">"Clip d\'àudio"</string>
+    <string name="notification_video" msgid="4331423498662606204">"Vídeo"</string>
+    <string name="notification_vcard" msgid="7658061674440552878">"Targeta de contacte"</string>
+    <string name="notification_download_mms" msgid="6206807985355359528">"Baixa"</string>
+    <string name="notification_reply_via_sms" msgid="6990127304684161722">"Respon amb un SMS"</string>
+    <string name="notification_reply_via_mms" msgid="6706012871186064035">"Respon amb un MMS"</string>
+    <string name="notification_reply_prompt" msgid="1836023392294480241">"Respon"</string>
+    <plurals name="wearable_participant_count" formatted="false" msgid="3037889420270036143">
+      <item quantity="other"><xliff:g id="COUNT_1">%d</xliff:g> participants</item>
+      <item quantity="one"><xliff:g id="COUNT_0">%d</xliff:g> participant</item>
+    </plurals>
+    <string name="unknown_self_participant" msgid="3186565052350548852">"Jo"</string>
+    <string name="blocked_toast_message" msgid="7903364256385612569">"Contactes bloquejats i arxivats"</string>
+    <string name="unblocked_toast_message" msgid="4927617874263586622">"Contacte desbloquejat i no arxivat"</string>
+    <string name="archived_toast_message" msgid="8109348891515322512">"Arxivades: <xliff:g id="COUNT">%d</xliff:g>"</string>
+    <string name="unarchived_toast_message" msgid="5010777423084203833">"No arxivades: <xliff:g id="COUNT">%d</xliff:g>"</string>
+    <string name="notification_off_toast_message" msgid="5203458459139408265">"Notificacions desactivades"</string>
+    <string name="notification_on_toast_message" msgid="1240626023754746310">"Notificacions activades"</string>
+    <string name="toast_after_setting_default_sms_app_for_message_send" msgid="2767997591700713113">"Ja està tot llest. Torna a tocar Envia."</string>
+    <string name="toast_after_setting_default_sms_app" msgid="2923745971897322476">"Missatges s\'ha definit correctament com a aplicació predeterminada de SMS."</string>
+    <plurals name="attachment_preview_close_content_description" formatted="false" msgid="5631719319690969981">
+      <item quantity="other">Descarta els fitxers adjunts</item>
+      <item quantity="one">Descarta el fitxer adjunt</item>
+    </plurals>
+    <string name="audio_attachment_content_description" msgid="499334244765270108">"Àudio adjunt"</string>
+    <string name="audio_play_content_description" msgid="4932509227281251607">"Reprodueix l\'àudio adjunt"</string>
+    <string name="audio_pause_content_description" msgid="7578169887065513701">"Atura"</string>
+    <string name="incoming_message_announcement" msgid="6369259405539452011">"Missatge de <xliff:g id="SENDER">%s</xliff:g>: <xliff:g id="MESSAGE">%s</xliff:g>."</string>
+    <string name="one_on_one_incoming_failed_message_prefix" msgid="6985644411445605747">"Missatge no enviat de <xliff:g id="SENDER">%s</xliff:g>: <xliff:g id="MESSAGE">%s</xliff:g>. Hora: <xliff:g id="TIME">%s</xliff:g>."</string>
+    <string name="one_on_one_incoming_successful_message_prefix" msgid="6190814597935995703">"Missatge de <xliff:g id="SENDER">%s</xliff:g>: <xliff:g id="MESSAGE">%s</xliff:g>. Hora: <xliff:g id="TIME">%s</xliff:g>."</string>
+    <string name="one_on_one_outgoing_draft_message_prefix" msgid="8721053088385740646">"Missatge no enviat a <xliff:g id="CONTACT">%s</xliff:g>: <xliff:g id="MESSAGE">%s</xliff:g>. Hora: <xliff:g id="TIME">%s</xliff:g>"</string>
+    <string name="one_on_one_outgoing_sending_message_prefix" msgid="3929653530203574220">"S\'està enviant un missatge a <xliff:g id="CONTACT">%s</xliff:g>: <xliff:g id="MESSAGE">%s</xliff:g>. Hora: <xliff:g id="TIME">%s</xliff:g>."</string>
+    <string name="one_on_one_outgoing_failed_message_prefix" msgid="7194065651879454314">"Missatge no enviat a <xliff:g id="CONTACT">%s</xliff:g>: <xliff:g id="MESSAGE">%s</xliff:g>. Hora: <xliff:g id="TIME">%s</xliff:g>."</string>
+    <string name="one_on_one_outgoing_successful_message_prefix" msgid="7128492863867327814">"Missatge a <xliff:g id="CONTACT">%s</xliff:g>: <xliff:g id="MESSAGE">%s</xliff:g>. Hora: <xliff:g id="TIME">%s</xliff:g>."</string>
+    <string name="group_incoming_failed_message_prefix" msgid="7085805237707481779">"Missatge no enviat de <xliff:g id="SENDER">%s</xliff:g>: <xliff:g id="MESSAGE">%s</xliff:g>. Hora: <xliff:g id="TIME">%s</xliff:g>. <xliff:g id="GROUPINFO">%s</xliff:g>."</string>
+    <string name="group_incoming_successful_message_prefix" msgid="7248506967059447054">"Missatge de <xliff:g id="SENDER">%s</xliff:g>: <xliff:g id="MESSAGE">%s</xliff:g>. Hora: <xliff:g id="TIME">%s</xliff:g>. <xliff:g id="GROUPINFO">%s</xliff:g>."</string>
+    <string name="group_outgoing_draft_message_prefix" msgid="1655013812805454648">"Missatge no enviat a <xliff:g id="GROUP">%s</xliff:g>: <xliff:g id="MESSAGE">%s</xliff:g>. Hora: <xliff:g id="TIME">%s</xliff:g>"</string>
+    <string name="group_outgoing_sending_message_prefix" msgid="7636874745414695556">"S\'està enviant un missatge a <xliff:g id="GROUP">%s</xliff:g>: <xliff:g id="MESSAGE">%s</xliff:g>. Hora: <xliff:g id="TIME">%s</xliff:g>."</string>
+    <string name="group_outgoing_failed_message_prefix" msgid="5059983340377901592">"Missatge no enviat a <xliff:g id="GROUP">%s</xliff:g>: <xliff:g id="MESSAGE">%s</xliff:g>. Hora: <xliff:g id="TIME">%s</xliff:g>."</string>
+    <string name="group_outgoing_successful_message_prefix" msgid="1593702642852987920">"Missatge a <xliff:g id="GROUP">%s</xliff:g>: <xliff:g id="MESSAGE">%s</xliff:g>. Hora: <xliff:g id="TIME">%s</xliff:g>."</string>
+    <string name="failed_message_content_description" msgid="7047161648867054936">"Hi ha hagut un problema amb aquest missatge. Toca per tornar-ho a provar."</string>
+    <string name="group_conversation_description" msgid="2339270924401184182">"Conversa amb <xliff:g id="PARTICIPANTS">%s</xliff:g>"</string>
+    <string name="delete_subject_content_description" msgid="8910749398836396698">"Suprimeix l\'assumpte"</string>
+    <string name="camera_switch_to_video_mode" msgid="2926868205952641428">"Captura un vídeo"</string>
+    <string name="camera_switch_to_still_mode" msgid="4419617715199157958">"Captura una imatge fixa"</string>
+    <string name="camera_take_picture" msgid="2573317952200799489">"Fes una foto"</string>
+    <string name="camera_start_recording" msgid="1736478301191221786">"Comença a enregistrar vídeo"</string>
+    <string name="camera_switch_full_screen" msgid="6156039742035097276">"Canvia a la càmera de pantalla completa"</string>
+    <string name="camera_switch_camera_facing" msgid="1566112129296559159">"Canvia entre la càmera frontal i la posterior"</string>
+    <string name="camera_stop_recording" msgid="5331592576107271152">"Deixa d\'enregistrar i adjunta un vídeo"</string>
+    <string name="camera_cancel_recording" msgid="6431544304743145818">"Atura l\'enregistrament de vídeo"</string>
+    <string name="photo_view_activity_title" msgid="6556006393051918135">"Fotos de missatges"</string>
+    <plurals name="photos_saved_to_album" formatted="false" msgid="7529478299745446838">
+      <item quantity="other">S\'han desat <xliff:g id="QUANTITY_2">%d</xliff:g> fotos a l\'àlbum <xliff:g id="ALBUMNAME_3">%s</xliff:g></item>
+      <item quantity="one">S\'ha desat <xliff:g id="QUANTITY_0">%d</xliff:g> foto a l\'àlbum <xliff:g id="ALBUMNAME_1">%s</xliff:g></item>
+    </plurals>
+    <plurals name="videos_saved_to_album" formatted="false" msgid="6821121808257576788">
+      <item quantity="other">S\'han desat <xliff:g id="QUANTITY_2">%d</xliff:g> vídeos a l\'àlbum <xliff:g id="ALBUMNAME_3">%s</xliff:g></item>
+      <item quantity="one">S\'ha desat <xliff:g id="QUANTITY_0">%d</xliff:g> vídeo a l\'àlbum <xliff:g id="ALBUMNAME_1">%s</xliff:g></item>
+    </plurals>
+    <plurals name="attachments_saved_to_album" formatted="false" msgid="8407480699515308929">
+      <item quantity="other">S\'han desat <xliff:g id="QUANTITY_2">%d</xliff:g> fitxers adjunts a l\'àlbum <xliff:g id="ALBUMNAME_3">%s</xliff:g></item>
+      <item quantity="one">S\'ha desat <xliff:g id="QUANTITY_0">%d</xliff:g> fitxer adjunt a l\'àlbum <xliff:g id="ALBUMNAME_1">%s</xliff:g></item>
+    </plurals>
+    <plurals name="attachments_saved_to_downloads" formatted="false" msgid="1886864019411801995">
+      <item quantity="other">S\'han desat <xliff:g id="QUANTITY_1">%d</xliff:g> fitxers adjunts a Baixades</item>
+      <item quantity="one">S\'ha desat <xliff:g id="QUANTITY_0">%d</xliff:g> fitxer adjunt a Baixades</item>
+    </plurals>
+    <plurals name="attachments_saved" formatted="false" msgid="6925000482183379648">
+      <item quantity="other">S\'han desat <xliff:g id="QUANTITY_1">%d</xliff:g> fitxers adjunts</item>
+      <item quantity="one">S\'ha desat <xliff:g id="QUANTITY_0">%d</xliff:g> fitxer adjunt</item>
+    </plurals>
+    <plurals name="attachment_save_error" formatted="false" msgid="2068837227090109833">
+      <item quantity="other">No s\'han pogut desar <xliff:g id="QUANTITY_1">%d</xliff:g> fitxers adjunts</item>
+      <item quantity="one">No s\'ha pogut desar <xliff:g id="QUANTITY_0">%d</xliff:g> fitxer adjunt</item>
+    </plurals>
+    <string name="attachment_file_description" msgid="3056972820372291694">"S\'ha desat el fitxer adjunt MMS."</string>
+    <string name="settings_activity_title" msgid="3380813834835334258">"Configuració"</string>
+    <string name="archived_activity_title" msgid="4738212324460451188">"Arxivades"</string>
+    <string name="action_close" msgid="1840519376200478419">"Tanca"</string>
+    <string name="mms_messaging_category_pref_title" msgid="4816815152658525660">"MMS"</string>
+    <string name="advanced_category_pref_title" msgid="6411454224069259687">"Avançada"</string>
+    <string name="debug_category_pref_title" msgid="8765138968242505061">"Depuració"</string>
+    <string name="notifications_enabled_pref_title" msgid="4127288731844373795">"Notificacions"</string>
+    <string name="notification_sound_pref_title" msgid="3685506528957337849">"So"</string>
+    <string name="silent_ringtone" msgid="8073534180322059814">"Silenci"</string>
+    <string name="notification_vibrate_pref_title" msgid="6668564570045187390">"Vibració"</string>
+    <string name="blocked_pref_title" msgid="2560554234438548817">"S\'ha bloquejat"</string>
+    <string name="delivery_reports_pref_title" msgid="5115727259825309087">"Informes d\'entrega de SMS"</string>
+    <string name="delivery_reports_pref_summary" msgid="4272502420621500421">"Sol·licita un informe d\'entrega per a cada SMS enviat"</string>
+    <string name="auto_retrieve_mms_pref_title" msgid="1316094876978218980">"Recuperació automàtica"</string>
+    <string name="auto_retrieve_mms_pref_summary" msgid="2253902455786205335">"Recupera MMS automàticament"</string>
+    <string name="auto_retrieve_mms_when_roaming_pref_title" msgid="2918775628609759349">"Recupera aut. els MMS en itinerància"</string>
+    <string name="auto_retrieve_mms_when_roaming_pref_summary" msgid="7347177867673486983">"Recupera MMS automàticament en itinerància"</string>
+    <string name="group_mms_pref_title" msgid="6553612309209383106">"Missatge de grup"</string>
+    <string name="group_mms_pref_summary" msgid="3758710015912690629">"Utilitza MMS per enviar un únic missatge a diversos destinataris"</string>
+    <string name="sms_disabled_pref_title" msgid="6352764741524717132">"Aplicació de SMS predeterminada"</string>
+    <string name="sms_enabled_pref_title" msgid="2961457081888153323">"Aplicació de SMS predeterminada"</string>
+    <!-- no translation found for default_sms_app (3907546126124760465) -->
+    <skip />
+    <string name="mms_phone_number_pref_title" msgid="5445275222817760638">"Número de telèfon"</string>
+    <string name="unknown_phone_number_pref_display_value" msgid="5191326096424554297">"Desconegut"</string>
+    <string name="send_sound_pref_title" msgid="6284747469983942370">"Sons per a missatges de sortida"</string>
+    <string name="dump_sms_pref_title" msgid="4057657151746557281">"Envia el contingut dels SMS"</string>
+    <string name="dump_sms_pref_summary" msgid="3694039770323225329">"Envia les dades sense processar dels SMS rebuts al fitxer d\'emmagatzematge extern."</string>
+    <string name="dump_mms_pref_title" msgid="6699074152055891680">"Envia el contingut dels MMS"</string>
+    <string name="dump_mms_pref_summary" msgid="7901698352188687659">"Buida les dades sense processar dels MMS rebuts en un fitxer d’emmagatzematge extern"</string>
+    <string name="wireless_alerts_title" msgid="8218925605166939654">"Alertes sense fil"</string>
+    <string name="message_context_menu_title" msgid="5036023289586457642">"Opcions del missatge"</string>
+    <string name="message_context_menu_copy_text" msgid="8241684826917957666">"Copia el text"</string>
+    <string name="message_context_menu_view_details" msgid="2077089491219912840">"Mostra els detalls"</string>
+    <string name="message_context_menu_delete_message" msgid="4924354182554857475">"Suprimeix"</string>
+    <string name="message_context_menu_forward_message" msgid="4848326950037554575">"Reenvia"</string>
+    <string name="message_details_title" msgid="8451487656255395372">"Detalls del missatge"</string>
+    <string name="message_type_label" msgid="6442873901113487978">"Tipus: "</string>
+    <string name="text_message" msgid="7415419755252205721">"Missatge de text"</string>
+    <string name="multimedia_message" msgid="2199989099980111684">"Missatge multimèdia"</string>
+    <string name="from_label" msgid="1947831848146564875">"De: "</string>
+    <string name="to_address_label" msgid="1816631887533235762">"Per a: "</string>
+    <string name="sent_label" msgid="5186286057597137301">"Enviat: "</string>
+    <string name="received_label" msgid="4442494712757995203">"Rebut: "</string>
+    <string name="subject_label" msgid="1887378451808609152">"Assumpte: "</string>
+    <string name="message_size_label" msgid="8840394477993741203">"Mida: "</string>
+    <string name="priority_label" msgid="5029073794896222902">"Prioritat: "</string>
+    <string name="sim_label" msgid="2706003016582772108">"SIM: "</string>
+    <string name="priority_high" msgid="728836357310908368">"Alta"</string>
+    <string name="priority_normal" msgid="8918221917628753075">"Normal"</string>
+    <string name="priority_low" msgid="7398724779026801851">"Baixa"</string>
+    <string name="sim_slot_identifier" msgid="5934005977415016295">"SIM <xliff:g id="SIM_SLOT_NUMBER">%s</xliff:g>"</string>
+    <string name="hidden_sender_address" msgid="5054789216911282696">"Amaga l\'adreça del remitent"</string>
+    <string name="cant_send_message_while_loading_attachments" msgid="4301887223941009907">"No es pot enviar el missatge durant la càrrega dels fitxers adjunts."</string>
+    <string name="fail_to_load_attachment" msgid="412233184776827353">"No s\'ha pogut carregar el fitxer adjunt. Torna-ho a provar."</string>
+    <string name="cant_send_message_without_active_subscription" msgid="7130532514190813716">"La xarxa no està a punt. Torna-ho a provar."</string>
+    <string name="chips_text_delete_button_content_description" msgid="123760854728616068">"Suprimeix el text"</string>
+    <string name="numeric_text_keyboard_toggle_button_content_description" msgid="1403198418131594073">"Alterna entre escriure lletres i números"</string>
+    <string name="add_more_participants_button_content_description" msgid="12460574490350327">"Afegeix més participants"</string>
+    <string name="confrim_participants_button_content_description" msgid="7473740533133798616">"Confirma els participants"</string>
+    <string name="start_new_conversation" msgid="3924471215595992758">"Inicia una conversa nova"</string>
+    <string name="gallery_checkbox_content_description" msgid="2503122727700475428">"Selecciona aquest element."</string>
+    <string name="video_thumbnail_view_play_button_content_description" msgid="3506938388391260811">"Reprodueix el vídeo."</string>
+    <string name="action_people_and_options" msgid="2748020184252106661">"Persones i opcions"</string>
+    <string name="action_debug_options" msgid="2440658410677323714">"Depura"</string>
+    <string name="people_and_options_activity_title" msgid="5443749025829291736">"Persones i opcions"</string>
+    <string name="general_settings_title" msgid="4465312111301728995">"General"</string>
+    <string name="participant_list_title" msgid="8624855187574757110">"Persones en aquesta conversa"</string>
+    <string name="action_call" msgid="6596167921517350362">"Fes una trucada"</string>
+    <string name="compose_message_view_hint_text" msgid="5214836453231753054">"Envia el missatge"</string>
+    <string name="compose_message_view_hint_text_multi_sim" msgid="2829154383848677160">"Envia un missatge&lt;br/&gt;&lt;small&gt;des de <xliff:g id="SIM_NAME">%s</xliff:g>&lt;/small&gt;."</string>
+    <plurals name="compose_message_view_hint_text_photo" formatted="false" msgid="8937589900456604618">
+      <item quantity="other">Envia les fotos</item>
+      <item quantity="one">Envia la foto</item>
+    </plurals>
+    <plurals name="compose_message_view_hint_text_audio" formatted="false" msgid="5934090345811195170">
+      <item quantity="other">Envia els àudios</item>
+      <item quantity="one">Envia l\'àudio</item>
+    </plurals>
+    <plurals name="compose_message_view_hint_text_video" formatted="false" msgid="9188048653766960507">
+      <item quantity="other">Envia els vídeos</item>
+      <item quantity="one">Envia el vídeo</item>
+    </plurals>
+    <plurals name="compose_message_view_hint_text_vcard" formatted="false" msgid="933064969858631242">
+      <item quantity="other">Envia les targetes de contacte</item>
+      <item quantity="one">Envia la targeta de contacte</item>
+    </plurals>
+    <plurals name="compose_message_view_hint_text_attachments" formatted="false" msgid="1778518334602418000">
+      <item quantity="other">Envia els fitxers adjunts</item>
+      <item quantity="one">Envia el fitxer adjunt</item>
+    </plurals>
+    <plurals name="attachment_changed_accessibility_announcement" formatted="false" msgid="5592871135747616108">
+      <item quantity="other">Ja es poden enviar <xliff:g id="ATTACHMENT_COUNT">%d</xliff:g> fitxers adjunts</item>
+      <item quantity="one">Ja es pot enviar un fitxer adjunt</item>
+    </plurals>
+    <string name="menu_send_feedback" msgid="479412726781330278">"Envia suggeriments"</string>
+    <string name="menu_view_in_store" msgid="3792488955421628684">"Mostra a Google Play Store"</string>
+    <string name="menu_version_info" msgid="6122616816253404821">"Informació de la versió"</string>
+    <string name="subtitle_format_for_version_number" msgid="446082111129170749">"Versió %1$s"</string>
+    <string name="menu_license" msgid="1157954180701135202">"Llicències de codi obert"</string>
+    <string name="notifications_enabled_conversation_pref_title" msgid="1492686092760478206">"Notificacions"</string>
+    <string name="mms_attachment_limit_reached" msgid="8303890455085643301">"S\'ha assolit el límit de fitxers adjunts"</string>
+    <string name="mms_attachment_load_failed" msgid="5697191348996648727">"No s\'ha pogut carregar el fitxer adjunt."</string>
+    <string name="add_contact_confirmation_dialog_title" msgid="1898307408816625598">"Vols afegir-lo als contactes?"</string>
+    <string name="add_contact_confirmation" msgid="1479380805406328264">"Afegeix el contacte"</string>
+    <string name="compose_message_view_subject_hint_text" msgid="6076616675845705660">"Assumpte"</string>
+    <string name="conversation_message_view_subject_text" msgid="5634274498769555505">"Assumpte: "</string>
+    <string name="notification_subject" msgid="5229975483160300625">"<xliff:g id="SUBJECT_LABEL">%s</xliff:g><xliff:g id="MESSAGETEXT">%s</xliff:g>"</string>
+    <string name="loading_vcard" msgid="3961520941271265083">"S\'està carregant la targeta de contacte"</string>
+    <string name="failed_loading_vcard" msgid="7711070643740368402">"No s\'ha pogut carregar la targeta de contacte"</string>
+    <string name="vcard_tap_hint" msgid="4940284329175200952">"Mostra la targeta de contactes"</string>
+    <plurals name="vcard_multiple_display_name" formatted="false" msgid="2884224435488996028">
+      <item quantity="other"><xliff:g id="COUNT_1">%d</xliff:g> contactes</item>
+      <item quantity="one"><xliff:g id="COUNT_0">%d</xliff:g> contacte</item>
+    </plurals>
+    <string name="vcard_detail_activity_title" msgid="591540798943754991">"Targetes de contacte"</string>
+    <string name="vcard_detail_birthday_label" msgid="7196021537629120021">"Natalici"</string>
+    <string name="vcard_detail_notes_label" msgid="6104179009509800126">"Notes"</string>
+    <string name="forward_message_activity_title" msgid="4689730643900226699">"Reenvia el missatge"</string>
+    <string name="reply_activity_title" msgid="2967630094609648609">"Respon"</string>
+    <string name="plus_one" msgid="9010288417554932581">"+1"</string>
+    <string name="plus_n" msgid="8961547034116059566">"+%d"</string>
+    <string name="sms_disabled" msgid="4988773371061820432">"SMS desactivats"</string>
+    <string name="requires_default_sms_app_to_send" msgid="171048611973157166">"Per enviar missatges, defineix Missatges com a aplicació predeterminada de SMS"</string>
+    <string name="requires_default_sms_app" msgid="7477365167876194810">"Defineix Missatges com a aplicació predeterminada de SMS"</string>
+    <string name="requires_default_sms_change_button" msgid="6717443481161057941">"Canvia"</string>
+    <string name="recommend_set_default_sms_app" msgid="7769636305626277844">"Per rebre missatges, defineix Missatges com a aplicació predeterminada de SMS"</string>
+    <string name="no_preferred_sim_selected" msgid="8583927728936521140">"No s\'ha seleccionat cap SIM preferida per enviar missatges SMS."</string>
+    <string name="requires_sms_permissions_message" msgid="2179684358095980506">"El propietari del dispositiu no admet l\'aplicació."</string>
+    <string name="requires_sms_permissions_close_button" msgid="8601569832171759435">"D\'acord"</string>
+    <string name="too_many_participants" msgid="5857516461210932810">"Hi ha massa participants a la conversa."</string>
+    <plurals name="add_invalid_contact_error" formatted="false" msgid="782438833843363189">
+      <item quantity="other">Els contactes no són vàlids</item>
+      <item quantity="one">El contacte no és vàlid</item>
+    </plurals>
+    <string name="camera_media_failure" msgid="6532763214546593687">"No s\'ha pogut carregar la imatge de la càmera."</string>
+    <string name="conversation_list_item_view_sent_from_you_prefix" msgid="1735457801737604211">"Tu: "</string>
+    <string name="conversation_list_item_view_sent_from_other_prefix" msgid="9202622757034736175">"<xliff:g id="FIRSTNAMEOFSENDER">%s</xliff:g>: "</string>
+    <string name="conversation_list_item_view_draft_message" msgid="3592923997082845035">"Esborrany"</string>
+    <string name="conversation_list_empty_text" msgid="7505706551294769667">"Quan comencis una conversa nova, es mostrarà aquí."</string>
+    <string name="archived_conversation_list_empty_text" msgid="6109126963298874571">"Les converses arxivades es mostren aquí."</string>
+    <string name="conversation_list_first_sync_text" msgid="3749751291444609993">"S\'estan carregant les converses..."</string>
+    <string name="conversation_list_snippet_picture" msgid="5326960910088541826">"Imatge"</string>
+    <string name="conversation_list_snippet_audio_clip" msgid="7894183429890407387">"Clip d\'àudio"</string>
+    <string name="conversation_list_snippet_video" msgid="7101059507173671233">"Vídeo"</string>
+    <string name="conversation_list_snippet_vcard" msgid="5004837959112452394">"Targeta de contacte"</string>
+    <string name="mms_text" msgid="1528791558806015806">"MMS"</string>
+    <string name="snack_bar_undo" msgid="4523395751563700308">"Desfés"</string>
+    <string name="snack_bar_retry" msgid="7140970704902570020">"Torna-ho a provar"</string>
+    <string name="contact_list_empty_text" msgid="1036353827229041942">"Introdueix el nom d\'un contacte o el número de telèfon per escriure un missatge nou."</string>
+    <string name="action_block" msgid="9032076625645190136">"Bloqueja"</string>
+    <string name="block_contact_title" msgid="6968382557194643329">"Bloqueja <xliff:g id="DESTINATION">%s</xliff:g>"</string>
+    <string name="unblock_contact_title" msgid="4719854710980066596">"Desbloqueja <xliff:g id="DESTINATION">%s</xliff:g>"</string>
+    <string name="block_confirmation_title" msgid="8288283455512985682">"Vols bloquejar <xliff:g id="DESTINATION">%s</xliff:g>?"</string>
+    <string name="block_confirmation_message" msgid="185429978461824228">"Continuaràs rebent missatges d\'aquest número, però no se t\'enviarà cap notificació. Aquesta conversa s\'arxivarà."</string>
+    <string name="blocked_contacts_title" msgid="7709164518967312281">"Contactes bloquejats"</string>
+    <string name="tap_to_unblock_message" msgid="1284284144816901647">"DESBLOQUEJA"</string>
+    <string name="view_blocked_contacts_title" msgid="7417596291306885403">"Contactes bloquejats"</string>
+    <string name="pick_image_from_document_library_content_description" msgid="132845956503874378">"Tria una imatge de la biblioteca de documents."</string>
+    <string name="sending_message" msgid="6363584950085384929">"S\'està enviant el missatge"</string>
+    <string name="send_message_success" msgid="4088006261869323324">"Missatge enviat"</string>
+    <string name="send_message_failure_no_data" msgid="7404080465234559802">"Les dades del telèfon estan desactivades. Comprova\'n la configuració."</string>
+    <string name="send_message_failure_airplane_mode" msgid="3966519541237053840">"No es poden enviar missatges amb el mode d\'avió activat."</string>
+    <string name="send_message_failure" msgid="5273892629851390023">"No s\'ha pogut enviar el missatge"</string>
+    <string name="download_message_success" msgid="3514921076616367225">"Missatge baixat"</string>
+    <string name="download_message_failure_no_data" msgid="6830055949399088532">"Les dades del telèfon estan desactivades. Comprova\'n la configuració."</string>
+    <string name="download_message_failure_airplane_mode" msgid="6752478540984118382">"No es poden baixar missatges en mode d\'avió"</string>
+    <string name="download_message_failure" msgid="635370887537738004">"El missatge no s\'ha pogut baixar"</string>
+    <string name="content_description_for_number_zero" msgid="7992301592202897868">"Zero"</string>
+    <string name="content_description_for_number_one" msgid="3886554185135150473">"Un"</string>
+    <string name="content_description_for_number_two" msgid="1562486479385891146">"Dos"</string>
+    <string name="content_description_for_number_three" msgid="8471442614073144385">"Tres"</string>
+    <string name="content_description_for_number_four" msgid="7515917522043407213">"Quatre"</string>
+    <string name="content_description_for_number_five" msgid="8078774905490022978">"Cinc"</string>
+    <string name="content_description_for_number_six" msgid="9192012772645396654">"Sis"</string>
+    <string name="content_description_for_number_seven" msgid="5870011338757220060">"Set"</string>
+    <string name="content_description_for_number_eight" msgid="7078061834874737466">"Vuit"</string>
+    <string name="content_description_for_number_nine" msgid="4276787959475295232">"Nou"</string>
+    <string name="carrier_send_error" msgid="3796492439123251453">"No es pot enviar el missatge amb <xliff:g id="CARRIERNAME">%1$s</xliff:g>, error <xliff:g id="ERRORCODE">%2$d</xliff:g>"</string>
+    <string name="carrier_send_error_unknown_carrier" msgid="1210665032244425938">"No es pot enviar el missatge amb un operador de telefonia mòbil desconegut, error <xliff:g id="ERRORCODE">%1$d</xliff:g>"</string>
+    <string name="message_fwd" msgid="2144370964507743673">"Rv: <xliff:g id="SUBJECT">%s</xliff:g>"</string>
+    <string name="mms_failure_outgoing_service" msgid="4662217039143124592">"No s\'ha enviat el missatge; el servei no s\'ha activat a la xarxa."</string>
+    <string name="mms_failure_outgoing_address" msgid="6212773250215580849">"Missatge no enviat: adreça de destinació no vàlida"</string>
+    <string name="mms_failure_outgoing_corrupt" msgid="6132734324976690436">"Missatge no enviat: missatge no vàlid"</string>
+    <string name="mms_failure_outgoing_content" msgid="919220273446626565">"Missatge no enviat: contingut no admès"</string>
+    <string name="mms_failure_outgoing_unsupported" msgid="2614377585077448979">"Missatge no enviat: missatge no admès"</string>
+    <string name="mms_failure_outgoing_too_large" msgid="3917966922000717407">"El missatge no s\'ha enviat: és massa gran"</string>
+    <string name="in_conversation_notify_new_message_text" msgid="8207541514656839042">"Missatge nou"</string>
+    <string name="in_conversation_notify_new_message_action" msgid="7311780674392006753">"Mostra"</string>
+    <string name="message_image_content_description" msgid="621604138442762130">"Imatge"</string>
+    <string name="activity_not_found_message" msgid="2355153262520375529">"No s\'ha pogut trobar una aplicació adequada."</string>
+    <string name="chips_delete_content_description" msgid="4655699207140895492">"Suprimeix el destinatari."</string>
+    <string name="share_new_message" msgid="2135955613694195483">"Missatge nou"</string>
+    <string name="share_cancel" msgid="6666929391961668469">"Cancel·la"</string>
+    <string name="apn_edit" msgid="2134993966166435648">"Edita el punt d\'accés"</string>
+    <string name="apn_not_set" msgid="463728018542184151">"No definit"</string>
+    <string name="apn_name" msgid="1572691851070894985">"Nom"</string>
+    <string name="apn_apn" msgid="1197541953189716999">"APN"</string>
+    <string name="apn_mmsc" msgid="2584154739440281747">"MMSC"</string>
+    <string name="apn_mms_proxy" msgid="4343743931563107100">"Servidor intermediari MMS"</string>
+    <string name="apn_mms_port" msgid="6181253508404620479">"Port per a MMS"</string>
+    <string name="apn_mcc" msgid="8102023058623950736">"MCC"</string>
+    <string name="apn_mnc" msgid="1372437523197012866">"MNC"</string>
+    <string name="apn_type" msgid="8409755622399386584">"Tipus d\'APN"</string>
+    <string name="menu_delete_apn" msgid="4947391038600888284">"Suprimeix l\'APN"</string>
+    <string name="menu_new_apn" msgid="1564461309350814037">"APN nou"</string>
+    <string name="menu_save_apn" msgid="5445335896951613691">"Desa"</string>
+    <string name="menu_discard_apn_change" msgid="310569150407968648">"Descarta"</string>
+    <string name="error_apn_name_empty" msgid="7770363665690646716">"El camp Nom no pot quedar buit."</string>
+    <string name="error_apn_empty" msgid="6799644880052534839">"L\'APN no pot quedar buit."</string>
+    <string name="error_mcc_not3" msgid="3693788817630985838">"El camp MCC ha de tenir 3 dígits."</string>
+    <string name="error_mnc_not23" msgid="3726130455168743554">"El camp MNC ha de tenir 2 o 3 dígits."</string>
+    <string name="restore_default_apn" msgid="7180447255249638396">"S\'està restaurant la configuració predeterminada d\'APN."</string>
+    <string name="menu_restore_default_apn" msgid="6342935229867973523">"Restableix al valor predeterminat"</string>
+    <string name="restore_default_apn_completed" msgid="7421687541468349715">"S\'ha restablert la configuració predeterminada d\'APN."</string>
+    <string name="untitled_apn" msgid="3110576506102839465">"Sense títol"</string>
+    <string name="sms_apns_title" msgid="1351513141821300879">"Noms de punt d\'accés"</string>
+    <string name="apn_settings" msgid="3179955111000379490">"APN"</string>
+    <string name="menu_new" msgid="8286285392706532511">"APN nou"</string>
+    <string name="apn_settings_not_available" msgid="5136389328322585717">"La configuració del nom del punt d\'accés no està disponible per a aquest usuari."</string>
+    <string name="copy_to_clipboard_dialog_title" msgid="494269163973708182">"Ho vols copiar al porta-retalls?"</string>
+    <string name="copy_to_clipboard" msgid="1977083934277981786">"Copia"</string>
+    <string name="incoming_sim_name_text" msgid="4244076415705614525">"per a <xliff:g id="SIM_NAME">%s</xliff:g>"</string>
+    <string name="general_settings" msgid="5409336577057897710">"General"</string>
+    <string name="advanced_settings" msgid="5870459931510000742">"Avançada"</string>
+    <string name="general_settings_activity_title" msgid="3012187932521771578">"Configuració general"</string>
+    <string name="advanced_settings_activity_title" msgid="7397017836928206201">"Configuració avançada"</string>
+    <string name="sim_specific_settings" msgid="948779178668552448">"SIM <xliff:g id="SIM_NAME">%s</xliff:g>"</string>
+    <string name="disable_group_mms" msgid="1016285369211000297">"Envia missatges SMS individuals a tots els destinataris. Només tu rebràs les respostes."</string>
+    <string name="enable_group_mms" msgid="4311733160940564593">"Envia un MMS individual a tots els destinataris"</string>
+    <string name="sim_settings_unknown_number" msgid="1885996389432991383">"Número desconegut"</string>
+    <string name="secondary_user_new_message_title" msgid="201938947573987596">"Missatge nou"</string>
+    <string name="secondary_user_new_message_ticker" msgid="2386669280323553032">"Missatge nou"</string>
+    <string name="sim_selector_button_content_description" msgid="2407660715957787727">"Selector de SIM"</string>
+    <string name="sim_selector_button_content_description_with_selection" msgid="4042539046779910617">"<xliff:g id="SIM_0">%1$s</xliff:g> seleccionada, selector de SIM"</string>
+    <string name="send_button_long_click_description_no_sim_selector" msgid="979624100711380593">"Edita l\'assumpte"</string>
+    <string name="send_button_long_click_description_with_sim_selector" msgid="7670274457707760465">"Selecciona la SIM o edita l\'assumpte"</string>
+    <string name="audio_record_view_content_description" msgid="29401157183728655">"Mantén premut per enregistrar àudio"</string>
+    <string name="widget_new_conversation_content_description" msgid="4214201569175733579">"Inicia una conversa nova"</string>
+    <string name="widget_title_content_description" msgid="5802836840910466231">"Missatges"</string>
+    <string name="widget_conversation_list_name" msgid="4005037639000611925">"Llista de missatges"</string>
+    <string name="widget_conversation_name" msgid="3900606239571892871">"Missatges"</string>
+    <string name="widget_new_message_content_description" msgid="2706347689522691188">"Missatge nou"</string>
+    <string name="widget_conversation_list_content_description" msgid="4137121313374868821">"Llista de converses"</string>
+    <string name="loading_conversations" msgid="2890879017729068514">"S\'estan carregant les converses"</string>
+    <string name="loading_messages" msgid="3894765818932489665">"S\'estan carregant els missatges"</string>
+    <string name="view_more_conversations" msgid="2430542054023217740">"Mostra més converses"</string>
+    <string name="view_more_messages" msgid="6463224009407336178">"Mostra més missatges"</string>
+    <string name="conversation_deleted" msgid="6088388615460305424">"S\'ha suprimit la conversa."</string>
+    <string name="tap_to_configure" msgid="7591682335533041774">"S\'ha suprimit la conversa. Toca per mostrar una altra conversa de Missatges"</string>
+    <string name="update_destination_blocked" msgid="4577227174205233981">"Bloquejat"</string>
+    <string name="update_destination_unblocked" msgid="5369499874676600478">"Desbloquejat"</string>
+    <string name="db_full" msgid="8459265782521418031">"Hi ha poc espai d\'emmagatzematge. És possible que es perdin algunes dades."</string>
+    <string name="attachment_chooser_activity_title" msgid="4049093653421684774">"Selecciona els fitxers adjunts"</string>
+    <string name="action_confirm_selection" msgid="3787494008738625806">"Confirma la selecció"</string>
+    <string name="attachment_chooser_selection" msgid="3616821885478549778">"Seleccionats: <xliff:g id="COUNT">%d</xliff:g>"</string>
+    <string name="attachment_limit_reached_dialog_message_when_composing" msgid="2983376679583030373">"Suprimeix un o més fitxers adjunts i torna-ho a provar."</string>
+    <string name="attachment_limit_reached_dialog_message_when_sending" msgid="3917529855170816197">"Pots provar d\'enviar el missatge, però és possible que no s\'enviï si no suprimeixes un o més fitxers adjunts."</string>
+    <string name="video_attachment_limit_exceeded_when_sending" msgid="8545536951461996462">"Només pots enviar un vídeo per missatge. Suprimeix els vídeos addicionals i torna-ho a provar."</string>
+    <string name="attachment_load_failed_dialog_message" msgid="4917927407363303333">"Missatges no ha pogut carregar el fitxer adjunt."</string>
+    <string name="attachment_limit_reached_send_anyway" msgid="2348790618093735551">"Envia igualment"</string>
+    <string name="conversation_creation_failure" msgid="8597624563218724441">"No s\'ha pogut iniciar la conversa"</string>
+    <string name="link_display_format" msgid="8700344957248709584">"<xliff:g id="TEXT">%1$s</xliff:g> (<xliff:g id="URL">%2$s</xliff:g>)"</string>
+    <string name="selected_sim_content_message" msgid="4504796674843354505">"<xliff:g id="SELECTED_SIM">%s</xliff:g> seleccionada"</string>
+</resources>
