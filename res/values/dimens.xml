@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (C) 2015 The Android Open Source Project
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+         http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<resources>
+
+    <dimen name="action_bar_height">56dp</dimen>
+    <dimen name="action_bar_elevation">8dp</dimen>
+    <dimen name="action_bar_text_size">20sp</dimen>
+    <dimen name="conversation_message_text_size">16sp</dimen>
+    <dimen name="conversation_status_text_size">12sp</dimen>
+    <dimen name="conversation_title_text_size">12sp</dimen>
+    <dimen name="conversation_info_text_size">12sp</dimen>
+    <dimen name="conversation_compose_send_text_size">16sp</dimen>
+    <dimen name="contact_icon_view_normal_size">42dp</dimen>
+    <dimen name="contact_icon_view_large_size">56dp</dimen>
+    <dimen name="contact_icon_view_small_size">12dp</dimen>
+    <dimen name="conversation_list_item_view_padding">16dp</dimen>
+    <dimen name="conversation_list_first_item_extra_padding">8dp</dimen>
+    <dimen name="conversation_list_image_preview_corner_radius">3dp</dimen>
+    <dimen name="conversation_list_image_preview_size">56dp</dimen>
+    <dimen name="conversation_list_contact_icon_size">56dp</dimen>
+    <dimen name="conversation_message_contact_icon_size">42dp</dimen>
+    <dimen name="conversation_message_photo_min_size">96dp</dimen>
+    <dimen name="conversation_list_notification_bell_padding">4dp</dimen>
+    <dimen name="conversation_list_empty_text_bottom_margin">30dp</dimen>
+    <dimen name="blocked_participant_list_item_view_padding">16dp</dimen>
+
+    <dimen name="message_bubble_arrow_width">9dp</dimen>
+    <dimen name="message_text_bottom_padding">12dp</dimen>
+    <dimen name="message_text_top_padding">10dp</dimen>
+    <dimen name="message_text_left_right_padding">14dp</dimen>
+    <dimen name="message_padding_default">18dp</dimen>
+    <dimen name="message_padding_same_author">2dp</dimen>
+    <dimen name="message_metadata_top_padding">4dp</dimen>
+    <dimen name="message_audio_attachment_padding">12dp</dimen>
+
+    <dimen name="mediapicker_default_chooser_height">215dp</dimen>
+    <dimen name="compose_message_contacts_container_margin">4dp</dimen>
+    <dimen name="compose_message_contacts_height">42dp</dimen>
+    <dimen name="compose_message_chip_height">36dp</dimen>
+    <dimen name="compose_message_chip_padding">3dp</dimen>
+    <dimen name="compose_message_fields_horizontal_margin">16dp</dimen>
+    <dimen name="compose_message_font_size">16sp</dimen>
+    <dimen name="compose_message_attachment_padding_sides">20dp</dimen>
+    <dimen name="compose_message_attachment_padding_topBottom">10dp</dimen>
+    <dimen name="compose_message_chips_view_max_height">133dp</dimen>
+    <dimen name="compose_message_subject_left_padding">52dp</dimen>
+    <dimen name="compose_message_subject_right_padding">64dp</dimen>
+    <dimen name="compose_message_subject_top_padding">4dp</dimen>
+    <dimen name="compose_message_subject_bottom_padding">6dp</dimen>
+    <dimen name="compose_message_subject_cancel_top_offset">-12dp</dimen>
+    <dimen name="compose_message_subject_cancel_left_margin">12dp</dimen>
+    <dimen name="compose_message_mms_indicator_padding_top">2dp</dimen>
+    <dimen name="compose_message_send_button_padding_right">12dp</dimen>
+    <dimen name="compose_message_text_box_padding_side">8dp</dimen>
+
+    <!-- Notification related dimensions. -->
+    <dimen name="notification_wearable_image_height">240dp</dimen>
+    <dimen name="notification_wearable_image_width">240dp</dimen>
+
+    <!-- Contact Picker related dimensions. -->
+    <dimen name="contact_list_text_size">16sp</dimen>
+    <dimen name="contact_list_detail_text_size">14sp</dimen>
+    <dimen name="contact_list_icon_size">42dp</dimen>
+    <dimen name="recipient_edit_text_size">20sp</dimen>
+    <dimen name="pager_tab_header_text_size">14sp</dimen>
+    <dimen name="pager_tab_underline_selected">2dp</dimen>
+    <dimen name="contact_list_alphabet_header_text_size">26dp</dimen>
+
+    <!-- Flings slower than this length / sec will be ignored -->
+    <dimen name="mediapicker_fling_threshold">150dp</dimen>
+    <!-- Flings faster than this length / sec will go from fullscreen straight to closed -->
+    <dimen name="mediapicker_big_fling_threshold">1000dp</dimen>
+    <dimen name="gallery_image_cell_size">110dp</dimen>
+    <dimen name="single_attachment_min_dimen">50dp</dimen>
+    <dimen name="single_attachment_max_height">150dp</dimen>
+    <dimen name="multiple_attachment_preview_height">130dp</dimen>
+    <dimen name="multiple_attachment_preview_width">260dp</dimen>
+    <dimen name="multiple_attachment_preview_padding">1dp</dimen>
+    <dimen name="attachment_preview_more_items_text_size">22sp</dimen>
+
+    <item name="letter_to_tile_ratio" type="dimen">67%</item>
+    <item name="sim_identifier_to_tile_ratio" type="dimen">28%</item>
+    <item name="small_sim_identifier_to_tile_ratio" type="dimen">75%</item>
+
+    <dimen name="audio_picker_text_size">16sp</dimen>
+    <dimen name="audio_attachment_text_size">14sp</dimen>
+    <dimen name="audio_progress_bar_height">6dp</dimen>
+    <!-- Videos in the message list view should at least be this big in the smallest dimension -->
+    <dimen name="video_message_min_size">320dp</dimen>
+    <dimen name="attachment_rounded_corner_radius">3dp</dimen>
+    <dimen name="progress_indicator_default_stroke_width">2dp</dimen>
+    <dimen name="progress_indicator_default_radius">12dp</dimen>
+    <dimen name="participant_list_text_size">18sp</dimen>
+    <dimen name="participant_list_detail_text_size">14sp</dimen>
+    <dimen name="people_and_options_header_text_size">16sp</dimen>
+    <dimen name="image_attachment_fallback_width">240dp</dimen>
+    <dimen name="image_attachment_fallback_height">240dp</dimen>
+
+    <dimen name="fab_size">60dp</dimen>
+    <dimen name="fab_padding_bottom">4dp</dimen>
+    <dimen name="fab_elevation">2dp</dimen>
+    <dimen name="fab_elevation_pressed">6dp</dimen>
+    <dimen name="fab_bottom_margin">12dp</dimen>
+    <dimen name="fab_left_right_margin">14dp</dimen>
+    <dimen name="message_text_counter_size">12sp</dimen>
+
+    <dimen name="vcard_detail_group_indicator_width">40dp</dimen>
+    <dimen name="mms_indicator_size">12sp</dimen>
+    <dimen name="conversation_fast_fling_threshold">10dp</dimen>
+    <dimen name="list_empty_text_size">14sp</dimen>
+    <dimen name="list_empty_text_top_margin">20dp</dimen>
+    <dimen name="list_empty_text_left_right_margin">60dp</dimen>
+    <dimen name="low_storage_action_item_text_size">16sp</dimen>
+
+    <dimen name="snack_bar_left_right_margin">24dp</dimen>
+    <dimen name="snack_bar_top_bottom_margin">18dp</dimen>
+
+    <dimen name="version_dialog_large_padding">24dp</dimen>
+    <dimen name="version_dialog_bottom_padding">20dp</dimen>
+    <dimen name="version_dialog_info_left_padding">14dp</dimen>
+    <dimen name="version_dialog_copyright_top_margin">20dp</dimen>
+
+    <dimen name="explode_animation_highlight_elevation">6dp</dimen>
+
+    <dimen name="sim_selector_text_size">14sp</dimen>
+    <dimen name="sim_selector_detail_text_size">14sp</dimen>
+    <dimen name="sim_selector_icon_size">42dp</dimen>
+
+    <dimen name="copy_contact_dialog_left_padding">25dp</dimen>
+    <dimen name="copy_contact_dialog_right_padding">10dp</dimen>
+    <dimen name="copy_contact_dialog_top_padding">5dp</dimen>
+
+    <dimen name="settings_list_text_size">16sp</dimen>
+    <dimen name="settings_list_detail_text_size">14sp</dimen>
+    <dimen name="settings_list_item_height">60dp</dimen>
+    <dimen name="group_mms_setting_text_size">14sp</dimen>
+
+    <!-- Camera focus indicator values -->
+    <dimen name="pie_radius_start">40dp</dimen>
+    <dimen name="pie_radius_increment">30dp</dimen>
+    <dimen name="pie_touch_offset">20dp</dimen>
+    <dimen name="focus_radius_offset">8dp</dimen>
+    <dimen name="focus_inner_offset">12dp</dimen>
+    <dimen name="focus_outer_stroke">3dp</dimen>
+    <dimen name="focus_inner_stroke">2dp</dimen>
+
+    <dimen name="conversation_bubble_width_snap">20dp</dimen>
+
+    <!-- Widget -->
+    <dimen name="widget_margin">8dp</dimen>
+    <dimen name="widget_subtitle_margin">0dp</dimen>
+    <dimen name="widget_avatar_padding">2dp</dimen>
+    <dimen name="widget_header_height">48dp</dimen>
+    <dimen name="widget_header_new_conv_button_width">48dp</dimen>
+    <dimen name="widget_conversation_title_size">18sp</dimen>
+    <dimen name="widget_compose_top_padding">12dp</dimen>
+    <dimen name="widget_compose_top_padding_compressed">16dp</dimen>
+
+    <dimen name="attachment_grid_image_cell_size">110dp</dimen>
+    <dimen name="attachment_grid_checkbox_area_increase">15dp</dimen>
+
+    <!-- The default size of a pending attachment while its size is unknown -->
+    <dimen name="pending_attachment_size">120dp</dimen>
+
+    <!-- Conversation fast-scroller -->
+    <dimen name="fastscroll_touch_slop">8dp</dimen>
+    <dimen name="fastscroll_track_width">8dp</dimen>
+    <dimen name="fastscroll_thumb_height">48dp</dimen>
+    <dimen name="fastscroll_preview_min_width">88dp</dimen>
+    <dimen name="fastscroll_preview_height">88dp</dimen>
+    <dimen name="fastscroll_preview_corner_radius">44dp</dimen>
+    <dimen name="fastscroll_preview_padding">24dp</dimen>
+    <dimen name="fastscroll_preview_margin_top">8dp</dimen>
+    <dimen name="fastscroll_preview_margin_left_right">8dp</dimen>
+    <dimen name="fastscroll_preview_text_size">24sp</dimen>
+
+</resources>

@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright (C) 2015 The Android Open Source Project
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+         http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE module PUBLIC
+    "-//Puppy Crawl//DTD Check Configuration 1.3//EN"
+    "http://www.puppycrawl.com/dtds/configuration_1_3.dtd">
+
+<!-- This is a checkstyle configuration file. For descriptions of
+what the following rules do, please see the checkstyle configuration
+page at http://checkstyle.sourceforge.net/config.html -->
+
+<!-- Checks with numbered comments refer to recommendations made
+by Joshua Bloch in his book Effective Java -->
+
+<module name="Checker">
+  <property name="charset" value="UTF-8"/>
+  <module name="SuppressionCommentFilter"/>
+  <module name="SuppressionCommentFilter">
+    <property name="offCommentFormat" value="__Generated_"/>
+    <property name="onCommentFormat" value="END GENERATED CODE"/>
+  </module>
+  <module name="FileTabCharacter">
+    <!-- Checks that there are no tab characters in the file.
+    -->
+  </module>
+
+  <module name="RegexpSingleline">
+    <!-- Checks that FIXME is not used in comments.  TODO is preferred.
+    -->
+    <property name="format" value="((//.*)|(\*.*))FIXME" />
+    <property name="message" value='TODO is preferred to FIXME.  e.g. "TODO(johndoe): Refactor when v2 is released."' />
+  </module>
+
+  <module name="RegexpSingleline">
+    <!-- Checks that TODOs are properly formatted.
+
+         The (?&lt;!TODO\(.{0,100}) makes the regex ignore any secondary TODO's on the line
+         so that things like //TODO(bob): remove this TODO on 1/1/2020 don't trigger a warning
+         because of the second TODO.  (The {0,100} is because java doesn't recoginize arbitrary
+         length look backs, but we know each java line should be < 100 chars.)
+    -->
+    <property name="format" value="((//.*)|(\*.*))(?&lt;!TODO\(.{0,100})(TODO[^(])|(TODO\([^)]*$)" />
+    <property name="message" value='All TODOs should be named.  e.g. "TODO(johndoe): Refactor when v2 is released."' />
+  </module>
+
+
+  <!-- All Java AST specific tests live under TreeWalker module. -->
+  <module name="TreeWalker">
+    <module name="FileContentsHolder"/>
+    <!--module name="SuppressWarningsFilter" /-->
+    <!--module name="SuppressWarningsHolder" /-->
+    <!--
+
+    IMPORT CHECKS
+
+    -->
+
+    <module name="RedundantImport">
+      <property name="severity" value="error"/>
+    </module>
+
+    <module name="AvoidStarImport">
+      <property name="severity" value="error"/>
+    </module>
+
+    <module name="UnusedImports">
+      <!-- DPL is a notable violator of this rule. -->
+      <property name="severity" value="error"/>
+      <!-- Imports used only in Javadoc are tolerated. See http://b/838496 -->
+      <property name="processJavadoc" value="true"/>
+      <message
+          key="import.unused"
+          value="Unused import: {0}." />
+    </module>
+
+    <module name="checkstyle.patches.checks.imports.ImportOrder">
+      <!-- Checks for out of order import statements. -->
+
+      <metadata name="altname" value="ImportOrder"/>
+      <property name="severity" value="warning"/>
+      <property name="groups" value="android,com.android,com.google,*,java,javax"/>
+      <!-- This ensures that static imports go first. -->
+      <property name="option" value="top"/>
+      <property name="tokens" value="STATIC_IMPORT, IMPORT"/>
+      <message
+          key="import.ordering"
+          value="Wrong order for {0} import." />
+    </module>
+
+    <!-- Checks that nested classes are not statically imported. -->
+    <module name="com.google.devtools.checkstyle.checks.imports.StaticImportNestedClassCheck">
+      <metadata name="altname" value="StaticImportNestedClass"/>
+      <property name="severity" value="warning"/>
+      <message key="import.staticNestedClass"
+               value="Use of static import for nested classes is disallowed."/>
+    </module>
+
+    <!--
+
+    JAVADOC CHECKS
+
+    -->
+
+    <module name="com.google.devtools.checkstyle.checks.javadoc.GoogleJavadocTypeCheck">
+      <!-- Item 28 - Write doc comments for all exposed API elements. -->
+      <!-- Ensure all classes with visability greater than or equal to
+        protected have class level documentation. -->
+      <property name="scope" value="protected"/>
+      <property name="severity" value="ignore"/>
+      <!-- Style guide doesn't prohibit custom tags. Typos will be caught by other tools. -->
+      <property name="allowUnknownTags" value="true"/>
+      <property name="allowMissingParamTags" value="true"/>
+    </module>
+
+    <!--
+
+    NAMING CHECKS
+
+    -->
+
+    <!-- Item 38 - Adhere to generally accepted naming conventions -->
+
+    <module name="PackageName">
+      <!-- Validates identifiers for package names against the
+        supplied expression. -->
+      <!-- Here the default checkstyle rule restricts package name parts to
+        seven characters, this is not in line with common practice at Google.
+      -->
+      <property name="format" value="^[a-z]+(\.[a-z][a-z0-9]{1,})*$"/>
+      <property name="severity" value="warning"/>
+    </module>
+
+    <module name="TypeNameCheck">
+      <!-- Validates static, final fields against the
+      expression "^[A-Z][a-zA-Z0-9]*$". -->
+      <metadata name="altname" value="TypeName"/>
+      <property name="severity" value="warning"/>
+    </module>
+
+    <module name="com.google.devtools.checkstyle.checks.coding.ConstantNameCheck">
+      <!-- Validates that constant fields are named in ALL_CAPS. -->
+      <metadata name="altname" value="ConstantName"/>
+      <property name="applyToPublic" value="true"/>
+      <property name="applyToProtected" value="true"/>
+      <property name="applyToPackage" value="true"/>
+      <property name="applyToPrivate" value="true"/>
+      <property name="format" value="^_?[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$"/>
+      <message key="name.invalidPattern"
+               value="Variable ''{0}'' is a constant and thus should be in ALL_CAPS."/>
+      <property name="severity" value="ignore"/>
+    </module>
+
+    <module name="StaticVariableNameCheck">
+      <!-- Validates static, non-final fields against the supplied
+      expression "^[a-z][a-zA-Z0-9]*_?$". -->
+      <metadata name="altname" value="StaticVariableName"/>
+      <property name="applyToPublic" value="true"/>
+      <property name="applyToProtected" value="true"/>
+      <property name="applyToPackage" value="true"/>
+      <property name="applyToPrivate" value="true"/>
+      <property name="format" value="^[a-z][a-zA-Z0-9]*_?$"/>
+      <property name="severity" value="ignore"/>
+    </module>
+
+    <module name="MemberNameCheck">
+      <!-- Validates non-static members against the supplied expression. -->
+      <metadata name="altname" value="MemberName"/>
+      <property name="applyToPublic" value="true"/>
+      <property name="applyToProtected" value="true"/>
+      <property name="applyToPackage" value="true"/>
+      <property name="applyToPrivate" value="true"/>
+      <!-- allows for googles deprecated foo_ member naming scheme -->
+      <property name="format" value="^[a-z][a-zA-Z0-9]*_?$"/>
+      <property name="severity" value="ignore"/>
+    </module>
+
+    <module name="MethodNameCheck">
+      <!-- Validates identifiers for method names. -->
+      <metadata name="altname" value="MethodName"/>
+      <property name="format" value="^[a-z][a-zA-Z0-9]*(_[a-zA-Z0-9]+)*$"/>
+      <property name="severity" value="warning"/>
+    </module>
+
+    <module name="ParameterName">
+      <!-- Validates identifiers for method parameters against the
+        expression "^[a-z][a-zA-Z0-9]*$". -->
+      <property name="severity" value="warning"/>
+    </module>
+
+    <module name="LocalFinalVariableName">
+      <!-- Validates identifiers for local final variables against the
+        expression "^[a-z][a-zA-Z0-9]*$". -->
+      <property name="severity" value="warning"/>
+    </module>
+
+    <module name="LocalVariableName">
+      <!-- Validates identifiers for local variables against the
+        expression "^[a-z][a-zA-Z0-9]*$". -->
+      <property name="severity" value="warning"/>
+    </module>
+
+
+    <!--
+
+    LENGTH and CODING CHECKS
+
+    -->
+
+    <module name="LineLength">
+      <!-- Checks if a line is too long. -->
+      <property name="max" value="${com.puppycrawl.tools.checkstyle.checks.sizes.LineLength.max}" default="100"/>
+      <property name="severity" value="error"/>
+
+      <!--
+        The default ignore pattern exempts the following elements:
+          - import statements
+          - long URLs inside comments
+          - certain JSNI method signatures used in GWT, see http://wiki/Nonconf/GwtInGoogle3Faq#JsniLineBreaks.
+      -->
+
+      <!--
+           The JSNI/GWT exemption only is for the JNI-style signature, that cannot be split across multiple lines.
+           Both the instance expression and the parameter list may and must go on separate lines.
+
+           These examples are exempt:
+           <pre>
+             private native void foo() /*-{
+               // Method call, signature as the only long line (> 100 chars)
+               this.
+                 @com.google.gwt.foo.bar.baz.ClassUsingJsni::someMethod(Lcom/google/gwt/foo/bar/baz/ParameterType;)
+                 (param);
+
+               // Static method call, signature as the only long line (> 100 chars)
+               @com.google.gwt.foo.bar.baz.ClassUsingJsni::staticMethod(Lcom/google/gwt/foo/bar/baz/ParameterType;)
+                 (param);
+
+               // Method reference in dictionary, signature as the only long line
+               var dict = {
+                key:
+                  @com.google.gwt.foo.bar.baz.ClassUsingJsni::otherMethod(Lcom/google/gwt/foo/bar/baz/ParameterType;Z),
+                }
+            }-*/;
+           </pre>
+
+           These exampls are NOT exempt, as the line can be broken further:
+           <pre>
+             private native void foo() /*-{
+               // Instance expression on same line
+               this.@com.google.gwt.foo.bar.baz.ClassUsingJsni::someMethod(Lcom/google/gwt/foo/bar/baz/ParameterType;)
+                 (param);
+
+               // Parameters on same line
+               this.
+                 @com.google.gwt.foo.bar.baz.ClassUsingJsni::someMethod(Lcom/google/gwt/foo/bar/baz/ParameterType;)(param);
+
+               // All on one line
+               this.@com.google.gwt.foo.bar.baz.ClassUsingJsni::someMethod(Lcom/google/gwt/foo/bar/baz/ParameterType;)(param);
+            }-*/;
+           </pre>
+      -->
+      <property name="ignorePattern"
+          value="${com.puppycrawl.tools.checkstyle.checks.sizes.LineLength.ignorePattern}"
+          default="^(package .*;\s*)|(import .*;\s*)|( *\* *https?://.*)|(\s*@[\w\.\$]+::\w+(?:\([^\(]*\)|\(\)\(\))?[,;]?)|(\s+\* \{@(link|see) [^\s][^\}]*\}[\.,;]?)$"/>
+    </module>
+
+    <module name="LeftCurly">
+      <!-- Checks for placement of the left curly brace ('{'). -->
+      <property name="severity" value="warning"/>
+    </module>
+
+    <module name="RightCurly">
+      <!-- Checks right curlies on CATCH, ELSE, and TRY blocks are on
+      the same line. e.g., the following example is fine:
+      <pre>
+        if {
+          ...
+        } else
+      </pre>
+      -->
+      <!-- This next example is not fine:
+      <pre>
+        if {
+          ...
+        }
+        else
+      </pre>
+      -->
+      <property name="option" value="same"/>
+      <property name="severity" value="warning"/>
+    </module>
+
+    <!-- Checks for braces around if and else blocks -->
+    <module name="NeedBraces">
+      <property name="severity" value="warning"/>
+      <property name="tokens" value="LITERAL_IF, LITERAL_ELSE, LITERAL_FOR, LITERAL_WHILE, LITERAL_DO"/>
+    </module>
+
+    <!-- Checks for empty catch blocks in non-test files. -->
+    <module name="com.google.devtools.checkstyle.checks.blocks.EmptyCatchBlockCheck">
+      <metadata name="altname" value="EmptyCatchBlock"/>
+      <property name="severity" value="error"/>
+    </module>
+
+    <module name="UpperEll">
+      <!-- Checks that long constants are defined with an upper ell.-->
+      <property name="severity" value="error"/>
+    </module>
+
+    <module name="FallThrough">
+      <!-- Warn about falling through to the next case statement.  Similar to
+      javac -Xlint:fallthrough, but the check is suppressed if there is a single-line comment
+      on the last non-blank line preceding the fallen-into case.
+      -->
+      <property name="reliefPattern"
+       value=".*"/>
+      <property name="severity" value="error"/>
+    </module>
+
+
+    <!--
+
+    MODIFIERS CHECKS
+
+    -->
+
+    <module name="ModifierOrder">
+      <!-- Warn if modifier order is inconsistent with JLS3 8.1.1, 8.3.1, and
+           8.4.3.  The prescribed order is:
+           public, protected, private, abstract, static, final, transient, volatile,
+           synchronized, native, strictfp
+        -->
+    </module>
+
+
+    <!--
+
+    WHITESPACE CHECKS
+
+    -->
+
+    <module name="WhitespaceAround">
+      <!-- Checks that various tokens are surrounded by whitespace.
+           This includes most binary operators and keywords followed
+           by regular or curly braces.
+      -->
+      <property name="tokens" value="ASSIGN, BAND, BAND_ASSIGN, BOR,
+        BOR_ASSIGN, BSR, BSR_ASSIGN, BXOR, BXOR_ASSIGN, COLON, DIV, DIV_ASSIGN,
+        EQUAL, GE, GT, LAND, LE, LITERAL_CATCH, LITERAL_DO, LITERAL_ELSE,
+        LITERAL_FINALLY, LITERAL_FOR, LITERAL_IF, LITERAL_RETURN,
+        LITERAL_SYNCHRONIZED, LITERAL_TRY, LITERAL_WHILE, LOR, LT, MINUS,
+        MINUS_ASSIGN, MOD, MOD_ASSIGN, NOT_EQUAL, PLUS, PLUS_ASSIGN, QUESTION,
+        SL, SL_ASSIGN, SR_ASSIGN, STAR, STAR_ASSIGN"/>
+      <property name="severity" value="error"/>
+      <property name="ignoreEnhancedForColon" value="false"/>
+    </module>
+
+    <module name="WhitespaceAfter">
+      <!-- Checks that commas, semicolons and typecasts are followed by
+           whitespace.
+      -->
+      <property name="tokens" value="COMMA, SEMI, TYPECAST"/>
+    </module>
+
+    <module name="NoWhitespaceAfter">
+      <!-- Checks that there is no whitespace after various unary operators.
+           Linebreaks are allowed.
+      -->
+      <property name="tokens" value="BNOT, DEC, DOT, INC, LNOT, UNARY_MINUS,
+        UNARY_PLUS"/>
+      <property name="allowLineBreaks" value="true"/>
+      <property name="severity" value="error"/>
+    </module>
+
+    <module name="NoWhitespaceBefore">
+      <!-- Checks that there is no whitespace before various unary operators.
+           Linebreaks are allowed.
+      -->
+      <property name="tokens" value="SEMI, DOT, POST_DEC, POST_INC"/>
+      <property name="allowLineBreaks" value="true"/>
+      <property name="severity" value="error"/>
+    </module>
+
+    <module name="ParenPad">
+      <!-- Checks that there is no whitespace before close parens or after
+           open parens.
+      -->
+      <property name="severity" value="warning"/>
+    </module>
+
+    <!--
+
+    MISC CHECKS
+
+    -->
+
+  </module>
+</module>
+

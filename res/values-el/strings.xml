@@ -1,0 +1,519 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    Copyright (C) 2015 The Android Open Source Project
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+         http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+ -->
+
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name" msgid="3062916848713424329">"Ανταλλαγή μηνυμάτων"</string>
+    <string name="share_intent_label" msgid="6920483598866144717">"Ανταλλαγή μηνυμάτων"</string>
+    <string name="share_intent_activity_label" msgid="2939454246983196756">"Επιλογή συνομιλίας"</string>
+    <string name="action_settings" msgid="1329008122345201684">"Ρυθμίσεις"</string>
+    <string name="sendButtonContentDescription" msgid="8422114979691093956">"Αποστολή μηνύματος"</string>
+    <string name="attachMediaButtonContentDescription" msgid="2758624209216276682">"Προσθήκη συνημμένου αρχείου"</string>
+    <string name="help_and_feedback_activity_label" msgid="8070710971014835182">"Βοήθεια"</string>
+    <string name="welcome" msgid="2857560951820802321">"Καλώς ήρθατε"</string>
+    <string name="skip" msgid="7238879696319945853">"Παράλειψη"</string>
+    <string name="next_with_arrow" msgid="2840729397885031655">"Επόμενο &gt;"</string>
+    <string name="next" msgid="4496962051601713843">"Επόμενο"</string>
+    <string name="exit" msgid="1905187380359981199">"Έξοδος"</string>
+    <string name="settings_with_arrow" msgid="8534633224579301342">"Ρυθμίσεις &gt;"</string>
+    <string name="settings" msgid="1045695083932447399">"Ρυθμίσεις"</string>
+    <string name="required_permissions_promo" msgid="3898014894175251590">"Η Ανταλλαγή μηνυμάτων χρειάζεται άδεια για SMS, Τηλέφωνο και Επαφές."</string>
+    <string name="enable_permission_procedure" msgid="2778471831376319587">"Μπορείτε να αλλάξετε τα δικαιώματα στις Ρυθμίσεις &gt; Εφαρμογές &gt; Ανταλλαγή μηνυμάτων &gt; Δικαιώματα."</string>
+    <string name="enable_permission_procedure_description" msgid="8672121020793945630">"Μπορείτε να αλλάξετε τα δικαιώματα στις Ρυθμίσεις, Εφαρμογές, Μηνύματα, Δικαιώματα."</string>
+    <string name="contact_picker_frequents_tab_title" msgid="7157326165824706883">"Συχνή επικοινωνία"</string>
+    <string name="contact_picker_all_contacts_tab_title" msgid="1424746082040243161">"Όλες οι επαφές"</string>
+    <string name="contact_list_send_to_text" msgid="3167455944684758290">"Αποστολή σε <xliff:g id="DESTINATION">%s</xliff:g>"</string>
+    <string name="mediapicker_cameraChooserDescription" msgid="8498255650058981250">"Λήψη εικόνων ή βίντεο"</string>
+    <string name="mediapicker_galleryChooserDescription" msgid="1227741581156455777">"Επιλέξτε εικόνες από αυτήν τη συσκευή"</string>
+    <string name="mediapicker_audioChooserDescription" msgid="3660616501040372452">"Ηχογράφηση"</string>
+    <string name="mediapicker_gallery_title" msgid="3169528536727885763">"Επιλογή φωτογραφίας"</string>
+    <string name="mediapicker_gallery_item_selected_content_description" msgid="2569545441879514283">"Το μέσο είναι επιλεγμένο."</string>
+    <string name="mediapicker_gallery_item_unselected_content_description" msgid="40021674722525910">"Το μέσο δεν είναι επιλεγμένο."</string>
+    <string name="mediapicker_gallery_title_selection" msgid="3621616141966436510">"<xliff:g id="COUNT">%d</xliff:g> επιλεγμένα"</string>
+    <string name="mediapicker_gallery_image_item_description" msgid="8812237405495409901">"εικόνα <xliff:g id="DATE">%1$tB %1$te %1$tY %1$tl %1$tM %1$tp</xliff:g>"</string>
+    <string name="mediapicker_gallery_image_item_description_no_date" msgid="8142175029053370662">"εικόνα"</string>
+    <string name="mediapicker_audio_title" msgid="5455016591560739789">"Ηχογράφηση"</string>
+    <string name="action_share" msgid="2143483844803153871">"Κοινή χρήση"</string>
+    <string name="posted_just_now" msgid="6632467048088811568">"Μόλις τώρα"</string>
+    <string name="posted_now" msgid="867560789350406701">"Τώρα"</string>
+    <plurals name="num_minutes_ago" formatted="false" msgid="4085627474543076735">
+      <item quantity="other"><xliff:g id="COUNT_1">%d</xliff:g> λεπτά</item>
+      <item quantity="one"><xliff:g id="COUNT_0">%d</xliff:g> λεπτό</item>
+    </plurals>
+    <plurals name="num_hours_ago" formatted="false" msgid="8010868301590914325">
+      <item quantity="other"><xliff:g id="COUNT_1">%d</xliff:g> ώρες</item>
+      <item quantity="one"><xliff:g id="COUNT_0">%d</xliff:g> ώρα</item>
+    </plurals>
+    <plurals name="num_days_ago" formatted="false" msgid="8753803762044567843">
+      <item quantity="other"><xliff:g id="COUNT_1">%d</xliff:g> ημέρες</item>
+      <item quantity="one"><xliff:g id="COUNT_0">%d</xliff:g> ημέρα</item>
+    </plurals>
+    <plurals name="week_count" formatted="false" msgid="1301973226125551953">
+      <item quantity="other"><xliff:g id="COUNT">%d</xliff:g> εβδομάδες</item>
+      <item quantity="one">μία εβδομάδα</item>
+    </plurals>
+    <plurals name="month_count" formatted="false" msgid="4858515363324110232">
+      <item quantity="other"><xliff:g id="COUNT">%d</xliff:g> μήνες</item>
+      <item quantity="one">ένας μήνας</item>
+    </plurals>
+    <plurals name="year_count" formatted="false" msgid="4522546496183798317">
+      <item quantity="other"><xliff:g id="COUNT">%d</xliff:g> έτη</item>
+      <item quantity="one">ένα έτος</item>
+    </plurals>
+    <string name="class_0_message_activity" msgid="4603850264073169854">"Μήνυμα κλάσης 0"</string>
+    <string name="save" msgid="5081141452059463572">"Αποθήκευση"</string>
+    <string name="sms_storage_low_auto_delete_enabled_dialog_text" msgid="8836401937872068406">"Ο αποθηκευτικός χώρος της συσκευής είναι περιορισμένος. Η Ανταλλαγή μηνυμάτων θα διαγράψει αυτόματα τα παλαιότερα μηνύματα για να απελευθερώσει χώρο."</string>
+    <string name="sms_storage_low_title" msgid="7985379565293259177">"Ο χώρος αποθήκευσης εξαντλείται"</string>
+    <string name="sms_storage_low_text" msgid="7036247475855447830">"Η Ανταλλαγή μηνυμάτων μπορεί να μην κάνει αποστολή ή λήψη μηνυμάτων μέχρι να ελευθερώσετε περισσότερο χώρο στη συσκευή σας."</string>
+    <string name="sms_storage_low_notification_ticker" msgid="2393739822170029830">"Περιορισμένος αποθηκευτικός χώρος SMS. Μπορεί να χρειαστεί να διαγράψετε μηνύματα."</string>
+    <string name="enter_phone_number_title" msgid="7263355879949248448">"Επιβεβαιώστε τον αριθμό τηλεφώνου σας"</string>
+    <string name="enter_phone_number_text" msgid="4539767473801195966">"Αυτό το μοναδικό βήμα θα εξασφαλίσει ότι η Ανταλλαγή μηνυμάτων θα παραδώσει σωστά τα ομαδικά μηνύματά σας."</string>
+    <string name="enter_phone_number_hint" msgid="6242965213882272822">"Αριθμός τηλεφώνου"</string>
+    <string name="delete_all_media" msgid="5549693176734564386">"Διαγραφή όλων των μηνυμάτων με πολυμέσα"</string>
+    <string name="delete_oldest_messages" msgid="9204277306804390707">"Διαγραφή μηνυμάτων πριν από τις <xliff:g id="DURATION">%s</xliff:g>"</string>
+    <string name="auto_delete_oldest_messages" msgid="7766679943833404968">"Αυτόματη διαγραφή των μηνυμάτων πριν από <xliff:g id="DURATION">%s</xliff:g>"</string>
+    <string name="ignore" msgid="7063392681130898793">"Παράβλεψη"</string>
+    <string name="delete_all_media_confirmation" msgid="4601960420953525559">"Να γίνει διαγραφή όλων των μηνυμάτων που περιέχουν πολυμέσα;"</string>
+    <string name="delete_oldest_messages_confirmation" msgid="6172297718425265784">"Να γίνει διαγραφή των μηνυμάτων πριν από τις <xliff:g id="DURATION">%s</xliff:g>;"</string>
+    <string name="auto_delete_oldest_messages_confirmation" msgid="9071499976729145269">"Να γίνει αυτόματη διαγραφή των μηνυμάτων πριν από <xliff:g id="DURATION">%s</xliff:g> και ενεργοποίηση της αυτόματης διαγραφής;"</string>
+    <string name="incoming_text_sender_content_description" msgid="2481078288502342745">"Ο χρήστης <xliff:g id="SENDER">%s</xliff:g> είπε"</string>
+    <string name="outgoing_text_sender_content_description" msgid="3492116976256510272">"Είπατε"</string>
+    <string name="incoming_sender_content_description" msgid="7512757244515303701">"Μήνυμα από το χρήστη <xliff:g id="SENDER">%s</xliff:g>"</string>
+    <string name="outgoing_sender_content_description" msgid="5983163141994434778">"Στείλατε ένα μήνυμα"</string>
+    <string name="message_status_sending" msgid="3306260780518886107">"Αποστολή…"</string>
+    <string name="message_status_send_failed" msgid="5443627648028194631">"Δεν εστάλη. Αγγίξτε για να δοκιμάσετε ξανά."</string>
+    <string name="message_status_send_retrying" msgid="650840088043267981">"Δεν εστάλη. Επανάληψη…"</string>
+    <string name="message_status_resend" msgid="7718458416521355708">"Εκ νέου αποστολή ή διαγραφή"</string>
+    <string name="message_status_send_failed_emergency_number" msgid="1738854184297159948">"Κάντε μια φωνητική κλήση στις υπηρεσίες έκτακτης ανάγκης. Δεν ήταν δυνατή η παράδοση του μηνύματος κειμένου σας αυτήν τη φορά."</string>
+    <string name="message_status_failed" msgid="8009695010381848311">"Αποτυχία"</string>
+    <string name="message_title_manual_download" msgid="2761223322277801061">"Νέο μήνυμα MMS για λήψη"</string>
+    <string name="message_title_downloading" msgid="6418481644146460124">"Νέο μήνυμα MMS"</string>
+    <string name="message_title_download_failed" msgid="3867223594671090459">"Δεν ήταν δυνατή η λήψη"</string>
+    <string name="message_status_download_failed" msgid="7298035414448355842">"Αγγίξτε για να δοκιμάσετε ξανά"</string>
+    <string name="message_status_download" msgid="6527275493954932656">"Αγγίξτε για λήψη"</string>
+    <string name="message_status_download_action" msgid="285219832844160">"Λήψη ή διαγραφή"</string>
+    <string name="message_status_downloading" msgid="7159807805159805428">"Λήψη…"</string>
+    <string name="message_status_download_error" msgid="6957738686287397519">"Το μήνυμα έληξε ή δεν είναι διαθέσιμο"</string>
+    <string name="mms_info" msgid="3402311750134118165">"μέγεθος: <xliff:g id="MESSAGESIZE">%1$s</xliff:g>, λήξη: <xliff:g id="MESSAGEEXPIRE">%2$s</xliff:g>"</string>
+    <string name="invalid_destination" msgid="8214889988397524630">"Δεν είναι δυνατή η αποστολή. Ο παραλήπτης δεν είναι έγκυρος."</string>
+    <string name="service_not_activated" msgid="5512558652052977817">"Η υπηρεσία δεν έχει ενεργοποιηθεί στο δίκτυο"</string>
+    <string name="service_network_problem" msgid="3765738916704013318">"Δεν ήταν δυνατή η αποστολή λόγω προβλήματος στο δίκτυο"</string>
+    <string name="service_message_not_found" msgid="8350935323904134751">"Το μήνυμα έληξε ή δεν είναι διαθέσιμο."</string>
+    <string name="no_subject" msgid="5587715902648568767">"(Χωρίς θέμα)"</string>
+    <string name="unknown_sender" msgid="504272434917395677">"Άγνωστος αποστολέας"</string>
+    <string name="delivered_status_content_description" msgid="3433965196058436991">"Παραδόθηκε"</string>
+    <string name="dl_failure_notification" msgid="8744588243554006189">"Δεν ήταν δυνατή η λήψη του μηνύματος <xliff:g id="SUBJECT">%1$s</xliff:g> από <xliff:g id="FROM">%2$s</xliff:g>."</string>
+    <string name="low_memory" msgid="5300743415198486619">"Δεν ήταν δυνατή η ολοκλήρωση της λειτουργίας της βάσης δεδομένων λόγω ανεπαρκούς μνήμης"</string>
+    <string name="notification_send_failures_line1_singular" msgid="6783835440207655217">"Το μήνυμα δεν εστάλη"</string>
+    <string name="notification_send_failures_line1_plural" msgid="7228944748028969272">"Ορισμένα μηνύματα δεν εστάλησαν στην Ανταλλαγή μηνυμάτων"</string>
+    <plurals name="notification_send_failures" formatted="false" msgid="6938919932879650691">
+      <item quantity="other"><xliff:g id="MESSAGES_1">%d</xliff:g> μηνύματα σε <xliff:g id="CONVERSATIONS">%d</xliff:g> συνομιλίες</item>
+      <item quantity="one"><xliff:g id="MESSAGES_0">%d</xliff:g> μηνύματα σε μία συνομιλία</item>
+    </plurals>
+    <string name="notification_download_failures_line1_singular" msgid="4424772073720626885">"Δεν έγινε λήψη του μηνύματος"</string>
+    <string name="notification_download_failures_line1_plural" msgid="1697982467160426345">"Δεν έγινε λήψη ορισμένων μηνυμάτων στην Ανταλλαγή μηνυμάτων"</string>
+    <plurals name="notification_download_failures" formatted="false" msgid="5341490525457911398">
+      <item quantity="other"><xliff:g id="MESSAGES_1">%d</xliff:g> μηνύματα σε <xliff:g id="CONVERSATIONS">%d</xliff:g> συνομιλίες</item>
+      <item quantity="one"><xliff:g id="MESSAGES_0">%d</xliff:g> μηνύματα σε μία συνομιλία</item>
+    </plurals>
+    <string name="notification_emergency_send_failure_line1" msgid="6311715277789488996">"Το μήνυμα στον αριθμό <xliff:g id="NUMBER">%1$s</xliff:g> δεν εστάλη"</string>
+    <string name="notification_emergency_send_failure_line2" msgid="6461481033351036996">"Κάντε μια φωνητική κλήση στις υπηρεσίες έκτακτης ανάγκης. Δεν ήταν δυνατή η παράδοση του μηνύματος κειμένου σας στον αριθμό <xliff:g id="NUMBER">%1$s</xliff:g> αυτήν τη φορά."</string>
+    <plurals name="notification_new_messages" formatted="false" msgid="610594317958128842">
+      <item quantity="other"><xliff:g id="MESSAGES">%d</xliff:g> νέα μηνύματα</item>
+      <item quantity="one">Νέο μήνυμα</item>
+    </plurals>
+    <string name="start_conversation" msgid="7984539515326392793">"Έναρξη"</string>
+    <string name="camera_error_opening" msgid="2739332294400420426">"Η φωτογραφική μηχανή δεν είναι διαθέσιμη"</string>
+    <string name="camera_error_unknown" msgid="4283956364220459608">"Η φωτογραφική μηχανή δεν είναι διαθέσιμη"</string>
+    <string name="camera_error_video_init_fail" msgid="994632067015578879">"Η εγγραφή βίντεο δεν είναι διαθέσιμη"</string>
+    <string name="camera_error_storage_fail" msgid="5536300789483863989">"Δεν είναι δυνατή η αποθήκευση πολυμέσων"</string>
+    <string name="camera_error_failure_taking_picture" msgid="4894133709734862250">"Δεν είναι δυνατή η λήψη φωτογραφίας"</string>
+    <string name="back" msgid="1477626055115561645">"Πίσω"</string>
+    <string name="action_menu_show_archived" msgid="1628518043533374868">"Αρχειοθετημένο"</string>
+    <string name="action_delete" msgid="4076795795307486019">"Διαγραφή"</string>
+    <string name="action_archive" msgid="5437034800324083170">"Αρχειοθέτηση"</string>
+    <string name="action_unarchive" msgid="139681611159869493">"Κατάργηση αρχειοθέτησης"</string>
+    <string name="action_notification_off" msgid="4823658797441716246">"Απενεργοποίηση ειδοποιήσεων"</string>
+    <string name="action_notification_on" msgid="8244389452685364211">"Ενεργοποίηση ειδοποιήσεων"</string>
+    <string name="action_add_contact" msgid="8248615862739848672">"Προσθήκη επαφής"</string>
+    <string name="action_download" msgid="7786338136368564146">"Λήψη"</string>
+    <string name="action_send" msgid="377635240181672039">"Αποστολή"</string>
+    <string name="action_delete_message" msgid="2728883749416365507">"Διαγραφή"</string>
+    <string name="delete_message_confirmation_dialog_title" msgid="4723834210275712001">"Να διαγραφεί αυτό το μήνυμα;"</string>
+    <string name="delete_message_confirmation_dialog_text" msgid="3952533622691031375">"Δεν είναι δυνατή η αναίρεση αυτής της ενέργειας."</string>
+    <string name="delete_message_confirmation_button" msgid="3888584614972573382">"Διαγραφή"</string>
+    <plurals name="delete_conversations_confirmation_dialog_title" formatted="false" msgid="2285567882353326800">
+      <item quantity="other">Διαγραφή αυτών των συνομιλιών;</item>
+      <item quantity="one">Διαγραφή αυτής της συνομιλίας;</item>
+    </plurals>
+    <string name="delete_conversation_confirmation_button" msgid="744574085809600863">"Διαγραφή"</string>
+    <string name="delete_conversation_decline_button" msgid="5470021965641900456">"Ακύρωση"</string>
+    <string name="recipient_hint" msgid="1819710673158265515">"Προς"</string>
+    <string name="action_multiselect" msgid="1219683118692013380">"Επιλογή πολλαπλών εικόνων"</string>
+    <string name="action_confirm_multiselect" msgid="8283370294120913166">"Επιβεβαίωση επιλογής"</string>
+    <string name="attachment_more_items" msgid="2861573099241369958">"+<xliff:g id="COUNT">%d</xliff:g>"</string>
+    <string name="audio_recording_start_failed" msgid="4442450764642560851">"Δεν είναι δυνατή η αποθήκευση ήχου. Δοκιμάστε ξανά."</string>
+    <string name="audio_recording_replay_failed" msgid="3585760856463273828">"Δεν είναι δυνατή η αναπαραγωγή ήχου. Δοκιμάστε ξανά."</string>
+    <string name="audio_recording_error" msgid="7762310055059024872">"Δεν ήταν δυνατή η αποθήκευση ήχου. Δοκιμάστε ξανά."</string>
+    <string name="audio_picker_hint_text" msgid="6986250080467111491">"Άγγιγμα &amp; κράτημα"</string>
+    <string name="enumeration_comma" msgid="7032804261692931808">", "</string>
+    <string name="notification_separator" msgid="3472521786709813414">"  "</string>
+    <string name="notification_ticker_separator" msgid="2027929074008933906">": "</string>
+    <string name="notification_space_separator" msgid="9007689386066977972">"  "</string>
+    <string name="notification_picture" msgid="1176665337098921822">"Εικόνα"</string>
+    <string name="notification_audio" msgid="5926581589398218150">"Κλιπ ήχου"</string>
+    <string name="notification_video" msgid="4331423498662606204">"Βίντεο"</string>
+    <string name="notification_vcard" msgid="7658061674440552878">"Κάρτα επικοινωνίας"</string>
+    <string name="notification_download_mms" msgid="6206807985355359528">"Λήψη"</string>
+    <string name="notification_reply_via_sms" msgid="6990127304684161722">"Απάντηση μέσω SMS"</string>
+    <string name="notification_reply_via_mms" msgid="6706012871186064035">"Απάντηση μέσω MMS"</string>
+    <string name="notification_reply_prompt" msgid="1836023392294480241">"Απάντηση"</string>
+    <plurals name="wearable_participant_count" formatted="false" msgid="3037889420270036143">
+      <item quantity="other"><xliff:g id="COUNT_1">%d</xliff:g> συμμετέχοντες</item>
+      <item quantity="one"><xliff:g id="COUNT_0">%d</xliff:g> συμμετέχων</item>
+    </plurals>
+    <string name="unknown_self_participant" msgid="3186565052350548852">"Εγώ"</string>
+    <string name="blocked_toast_message" msgid="7903364256385612569">"Η επαφή αποκλείστηκε και αρχειοθετήθηκε"</string>
+    <string name="unblocked_toast_message" msgid="4927617874263586622">"Έγινε κατάργηση αποκλεισμού και αρχειοθέτησης της επαφής"</string>
+    <string name="archived_toast_message" msgid="8109348891515322512">"Έχουν αρχειοθετηθεί <xliff:g id="COUNT">%d</xliff:g>"</string>
+    <string name="unarchived_toast_message" msgid="5010777423084203833">"<xliff:g id="COUNT">%d</xliff:g> αφαιρέθηκαν από το αρχείο"</string>
+    <string name="notification_off_toast_message" msgid="5203458459139408265">"Οι ειδοποιήσεις απενεργοποιήθηκαν"</string>
+    <string name="notification_on_toast_message" msgid="1240626023754746310">"Οι ειδοποιήσεις ενεργοποιήθηκαν"</string>
+    <string name="toast_after_setting_default_sms_app_for_message_send" msgid="2767997591700713113">"Έχουν ρυθμιστεί όλα. Αγγίξτε ξανά την επιλογή \"Αποστολή\"."</string>
+    <string name="toast_after_setting_default_sms_app" msgid="2923745971897322476">"Η Ανταλλαγή μηνυμάτων ορίστηκε επιτυχώς ως η προεπιλεγμένη εφαρμογή SMS."</string>
+    <plurals name="attachment_preview_close_content_description" formatted="false" msgid="5631719319690969981">
+      <item quantity="other">Απόρριψη συνημμένων</item>
+      <item quantity="one">Απόρριψη συνημμένου</item>
+    </plurals>
+    <string name="audio_attachment_content_description" msgid="499334244765270108">"Συνημμένο ήχου"</string>
+    <string name="audio_play_content_description" msgid="4932509227281251607">"Αναπαραγωγή συνημμένου ήχου"</string>
+    <string name="audio_pause_content_description" msgid="7578169887065513701">"Παύση"</string>
+    <string name="incoming_message_announcement" msgid="6369259405539452011">"Μήνυμα από <xliff:g id="SENDER">%s</xliff:g>: <xliff:g id="MESSAGE">%s</xliff:g>."</string>
+    <string name="one_on_one_incoming_failed_message_prefix" msgid="6985644411445605747">"Αποτυχία μηνύματος από <xliff:g id="SENDER">%s</xliff:g>: <xliff:g id="MESSAGE">%s</xliff:g>. Ώρα: <xliff:g id="TIME">%s</xliff:g>"</string>
+    <string name="one_on_one_incoming_successful_message_prefix" msgid="6190814597935995703">"Μήνυμα από <xliff:g id="SENDER">%s</xliff:g>: <xliff:g id="MESSAGE">%s</xliff:g>. Ώρα: <xliff:g id="TIME">%s</xliff:g>"</string>
+    <string name="one_on_one_outgoing_draft_message_prefix" msgid="8721053088385740646">"Μη απεσταλμένο μήνυμα προς <xliff:g id="CONTACT">%s</xliff:g>: <xliff:g id="MESSAGE">%s</xliff:g>. Ώρα: <xliff:g id="TIME">%s</xliff:g>"</string>
+    <string name="one_on_one_outgoing_sending_message_prefix" msgid="3929653530203574220">"Αποστολή μηνύματος προς <xliff:g id="CONTACT">%s</xliff:g>: <xliff:g id="MESSAGE">%s</xliff:g>. Ώρα: <xliff:g id="TIME">%s</xliff:g>."</string>
+    <string name="one_on_one_outgoing_failed_message_prefix" msgid="7194065651879454314">"Αποτυχία μηνύματος προς <xliff:g id="CONTACT">%s</xliff:g>: <xliff:g id="MESSAGE">%s</xliff:g>. Ώρα: <xliff:g id="TIME">%s</xliff:g>"</string>
+    <string name="one_on_one_outgoing_successful_message_prefix" msgid="7128492863867327814">"Μήνυμα προς <xliff:g id="CONTACT">%s</xliff:g>: <xliff:g id="MESSAGE">%s</xliff:g>. Ώρα: <xliff:g id="TIME">%s</xliff:g>."</string>
+    <string name="group_incoming_failed_message_prefix" msgid="7085805237707481779">"Αποτυχία μηνύματος από <xliff:g id="SENDER">%s</xliff:g>: <xliff:g id="MESSAGE">%s</xliff:g>. Ώρα: <xliff:g id="TIME">%s</xliff:g>. <xliff:g id="GROUPINFO">%s</xliff:g>"</string>
+    <string name="group_incoming_successful_message_prefix" msgid="7248506967059447054">"Μήνυμα από <xliff:g id="SENDER">%s</xliff:g>: <xliff:g id="MESSAGE">%s</xliff:g>. Ώρα: <xliff:g id="TIME">%s</xliff:g>. <xliff:g id="GROUPINFO">%s</xliff:g>"</string>
+    <string name="group_outgoing_draft_message_prefix" msgid="1655013812805454648">"Μη απεσταλμένο μήνυμα προς <xliff:g id="GROUP">%s</xliff:g>: <xliff:g id="MESSAGE">%s</xliff:g>. Ώρα: <xliff:g id="TIME">%s</xliff:g>"</string>
+    <string name="group_outgoing_sending_message_prefix" msgid="7636874745414695556">"Αποστολή μηνύματος σε <xliff:g id="GROUP">%s</xliff:g>: <xliff:g id="MESSAGE">%s</xliff:g>. Ώρα: <xliff:g id="TIME">%s</xliff:g>"</string>
+    <string name="group_outgoing_failed_message_prefix" msgid="5059983340377901592">"Αποτυχία μηνύματος προς <xliff:g id="GROUP">%s</xliff:g>: <xliff:g id="MESSAGE">%s</xliff:g>. Ώρα: <xliff:g id="TIME">%s</xliff:g>"</string>
+    <string name="group_outgoing_successful_message_prefix" msgid="1593702642852987920">"Μήνυμα προς <xliff:g id="GROUP">%s</xliff:g>: <xliff:g id="MESSAGE">%s</xliff:g>. Ώρα: <xliff:g id="TIME">%s</xliff:g>"</string>
+    <string name="failed_message_content_description" msgid="7047161648867054936">"Αποτυχία μηνύματος. Αγγίξτε για επανάληψη."</string>
+    <string name="group_conversation_description" msgid="2339270924401184182">"Συνομιλία με <xliff:g id="PARTICIPANTS">%s</xliff:g>"</string>
+    <string name="delete_subject_content_description" msgid="8910749398836396698">"Διαγραφή θέματος"</string>
+    <string name="camera_switch_to_video_mode" msgid="2926868205952641428">"Λήψη βίντεο"</string>
+    <string name="camera_switch_to_still_mode" msgid="4419617715199157958">"Τραβήξτε μια στατική εικόνα"</string>
+    <string name="camera_take_picture" msgid="2573317952200799489">"Τραβήξτε μια φωτογραφία"</string>
+    <string name="camera_start_recording" msgid="1736478301191221786">"Έναρξη εγγραφής βίντεο"</string>
+    <string name="camera_switch_full_screen" msgid="6156039742035097276">"Εναλλαγή σε κάμερα πλήρους οθόνης"</string>
+    <string name="camera_switch_camera_facing" msgid="1566112129296559159">"Εναλλαγή μεταξύ μπροστινής και της πίσω φωτογραφικής μηχανής"</string>
+    <string name="camera_stop_recording" msgid="5331592576107271152">"Διακοπή εγγραφής και επισύναψη βίντεο"</string>
+    <string name="camera_cancel_recording" msgid="6431544304743145818">"Διακοπή εγγραφής βίντεο"</string>
+    <string name="photo_view_activity_title" msgid="6556006393051918135">"Φωτογραφίες Ανταλλαγής μηνυμάτων"</string>
+    <plurals name="photos_saved_to_album" formatted="false" msgid="7529478299745446838">
+      <item quantity="other"><xliff:g id="QUANTITY_2">%d</xliff:g> φωτογραφίες αποθηκεύτηκαν στο λεύκωμα \"<xliff:g id="ALBUMNAME_3">%s</xliff:g>\"</item>
+      <item quantity="one"><xliff:g id="QUANTITY_0">%d</xliff:g> φωτογραφία αποθηκεύτηκε στο λεύκωμα \"<xliff:g id="ALBUMNAME_1">%s</xliff:g>\"</item>
+    </plurals>
+    <plurals name="videos_saved_to_album" formatted="false" msgid="6821121808257576788">
+      <item quantity="other"><xliff:g id="QUANTITY_2">%d</xliff:g> βίντεο αποθηκεύτηκαν στο λεύκωμα \"<xliff:g id="ALBUMNAME_3">%s</xliff:g>\"</item>
+      <item quantity="one"><xliff:g id="QUANTITY_0">%d</xliff:g> βίντεο αποθηκεύτηκε στο λεύκωμα \"<xliff:g id="ALBUMNAME_1">%s</xliff:g>\"</item>
+    </plurals>
+    <plurals name="attachments_saved_to_album" formatted="false" msgid="8407480699515308929">
+      <item quantity="other"><xliff:g id="QUANTITY_2">%d</xliff:g> συνημμένα αποθηκεύτηκαν στο λεύκωμα \"<xliff:g id="ALBUMNAME_3">%s</xliff:g>\"</item>
+      <item quantity="one"><xliff:g id="QUANTITY_0">%d</xliff:g> συνημμένο αποθηκεύτηκε στο λεύκωμα \"<xliff:g id="ALBUMNAME_1">%s</xliff:g>\"</item>
+    </plurals>
+    <plurals name="attachments_saved_to_downloads" formatted="false" msgid="1886864019411801995">
+      <item quantity="other"><xliff:g id="QUANTITY_1">%d</xliff:g> συνημμένα αποθηκεύτηκαν στις \"Λήψεις\"</item>
+      <item quantity="one"><xliff:g id="QUANTITY_0">%d</xliff:g> συνημμένο αποθηκεύτηκε στις \"Λήψεις\"</item>
+    </plurals>
+    <plurals name="attachments_saved" formatted="false" msgid="6925000482183379648">
+      <item quantity="other">Αποθηκεύτηκε <xliff:g id="QUANTITY_1">%d</xliff:g> συνημμένων αρχείων</item>
+      <item quantity="one">Αποθηκεύτηκε <xliff:g id="QUANTITY_0">%d</xliff:g> συνημμένο αρχείο</item>
+    </plurals>
+    <plurals name="attachment_save_error" formatted="false" msgid="2068837227090109833">
+      <item quantity="other">Δεν ήταν δυνατή η αποθήκευση <xliff:g id="QUANTITY_1">%d</xliff:g> συνημμένων αρχείων</item>
+      <item quantity="one">Δεν ήταν δυνατή η αποθήκευση <xliff:g id="QUANTITY_0">%d</xliff:g> συνημμένου αρχείου</item>
+    </plurals>
+    <string name="attachment_file_description" msgid="3056972820372291694">"Αποθηκευμένο συνημμένο MMS"</string>
+    <string name="settings_activity_title" msgid="3380813834835334258">"Ρυθμίσεις"</string>
+    <string name="archived_activity_title" msgid="4738212324460451188">"Αρχειοθετημένο"</string>
+    <string name="action_close" msgid="1840519376200478419">"Κλείσιμο"</string>
+    <string name="mms_messaging_category_pref_title" msgid="4816815152658525660">"MMS"</string>
+    <string name="advanced_category_pref_title" msgid="6411454224069259687">"Σύνθετες ρυθμίσεις"</string>
+    <string name="debug_category_pref_title" msgid="8765138968242505061">"Εντοπισμός σφαλμάτων"</string>
+    <string name="notifications_enabled_pref_title" msgid="4127288731844373795">"Ειδοποιήσεις"</string>
+    <string name="notification_sound_pref_title" msgid="3685506528957337849">"Ήχος"</string>
+    <string name="silent_ringtone" msgid="8073534180322059814">"Σίγαση"</string>
+    <string name="notification_vibrate_pref_title" msgid="6668564570045187390">"Δόνηση"</string>
+    <string name="blocked_pref_title" msgid="2560554234438548817">"Αποκλεισμένο"</string>
+    <string name="delivery_reports_pref_title" msgid="5115727259825309087">"Αναφορές παράδοσης SMS"</string>
+    <string name="delivery_reports_pref_summary" msgid="4272502420621500421">"Αίτηση αναφοράς παράδοσης για κάθε SMS που στέλνετε"</string>
+    <string name="auto_retrieve_mms_pref_title" msgid="1316094876978218980">"Αυτόματη ανάκτηση"</string>
+    <string name="auto_retrieve_mms_pref_summary" msgid="2253902455786205335">"Αυτόματη ανάκτηση μηνυμάτων MMS"</string>
+    <string name="auto_retrieve_mms_when_roaming_pref_title" msgid="2918775628609759349">"Αυ/τη ανάκτηση περιαγ."</string>
+    <string name="auto_retrieve_mms_when_roaming_pref_summary" msgid="7347177867673486983">"Αυτόματη ανάκτηση MMS κατά την περιαγωγή"</string>
+    <string name="group_mms_pref_title" msgid="6553612309209383106">"Ομαδική ανταλλαγή μηνυμάτων"</string>
+    <string name="group_mms_pref_summary" msgid="3758710015912690629">"Χρησιμοποιήστε το MMS για να στείλετε ένα μήνυμα σε πολλούς παραλήπτες"</string>
+    <string name="sms_disabled_pref_title" msgid="6352764741524717132">"Προεπιλεγμένη εφαρμογή SMS"</string>
+    <string name="sms_enabled_pref_title" msgid="2961457081888153323">"Προεπιλεγμένη εφαρμογή SMS"</string>
+    <!-- no translation found for default_sms_app (3907546126124760465) -->
+    <skip />
+    <string name="mms_phone_number_pref_title" msgid="5445275222817760638">"Ο αριθμός τηλεφώνου σας"</string>
+    <string name="unknown_phone_number_pref_display_value" msgid="5191326096424554297">"Άγνωστo"</string>
+    <string name="send_sound_pref_title" msgid="6284747469983942370">"Ήχοε εξερχόμενου μηνύματος"</string>
+    <string name="dump_sms_pref_title" msgid="4057657151746557281">"Απόρριψη SMS"</string>
+    <string name="dump_sms_pref_summary" msgid="3694039770323225329">"Απόρριψη μη επεξεργασμένων δεδομένων ληφθέντων SMS σε αρχείο εξωτερικού αποθηκευτικού χώρου"</string>
+    <string name="dump_mms_pref_title" msgid="6699074152055891680">"Απόρριψη MMS"</string>
+    <string name="dump_mms_pref_summary" msgid="7901698352188687659">"Απόρριψη μη επεξεργασμένων δεδομένων ληφθέντων MMS σε αρχείο εξωτερικού αποθηκευτικού χώρου"</string>
+    <string name="wireless_alerts_title" msgid="8218925605166939654">"Ασύρματες ειδοποιήσεις"</string>
+    <string name="message_context_menu_title" msgid="5036023289586457642">"Επιλογές μηνύματος"</string>
+    <string name="message_context_menu_copy_text" msgid="8241684826917957666">"Αντιγραφή κειμένου"</string>
+    <string name="message_context_menu_view_details" msgid="2077089491219912840">"Προβολή λεπτομερειών"</string>
+    <string name="message_context_menu_delete_message" msgid="4924354182554857475">"Διαγραφή"</string>
+    <string name="message_context_menu_forward_message" msgid="4848326950037554575">"Προώθηση"</string>
+    <string name="message_details_title" msgid="8451487656255395372">"Λεπτομέρειες μηνύματος"</string>
+    <string name="message_type_label" msgid="6442873901113487978">"Τύπος: "</string>
+    <string name="text_message" msgid="7415419755252205721">"Μήνυμα κειμένου"</string>
+    <string name="multimedia_message" msgid="2199989099980111684">"Μήνυμα πολυμέσων"</string>
+    <string name="from_label" msgid="1947831848146564875">"Από: "</string>
+    <string name="to_address_label" msgid="1816631887533235762">"Προς: "</string>
+    <string name="sent_label" msgid="5186286057597137301">"Εστάλη: "</string>
+    <string name="received_label" msgid="4442494712757995203">"Ελήφθη: "</string>
+    <string name="subject_label" msgid="1887378451808609152">"Θέμα: "</string>
+    <string name="message_size_label" msgid="8840394477993741203">"Μέγεθος: "</string>
+    <string name="priority_label" msgid="5029073794896222902">"Προτεραιότητα: "</string>
+    <string name="sim_label" msgid="2706003016582772108">"SIM: "</string>
+    <string name="priority_high" msgid="728836357310908368">"Υψηλή"</string>
+    <string name="priority_normal" msgid="8918221917628753075">"Κανονική"</string>
+    <string name="priority_low" msgid="7398724779026801851">"Χαμηλή"</string>
+    <string name="sim_slot_identifier" msgid="5934005977415016295">"SIM <xliff:g id="SIM_SLOT_NUMBER">%s</xliff:g>"</string>
+    <string name="hidden_sender_address" msgid="5054789216911282696">"Διεύθυνση κρυφού αποστολέα"</string>
+    <string name="cant_send_message_while_loading_attachments" msgid="4301887223941009907">"Δεν είναι δυνατή η αποστολή του μηνύματος ενώ φορτώνουν τα συνημμένα."</string>
+    <string name="fail_to_load_attachment" msgid="412233184776827353">"Δεν είναι δυνατή η φόρτωση της επισύναψης. Δοκιμάστε ξανά."</string>
+    <string name="cant_send_message_without_active_subscription" msgid="7130532514190813716">"Το δίκτυο δεν είναι έτοιμο. Δοκιμάστε ξανά."</string>
+    <string name="chips_text_delete_button_content_description" msgid="123760854728616068">"Διαγραφή κειμένου"</string>
+    <string name="numeric_text_keyboard_toggle_button_content_description" msgid="1403198418131594073">"Εναλλαγή μεταξύ εισαγωγής κειμένου και αριθμών"</string>
+    <string name="add_more_participants_button_content_description" msgid="12460574490350327">"Προσθήκη περισσότερων συμμετεχόντων"</string>
+    <string name="confrim_participants_button_content_description" msgid="7473740533133798616">"Επιβεβαίωση συμμετεχόντων"</string>
+    <string name="start_new_conversation" msgid="3924471215595992758">"Έναρξη νέας συνομιλίας"</string>
+    <string name="gallery_checkbox_content_description" msgid="2503122727700475428">"Επιλέξτε αυτό το στοιχείο"</string>
+    <string name="video_thumbnail_view_play_button_content_description" msgid="3506938388391260811">"Αναπαραγωγή βίντεο"</string>
+    <string name="action_people_and_options" msgid="2748020184252106661">"Άτομα και επιλογές"</string>
+    <string name="action_debug_options" msgid="2440658410677323714">"Εντοπισμός σφαλμάτων"</string>
+    <string name="people_and_options_activity_title" msgid="5443749025829291736">"Άτομα και επιλογές"</string>
+    <string name="general_settings_title" msgid="4465312111301728995">"Γενικά"</string>
+    <string name="participant_list_title" msgid="8624855187574757110">"Άτομα σε αυτήν τη συνομιλία"</string>
+    <string name="action_call" msgid="6596167921517350362">"Πραγματοποίηση κλήσης"</string>
+    <string name="compose_message_view_hint_text" msgid="5214836453231753054">"Αποστολή μηνύματος"</string>
+    <string name="compose_message_view_hint_text_multi_sim" msgid="2829154383848677160">"Αποστολή μηνύματος&lt;br/&gt;&lt;small&gt;από <xliff:g id="SIM_NAME">%s</xliff:g>&lt;/small&gt;"</string>
+    <plurals name="compose_message_view_hint_text_photo" formatted="false" msgid="8937589900456604618">
+      <item quantity="other">Αποστολή φωτογραφιών</item>
+      <item quantity="one">Αποστολή φωτογραφίας</item>
+    </plurals>
+    <plurals name="compose_message_view_hint_text_audio" formatted="false" msgid="5934090345811195170">
+      <item quantity="other">Αποστολή αρχείων ήχου</item>
+      <item quantity="one">Αποστολή αρχείου ήχου</item>
+    </plurals>
+    <plurals name="compose_message_view_hint_text_video" formatted="false" msgid="9188048653766960507">
+      <item quantity="other">Αποστολή αρχείων βίντεο</item>
+      <item quantity="one">Αποστολή αρχείου βίντεο</item>
+    </plurals>
+    <plurals name="compose_message_view_hint_text_vcard" formatted="false" msgid="933064969858631242">
+      <item quantity="other">Αποστολή καρτών επαφών</item>
+      <item quantity="one">Αποστολή κάρτας επαφής</item>
+    </plurals>
+    <plurals name="compose_message_view_hint_text_attachments" formatted="false" msgid="1778518334602418000">
+      <item quantity="other">Αποστολή συνημμένων</item>
+      <item quantity="one">Αποστολή συνημμένου</item>
+    </plurals>
+    <plurals name="attachment_changed_accessibility_announcement" formatted="false" msgid="5592871135747616108">
+      <item quantity="other"><xliff:g id="ATTACHMENT_COUNT">%d</xliff:g> συνημμένα έτοιμα για αποστολή</item>
+      <item quantity="one">Ένα συνημμένο έτοιμο για αποστολή</item>
+    </plurals>
+    <string name="menu_send_feedback" msgid="479412726781330278">"Αποστολή σχολίων"</string>
+    <string name="menu_view_in_store" msgid="3792488955421628684">"Προβολή στο Google Play Store"</string>
+    <string name="menu_version_info" msgid="6122616816253404821">"Πληροφορίες έκδοσης"</string>
+    <string name="subtitle_format_for_version_number" msgid="446082111129170749">"Έκδοση %1$s"</string>
+    <string name="menu_license" msgid="1157954180701135202">"Άδειες λογισμικού ανοικτού κώδικα"</string>
+    <string name="notifications_enabled_conversation_pref_title" msgid="1492686092760478206">"Ειδοποιήσεις"</string>
+    <string name="mms_attachment_limit_reached" msgid="8303890455085643301">"Συμπλήρωση ορίου συνημμένων"</string>
+    <string name="mms_attachment_load_failed" msgid="5697191348996648727">"Αποτυχία φόρτωσης συνημμένου."</string>
+    <string name="add_contact_confirmation_dialog_title" msgid="1898307408816625598">"Προσθήκη στις επαφές;"</string>
+    <string name="add_contact_confirmation" msgid="1479380805406328264">"Προσθήκη επαφής"</string>
+    <string name="compose_message_view_subject_hint_text" msgid="6076616675845705660">"Θέμα"</string>
+    <string name="conversation_message_view_subject_text" msgid="5634274498769555505">"Θέμα: "</string>
+    <string name="notification_subject" msgid="5229975483160300625">"<xliff:g id="SUBJECT_LABEL">%s</xliff:g><xliff:g id="MESSAGETEXT">%s</xliff:g>"</string>
+    <string name="loading_vcard" msgid="3961520941271265083">"Φόρτωση κάρτας επαφής"</string>
+    <string name="failed_loading_vcard" msgid="7711070643740368402">"Δεν ήταν δυνατή η φόρτωση της κάρτας επαφής"</string>
+    <string name="vcard_tap_hint" msgid="4940284329175200952">"Προβολή κάρτας επαφής"</string>
+    <plurals name="vcard_multiple_display_name" formatted="false" msgid="2884224435488996028">
+      <item quantity="other"><xliff:g id="COUNT_1">%d</xliff:g> επαφές</item>
+      <item quantity="one"><xliff:g id="COUNT_0">%d</xliff:g> επαφή</item>
+    </plurals>
+    <string name="vcard_detail_activity_title" msgid="591540798943754991">"Κάρτες επαφών"</string>
+    <string name="vcard_detail_birthday_label" msgid="7196021537629120021">"Γενέθλια"</string>
+    <string name="vcard_detail_notes_label" msgid="6104179009509800126">"Σημειώσεις"</string>
+    <string name="forward_message_activity_title" msgid="4689730643900226699">"Προώθηση μηνύματος"</string>
+    <string name="reply_activity_title" msgid="2967630094609648609">"Απάντηση"</string>
+    <string name="plus_one" msgid="9010288417554932581">"+1"</string>
+    <string name="plus_n" msgid="8961547034116059566">"+%d"</string>
+    <string name="sms_disabled" msgid="4988773371061820432">"Τα SMS απενεργοποιήθηκαν"</string>
+    <string name="requires_default_sms_app_to_send" msgid="171048611973157166">"Για αποστολή, ορίστε την Ανταλλαγή μηνυμάτων ως προεπιλεγμένη εφαρμογή SMS"</string>
+    <string name="requires_default_sms_app" msgid="7477365167876194810">"Ορισμός Ανταλλαγής μηνυμάτων ως προεπιλεγμένης εφαρμογής SMS"</string>
+    <string name="requires_default_sms_change_button" msgid="6717443481161057941">"Αλλαγή"</string>
+    <string name="recommend_set_default_sms_app" msgid="7769636305626277844">"Για να λαμβάνετε μηνύματα, ορίστε την Ανταλλαγή μηνυμάτων ως προεπιλεγμένη εφαρμογή SMS"</string>
+    <string name="no_preferred_sim_selected" msgid="8583927728936521140">"Δεν έχει επιλεγεί προτιμώμενη SIM για την αποστολή μηνυμάτων SMS"</string>
+    <string name="requires_sms_permissions_message" msgid="2179684358095980506">"Αυτή η εφαρμογή δεν επιτρέπεται από τον κάτοχο της συσκευής."</string>
+    <string name="requires_sms_permissions_close_button" msgid="8601569832171759435">"ΟΚ"</string>
+    <string name="too_many_participants" msgid="5857516461210932810">"Πάρα πολλοί συμμετέχοντες σε μια συνομιλία"</string>
+    <plurals name="add_invalid_contact_error" formatted="false" msgid="782438833843363189">
+      <item quantity="other">Μη έγκυρες επαφές</item>
+      <item quantity="one">Μη έγκυρη επαφή</item>
+    </plurals>
+    <string name="camera_media_failure" msgid="6532763214546593687">"Δεν ήταν δυνατή η φόρτωση της εικόνας φωτογραφικής μηχανής"</string>
+    <string name="conversation_list_item_view_sent_from_you_prefix" msgid="1735457801737604211">"Εσείς: "</string>
+    <string name="conversation_list_item_view_sent_from_other_prefix" msgid="9202622757034736175">"<xliff:g id="FIRSTNAMEOFSENDER">%s</xliff:g>: "</string>
+    <string name="conversation_list_item_view_draft_message" msgid="3592923997082845035">"Πρόχειρο"</string>
+    <string name="conversation_list_empty_text" msgid="7505706551294769667">"Αφού ξεκινήσετε μια νέα συνομιλία, θα εμφανίζεται εδώ"</string>
+    <string name="archived_conversation_list_empty_text" msgid="6109126963298874571">"Οι αρχειοθετημένες συνομιλίες εμφανίζονται εδώ"</string>
+    <string name="conversation_list_first_sync_text" msgid="3749751291444609993">"Φόρτωση συνομιλιών…"</string>
+    <string name="conversation_list_snippet_picture" msgid="5326960910088541826">"Εικόνα"</string>
+    <string name="conversation_list_snippet_audio_clip" msgid="7894183429890407387">"Κλιπ ήχου"</string>
+    <string name="conversation_list_snippet_video" msgid="7101059507173671233">"Βίντεο"</string>
+    <string name="conversation_list_snippet_vcard" msgid="5004837959112452394">"Κάρτα επαφής"</string>
+    <string name="mms_text" msgid="1528791558806015806">"MMS"</string>
+    <string name="snack_bar_undo" msgid="4523395751563700308">"Αναίρεση"</string>
+    <string name="snack_bar_retry" msgid="7140970704902570020">"Επανάληψη"</string>
+    <string name="contact_list_empty_text" msgid="1036353827229041942">"Εισαγάγετε ένα όνομα επαφής ή έναν αριθμό τηλεφώνου για να ξεκινήσετε ένα νέο μήνυμα"</string>
+    <string name="action_block" msgid="9032076625645190136">"Αποκλεισμός"</string>
+    <string name="block_contact_title" msgid="6968382557194643329">"Αποκλεισμός επαφής <xliff:g id="DESTINATION">%s</xliff:g>"</string>
+    <string name="unblock_contact_title" msgid="4719854710980066596">"Κατάργηση αποκλεισμού της επαφής <xliff:g id="DESTINATION">%s</xliff:g>"</string>
+    <string name="block_confirmation_title" msgid="8288283455512985682">"Αποκλεισμός <xliff:g id="DESTINATION">%s</xliff:g>;"</string>
+    <string name="block_confirmation_message" msgid="185429978461824228">"Θα εξακολουθήσετε να λαμβάνετε μηνύματα από αυτόν τον αριθμό, αλλά δεν θα ειδοποιείστε πια. Αυτή η συνομιλία θα αρχειοθετηθεί."</string>
+    <string name="blocked_contacts_title" msgid="7709164518967312281">"Αποκλεισμένες επαφές"</string>
+    <string name="tap_to_unblock_message" msgid="1284284144816901647">"ΚΑΤΑΡΓΗΣΗ ΑΠΟΚΛΕΙΣΜΟΥ"</string>
+    <string name="view_blocked_contacts_title" msgid="7417596291306885403">"Αποκλεισμένες επαφές"</string>
+    <string name="pick_image_from_document_library_content_description" msgid="132845956503874378">"Επιλέξτε μια εικόνα από τη βιβλιοθήκη εγγράφων"</string>
+    <string name="sending_message" msgid="6363584950085384929">"Αποστολή μηνύματος"</string>
+    <string name="send_message_success" msgid="4088006261869323324">"Το μήνυμα εστάλη"</string>
+    <string name="send_message_failure_no_data" msgid="7404080465234559802">"Τα δεδομένα κινητής τηλεφωνίας έχουν απενεργοποιηθεί. Ελέγξτε τις ρυθμίσεις σας."</string>
+    <string name="send_message_failure_airplane_mode" msgid="3966519541237053840">"Δεν είναι δυνατή η αποστολή μηνυμάτων σε Λειτουργία πτήσης"</string>
+    <string name="send_message_failure" msgid="5273892629851390023">"Αδυναμία αποστολής μηνύματος"</string>
+    <string name="download_message_success" msgid="3514921076616367225">"Έγινε λήψη του μηνύματος"</string>
+    <string name="download_message_failure_no_data" msgid="6830055949399088532">"Τα δεδομένα κινητής τηλεφωνίας απενεργοποιήθηκαν. Ελέγξτε τις ρυθμίσεις σας."</string>
+    <string name="download_message_failure_airplane_mode" msgid="6752478540984118382">"Δεν είναι δυνατή η λήψη μηνυμάτων σε λειτουργία πτήσης"</string>
+    <string name="download_message_failure" msgid="635370887537738004">"Δεν ήταν δυνατή η λήψη του μηνύματος"</string>
+    <string name="content_description_for_number_zero" msgid="7992301592202897868">"Μηδέν"</string>
+    <string name="content_description_for_number_one" msgid="3886554185135150473">"Ένα"</string>
+    <string name="content_description_for_number_two" msgid="1562486479385891146">"Δύο"</string>
+    <string name="content_description_for_number_three" msgid="8471442614073144385">"Τρία"</string>
+    <string name="content_description_for_number_four" msgid="7515917522043407213">"Τέσσερα"</string>
+    <string name="content_description_for_number_five" msgid="8078774905490022978">"Πέντε"</string>
+    <string name="content_description_for_number_six" msgid="9192012772645396654">"Έξι"</string>
+    <string name="content_description_for_number_seven" msgid="5870011338757220060">"Επτά"</string>
+    <string name="content_description_for_number_eight" msgid="7078061834874737466">"Οκτώ"</string>
+    <string name="content_description_for_number_nine" msgid="4276787959475295232">"Εννέα"</string>
+    <string name="carrier_send_error" msgid="3796492439123251453">"Δεν είναι δυνατή η αποστολή του μηνύματος με <xliff:g id="CARRIERNAME">%1$s</xliff:g>, σφάλμα <xliff:g id="ERRORCODE">%2$d</xliff:g>"</string>
+    <string name="carrier_send_error_unknown_carrier" msgid="1210665032244425938">"Δεν είναι δυνατή η αποστολή του μηνύματος με άγνωστη εταιρεία κινητής τηλεφωνίας, σφάλμα <xliff:g id="ERRORCODE">%1$d</xliff:g>"</string>
+    <string name="message_fwd" msgid="2144370964507743673">"Προώθ.: <xliff:g id="SUBJECT">%s</xliff:g>"</string>
+    <string name="mms_failure_outgoing_service" msgid="4662217039143124592">"Το μήνυμα δεν εστάλη: Η υπηρεσία δεν ενεργοποιήθηκε στο δίκτυο"</string>
+    <string name="mms_failure_outgoing_address" msgid="6212773250215580849">"Το μήνυμα δεν εστάλη: μη έγκυρη διεύθυνση προορισμού"</string>
+    <string name="mms_failure_outgoing_corrupt" msgid="6132734324976690436">"Το μήνυμα δεν εστάλη: μη έγκυρο μήνυμα"</string>
+    <string name="mms_failure_outgoing_content" msgid="919220273446626565">"Το μήνυμα δεν εστάλη: μη υποστηριζόμενο περιεχόμενο"</string>
+    <string name="mms_failure_outgoing_unsupported" msgid="2614377585077448979">"Το μήνυμα δεν εστάλη: μη υποστηριζόμενο μήνυμα"</string>
+    <string name="mms_failure_outgoing_too_large" msgid="3917966922000717407">"Το μήνυμα δεν εστάλη: πάρα πολύ μεγάλο"</string>
+    <string name="in_conversation_notify_new_message_text" msgid="8207541514656839042">"Νέο μήνυμα"</string>
+    <string name="in_conversation_notify_new_message_action" msgid="7311780674392006753">"Προβολή"</string>
+    <string name="message_image_content_description" msgid="621604138442762130">"Εικόνα"</string>
+    <string name="activity_not_found_message" msgid="2355153262520375529">"Δεν ήταν δυνατή η εύρεση της κατάλληλης εφαρμογής"</string>
+    <string name="chips_delete_content_description" msgid="4655699207140895492">"Κατάργηση παραλήπτη"</string>
+    <string name="share_new_message" msgid="2135955613694195483">"Νέο μήνυμα"</string>
+    <string name="share_cancel" msgid="6666929391961668469">"Ακύρωση"</string>
+    <string name="apn_edit" msgid="2134993966166435648">"Επεξ/σία σημ. πρόσβ."</string>
+    <string name="apn_not_set" msgid="463728018542184151">"Δεν έχει ρυθμιστεί"</string>
+    <string name="apn_name" msgid="1572691851070894985">"Όνομα"</string>
+    <string name="apn_apn" msgid="1197541953189716999">"APN"</string>
+    <string name="apn_mmsc" msgid="2584154739440281747">"MMSC"</string>
+    <string name="apn_mms_proxy" msgid="4343743931563107100">"Διακομιστής μεσολάβησης MMS"</string>
+    <string name="apn_mms_port" msgid="6181253508404620479">"Θύρα MMS"</string>
+    <string name="apn_mcc" msgid="8102023058623950736">"MCC"</string>
+    <string name="apn_mnc" msgid="1372437523197012866">"MNC"</string>
+    <string name="apn_type" msgid="8409755622399386584">"Τύπος APN"</string>
+    <string name="menu_delete_apn" msgid="4947391038600888284">"Διαγραφή APN"</string>
+    <string name="menu_new_apn" msgid="1564461309350814037">"Νέο APN"</string>
+    <string name="menu_save_apn" msgid="5445335896951613691">"Αποθήκευση"</string>
+    <string name="menu_discard_apn_change" msgid="310569150407968648">"Απόρριψη"</string>
+    <string name="error_apn_name_empty" msgid="7770363665690646716">"Το πεδίο Όνομα δεν μπορεί να είναι κενό."</string>
+    <string name="error_apn_empty" msgid="6799644880052534839">"Το APN δεν μπορεί να είναι κενό."</string>
+    <string name="error_mcc_not3" msgid="3693788817630985838">"Το πεδίο MCC πρέπει να αποτελείται από 3 ψηφία."</string>
+    <string name="error_mnc_not23" msgid="3726130455168743554">"Το πεδίο MNC πρέπει να αποτελείται από 2 ή 3 ψηφία."</string>
+    <string name="restore_default_apn" msgid="7180447255249638396">"Επαναφορά προεπιλεγμένων ρυθμίσεων APN."</string>
+    <string name="menu_restore_default_apn" msgid="6342935229867973523">"Επαναφορά προεπιλογών"</string>
+    <string name="restore_default_apn_completed" msgid="7421687541468349715">"Η επαναφορά των εργοστασιακών ρυθμίσεων APN ολοκληρώθηκε."</string>
+    <string name="untitled_apn" msgid="3110576506102839465">"Χωρίς τίτλο"</string>
+    <string name="sms_apns_title" msgid="1351513141821300879">"Ονόματα σημείου πρόσβασης"</string>
+    <string name="apn_settings" msgid="3179955111000379490">"APN"</string>
+    <string name="menu_new" msgid="8286285392706532511">"Νέο APN"</string>
+    <string name="apn_settings_not_available" msgid="5136389328322585717">"Οι ρυθμίσεις ονόματος σημείου πρόσβασης δεν είναι διαθέσιμες γι\' αυτόν το χρήστη"</string>
+    <string name="copy_to_clipboard_dialog_title" msgid="494269163973708182">"Αντιγραφή στο πρόχειρο;"</string>
+    <string name="copy_to_clipboard" msgid="1977083934277981786">"Αντιγραφή"</string>
+    <string name="incoming_sim_name_text" msgid="4244076415705614525">"σε <xliff:g id="SIM_NAME">%s</xliff:g>"</string>
+    <string name="general_settings" msgid="5409336577057897710">"Γενικά"</string>
+    <string name="advanced_settings" msgid="5870459931510000742">"Σύνθετες ρυθμίσεις"</string>
+    <string name="general_settings_activity_title" msgid="3012187932521771578">"Γενικές ρυθμίσεις"</string>
+    <string name="advanced_settings_activity_title" msgid="7397017836928206201">"Σύνθετες ρυθμίσεις"</string>
+    <string name="sim_specific_settings" msgid="948779178668552448">"\"<xliff:g id="SIM_NAME">%s</xliff:g>\" SIM"</string>
+    <string name="disable_group_mms" msgid="1016285369211000297">"Αποστολή μεμονωμένων μηνυμάτων SMS σε όλους τους παραλήπτες. Μόνο εσείς θα λαμβάνετε τις απαντήσεις"</string>
+    <string name="enable_group_mms" msgid="4311733160940564593">"Αποστολή μεμονωμένου MMS σε όλους τους παραλήπτες"</string>
+    <string name="sim_settings_unknown_number" msgid="1885996389432991383">"Άγνωστος αριθμός"</string>
+    <string name="secondary_user_new_message_title" msgid="201938947573987596">"Νέο μήνυμα"</string>
+    <string name="secondary_user_new_message_ticker" msgid="2386669280323553032">"Νέο μήνυμα."</string>
+    <string name="sim_selector_button_content_description" msgid="2407660715957787727">"Επιλογέας SIM"</string>
+    <string name="sim_selector_button_content_description_with_selection" msgid="4042539046779910617">"Επιλέχτηκε <xliff:g id="SIM_0">%1$s</xliff:g>, επιλογέας SIM"</string>
+    <string name="send_button_long_click_description_no_sim_selector" msgid="979624100711380593">"Επεξεργασία θέματος"</string>
+    <string name="send_button_long_click_description_with_sim_selector" msgid="7670274457707760465">"Επιλέξτε SIM ή επεξεργαστείτε το θέμα"</string>
+    <string name="audio_record_view_content_description" msgid="29401157183728655">"Πατήστε παρατεταμένα για εγγραφή ήχου"</string>
+    <string name="widget_new_conversation_content_description" msgid="4214201569175733579">"Έναρξη νέας συνομιλίας"</string>
+    <string name="widget_title_content_description" msgid="5802836840910466231">"Ανταλλαγή μηνυμάτων"</string>
+    <string name="widget_conversation_list_name" msgid="4005037639000611925">"Λίστα Ανταλλαγής μηνυμάτων"</string>
+    <string name="widget_conversation_name" msgid="3900606239571892871">"Ανταλλαγή μηνυμάτων"</string>
+    <string name="widget_new_message_content_description" msgid="2706347689522691188">"Νέο μήνυμα"</string>
+    <string name="widget_conversation_list_content_description" msgid="4137121313374868821">"Λίστα συνομιλιών"</string>
+    <string name="loading_conversations" msgid="2890879017729068514">"Φόρτωση συνομιλιών"</string>
+    <string name="loading_messages" msgid="3894765818932489665">"Φόρτωση μηνυμάτων"</string>
+    <string name="view_more_conversations" msgid="2430542054023217740">"Προβολή περισσότερων συνομιλιών"</string>
+    <string name="view_more_messages" msgid="6463224009407336178">"Εμφάνιση περισσότερων μηνυμάτων"</string>
+    <string name="conversation_deleted" msgid="6088388615460305424">"Η συνομιλία διαγράφηκε"</string>
+    <string name="tap_to_configure" msgid="7591682335533041774">"Διαγραφή συνομιλίας. Αγγίξτε για να εμφανίσετε μια διαφορετική συνομιλία στην Ανταλλαγή μηνυμάτων"</string>
+    <string name="update_destination_blocked" msgid="4577227174205233981">"Αποκλείστηκε"</string>
+    <string name="update_destination_unblocked" msgid="5369499874676600478">"Ο αποκλεισμός καταργήθηκε"</string>
+    <string name="db_full" msgid="8459265782521418031">"Ο αποθηκευτικός χώρος είναι περιορισμένος. Ορισμένα στοιχεία ενδέχεται να χαθούν."</string>
+    <string name="attachment_chooser_activity_title" msgid="4049093653421684774">"Επιλέξτε συνημμένα"</string>
+    <string name="action_confirm_selection" msgid="3787494008738625806">"Επιβεβαίωση επιλογής"</string>
+    <string name="attachment_chooser_selection" msgid="3616821885478549778">"<xliff:g id="COUNT">%d</xliff:g> επιλ/μένα"</string>
+    <string name="attachment_limit_reached_dialog_message_when_composing" msgid="2983376679583030373">"Καταργήστε ένα ή περισσότερα συνημμένα και δοκιμάστε ξανά."</string>
+    <string name="attachment_limit_reached_dialog_message_when_sending" msgid="3917529855170816197">"Μπορείτε να δοκιμάσετε να στείλετε το μήνυμά σας, αλλά ενδέχεται να μην παραδοθεί αν δεν καταργήσετε ένα ή περισσότερα συνημμένα."</string>
+    <string name="video_attachment_limit_exceeded_when_sending" msgid="8545536951461996462">"Μπορείτε να στείλετε μόνο ένα βίντεο ανά μήνυμα. Καταργήστε τα επιπλέον βίντεο και δοκιμάστε ξανά."</string>
+    <string name="attachment_load_failed_dialog_message" msgid="4917927407363303333">"Αποτυχία φόρτωσης συνημμένου από την Ανταλλαγή μηνυμάτων."</string>
+    <string name="attachment_limit_reached_send_anyway" msgid="2348790618093735551">"Αποστολή ούτως ή άλλως"</string>
+    <string name="conversation_creation_failure" msgid="8597624563218724441">"Δεν ήταν δυνατή η έναρξη της συνομιλίας"</string>
+    <string name="link_display_format" msgid="8700344957248709584">"<xliff:g id="TEXT">%1$s</xliff:g> (<xliff:g id="URL">%2$s</xliff:g>)"</string>
+    <string name="selected_sim_content_message" msgid="4504796674843354505">"Επιλέχτηκε <xliff:g id="SELECTED_SIM">%s</xliff:g>"</string>
+</resources>

@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (C) 2015 The Android Open Source Project
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+         http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<com.android.messaging.ui.conversation.ConversationMessageView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/ConversationMessageViewStyle"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+
+    <com.android.messaging.ui.ContactIconView
+        android:id="@+id/conversation_icon"
+        android:layout_width="@dimen/conversation_message_contact_icon_size"
+        android:layout_height="@dimen/conversation_message_contact_icon_size"
+        app:iconSize="normal"
+        android:clickable="true"
+        android:layout_gravity="center_vertical"
+        android:importantForAccessibility="no" />
+
+    <com.android.messaging.ui.conversation.ConversationMessageBubbleView
+        android:id="@+id/message_content"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical">
+
+        <LinearLayout
+            android:id="@+id/message_attachments"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone" >
+
+            <!-- Video, audio and vcard attachments (if present) will be added here -->
+
+            <com.android.messaging.ui.MultiAttachmentLayout
+                android:id="@+id/multiple_attachments"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
+
+            <com.android.messaging.ui.AsyncImageView
+                android:id="@+id/message_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="@dimen/conversation_message_photo_min_size"
+                android:minHeight="@dimen/conversation_message_photo_min_size"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:layout_gravity="center_vertical"
+                android:visibility="gone"
+                app:placeholderDrawable="@drawable/attachment_image_placeholder_background"
+                app:cornerRadius="@dimen/attachment_rounded_corner_radius"
+                android:contentDescription="@string/message_image_content_description" />
+
+        </LinearLayout>
+
+        <com.android.messaging.ui.conversation.MessageBubbleBackground
+            android:id="@+id/message_text_and_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/message_title_layout"
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:importantForAccessibility="noHideDescendants" >
+
+                <TextView
+                    android:id="@+id/message_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/ConversationMessageTitle" />
+
+                <TextView
+                    android:id="@+id/mms_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/ConversationMessageInfo" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/subject_container"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:importantForAccessibility="noHideDescendants" >
+
+                <TextView
+                    android:id="@+id/subject_label"
+                    android:text="@string/conversation_message_view_subject_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/ConversationMessage" />
+
+                <TextView
+                    android:id="@+id/subject_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/ConversationMessage" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/message_text"
+                style="@style/ConversationMessage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:importantForAccessibility="no" />
+
+            <com.android.messaging.ui.LineWrapLayout
+                android:id="@+id/message_metadata"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:importantForAccessibility="noHideDescendants" >
+
+                <TextView
+                    android:id="@+id/message_sender_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="4dp"
+                    style="@style/ConversationMessageStatus"
+                    android:visibility="gone" />
+                <TextView
+                    android:id="@+id/message_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/ConversationMessageStatus"
+                    android:visibility="gone" />
+                <TextView
+                    android:id="@+id/sim_name"
+                    style="@style/MessageSimIndicator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:visibility="gone" />
+                <ImageView
+                    android:id="@+id/smsDeliveredBadge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    style="@style/SmsDeliverdBadge"
+                    android:src="@drawable/ic_sms_delivery_ok"
+                    android:visibility="gone" />
+            </com.android.messaging.ui.LineWrapLayout>
+
+        </com.android.messaging.ui.conversation.MessageBubbleBackground>
+
+    </com.android.messaging.ui.conversation.ConversationMessageBubbleView>
+
+</com.android.messaging.ui.conversation.ConversationMessageView>

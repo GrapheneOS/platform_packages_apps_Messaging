@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (C) 2015 The Android Open Source Project
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+         http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<resources>
+    <declare-styleable name="ContactIconView">
+        <attr name="iconSize">
+            <enum name="normal" value="0" />
+            <enum name="large" value="1" />
+            <enum name="small" value="2" />
+        </attr>
+    </declare-styleable>
+    <declare-styleable name="SoundLevels">
+        <attr name="maxLevelRadius" format="dimension|reference" />
+        <attr name="minLevelRadius" format="dimension|reference" />
+        <attr name="primaryColor" format="color" />
+    </declare-styleable>
+    <declare-styleable name="AsyncImageView">
+        <attr name="fadeIn" format="boolean" />
+        <attr name="placeholderDrawable" format="reference" />
+        <attr name="cornerRadius" format="dimension|reference" />
+        <attr name="reveal" format="boolean" />
+    </declare-styleable>
+    <declare-styleable name="VideoThumbnailView">
+        <attr name="mode" format="integer">
+            <enum name="imageThumbnail" value="0" />
+            <enum name="playableVideo" value="1" />
+        </attr>
+        <attr name="playOnLoad" format="boolean" />
+        <attr name="loop" format="boolean" />
+        <attr name="allowCrop" format="boolean" />
+        <attr name="android:maxHeight" />
+    </declare-styleable>
+    <declare-styleable name="MaxHeightScrollView">
+        <attr name="android:maxHeight" />
+    </declare-styleable>
+    <declare-styleable name="ConversationNameView">
+        <attr name="textSize" format="dimension|reference" />
+        <attr name="textColor" format="color" />
+    </declare-styleable>
+    <declare-styleable name="AudioAttachmentView">
+        <attr name="layoutMode" format="integer">
+            <enum name="normal" value="0" />
+            <enum name="compact" value="1" />
+            <enum name="subcompact" value="2" />
+        </attr>
+    </declare-styleable>
+    <attr name="apnPreferenceStyle" format="reference" />
+</resources>

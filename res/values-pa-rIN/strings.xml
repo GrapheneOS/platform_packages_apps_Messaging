@@ -1,0 +1,519 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    Copyright (C) 2015 The Android Open Source Project
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+         http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+ -->
+
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name" msgid="3062916848713424329">"Messaging"</string>
+    <string name="share_intent_label" msgid="6920483598866144717">"Messaging"</string>
+    <string name="share_intent_activity_label" msgid="2939454246983196756">"ਗੱਲਬਾਤ ਚੁਣੋ"</string>
+    <string name="action_settings" msgid="1329008122345201684">"ਸੈਟਿੰਗਾਂ"</string>
+    <string name="sendButtonContentDescription" msgid="8422114979691093956">"ਸੁਨੇਹਾ ਭੇਜੋ"</string>
+    <string name="attachMediaButtonContentDescription" msgid="2758624209216276682">"ਇੱਕ ਅਟੈਚਮੈਂਟ ਜੋੜੋ"</string>
+    <string name="help_and_feedback_activity_label" msgid="8070710971014835182">"ਸਹਾਇਤਾ"</string>
+    <string name="welcome" msgid="2857560951820802321">"ਸੁਆਗਤ ਹੈ"</string>
+    <string name="skip" msgid="7238879696319945853">"ਛੱਡੋ"</string>
+    <string name="next_with_arrow" msgid="2840729397885031655">"ਅਗਲਾ &gt;"</string>
+    <string name="next" msgid="4496962051601713843">"ਅਗਲਾ"</string>
+    <string name="exit" msgid="1905187380359981199">"ਬਾਹਰ ਜਾਓ"</string>
+    <string name="settings_with_arrow" msgid="8534633224579301342">"ਸੈਟਿੰਗਾਂ &gt;"</string>
+    <string name="settings" msgid="1045695083932447399">"ਸੈਟਿੰਗਾਂ"</string>
+    <string name="required_permissions_promo" msgid="3898014894175251590">"Messaging ਨੂੰ SMS, ਫੋਨ ਅਤੇ ਸੰਪਰਕਾਂ ਲਈ ਅਨੁਮਤੀ ਦੀ ਲੋੜ ਹੈ।"</string>
+    <string name="enable_permission_procedure" msgid="2778471831376319587">"ਤੁਸੀਂ ਸੈਟਿੰਗਾਂ &gt; ਐਪਸ &gt; Messaging &gt; ਅਨੁਮਤੀਆਂ ਵਿੱਚ ਅਨੁਮਤੀਆਂ ਬਦਲ ਸਕਦੇ ਹੋ।"</string>
+    <string name="enable_permission_procedure_description" msgid="8672121020793945630">"ਤੁਸੀਂ ਸੈਟਿੰਗਾਂ, ਐਪਸ, Messaging, ਅਨੁਮਤੀਆਂ ਵਿੱਚ ਅਨੁਮਤੀਆਂ ਬਦਲ ਸਕਦੇ ਹੋ।"</string>
+    <string name="contact_picker_frequents_tab_title" msgid="7157326165824706883">"ਫ੍ਰੀਕਵੈਂਟਸ"</string>
+    <string name="contact_picker_all_contacts_tab_title" msgid="1424746082040243161">"ਸਾਰੇ ਸੰਪਰਕ"</string>
+    <string name="contact_list_send_to_text" msgid="3167455944684758290">"<xliff:g id="DESTINATION">%s</xliff:g> ਨੂੰ ਭੇਜੋ"</string>
+    <string name="mediapicker_cameraChooserDescription" msgid="8498255650058981250">"ਤਸਵੀਰਾਂ ਜਾ ਵੀਡੀਓ ਕੈਪਚਰ ਕਰੋ"</string>
+    <string name="mediapicker_galleryChooserDescription" msgid="1227741581156455777">"ਇਸ ਡਿਵਾਈਸ ਤੋਂ ਚਿੱਤਰ ਚੁਣੋ"</string>
+    <string name="mediapicker_audioChooserDescription" msgid="3660616501040372452">"ਔਡੀਓ ਰਿਕਾਰਡ ਕਰੋ"</string>
+    <string name="mediapicker_gallery_title" msgid="3169528536727885763">"ਫੋਟੋ ਚੁਣੋ"</string>
+    <string name="mediapicker_gallery_item_selected_content_description" msgid="2569545441879514283">"ਮੀਡੀਆ ਚੁਣਿਆ ਗਿਆ ਹੈ।"</string>
+    <string name="mediapicker_gallery_item_unselected_content_description" msgid="40021674722525910">"ਮੀਡੀਆ ਅਚੋਣਵਾਂ ਕੀਤਾ ਗਿਆ ਹੈ।"</string>
+    <string name="mediapicker_gallery_title_selection" msgid="3621616141966436510">"<xliff:g id="COUNT">%d</xliff:g> ਚੁਣਿਆ ਗਿਆ"</string>
+    <string name="mediapicker_gallery_image_item_description" msgid="8812237405495409901">"ਚਿੱਤਰ <xliff:g id="DATE">%1$tB %1$te %1$tY %1$tl %1$tM %1$tp</xliff:g>"</string>
+    <string name="mediapicker_gallery_image_item_description_no_date" msgid="8142175029053370662">"ਚਿੱਤਰ"</string>
+    <string name="mediapicker_audio_title" msgid="5455016591560739789">"ਔਡੀਓ ਰਿਕਾਰਡ ਕਰੋ"</string>
+    <string name="action_share" msgid="2143483844803153871">"ਸ਼ੇਅਰ ਕਰੋ"</string>
+    <string name="posted_just_now" msgid="6632467048088811568">"ਬਿਲਕੁਲ ਹੁਣੇ"</string>
+    <string name="posted_now" msgid="867560789350406701">"ਹੁਣ"</string>
+    <plurals name="num_minutes_ago" formatted="false" msgid="4085627474543076735">
+      <item quantity="one"><xliff:g id="COUNT_1">%d</xliff:g> ਮਿੰਟ</item>
+      <item quantity="other"><xliff:g id="COUNT_1">%d</xliff:g> ਮਿੰਟ</item>
+    </plurals>
+    <plurals name="num_hours_ago" formatted="false" msgid="8010868301590914325">
+      <item quantity="one"><xliff:g id="COUNT_1">%d</xliff:g> ਘੰਟੇ</item>
+      <item quantity="other"><xliff:g id="COUNT_1">%d</xliff:g> ਘੰਟੇ</item>
+    </plurals>
+    <plurals name="num_days_ago" formatted="false" msgid="8753803762044567843">
+      <item quantity="one"><xliff:g id="COUNT_1">%d</xliff:g> ਦਿਨ</item>
+      <item quantity="other"><xliff:g id="COUNT_1">%d</xliff:g> ਦਿਨ</item>
+    </plurals>
+    <plurals name="week_count" formatted="false" msgid="1301973226125551953">
+      <item quantity="one"><xliff:g id="COUNT">%d</xliff:g> ਹਫ਼ਤੇ</item>
+      <item quantity="other"><xliff:g id="COUNT">%d</xliff:g> ਹਫ਼ਤੇ</item>
+    </plurals>
+    <plurals name="month_count" formatted="false" msgid="4858515363324110232">
+      <item quantity="one"><xliff:g id="COUNT">%d</xliff:g> ਮਹੀਨੇ</item>
+      <item quantity="other"><xliff:g id="COUNT">%d</xliff:g> ਮਹੀਨੇ</item>
+    </plurals>
+    <plurals name="year_count" formatted="false" msgid="4522546496183798317">
+      <item quantity="one"><xliff:g id="COUNT">%d</xliff:g> ਸਾਲ</item>
+      <item quantity="other"><xliff:g id="COUNT">%d</xliff:g> ਸਾਲ</item>
+    </plurals>
+    <string name="class_0_message_activity" msgid="4603850264073169854">"ਕਲਾਸ 0 ਸੁਨੇਹਾ"</string>
+    <string name="save" msgid="5081141452059463572">"ਸੁਰੱਖਿਅਤ ਕਰੋ"</string>
+    <string name="sms_storage_low_auto_delete_enabled_dialog_text" msgid="8836401937872068406">"ਡਿਵਾਈਸ ਵਿੱਚ ਘੱਟ ਸਪੇਸ ਹੈ। Messaging ਆਟੋਮੈਟਿਕਲੀ ਸਪੇਸ ਖਾਲੀ ਕਰਨ ਲਈ ਪੁਰਾਣੇ ਸੁਨੇਹੇ ਮਿਟਾ ਦੇਵੇਗਾ।"</string>
+    <string name="sms_storage_low_title" msgid="7985379565293259177">"ਸਟੋਰੇਜ ਸਪੇਸ ਖ਼ਤਮ ਹੋ ਰਿਹਾ ਹੈ"</string>
+    <string name="sms_storage_low_text" msgid="7036247475855447830">"Messaging ਸੁਨੇਹੇ ਭੇਜ ਜਾਂ ਪ੍ਰਾਪਤ ਨਹੀਂ ਕਰ ਸਕਦਾ ਜਦੋਂ ਤੱਕ ਕਿ ਤੁਹਾਡੀ ਡਿਵਾਈਸ ਤੇ ਹੋਰ ਸਪੇਸ ਉਪਲਬਧ ਨਾ ਹੋਵੇ।"</string>
+    <string name="sms_storage_low_notification_ticker" msgid="2393739822170029830">"ਘੱਟ SMS ਸਟੋਰੇਜ। ਤੁਹਾਨੂੰ ਸੁਨੇਹੇ ਮਿਟਾਉਣ ਦੀ ਲੋੜ ਪੈ ਸਕਦੀ ਹੈ।"</string>
+    <string name="enter_phone_number_title" msgid="7263355879949248448">"ਆਪਣੇ ਫੋਨ ਨੰਬਰ ਦੀ ਪੁਸ਼ਟੀ ਕਰੋ"</string>
+    <string name="enter_phone_number_text" msgid="4539767473801195966">"ਇਹ ਵਨ-ਟਾਈਮ ਸਟੈਪ ਯਕੀਨੀ ਬਣਾਏਗਾ ਕਿ Messaging ਤੁਹਾਡੇ ਸਮੂਹ ਦੇ ਸੁਨੇਹੇ ਸਹੀ ਢੰਗ ਨਾਲ ਡਿਲੀਵਰ ਕਰੇਗਾ।"</string>
+    <string name="enter_phone_number_hint" msgid="6242965213882272822">"ਫੋਨ ਨੰਬਰ"</string>
+    <string name="delete_all_media" msgid="5549693176734564386">"ਮੀਡੀਆ ਵਾਲੇ ਸਾਰੇ ਸੁਨੇਹੇ ਮਿਟਾਓ"</string>
+    <string name="delete_oldest_messages" msgid="9204277306804390707">"<xliff:g id="DURATION">%s</xliff:g> ਤੋਂ ਪੁਰਾਣੇ ਸੁਨੇਹੇ ਮਿਟਾਓ"</string>
+    <string name="auto_delete_oldest_messages" msgid="7766679943833404968">"<xliff:g id="DURATION">%s</xliff:g> ਤੋਂ ਪੁਰਾਣੇ ਸੁਨੇਹੇ ਆਟੋ-ਮਿਟਾਓ"</string>
+    <string name="ignore" msgid="7063392681130898793">"ਅਣਡਿੱਠ ਕਰੋ"</string>
+    <string name="delete_all_media_confirmation" msgid="4601960420953525559">"ਕੀ ਮੀਡੀਆ ਵਾਲੇ ਸਾਰੇ ਸੁਨੇਹੇ ਮਿਟਾਉਣੇ ਹਨ?"</string>
+    <string name="delete_oldest_messages_confirmation" msgid="6172297718425265784">"ਕੀ <xliff:g id="DURATION">%s</xliff:g> ਤੋਂ ਪੁਰਾਣੇ ਸੁਨੇਹੇ ਮਿਟਾਉਣੇ ਹਨ?"</string>
+    <string name="auto_delete_oldest_messages_confirmation" msgid="9071499976729145269">"ਕੀ <xliff:g id="DURATION">%s</xliff:g> ਤੋਂ ਪੁਰਾਣੇ ਸੁਨੇਹੇ ਮਿਟਾਉਣੇ ਹਨ ਅਤੇ ਆਟੋ-ਮਿਟਾਓ ਨੂੰ ਚਾਲੂ ਕਰਨਾ ਹੈ?"</string>
+    <string name="incoming_text_sender_content_description" msgid="2481078288502342745">"<xliff:g id="SENDER">%s</xliff:g> ਨੇ ਕਿਹਾ"</string>
+    <string name="outgoing_text_sender_content_description" msgid="3492116976256510272">"ਤੁਸੀਂ ਕਿਹਾ"</string>
+    <string name="incoming_sender_content_description" msgid="7512757244515303701">"<xliff:g id="SENDER">%s</xliff:g> ਦਾ ਸੁਨੇਹਾ"</string>
+    <string name="outgoing_sender_content_description" msgid="5983163141994434778">"ਤੁਸੀਂ ਇੱਕ ਸੁਨੇਹਾ ਭੇਜਿਆ"</string>
+    <string name="message_status_sending" msgid="3306260780518886107">"ਭੇਜ ਰਿਹਾ ਹੈ..."</string>
+    <string name="message_status_send_failed" msgid="5443627648028194631">"ਨਹੀਂ ਭੇਜਿਆ। ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰਨ ਲਈ ਛੋਹਵੋ।"</string>
+    <string name="message_status_send_retrying" msgid="650840088043267981">"ਨਹੀਂ ਭੇਜਿਆ। ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰ ਰਿਹਾ ਹੈ..."</string>
+    <string name="message_status_resend" msgid="7718458416521355708">"ਦੁਬਾਰਾ ਭੇਜੋ ਜਾਂ ਮਿਟਾਓ"</string>
+    <string name="message_status_send_failed_emergency_number" msgid="1738854184297159948">"ਕਿਰਪਾ ਕਰਕੇ ਐਮਰਜੈਂਸੀ ਸੇਵਾਵਾਂ ਨੂੰ ਇੱਕ ਵੌਇਸ ਕਾਲ ਕਰੋ। ਤੁਹਾਡਾ ਟੈਕਸਟ ਸੁਨੇਹਾ ਇਸ ਵੇਲੇ ਡਿਲੀਵਰ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕੇਗਾ।"</string>
+    <string name="message_status_failed" msgid="8009695010381848311">"ਅਸਫਲ"</string>
+    <string name="message_title_manual_download" msgid="2761223322277801061">"ਡਾਊਨਲੋਡ ਕਰਨ ਲਈ ਨਵਾਂ MMS ਸੁਨੇਹਾ"</string>
+    <string name="message_title_downloading" msgid="6418481644146460124">"ਨਵਾਂ MMS ਸੁਨੇਹਾ"</string>
+    <string name="message_title_download_failed" msgid="3867223594671090459">"ਡਾਊਨਲੋਡ ਨਹੀਂ ਕਰ ਸਕਿਆ"</string>
+    <string name="message_status_download_failed" msgid="7298035414448355842">"ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰਨ ਲਈ ਛੋਹਵੋ"</string>
+    <string name="message_status_download" msgid="6527275493954932656">"ਡਾਊਨਲੋਡ ਕਰਨ ਲਈ ਛੋਹਵੋ"</string>
+    <string name="message_status_download_action" msgid="285219832844160">"ਡਾਊਨਲੋਡ ਕਰੋ ਜਾਂ ਮਿਟਾਓ"</string>
+    <string name="message_status_downloading" msgid="7159807805159805428">"ਡਾਊਨਲੋਡ ਕਰ ਰਿਹਾ ਹੈ..."</string>
+    <string name="message_status_download_error" msgid="6957738686287397519">"ਸੁਨੇਹੇ ਦੀ ਮਿਆਦ ਪੁੱਗੀ ਜਾਂ ਉਪਲਬਧ ਨਹੀਂ"</string>
+    <string name="mms_info" msgid="3402311750134118165">"ਆਕਾਰ: <xliff:g id="MESSAGESIZE">%1$s</xliff:g>, ਮਿਆਦ ਪੁੱਗਣ ਦਾ ਸਮਾਂ: <xliff:g id="MESSAGEEXPIRE">%2$s</xliff:g>"</string>
+    <string name="invalid_destination" msgid="8214889988397524630">"ਭੇਜ ਨਹੀਂ ਸਕਦਾ। ਪ੍ਰਾਪਤਕਰਤਾ ਪ੍ਰਮਾਣਿਕ ਨਹੀਂ ਹੈ।"</string>
+    <string name="service_not_activated" msgid="5512558652052977817">"ਨੈਟਵਰਕ ਤੇ ਸੇਵਾ ਸਕਿਰਿਆ ਨਹੀਂ ਕੀਤੀ"</string>
+    <string name="service_network_problem" msgid="3765738916704013318">"ਨੈਟਵਰਕ ਸਮੱਸਿਆ ਦੇ ਕਾਰਨ ਨਹੀਂ ਭੇਜ ਸਕਿਆ"</string>
+    <string name="service_message_not_found" msgid="8350935323904134751">"ਸੁਨੇਹੇ ਦੀ ਮਿਆਦ ਪੁੱਗੀ ਜਾਂ ਉਪਲਬਧ ਨਹੀਂ"</string>
+    <string name="no_subject" msgid="5587715902648568767">"(ਕੋਈ ਵਿਸ਼ਾ ਨਹੀਂ)"</string>
+    <string name="unknown_sender" msgid="504272434917395677">"ਅਗਿਆਤ ਭੇਜਣ ਵਾਲਾ"</string>
+    <string name="delivered_status_content_description" msgid="3433965196058436991">"ਡਿਲੀਵਰ ਕੀਤਾ"</string>
+    <string name="dl_failure_notification" msgid="8744588243554006189">"<xliff:g id="FROM">%2$s</xliff:g> ਦਾ <xliff:g id="SUBJECT">%1$s</xliff:g> ਸੁਨੇਹਾ ਡਾਊਨਲੋਡ ਨਹੀਂ ਕਰ ਸਕਿਆ।"</string>
+    <string name="low_memory" msgid="5300743415198486619">"ਘੱਟ ਮੈਮਰੀ ਦੇ ਕਾਰਨ ਡਾਟਾਬੇਸ ਓਪਰੇਸ਼ਨ ਪੂਰਾ ਨਹੀਂ ਕਰ ਸਕਿਆ"</string>
+    <string name="notification_send_failures_line1_singular" msgid="6783835440207655217">"ਸੁਨੇਹਾ ਨਹੀਂ ਭੇਜਿਆ ਗਿਆ"</string>
+    <string name="notification_send_failures_line1_plural" msgid="7228944748028969272">"ਕੁਝ ਸੁਨੇਹੇ Messaging ਵਿੱਚ ਨਹੀਂ ਭੇਜੇ ਗਏ ਹਨ"</string>
+    <plurals name="notification_send_failures" formatted="false" msgid="6938919932879650691">
+      <item quantity="one"> <xliff:g id="CONVERSATIONS">%d</xliff:g> ਗੱਲਬਾਤਾਂ ਵਿੱਚ <xliff:g id="MESSAGES_1">%d</xliff:g> ਸੁਨੇਹੇ</item>
+      <item quantity="other"> <xliff:g id="CONVERSATIONS">%d</xliff:g> ਗੱਲਬਾਤਾਂ ਵਿੱਚ <xliff:g id="MESSAGES_1">%d</xliff:g> ਸੁਨੇਹੇ</item>
+    </plurals>
+    <string name="notification_download_failures_line1_singular" msgid="4424772073720626885">"ਸੁਨੇਹਾ ਡਾਉਨਲੋਡ ਨਹੀਂ ਕੀਤਾ ਗਿਆ"</string>
+    <string name="notification_download_failures_line1_plural" msgid="1697982467160426345">"ਕੁਝ ਸੁਨੇਹੇ Messaging ਵਿੱਚ ਡਾਊਨਲੋਡ ਨਹੀਂ ਕੀਤੇ ਗਏ ਹਨ"</string>
+    <plurals name="notification_download_failures" formatted="false" msgid="5341490525457911398">
+      <item quantity="one"> <xliff:g id="CONVERSATIONS">%d</xliff:g> ਗੱਲਬਾਤਾਂ ਵਿੱਚ <xliff:g id="MESSAGES_1">%d</xliff:g> ਸੁਨੇਹੇ</item>
+      <item quantity="other"> <xliff:g id="CONVERSATIONS">%d</xliff:g> ਗੱਲਬਾਤਾਂ ਵਿੱਚ <xliff:g id="MESSAGES_1">%d</xliff:g> ਸੁਨੇਹੇ</item>
+    </plurals>
+    <string name="notification_emergency_send_failure_line1" msgid="6311715277789488996">"<xliff:g id="NUMBER">%1$s</xliff:g> ਨੂੰ ਸੁਨੇਹਾ ਨਹੀਂ ਭੇਜਿਆ ਗਿਆ"</string>
+    <string name="notification_emergency_send_failure_line2" msgid="6461481033351036996">"ਕਿਰਪਾ ਕਰਕੇ ਐਮਰਜੈਂਸੀ ਸੇਵਾਵਾਂ ਨੂੰ ਇੱਕ ਵੌਇਸ ਕਾਲ ਕਰੋ। ਤੁਹਾਡਾ ਟੈਕਸਟ ਸੁਨੇਹਾ ਇਸ ਵੇਲੇ <xliff:g id="NUMBER">%1$s</xliff:g> ਨੂੰ ਡਿਲੀਵਰ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕੇਗਾ।"</string>
+    <plurals name="notification_new_messages" formatted="false" msgid="610594317958128842">
+      <item quantity="one"><xliff:g id="MESSAGES">%d</xliff:g> ਨਵੇਂ ਸੁੁਨੇਹੇ</item>
+      <item quantity="other"><xliff:g id="MESSAGES">%d</xliff:g> ਨਵੇਂ ਸੁੁਨੇਹੇ</item>
+    </plurals>
+    <string name="start_conversation" msgid="7984539515326392793">"ਚਾਲੂ ਕਰੋ"</string>
+    <string name="camera_error_opening" msgid="2739332294400420426">"ਕੈਮਰਾ ਉਪਲਬਧ ਨਹੀਂ"</string>
+    <string name="camera_error_unknown" msgid="4283956364220459608">"ਕੈਮਰਾ ਉਪਲਬਧ ਨਹੀਂ"</string>
+    <string name="camera_error_video_init_fail" msgid="994632067015578879">"ਵੀਡੀਓ ਕੈਪਚਰ ਉਪਲਬਧ ਨਹੀਂ"</string>
+    <string name="camera_error_storage_fail" msgid="5536300789483863989">"ਮੀਡੀਆ ਨੂੰ ਸੁਰੱਖਿਅਤ ਨਹੀਂ ਕਰ ਸਕਦਾ"</string>
+    <string name="camera_error_failure_taking_picture" msgid="4894133709734862250">"ਤਸਵੀਰ ਨਹੀਂ ਲੈ ਸਕਦਾ"</string>
+    <string name="back" msgid="1477626055115561645">"ਪਿੱਛੇ"</string>
+    <string name="action_menu_show_archived" msgid="1628518043533374868">"ਆਰਕਾਈਵ ਕੀਤਾ"</string>
+    <string name="action_delete" msgid="4076795795307486019">"ਮਿਟਾਓ"</string>
+    <string name="action_archive" msgid="5437034800324083170">"ਆਰਕਾਈਵ ਕਰੋ"</string>
+    <string name="action_unarchive" msgid="139681611159869493">"ਅਨਆਰਕਾਈਵ ਕਰੋ"</string>
+    <string name="action_notification_off" msgid="4823658797441716246">"ਸੂਚਨਾਵਾਂ ਬੰਦ ਕਰੋ"</string>
+    <string name="action_notification_on" msgid="8244389452685364211">"ਸੂਚਨਾਵਾਂ ਚਾਲੂ ਕਰੋ"</string>
+    <string name="action_add_contact" msgid="8248615862739848672">"ਸੰਪਰਕ ਜੋੜੋ"</string>
+    <string name="action_download" msgid="7786338136368564146">"ਡਾਊਨਲੋਡ ਕਰੋ"</string>
+    <string name="action_send" msgid="377635240181672039">"ਭੇਜੋ"</string>
+    <string name="action_delete_message" msgid="2728883749416365507">"ਮਿਟਾਓ"</string>
+    <string name="delete_message_confirmation_dialog_title" msgid="4723834210275712001">"ਕੀ ਇਹ ਸੁਨੇਹਾ ਮਿਟਾਉਣਾ ਹੈ?"</string>
+    <string name="delete_message_confirmation_dialog_text" msgid="3952533622691031375">"ਇਹ ਕਿਰਿਆ ਨਸ਼ਟ ਨਹੀਂ ਕੀਤੀ ਜਾ ਸਕਦੀ।"</string>
+    <string name="delete_message_confirmation_button" msgid="3888584614972573382">"ਮਿਟਾਓ"</string>
+    <plurals name="delete_conversations_confirmation_dialog_title" formatted="false" msgid="2285567882353326800">
+      <item quantity="one">ਕੀ ਇਹ ਗੱਲਬਾਤਾਂ ਮਿਟਾਉਣੀਆਂ ਹਨ?</item>
+      <item quantity="other">ਕੀ ਇਹ ਗੱਲਬਾਤਾਂ ਮਿਟਾਉਣੀਆਂ ਹਨ?</item>
+    </plurals>
+    <string name="delete_conversation_confirmation_button" msgid="744574085809600863">"ਮਿਟਾਓ"</string>
+    <string name="delete_conversation_decline_button" msgid="5470021965641900456">"ਰੱਦ ਕਰੋ"</string>
+    <string name="recipient_hint" msgid="1819710673158265515">"ਵੱਲ"</string>
+    <string name="action_multiselect" msgid="1219683118692013380">"ਮਲਟੀਪਲ ਚਿੱਤਰ ਚੁਣੋ"</string>
+    <string name="action_confirm_multiselect" msgid="8283370294120913166">"ਚੋਣ ਦੀ ਪੁਸ਼ਟੀ ਕਰੋ"</string>
+    <string name="attachment_more_items" msgid="2861573099241369958">"+<xliff:g id="COUNT">%d</xliff:g>"</string>
+    <string name="audio_recording_start_failed" msgid="4442450764642560851">"ਔਡੀਓ ਰਿਕਾਰਡ ਨਹੀਂ ਕਰ ਸਕਦਾ। ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।"</string>
+    <string name="audio_recording_replay_failed" msgid="3585760856463273828">"ਔਡੀਓ ਪਲੇ ਨਹੀਂ ਕਰ ਸਕਦਾ। ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।"</string>
+    <string name="audio_recording_error" msgid="7762310055059024872">"ਔਡੀਓ ਸੁਰੱਖਿਅਤ ਨਹੀਂ ਕਰ ਸਕਿਆ। ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।"</string>
+    <string name="audio_picker_hint_text" msgid="6986250080467111491">"ਛੋਹਵੋ &amp; ਹੋਲਡ ਕਰੋ"</string>
+    <string name="enumeration_comma" msgid="7032804261692931808">", "</string>
+    <string name="notification_separator" msgid="3472521786709813414">"  "</string>
+    <string name="notification_ticker_separator" msgid="2027929074008933906">": "</string>
+    <string name="notification_space_separator" msgid="9007689386066977972">"  "</string>
+    <string name="notification_picture" msgid="1176665337098921822">"ਤਸਵੀਰ"</string>
+    <string name="notification_audio" msgid="5926581589398218150">"ਔਡੀਓ ਕਲਿਪ"</string>
+    <string name="notification_video" msgid="4331423498662606204">"ਵੀਡੀਓ"</string>
+    <string name="notification_vcard" msgid="7658061674440552878">"ਸੰਪਰਕ ਕਾਰਡ"</string>
+    <string name="notification_download_mms" msgid="6206807985355359528">"ਡਾਊਨਲੋਡ ਕਰੋ"</string>
+    <string name="notification_reply_via_sms" msgid="6990127304684161722">"SMS ਰਾਹੀਂ ਜਵਾਬ"</string>
+    <string name="notification_reply_via_mms" msgid="6706012871186064035">"MMS ਰਾਹੀਂ ਜਵਾਬ"</string>
+    <string name="notification_reply_prompt" msgid="1836023392294480241">"ਜਵਾਬ"</string>
+    <plurals name="wearable_participant_count" formatted="false" msgid="3037889420270036143">
+      <item quantity="one"><xliff:g id="COUNT_1">%d</xliff:g> ਭਾਗੀਦਾਰ</item>
+      <item quantity="other"><xliff:g id="COUNT_1">%d</xliff:g> ਭਾਗੀਦਾਰ</item>
+    </plurals>
+    <string name="unknown_self_participant" msgid="3186565052350548852">"ਮੈਂ"</string>
+    <string name="blocked_toast_message" msgid="7903364256385612569">"ਬਲੌਕ ਕੀਤਾ &amp; ਆਰਕਾਈਵ ਕੀਤਾ ਸੰਪਰਕ"</string>
+    <string name="unblocked_toast_message" msgid="4927617874263586622">"ਸੰਪਰਕ ਅਨਬਲੌਕ ਕੀਤਾ &amp; ਅਨਆਰਕਾਈਵ ਕੀਤਾ"</string>
+    <string name="archived_toast_message" msgid="8109348891515322512">"<xliff:g id="COUNT">%d</xliff:g> ਆਰਕਾਈਵ ਕੀਤੀਆਂ"</string>
+    <string name="unarchived_toast_message" msgid="5010777423084203833">"<xliff:g id="COUNT">%d</xliff:g> ਅਨਆਰਕਾਈਵ ਕੀਤੀਆਂ"</string>
+    <string name="notification_off_toast_message" msgid="5203458459139408265">"ਸੂਚਨਾਵਾਂ ਬੰਦ ਕੀਤੀਆਂ"</string>
+    <string name="notification_on_toast_message" msgid="1240626023754746310">"ਸੂਚਨਾਵਾਂ ਚਾਲੂ ਕੀਤੀਆਂ"</string>
+    <string name="toast_after_setting_default_sms_app_for_message_send" msgid="2767997591700713113">"ਸਾਰੇ ਸੈਟ ਕੀਤੇ। ਭੇਜੋ ਨੂੰ ਦੁਬਾਰਾ ਛੋਹਵੋ।"</string>
+    <string name="toast_after_setting_default_sms_app" msgid="2923745971897322476">"Messaging ਡਿਫੌਲਟ SMS ਐਪਸ ਦੇ ਤੌਰ ਤੇ ਸਫਲਤਾਪੂਰਵਕ ਸੈਟ ਕੀਤਾ ਗਿਆ।"</string>
+    <plurals name="attachment_preview_close_content_description" formatted="false" msgid="5631719319690969981">
+      <item quantity="one">ਅਟੈਚਮੈਂਟਾਂ ਬਰਖਾਸਤ ਕਰੋ</item>
+      <item quantity="other">ਅਟੈਚਮੈਂਟਾਂ ਬਰਖਾਸਤ ਕਰੋ</item>
+    </plurals>
+    <string name="audio_attachment_content_description" msgid="499334244765270108">"ਔਡੀਓ ਅਟੈਚਮੈਂਟ"</string>
+    <string name="audio_play_content_description" msgid="4932509227281251607">"ਔਡੀਓ ਅਟੈਚਮੈਂਟ ਪਲੇ ਕਰੋ"</string>
+    <string name="audio_pause_content_description" msgid="7578169887065513701">"ਰੋਕੋ"</string>
+    <string name="incoming_message_announcement" msgid="6369259405539452011">"<xliff:g id="SENDER">%s</xliff:g> ਦਾ ਸੁਨੇਹਾ: <xliff:g id="MESSAGE">%s</xliff:g>।"</string>
+    <string name="one_on_one_incoming_failed_message_prefix" msgid="6985644411445605747">"<xliff:g id="SENDER">%s</xliff:g> ਦਾ ਸੁਨੇਹਾ ਅਸਫਲ: <xliff:g id="MESSAGE">%s</xliff:g>। ਸਮਾਂ: <xliff:g id="TIME">%s</xliff:g>।"</string>
+    <string name="one_on_one_incoming_successful_message_prefix" msgid="6190814597935995703">"<xliff:g id="SENDER">%s</xliff:g> ਦਾ ਸੁਨੇਹਾ: <xliff:g id="MESSAGE">%s</xliff:g>। ਸਮਾਂ: <xliff:g id="TIME">%s</xliff:g>।"</string>
+    <string name="one_on_one_outgoing_draft_message_prefix" msgid="8721053088385740646">"<xliff:g id="CONTACT">%s</xliff:g> ਨੂੰ ਨਾ ਭੇਜਿਆ ਗਿਆ ਸੁਨੇਹਾ: <xliff:g id="MESSAGE">%s</xliff:g>। Time: <xliff:g id="TIME">%s</xliff:g>।"</string>
+    <string name="one_on_one_outgoing_sending_message_prefix" msgid="3929653530203574220">"<xliff:g id="CONTACT">%s</xliff:g> ਨੂੰ ਸੁਨੇਹਾ ਭੇਜ ਰਿਹਾ ਹੈ: <xliff:g id="MESSAGE">%s</xliff:g>। ਸਮਾਂ: <xliff:g id="TIME">%s</xliff:g>।"</string>
+    <string name="one_on_one_outgoing_failed_message_prefix" msgid="7194065651879454314">"<xliff:g id="CONTACT">%s</xliff:g> ਨੂੰ ਸੁਨੇਹਾ ਭੇਜਣਾ ਅਸਫਲ: <xliff:g id="MESSAGE">%s</xliff:g>। ਸਮਾਂ: <xliff:g id="TIME">%s</xliff:g>।"</string>
+    <string name="one_on_one_outgoing_successful_message_prefix" msgid="7128492863867327814">"<xliff:g id="CONTACT">%s</xliff:g> ਨੂੰ ਸੁਨੇਹਾ: <xliff:g id="MESSAGE">%s</xliff:g>। ਸਮਾਂ: <xliff:g id="TIME">%s</xliff:g>।"</string>
+    <string name="group_incoming_failed_message_prefix" msgid="7085805237707481779">"<xliff:g id="SENDER">%s</xliff:g> ਦਾ ਸੁਨੇਹਾ ਅਸਫਲ: <xliff:g id="MESSAGE">%s</xliff:g>। ਸਮਾਂ: <xliff:g id="TIME">%s</xliff:g>। <xliff:g id="GROUPINFO">%s</xliff:g>।"</string>
+    <string name="group_incoming_successful_message_prefix" msgid="7248506967059447054">"<xliff:g id="SENDER">%s</xliff:g> ਦਾ ਸੁਨੇਹਾ: <xliff:g id="MESSAGE">%s</xliff:g>. ਸਮਾਂ: <xliff:g id="TIME">%s</xliff:g>। <xliff:g id="GROUPINFO">%s</xliff:g>।"</string>
+    <string name="group_outgoing_draft_message_prefix" msgid="1655013812805454648">"<xliff:g id="GROUP">%s</xliff:g> ਨੂੰ ਨਾ ਭੇਜਿਆ ਗਿਆ ਸੁਨੇਹਾ: <xliff:g id="MESSAGE">%s</xliff:g>। ਸਮਾਂ: <xliff:g id="TIME">%s</xliff:g>।"</string>
+    <string name="group_outgoing_sending_message_prefix" msgid="7636874745414695556">"<xliff:g id="GROUP">%s</xliff:g> ਨੂੰ ਸੁਨੇਹਾ ਭੇਜ ਰਿਹਾ ਹੈ: <xliff:g id="MESSAGE">%s</xliff:g>। ਸਮਾਂ: <xliff:g id="TIME">%s</xliff:g>।"</string>
+    <string name="group_outgoing_failed_message_prefix" msgid="5059983340377901592">"<xliff:g id="GROUP">%s</xliff:g> ਨੂੰ ਸੁਨੇਹਾ ਭੇਜਣਾ ਅਸਫਲ: <xliff:g id="MESSAGE">%s</xliff:g>। ਸਮਾਂ: <xliff:g id="TIME">%s</xliff:g>।"</string>
+    <string name="group_outgoing_successful_message_prefix" msgid="1593702642852987920">"<xliff:g id="GROUP">%s</xliff:g> ਨੂੰ ਸੁਨੇਹਾ: <xliff:g id="MESSAGE">%s</xliff:g>। ਸਮਾਂ: <xliff:g id="TIME">%s</xliff:g>।"</string>
+    <string name="failed_message_content_description" msgid="7047161648867054936">"ਸੁਨੇਹਾ ਅਸਫਲ। ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰਨ ਲਈ ਛੋਹਵੋ।"</string>
+    <string name="group_conversation_description" msgid="2339270924401184182">"<xliff:g id="PARTICIPANTS">%s</xliff:g> ਨਾਲ ਗੱਲਬਾਤ ਕਰੋ"</string>
+    <string name="delete_subject_content_description" msgid="8910749398836396698">"ਵਿਸ਼ਾ ਹਟਾਓ"</string>
+    <string name="camera_switch_to_video_mode" msgid="2926868205952641428">"ਵੀਡੀਓ ਕੈਪਚਰ ਕਰੋ"</string>
+    <string name="camera_switch_to_still_mode" msgid="4419617715199157958">"ਇੱਕ ਸਟਿਲ ਚਿੱਤਰ ਕੈਪਚਰ ਕਰੋ"</string>
+    <string name="camera_take_picture" msgid="2573317952200799489">"ਤਸਵੀਰ ਲਓ"</string>
+    <string name="camera_start_recording" msgid="1736478301191221786">"ਵੀਡੀਓ ਰਿਕਾਰਡ ਕਰਨਾ ਚਾਲੂ ਕਰੋ"</string>
+    <string name="camera_switch_full_screen" msgid="6156039742035097276">"ਪੂਰੀ ਸਕ੍ਰੀਨ ਕੈਮਰਾ ਤੇ ਸਵਿਚ ਕਰੋ"</string>
+    <string name="camera_switch_camera_facing" msgid="1566112129296559159">"ਫ੍ਰੰਟ ਅਤੇ ਬੈਕ ਕੈਮਰਾ ਵਿਚਕਾਰ ਸਵਿਚ ਕਰੋ"</string>
+    <string name="camera_stop_recording" msgid="5331592576107271152">"ਰਿਕਾਰਡਿੰਗ ਰੋਕੋ ਅਤੇ ਵੀਡੀਓ ਅਟੈਚ ਕਰੋ"</string>
+    <string name="camera_cancel_recording" msgid="6431544304743145818">"ਵੀਡੀਓ ਰਿਕਾਰਡ ਕਰਨਾ ਰੋਕੋ"</string>
+    <string name="photo_view_activity_title" msgid="6556006393051918135">"Messaging ਫੋਟੋਆਂ"</string>
+    <plurals name="photos_saved_to_album" formatted="false" msgid="7529478299745446838">
+      <item quantity="one"><xliff:g id="QUANTITY_2">%d</xliff:g> ਫੋਟੋਆਂ ਨੂੰ \"<xliff:g id="ALBUMNAME_3">%s</xliff:g>\" ਐਲਬਮ ਵਿੱਚ ਸੁਰੱਖਿਅਤ ਕੀਤਾ ਗਿਆ</item>
+      <item quantity="other"><xliff:g id="QUANTITY_2">%d</xliff:g> ਫੋਟੋਆਂ ਨੂੰ \"<xliff:g id="ALBUMNAME_3">%s</xliff:g>\" ਐਲਬਮ ਵਿੱਚ ਸੁਰੱਖਿਅਤ ਕੀਤਾ ਗਿਆ</item>
+    </plurals>
+    <plurals name="videos_saved_to_album" formatted="false" msgid="6821121808257576788">
+      <item quantity="one"><xliff:g id="QUANTITY_2">%d</xliff:g> ਵੀਡਿਓ ਨੂੰ \"<xliff:g id="ALBUMNAME_3">%s</xliff:g>\" ਐਲਬਮ ਵਿੱਚ ਸੁਰੱਖਿਅਤ ਕੀਤਾ ਗਿਆ</item>
+      <item quantity="other"><xliff:g id="QUANTITY_2">%d</xliff:g> ਵੀਡਿਓ ਨੂੰ \"<xliff:g id="ALBUMNAME_3">%s</xliff:g>\" ਐਲਬਮ ਵਿੱਚ ਸੁਰੱਖਿਅਤ ਕੀਤਾ ਗਿਆ</item>
+    </plurals>
+    <plurals name="attachments_saved_to_album" formatted="false" msgid="8407480699515308929">
+      <item quantity="one"><xliff:g id="QUANTITY_2">%d</xliff:g> ਅਟੈਚਮੈਂਟਾਂ ਨੂੰ \"<xliff:g id="ALBUMNAME_3">%s</xliff:g>\" ਐਲਬਮ ਵਿੱਚ ਸੁਰੱਖਿਅਤ ਕੀਤਾ ਗਿਆ</item>
+      <item quantity="other"><xliff:g id="QUANTITY_2">%d</xliff:g> ਅਟੈਚਮੈਂਟਾਂ ਨੂੰ \"<xliff:g id="ALBUMNAME_3">%s</xliff:g>\" ਐਲਬਮ ਵਿੱਚ ਸੁਰੱਖਿਅਤ ਕੀਤਾ ਗਿਆ</item>
+    </plurals>
+    <plurals name="attachments_saved_to_downloads" formatted="false" msgid="1886864019411801995">
+      <item quantity="one"><xliff:g id="QUANTITY_1">%d</xliff:g> ਅਟੈਚਮੈਂਟਾਂ ਡਾਊਨਲੋਡਸ\" ਵਿੱਚ ਸੁਰੱਖਿਅਤ ਕੀਤੀਆਂ ਗਈਆਂ</item>
+      <item quantity="other"><xliff:g id="QUANTITY_1">%d</xliff:g> ਅਟੈਚਮੈਂਟਾਂ ਡਾਊਨਲੋਡਸ\" ਵਿੱਚ ਸੁਰੱਖਿਅਤ ਕੀਤੀਆਂ ਗਈਆਂ</item>
+    </plurals>
+    <plurals name="attachments_saved" formatted="false" msgid="6925000482183379648">
+      <item quantity="one"><xliff:g id="QUANTITY_1">%d</xliff:g> ਅਟੈਚਮੈਂਟਾਂ ਸੁਰੱਖਿਅਤ ਕੀਤੀਆਂ</item>
+      <item quantity="other"><xliff:g id="QUANTITY_1">%d</xliff:g> ਅਟੈਚਮੈਂਟਾਂ ਸੁਰੱਖਿਅਤ ਕੀਤੀਆਂ</item>
+    </plurals>
+    <plurals name="attachment_save_error" formatted="false" msgid="2068837227090109833">
+      <item quantity="one"> <xliff:g id="QUANTITY_1">%d</xliff:g> ਅਟੈਚਮੈਂਟਾਂ ਨੂੰ ਸੁੁਰੱਖਿਅਤ ਨਹੀਂ ਕਰ ਸਕਿਆ</item>
+      <item quantity="other"> <xliff:g id="QUANTITY_1">%d</xliff:g> ਅਟੈਚਮੈਂਟਾਂ ਨੂੰ ਸੁੁਰੱਖਿਅਤ ਨਹੀਂ ਕਰ ਸਕਿਆ</item>
+    </plurals>
+    <string name="attachment_file_description" msgid="3056972820372291694">"ਸੁਰੱਖਿਅਤ ਕੀਤੀ MMS ਅਟੈਚਮੈਂਟ"</string>
+    <string name="settings_activity_title" msgid="3380813834835334258">"ਸੈਟਿੰਗਾਂ"</string>
+    <string name="archived_activity_title" msgid="4738212324460451188">"ਆਰਕਾਈਵ ਕੀਤਾ"</string>
+    <string name="action_close" msgid="1840519376200478419">"ਬੰਦ ਕਰੋ"</string>
+    <string name="mms_messaging_category_pref_title" msgid="4816815152658525660">"MMS"</string>
+    <string name="advanced_category_pref_title" msgid="6411454224069259687">"ਉੱਨਤ"</string>
+    <string name="debug_category_pref_title" msgid="8765138968242505061">"ਡੀਬਗ ਕਰੋ"</string>
+    <string name="notifications_enabled_pref_title" msgid="4127288731844373795">"ਸੂਚਨਾਵਾਂ"</string>
+    <string name="notification_sound_pref_title" msgid="3685506528957337849">"ਅਵਾਜ਼"</string>
+    <string name="silent_ringtone" msgid="8073534180322059814">"ਸਾਈਲੈਂਟ"</string>
+    <string name="notification_vibrate_pref_title" msgid="6668564570045187390">"ਵਾਈਬ੍ਰੇਟ"</string>
+    <string name="blocked_pref_title" msgid="2560554234438548817">"ਬਲੌਕ ਕੀਤਾ"</string>
+    <string name="delivery_reports_pref_title" msgid="5115727259825309087">"SMS ਡਿਲੀਵਰੀ ਰਿਪੋਰਟਾਂ"</string>
+    <string name="delivery_reports_pref_summary" msgid="4272502420621500421">"ਤੁਸੀਂ ਜੋ ਵੀ SMS ਭੇਜੋ ਉਸ ਹਰੇਕ ਲਈ ਇੱਕ ਡਿਲੀਵਰੀ ਰਿਪੋਰਟ ਦੀ ਬੇਨਤੀ ਕਰੋ"</string>
+    <string name="auto_retrieve_mms_pref_title" msgid="1316094876978218980">"ਆਟੋ-ਮੁੜ ਪ੍ਰਾਪਤ ਕਰੋ"</string>
+    <string name="auto_retrieve_mms_pref_summary" msgid="2253902455786205335">"ਆਟੋਮੈਟਿਕਲੀ MMS ਸੁਨੇਹੇ ਪ੍ਰਾਪਤ ਕਰੋ"</string>
+    <string name="auto_retrieve_mms_when_roaming_pref_title" msgid="2918775628609759349">"ਰੋਮਿੰਗ ਆਟੋ-ਮੁੜ ਪ੍ਰਾਪਤ ਕਰੋ"</string>
+    <string name="auto_retrieve_mms_when_roaming_pref_summary" msgid="7347177867673486983">"ਰੋਮਿੰਗ ਵੇਲੇ MMS ਆਟੋਮੈਟਿਕਲੀ ਮੁੜ ਪ੍ਰਾਪਤ ਕਰੋ"</string>
+    <string name="group_mms_pref_title" msgid="6553612309209383106">"ਸਮੂਹ ਮੈਸੇਂਜ਼ਿੰਗ"</string>
+    <string name="group_mms_pref_summary" msgid="3758710015912690629">"ਜਦੋਂ ਮਲਟੀਪਲ ਪ੍ਰਾਪਤਕਰਤਾ ਹੋਣ ਤਾਂ ਇੱਕ ਸਿੰਗਲ ਸੁਨੇਹਾ ਭੇਜਣ ਲਈ MMS ਵਰਤੋ"</string>
+    <string name="sms_disabled_pref_title" msgid="6352764741524717132">"ਡਿਫੌਲਟ SMS ਐਪ"</string>
+    <string name="sms_enabled_pref_title" msgid="2961457081888153323">"ਡਿਫੌਲਟ SMS ਐਪ"</string>
+    <!-- no translation found for default_sms_app (3907546126124760465) -->
+    <skip />
+    <string name="mms_phone_number_pref_title" msgid="5445275222817760638">"ਤੁਹਾਡਾ ਫੋਨ ਨੰਬਰ"</string>
+    <string name="unknown_phone_number_pref_display_value" msgid="5191326096424554297">"ਅਗਿਆਤ"</string>
+    <string name="send_sound_pref_title" msgid="6284747469983942370">"ਆਊਟਗੋਇੰਗ ਸੁਨੇਹਾ ਅਵਾਜ਼ਾਂ"</string>
+    <string name="dump_sms_pref_title" msgid="4057657151746557281">"SMS ਡੰਪ ਕਰੋ"</string>
+    <string name="dump_sms_pref_summary" msgid="3694039770323225329">"ਅੰਦਰੂਨੀ ਸਟੋਰੇਜ ਫਾਈਲ ਵਿੱਚ ਪ੍ਰਾਪਤ ਕੀਤਾ SMS ਅਧੂਰਾ ਡਾਟਾ ਡੰਪ ਕਰੋ"</string>
+    <string name="dump_mms_pref_title" msgid="6699074152055891680">"MMS ਡੰਪ ਕਰੋ"</string>
+    <string name="dump_mms_pref_summary" msgid="7901698352188687659">"ਅੰਦਰੂਨੀ ਸਟੋਰੇਜ ਫਾਈਲ ਵਿੱਚ ਪ੍ਰਾਪਤ ਕੀਤਾ MMS ਅਧੂਰਾ ਡਾਟਾ ਡੰਪ ਕਰੋ"</string>
+    <string name="wireless_alerts_title" msgid="8218925605166939654">"ਵਾਇਰਲੈਸ ਚਿਤਾਵਨੀਆਂ"</string>
+    <string name="message_context_menu_title" msgid="5036023289586457642">"ਸੁਨੇਹਾ ਚੋਣਾਂ"</string>
+    <string name="message_context_menu_copy_text" msgid="8241684826917957666">"ਟੈਕਸਟ ਕਾਪੀ ਕਰੋ"</string>
+    <string name="message_context_menu_view_details" msgid="2077089491219912840">"ਵੇਰਵੇ ਦੇਖੋ"</string>
+    <string name="message_context_menu_delete_message" msgid="4924354182554857475">"ਮਿਟਾਓ"</string>
+    <string name="message_context_menu_forward_message" msgid="4848326950037554575">"ਅੱਗੇ ਭੇਜੋ"</string>
+    <string name="message_details_title" msgid="8451487656255395372">"ਸੁਨੇਹਾ ਵੇਰਵੇ"</string>
+    <string name="message_type_label" msgid="6442873901113487978">"ਟਾਈਪ: "</string>
+    <string name="text_message" msgid="7415419755252205721">"ਟੈਕਸਟ ਸੁਨੇਹਾ"</string>
+    <string name="multimedia_message" msgid="2199989099980111684">"ਮਲਟੀਮੀਡੀਆ ਸੁਨੇਹਾ"</string>
+    <string name="from_label" msgid="1947831848146564875">"ਇਸ ਤੋਂ: "</string>
+    <string name="to_address_label" msgid="1816631887533235762">"ਵੱਲ: "</string>
+    <string name="sent_label" msgid="5186286057597137301">"ਭੇਜਿਆ: "</string>
+    <string name="received_label" msgid="4442494712757995203">"ਪ੍ਰਾਪਤ ਕੀਤਾ: "</string>
+    <string name="subject_label" msgid="1887378451808609152">"ਵਿਸ਼ਾ: "</string>
+    <string name="message_size_label" msgid="8840394477993741203">"ਆਕਾਰ: "</string>
+    <string name="priority_label" msgid="5029073794896222902">"ਤਰਜੀਹ: "</string>
+    <string name="sim_label" msgid="2706003016582772108">"SIM: "</string>
+    <string name="priority_high" msgid="728836357310908368">"ਉੱਚ"</string>
+    <string name="priority_normal" msgid="8918221917628753075">"ਸਧਾਰਨ"</string>
+    <string name="priority_low" msgid="7398724779026801851">"ਘੱਟ"</string>
+    <string name="sim_slot_identifier" msgid="5934005977415016295">"SIM <xliff:g id="SIM_SLOT_NUMBER">%s</xliff:g>"</string>
+    <string name="hidden_sender_address" msgid="5054789216911282696">"ਭੇਜਣ ਵਾਲੇ ਦਾ ਪਤਾ ਲੁਕਾਇਆ ਗਿਆ"</string>
+    <string name="cant_send_message_while_loading_attachments" msgid="4301887223941009907">"ਅਟੈਚਮੈਂਟਾਂ ਲੋਡ ਕਰਨ ਵੇਲੇ ਸੁਨੇਹਾ ਨਹੀਂ ਭੇਜ ਸਕਦਾ।"</string>
+    <string name="fail_to_load_attachment" msgid="412233184776827353">"ਅਟੈਚਮੈਂਟ ਲੋਡ ਨਹੀਂ ਕਰ ਸਕਦਾ। ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।"</string>
+    <string name="cant_send_message_without_active_subscription" msgid="7130532514190813716">"ਨੈੱਟਵਰਕ ਤਿਆਰ ਨਹੀਂ ਹੈ। ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।"</string>
+    <string name="chips_text_delete_button_content_description" msgid="123760854728616068">"ਟੈਕਸਟ ਮਿਟਾਓ"</string>
+    <string name="numeric_text_keyboard_toggle_button_content_description" msgid="1403198418131594073">"ਟੈਕਸਟ ਅਤੇ ਨੰਬਰ ਦਰਜ ਕਰਨ ਵਿਚਕਾਰ ਸਵਿਚ ਕਰੋ"</string>
+    <string name="add_more_participants_button_content_description" msgid="12460574490350327">"ਹੋਰ ਭਾਗੀਦਾਰ ਜੋੜੋ"</string>
+    <string name="confrim_participants_button_content_description" msgid="7473740533133798616">"ਭਾਗੀਦਾਰਾਂ ਦੀ ਪੁਸ਼ਟੀ ਕਰੋ"</string>
+    <string name="start_new_conversation" msgid="3924471215595992758">"ਨਵੀਂ ਗੱਲਬਾਤ ਚਾਲੂ ਕਰੋ"</string>
+    <string name="gallery_checkbox_content_description" msgid="2503122727700475428">"ਇਹ ਆਈਟਮ ਚੁਣੋ"</string>
+    <string name="video_thumbnail_view_play_button_content_description" msgid="3506938388391260811">"ਵੀਡੀਓ ਪਲੇ ਕਰੋ"</string>
+    <string name="action_people_and_options" msgid="2748020184252106661">"ਲੋਕ &amp; ਚੋਣਾਂ"</string>
+    <string name="action_debug_options" msgid="2440658410677323714">"ਡੀਬਗ ਕਰੋ"</string>
+    <string name="people_and_options_activity_title" msgid="5443749025829291736">"ਲੋਕ &amp; ਚੋਣਾਂ"</string>
+    <string name="general_settings_title" msgid="4465312111301728995">"ਸਧਾਰਨ"</string>
+    <string name="participant_list_title" msgid="8624855187574757110">"ਇਸ ਗੱਲਬਾਤ ਵਿੱਚ ਲੋਕ"</string>
+    <string name="action_call" msgid="6596167921517350362">"ਇੱਕ ਕਾਲ ਕਰੋ"</string>
+    <string name="compose_message_view_hint_text" msgid="5214836453231753054">"ਸੁਨੇਹਾ ਭੇਜੋ"</string>
+    <string name="compose_message_view_hint_text_multi_sim" msgid="2829154383848677160">"ਸੁਨੇਹਾ ਭੇਜੋ&lt;br/&gt;&lt;ਛੋਟਾ&gt;<xliff:g id="SIM_NAME">%s</xliff:g>&lt;/ਤੋਂ ਛੋਟਾ&gt;"</string>
+    <plurals name="compose_message_view_hint_text_photo" formatted="false" msgid="8937589900456604618">
+      <item quantity="one">ਫੋਟੋਆਂ ਭੇਜੋ</item>
+      <item quantity="other">ਫੋਟੋਆਂ ਭੇਜੋ</item>
+    </plurals>
+    <plurals name="compose_message_view_hint_text_audio" formatted="false" msgid="5934090345811195170">
+      <item quantity="one">ਔਡੀਓ ਭੇਜੋ</item>
+      <item quantity="other">ਔਡੀਓ ਭੇਜੋ</item>
+    </plurals>
+    <plurals name="compose_message_view_hint_text_video" formatted="false" msgid="9188048653766960507">
+      <item quantity="one">ਵੀਡਿਓ ਭੇਜੋ</item>
+      <item quantity="other">ਵੀਡਿਓ ਭੇਜੋ</item>
+    </plurals>
+    <plurals name="compose_message_view_hint_text_vcard" formatted="false" msgid="933064969858631242">
+      <item quantity="one">ਸੰਪਰਕ ਕਾਰਡ ਭੇਜੋ</item>
+      <item quantity="other">ਸੰਪਰਕ ਕਾਰਡ ਭੇਜੋ</item>
+    </plurals>
+    <plurals name="compose_message_view_hint_text_attachments" formatted="false" msgid="1778518334602418000">
+      <item quantity="one">ਅਟੈਚਮੈਂਟਾਂ ਭੇਜੋ</item>
+      <item quantity="other">ਅਟੈਚਮੈਂਟਾਂ ਭੇਜੋ</item>
+    </plurals>
+    <plurals name="attachment_changed_accessibility_announcement" formatted="false" msgid="5592871135747616108">
+      <item quantity="one"><xliff:g id="ATTACHMENT_COUNT">%d</xliff:g> ਅਟੈਚਮੈਂਟਾਂ ਭੇਜਣ ਲਈ ਤਿਆਰ</item>
+      <item quantity="other"><xliff:g id="ATTACHMENT_COUNT">%d</xliff:g> ਅਟੈਚਮੈਂਟਾਂ ਭੇਜਣ ਲਈ ਤਿਆਰ</item>
+    </plurals>
+    <string name="menu_send_feedback" msgid="479412726781330278">"ਫੀਡਬੈਕ ਭੇਜੋ"</string>
+    <string name="menu_view_in_store" msgid="3792488955421628684">"Google Play ਸਟੋਰ ਵਿੱਚ ਦੇਖੋ"</string>
+    <string name="menu_version_info" msgid="6122616816253404821">"ਵਰਜਨ ਜਾਣਕਾਰੀ"</string>
+    <string name="subtitle_format_for_version_number" msgid="446082111129170749">"ਵਰਜਨ %1$s"</string>
+    <string name="menu_license" msgid="1157954180701135202">"ਓਪਨ ਸ੍ਰੋਤ ਲਸੰਸ"</string>
+    <string name="notifications_enabled_conversation_pref_title" msgid="1492686092760478206">"ਸੂਚਨਾਵਾਂ"</string>
+    <string name="mms_attachment_limit_reached" msgid="8303890455085643301">"ਅਟੈਚਮੈਂਟ ਸੀਮਾ ਪੂਰੀ ਹੋਈ"</string>
+    <string name="mms_attachment_load_failed" msgid="5697191348996648727">"ਅਟੈਚਮੈਂਟ ਲੋਡ ਕਰਨ ਵਿੱਚ ਅਸਫਲ।"</string>
+    <string name="add_contact_confirmation_dialog_title" msgid="1898307408816625598">"ਕੀ ਸੰਪਰਕ ਜੋੜਨੇ ਹਨ?"</string>
+    <string name="add_contact_confirmation" msgid="1479380805406328264">"ਸੰਪਰਕ ਜੋੜੋ"</string>
+    <string name="compose_message_view_subject_hint_text" msgid="6076616675845705660">"ਵਿਸ਼ਾ"</string>
+    <string name="conversation_message_view_subject_text" msgid="5634274498769555505">"ਵਿਸ਼ਾ: "</string>
+    <string name="notification_subject" msgid="5229975483160300625">"<xliff:g id="SUBJECT_LABEL">%s</xliff:g><xliff:g id="MESSAGETEXT">%s</xliff:g>"</string>
+    <string name="loading_vcard" msgid="3961520941271265083">"ਸੰਪਰਕ ਕਾਰਡ ਲੋਡ ਕਰ ਰਿਹਾ ਹੈ"</string>
+    <string name="failed_loading_vcard" msgid="7711070643740368402">"ਸੰਪਰਕ ਕਾਰਡ ਲੋਡ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਿਆ।"</string>
+    <string name="vcard_tap_hint" msgid="4940284329175200952">"ਸੰਪਰਕ ਕਾਰਡ ਦੇਖੋ"</string>
+    <plurals name="vcard_multiple_display_name" formatted="false" msgid="2884224435488996028">
+      <item quantity="one"><xliff:g id="COUNT_1">%d</xliff:g> ਸੰਪਰਕ</item>
+      <item quantity="other"><xliff:g id="COUNT_1">%d</xliff:g> ਸੰਪਰਕ</item>
+    </plurals>
+    <string name="vcard_detail_activity_title" msgid="591540798943754991">"ਸੰਪਰਕ ਕਾਰਡ"</string>
+    <string name="vcard_detail_birthday_label" msgid="7196021537629120021">"ਜਨਮਦਿਨ"</string>
+    <string name="vcard_detail_notes_label" msgid="6104179009509800126">"ਸੂਚਨਾਵਾਂ"</string>
+    <string name="forward_message_activity_title" msgid="4689730643900226699">"ਸੁਨੇਹਾ ਅੱਗੇ ਭੇਜੋ"</string>
+    <string name="reply_activity_title" msgid="2967630094609648609">"ਜਵਾਬ ਦਿਓ"</string>
+    <string name="plus_one" msgid="9010288417554932581">"+1"</string>
+    <string name="plus_n" msgid="8961547034116059566">"+%d"</string>
+    <string name="sms_disabled" msgid="4988773371061820432">"SMS ਅਸਮਰਥਿਤ"</string>
+    <string name="requires_default_sms_app_to_send" msgid="171048611973157166">"ਭੇਜਣ ਲਈ, Messaging ਨੂੰ ਡਿਫੌਲਟ SMS ਐਪ ਦੇ ਤੌਰ ਤੇ ਸੈਟ ਕਰੋ"</string>
+    <string name="requires_default_sms_app" msgid="7477365167876194810">"Messaging ਨੂੰ ਡਿਫੌਲਟ SMS ਐਪ ਦੇ ਤੌਰ ਤੇ ਸੈਟ ਕਰੋ"</string>
+    <string name="requires_default_sms_change_button" msgid="6717443481161057941">"ਬਦਲੋ"</string>
+    <string name="recommend_set_default_sms_app" msgid="7769636305626277844">"ਸੁਨੇਹੇ ਪ੍ਰਾਪਤ ਕਰਨ ਲਈ, Messaging ਨੂੰ ਡਿਫੌਲਟ SMS ਐਪਸ ਦੇ ਤੌਰ ਤੇ ਸੈਟ ਕਰੋ"</string>
+    <string name="no_preferred_sim_selected" msgid="8583927728936521140">"SMS ਸੁਨੇਹੇ ਭੇਜਣ ਲਈ ਕੋਈ ਤਰਜੀਹੀ SIM ਨਹੀਂ ਚੁਣਿਆ ਗਿਆ"</string>
+    <string name="requires_sms_permissions_message" msgid="2179684358095980506">"ਡਿਵਾਈਸ ਮਾਲਕ ਵੱਲੋਂ ਇਸ ਐਪ ਦੀ ਆਗਿਆ ਨਹੀਂ ਹੈ।"</string>
+    <string name="requires_sms_permissions_close_button" msgid="8601569832171759435">"ਠੀਕ"</string>
+    <string name="too_many_participants" msgid="5857516461210932810">"ਇੱਕ ਗੱਲਬਾਤਾ ਵਿੱਚ ਬਹੁਤ ਜ਼ਿਆਦਾ ਪ੍ਰਾਪਤਕਰਤਾ"</string>
+    <plurals name="add_invalid_contact_error" formatted="false" msgid="782438833843363189">
+      <item quantity="one">ਅਪ੍ਰਮਾਣਿਕ ਸੰਪਰਕ</item>
+      <item quantity="other">ਅਪ੍ਰਮਾਣਿਕ ਸੰਪਰਕ</item>
+    </plurals>
+    <string name="camera_media_failure" msgid="6532763214546593687">"ਕੈਮਰਾ ਚਿੱਤਰ ਲੋਡ ਨਹੀਂ ਕਰ ਸਕਿਆ"</string>
+    <string name="conversation_list_item_view_sent_from_you_prefix" msgid="1735457801737604211">"ਤੁਸੀਂ: "</string>
+    <string name="conversation_list_item_view_sent_from_other_prefix" msgid="9202622757034736175">"<xliff:g id="FIRSTNAMEOFSENDER">%s</xliff:g>: "</string>
+    <string name="conversation_list_item_view_draft_message" msgid="3592923997082845035">"ਡ੍ਰਾਫਟ"</string>
+    <string name="conversation_list_empty_text" msgid="7505706551294769667">"ਜਦੋਂ ਤੁਸੀਂ ਇੱਕ ਨਵੀਂ ਗੱਲਬਾਤ ਚਾਲੂ ਕਰਦੇ ਹੋ, ਤਾਂ ਤੁਸੀਂ ਇਸਨੂੰ ਇੱਥੇ ਸੂਚੀਬੱਧ ਦੇਖੋਗੇ"</string>
+    <string name="archived_conversation_list_empty_text" msgid="6109126963298874571">"ਆਰਕਾਈਵ ਕੀਤੀਆਂ ਗੱਲਬਾਤਾਂ ਇੱਥੇ ਪ੍ਰਗਟ ਹੋਣਗੀਆਂ"</string>
+    <string name="conversation_list_first_sync_text" msgid="3749751291444609993">"ਗੱਲਬਾਤਾਂ ਲੋਡ ਕਰ ਰਿਹਾ ਹੈ…"</string>
+    <string name="conversation_list_snippet_picture" msgid="5326960910088541826">"ਤਸਵੀਰ"</string>
+    <string name="conversation_list_snippet_audio_clip" msgid="7894183429890407387">"ਔਡੀਓ ਕਲਿਪ"</string>
+    <string name="conversation_list_snippet_video" msgid="7101059507173671233">"ਵੀਡੀਓ"</string>
+    <string name="conversation_list_snippet_vcard" msgid="5004837959112452394">"ਸੰਪਰਕ ਕਾਰਡ"</string>
+    <string name="mms_text" msgid="1528791558806015806">"MMS"</string>
+    <string name="snack_bar_undo" msgid="4523395751563700308">"ਪਹਿਲਾਂ ਵਰਗਾ ਕਰੋ"</string>
+    <string name="snack_bar_retry" msgid="7140970704902570020">"ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ"</string>
+    <string name="contact_list_empty_text" msgid="1036353827229041942">"ਇੱਕ ਨਵਾਂ ਸੁਨੇਹਾ ਚਾਲੂ ਕਰਨ ਲਈ ਇੱਕ ਸੰਪਰਕ ਨਾਮ ਜਾਂ ਫੋਨ ਨੰਬਰ ਦਰਜ ਕਰੋ"</string>
+    <string name="action_block" msgid="9032076625645190136">"ਬਲੌਕ ਕਰੋ"</string>
+    <string name="block_contact_title" msgid="6968382557194643329">"<xliff:g id="DESTINATION">%s</xliff:g> ਨੂੰ ਬਲੌਕ ਕਰੋ"</string>
+    <string name="unblock_contact_title" msgid="4719854710980066596">"<xliff:g id="DESTINATION">%s</xliff:g> ਨੂੰ ਅਨਬਲੌਕ ਕਰੋ"</string>
+    <string name="block_confirmation_title" msgid="8288283455512985682">"ਕੀ <xliff:g id="DESTINATION">%s</xliff:g> ਨੂੰ ਬਲੌਕ ਕਰਨਾ ਹੈ?"</string>
+    <string name="block_confirmation_message" msgid="185429978461824228">"ਤੁਸੀਂ ਇਸ ਨੰਬਰ ਤੋਂ ਲਗਾਤਾਰ ਸੁਨੇਹੇ ਪ੍ਰਾਪਤ ਕਰੋਗੇ ਪਰੰਤੂ ਹੁਣ ਤੁਹਾਨੂੰ ਸੂਚਿਤ ਨਹੀਂ ਕੀਤਾ ਜਾਏਗਾ। ਇਹ ਗੱਲਬਾਤ ਆਰਕਾਈਵ ਕੀਤੀ ਜਾਏਗੀ।"</string>
+    <string name="blocked_contacts_title" msgid="7709164518967312281">"ਬਲੌਕ ਕੀਤੇ ਸੰਪਰਕ"</string>
+    <string name="tap_to_unblock_message" msgid="1284284144816901647">"ਅਨਬਲੌਕ ਕਰੋ"</string>
+    <string name="view_blocked_contacts_title" msgid="7417596291306885403">"ਬਲੌਕ ਕੀਤੇ ਸੰਪਰਕ"</string>
+    <string name="pick_image_from_document_library_content_description" msgid="132845956503874378">"ਦਸਤਾਵੇਜ਼ ਲਾਇਬ੍ਰੇਰੀ ਵਿੱਚੋਂ ਚਿੱਤਰ ਚੁਣੋ"</string>
+    <string name="sending_message" msgid="6363584950085384929">"ਸੁਨੇਹਾ ਭੇਜ ਰਿਹਾ ਹੈ"</string>
+    <string name="send_message_success" msgid="4088006261869323324">"ਸੁਨੇਹਾ ਭੇਜਿਆ ਗਿਆ"</string>
+    <string name="send_message_failure_no_data" msgid="7404080465234559802">"ਸੈਲਿਊਲਰ ਡਾਟਾ ਬੰਦ ਹੈ। ਆਪਣੀਆਂ ਸੈਟਿੰਗਾਂ ਦੀ ਜਾਂਚ ਕਰੋ।"</string>
+    <string name="send_message_failure_airplane_mode" msgid="3966519541237053840">"ਏਅਰਪਲੇਨ ਮੋਡ ਵਿੱਚ ਸੁਨੇਹੇ ਨਹੀਂ ਭੇਜ ਸਕਦਾ"</string>
+    <string name="send_message_failure" msgid="5273892629851390023">"ਸੁਨੇਹਾ ਨਹੀਂ ਭੇਜਿਆ ਜਾ ਸਕੇਗਾ"</string>
+    <string name="download_message_success" msgid="3514921076616367225">"ਸੁਨੇਹਾ ਡਾਊਨਲੋਡ ਕੀਤਾ"</string>
+    <string name="download_message_failure_no_data" msgid="6830055949399088532">"ਸੈਲਿਊਲਰ ਡਾਟਾ ਬੰਦ ਹੈ। ਆਪਣੀਆਂ ਸੈਟਿੰਗਾਂ ਦੀ ਜਾਂਚ ਕਰੋ।"</string>
+    <string name="download_message_failure_airplane_mode" msgid="6752478540984118382">"ਏਅਰਪਲੇਨ ਮੋਡ ਵਿੱਚ ਸੁਨੇਹੇ ਡਾਊਨਲੋਡ ਨਹੀਂ ਕੀਤੇ ਜਾ ਸਕਦੇ"</string>
+    <string name="download_message_failure" msgid="635370887537738004">"ਸੁਨੇਹਾ ਡਾਊਨਲੋਡ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕੇਗਾ"</string>
+    <string name="content_description_for_number_zero" msgid="7992301592202897868">"ਸਿਫਰ"</string>
+    <string name="content_description_for_number_one" msgid="3886554185135150473">"ਇੱਕ"</string>
+    <string name="content_description_for_number_two" msgid="1562486479385891146">"ਦੋ"</string>
+    <string name="content_description_for_number_three" msgid="8471442614073144385">"ਤਿੰਨ"</string>
+    <string name="content_description_for_number_four" msgid="7515917522043407213">"ਚਾਰ"</string>
+    <string name="content_description_for_number_five" msgid="8078774905490022978">"ਪੰਜ"</string>
+    <string name="content_description_for_number_six" msgid="9192012772645396654">"ਛੇ"</string>
+    <string name="content_description_for_number_seven" msgid="5870011338757220060">"ਸੱਤ"</string>
+    <string name="content_description_for_number_eight" msgid="7078061834874737466">"ਅੱਠ"</string>
+    <string name="content_description_for_number_nine" msgid="4276787959475295232">"ਨੌ"</string>
+    <string name="carrier_send_error" msgid="3796492439123251453">"<xliff:g id="CARRIERNAME">%1$s</xliff:g> ਨਾਲ ਸੁਨੇਹਾ ਨਹੀਂ ਭੇਜ ਸਕਦਾ, ਅਸ਼ੁੱਧੀ <xliff:g id="ERRORCODE">%2$d</xliff:g>"</string>
+    <string name="carrier_send_error_unknown_carrier" msgid="1210665032244425938">"ਅਗਿਆਤ ਕੈਰੀਅਰ ਨਾਲ ਸੁਨੇਹਾ ਨਹੀਂ ਭੇਜ ਸਕਦਾ, ਅਸ਼ੁੱਧੀ <xliff:g id="ERRORCODE">%1$d</xliff:g>"</string>
+    <string name="message_fwd" msgid="2144370964507743673">"Fwd: <xliff:g id="SUBJECT">%s</xliff:g>"</string>
+    <string name="mms_failure_outgoing_service" msgid="4662217039143124592">"ਸੁਨੇਹਾ ਨਹੀਂ ਭੇਜਿਆ: ਨੈਟਵਰਕ ਤੇ ਸੇਵਾ ਸਕਿਰਿਆ ਨਹੀਂ"</string>
+    <string name="mms_failure_outgoing_address" msgid="6212773250215580849">"ਸੁਨੇਹਾ ਨਹੀਂ ਭੇਜਿਆ: ਅਪ੍ਰਮਾਣਿਕ ਡੈਸਟੀਨੇਸ਼ਨ ਪਤਾ"</string>
+    <string name="mms_failure_outgoing_corrupt" msgid="6132734324976690436">"ਸੁਨੇਹਾ ਨਹੀਂ ਭੇਜਿਆ: ਅਪ੍ਰਮਾਣਿਤ ਸੁਨੇਹਾ"</string>
+    <string name="mms_failure_outgoing_content" msgid="919220273446626565">"ਸੁਨੇਹਾ ਨਹੀਂ ਭੇਜਿਆ: ਅਸਮਰਥਿਤ ਸਮੱਗਰੀ"</string>
+    <string name="mms_failure_outgoing_unsupported" msgid="2614377585077448979">"ਸੁਨੇਹਾ ਨਹੀਂ ਭੇਜਿਆ: ਅਸਮਰਥਿਤ ਸੁਨੇਹਾ"</string>
+    <string name="mms_failure_outgoing_too_large" msgid="3917966922000717407">"ਸੁਨੇਹਾ ਨਹੀਂ ਭੇਜਿਆ ਗਿਆ: ਬਹੁਤ ਜ਼ਿਆਦਾ ਵੱਡਾ"</string>
+    <string name="in_conversation_notify_new_message_text" msgid="8207541514656839042">"ਨਵਾਂ ਸੁਨੇਹਾ"</string>
+    <string name="in_conversation_notify_new_message_action" msgid="7311780674392006753">"ਦੇਖੋ"</string>
+    <string name="message_image_content_description" msgid="621604138442762130">"ਚਿੱਤਰ"</string>
+    <string name="activity_not_found_message" msgid="2355153262520375529">"ਇੱਕ ਅਨੁੁਕੂਲ ਐਪਲੀਕੇਸ਼ਨ ਨਹੀਂ ਲੱਭ ਸਕਿਆ"</string>
+    <string name="chips_delete_content_description" msgid="4655699207140895492">"ਪ੍ਰਾਪਤਕਰਤਾ ਹਟਾਓ"</string>
+    <string name="share_new_message" msgid="2135955613694195483">"ਨਵਾਂ ਸੁਨੇਹਾ"</string>
+    <string name="share_cancel" msgid="6666929391961668469">"ਰੱਦ ਕਰੋ"</string>
+    <string name="apn_edit" msgid="2134993966166435648">"ਪਹੁੰਚ ਬਿੰਦੂ ਸੰਪਾਦਿਤ ਕਰੋ"</string>
+    <string name="apn_not_set" msgid="463728018542184151">"ਸੈਟ ਨਹੀਂ ਕੀਤਾ"</string>
+    <string name="apn_name" msgid="1572691851070894985">"ਨਾਮ"</string>
+    <string name="apn_apn" msgid="1197541953189716999">"APN"</string>
+    <string name="apn_mmsc" msgid="2584154739440281747">"MMSC"</string>
+    <string name="apn_mms_proxy" msgid="4343743931563107100">"MMS ਪ੍ਰੌਕਸੀ"</string>
+    <string name="apn_mms_port" msgid="6181253508404620479">"MMS ਪੋਰਟ"</string>
+    <string name="apn_mcc" msgid="8102023058623950736">"MCC"</string>
+    <string name="apn_mnc" msgid="1372437523197012866">"MNC"</string>
+    <string name="apn_type" msgid="8409755622399386584">"APN ਪ੍ਰਕਾਰ"</string>
+    <string name="menu_delete_apn" msgid="4947391038600888284">"APN ਮਿਟਾਓ"</string>
+    <string name="menu_new_apn" msgid="1564461309350814037">"ਨਵਾਂ APN"</string>
+    <string name="menu_save_apn" msgid="5445335896951613691">"ਸੁਰੱਖਿਅਤ ਕਰੋ"</string>
+    <string name="menu_discard_apn_change" msgid="310569150407968648">"ਅਣਡਿੱਠਾ"</string>
+    <string name="error_apn_name_empty" msgid="7770363665690646716">"ਨਾਮ ਖੇਤਰ ਨੂੰ ਖਾਲੀ ਨਹੀਂ ਛੱਡਿਆ ਜਾ ਸਕਦਾ।"</string>
+    <string name="error_apn_empty" msgid="6799644880052534839">"APN ਨੂੰ ਖਾਲੀ ਨਹੀਂ ਛੱਡਿਆ ਜਾ ਸਕਦਾ।"</string>
+    <string name="error_mcc_not3" msgid="3693788817630985838">"MCC ਖੇਤਰ 3 ਅੰਕਾਂ ਦਾ ਹੋਣਾ ਲਾਜ਼ਮੀ ਹੈ।"</string>
+    <string name="error_mnc_not23" msgid="3726130455168743554">"MNC ਖੇਤਰ 2 ਜਾਂ 3 ਅੰਕਾਂ ਦਾ ਹੋਣਾ ਲਾਜ਼ਮੀ ਹੈ।"</string>
+    <string name="restore_default_apn" msgid="7180447255249638396">"ਡਿਫੌਲਟ APN ਸੈਟਿੰਗਾਂ ਰੀਸਟੋਰ ਕਰ ਰਿਹਾ ਹੈ।"</string>
+    <string name="menu_restore_default_apn" msgid="6342935229867973523">"ਡਿਫੌਲਟਸ ਤੇ ਰੀਸੈਟ ਕਰੋ"</string>
+    <string name="restore_default_apn_completed" msgid="7421687541468349715">"ਡਿਫੌਲਟ APN ਸੈਟਿੰਗਾਂ ਰੀਸੈਟ ਕਰਨਾ ਪੂਰਾ ਹੋਇਆ।"</string>
+    <string name="untitled_apn" msgid="3110576506102839465">"ਬਿਨਾਂ ਨਾਮ"</string>
+    <string name="sms_apns_title" msgid="1351513141821300879">"ਪਹੁੰਚ ਬਿੰਦੂ ਨਾਮ"</string>
+    <string name="apn_settings" msgid="3179955111000379490">"APNs"</string>
+    <string name="menu_new" msgid="8286285392706532511">"ਨਵਾਂ APN"</string>
+    <string name="apn_settings_not_available" msgid="5136389328322585717">"ਪਹੁੰਚ ਬਿੰਦੂ ਨਾਮ ਸੈਟਿੰਗਾਂ ਇਸ ਉਪਭੋਗਤਾ ਲਈ ਉਪਲਬਧ ਨਹੀਂ ਹਨ"</string>
+    <string name="copy_to_clipboard_dialog_title" msgid="494269163973708182">"ਕੀ ਕਲਿਪਬੋਰਡ ਤੇ ਕਾਪੀ ਕਰਨਾ ਹੈ?"</string>
+    <string name="copy_to_clipboard" msgid="1977083934277981786">"ਕਾਪੀ ਕਰੋ"</string>
+    <string name="incoming_sim_name_text" msgid="4244076415705614525">"<xliff:g id="SIM_NAME">%s</xliff:g> ਨੂੰ"</string>
+    <string name="general_settings" msgid="5409336577057897710">"ਸਧਾਰਨ"</string>
+    <string name="advanced_settings" msgid="5870459931510000742">"ਉੱਨਤ"</string>
+    <string name="general_settings_activity_title" msgid="3012187932521771578">"ਸਧਾਰਨ ਸੈਟਿੰਗਾਂ"</string>
+    <string name="advanced_settings_activity_title" msgid="7397017836928206201">"ਉੱਨਤ ਸੈਟਿੰਗਾਂ"</string>
+    <string name="sim_specific_settings" msgid="948779178668552448">"\"<xliff:g id="SIM_NAME">%s</xliff:g>\" SIM"</string>
+    <string name="disable_group_mms" msgid="1016285369211000297">"ਸਾਰੇ ਪ੍ਰਾਪਤਕਰਤਾਵਾਂ ਨੂੰ ਵੱਖ-ਵੱਖ SMS ਸੁਨੇਹੇ ਭੇਜੋ। ਕੇਵਲ ਤੁਸੀਂ ਹੀ ਕੋਈ ਜਵਾਬ ਪ੍ਰਾਪਤ ਕਰੋਗੇ"</string>
+    <string name="enable_group_mms" msgid="4311733160940564593">"ਸਾਰੇ ਪ੍ਰਾਪਤਕਰਤਾਵਾਂ ਨੂੰ ਇੱਕ ਸਿੰਗ MMS ਭੇਜੋ।"</string>
+    <string name="sim_settings_unknown_number" msgid="1885996389432991383">"ਅਗਿਆਤ ਨੰਬਰ"</string>
+    <string name="secondary_user_new_message_title" msgid="201938947573987596">"ਨਵਾਂ ਸੁਨੇਹਾ"</string>
+    <string name="secondary_user_new_message_ticker" msgid="2386669280323553032">"ਨਵਾਂ ਸੁਨੇਹਾ।"</string>
+    <string name="sim_selector_button_content_description" msgid="2407660715957787727">"SIM ਚੋਣਕਾਰ"</string>
+    <string name="sim_selector_button_content_description_with_selection" msgid="4042539046779910617">"<xliff:g id="SIM_0">%1$s</xliff:g> ਚੁਣਿਆ ਗਿਆ, SIM ਚੋਣਕਰਤਾ"</string>
+    <string name="send_button_long_click_description_no_sim_selector" msgid="979624100711380593">"ਵਿਸ਼ਾ ਸੰਪਾਦਿਤ ਕਰੋ"</string>
+    <string name="send_button_long_click_description_with_sim_selector" msgid="7670274457707760465">"SIM ਚੁਣੋ ਜਾਂ ਵਿਸ਼ਾ ਸੰਪਾਦਿਤ ਕਰੋ"</string>
+    <string name="audio_record_view_content_description" msgid="29401157183728655">"ਔਡੀਓ ਰਿਕਾਰਡ ਕਰਨ ਲਈ ਛੋਹਵੋ ਅਤੇ ਹੋਲਡ ਕਰੋ"</string>
+    <string name="widget_new_conversation_content_description" msgid="4214201569175733579">"ਨਵੀਂ ਗੱਲਬਾਤ ਚਾਲੂ ਕਰੋ"</string>
+    <string name="widget_title_content_description" msgid="5802836840910466231">"Messaging"</string>
+    <string name="widget_conversation_list_name" msgid="4005037639000611925">"Messaging ਸੂਚੀ"</string>
+    <string name="widget_conversation_name" msgid="3900606239571892871">"Messaging"</string>
+    <string name="widget_new_message_content_description" msgid="2706347689522691188">"ਨਵਾਂ ਸੁਨੇਹਾ"</string>
+    <string name="widget_conversation_list_content_description" msgid="4137121313374868821">"ਗੱਲਬਾਤ ਸੂਚੀ"</string>
+    <string name="loading_conversations" msgid="2890879017729068514">"ਗੱਲਬਾਤਾਂ ਲੋਡ ਕਰ ਰਿਹਾ ਹੈ"</string>
+    <string name="loading_messages" msgid="3894765818932489665">"ਸੁਨੇਹੇ ਲੋਡ ਕਰ ਰਿਹਾ ਹੈ"</string>
+    <string name="view_more_conversations" msgid="2430542054023217740">"ਹੋਰ ਗੱਲਬਾਤਾਂ ਦੇਖੋ"</string>
+    <string name="view_more_messages" msgid="6463224009407336178">"ਹੋਰ ਸੁਨੇਹੇ ਦੇਖੋ"</string>
+    <string name="conversation_deleted" msgid="6088388615460305424">"ਗੱਲਬਾਤ ਮਿਟਾਈ ਗਈ"</string>
+    <string name="tap_to_configure" msgid="7591682335533041774">"ਗੱਲਬਾਤ ਮਿਟਾਈ ਗਈ। ਇੱਕ ਵੱਖਰੀ Messaging ਗੱਲਬਾਤ ਦਿਖਾਉਣ ਲਈ ਛੋਹਵੋ"</string>
+    <string name="update_destination_blocked" msgid="4577227174205233981">"ਬਲੌਕ ਕੀਤਾ"</string>
+    <string name="update_destination_unblocked" msgid="5369499874676600478">"ਅਨਬਲੌਕ ਕੀਤਾ"</string>
+    <string name="db_full" msgid="8459265782521418031">"ਸਟੋਰੇਜ ਸਪੇਸ ਘੱਟ ਹੈ। ਕੁਝ ਡਾਟਾ ਨਸ਼ਟ ਹੋ ਸਕਦਾ ਹੈ।"</string>
+    <string name="attachment_chooser_activity_title" msgid="4049093653421684774">"ਅਟੈਚਮੈਂਟਾਂ ਚੁਣੋ"</string>
+    <string name="action_confirm_selection" msgid="3787494008738625806">"ਚੋਣ ਦੀ ਪੁਸ਼ਟੀ ਕਰੋ"</string>
+    <string name="attachment_chooser_selection" msgid="3616821885478549778">"<xliff:g id="COUNT">%d</xliff:g> ਚੁਣਿਆ ਗਿਆ"</string>
+    <string name="attachment_limit_reached_dialog_message_when_composing" msgid="2983376679583030373">"ਕਿਰਪਾ ਕਰਕੇ ਇੱਕ ਜਾਂ ਵੱਧ ਅਟੈਚਮੈਂਟਾਂ ਹਟਾਓ ਅਤੇ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।"</string>
+    <string name="attachment_limit_reached_dialog_message_when_sending" msgid="3917529855170816197">"ਤੁਸੀਂ ਆਪਣਾ ਸੁਨੇਹਾ ਭੇਜਣ ਦੀ ਕੋਸ਼ਿਸ਼ ਕਰ ਸਕਦੇ ਹੋ, ਪਰੰਤੂ ਇਹ ਸ਼ਾਇਦ ਨਾ ਭੇਜਿਆ ਜਾ ਸਕੇ, ਜਦੋਂ ਤੱਕ ਤੁਸੀਂ ਇੱਕ ਜਾਂ ਵੱਧ ਅਟੈਚਮੈਂਟਾਂ ਨਹੀਂ ਹਟਾਉਂਦੇ।"</string>
+    <string name="video_attachment_limit_exceeded_when_sending" msgid="8545536951461996462">"ਤੁਸੀਂ ਪ੍ਰਤੀ ਸੁਨੇਹਾ ਕੇਵਲ ਇੱਕ ਵੀਡੀਓ ਭੇਜ ਸਕਦੇ ਹੋ। ਕਿਰਪਾ ਕਰਕੇ ਵਾਧੂ ਵੀਡੀਓ ਹਟਾਓ ਅਤੇ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।"</string>
+    <string name="attachment_load_failed_dialog_message" msgid="4917927407363303333">"Messaging ਅਟੈਚਮੈਂਟ ਲੋਡ ਕਰਨ ਵਿੱਚ ਅਸਫਲ।"</string>
+    <string name="attachment_limit_reached_send_anyway" msgid="2348790618093735551">"ਫੇਰ ਵੀ ਭੇਜੋ"</string>
+    <string name="conversation_creation_failure" msgid="8597624563218724441">"ਗੱਲਬਾਤ ਚਾਲੂ ਨਹੀਂ ਕਰ ਸਕਿਆ"</string>
+    <string name="link_display_format" msgid="8700344957248709584">"<xliff:g id="TEXT">%1$s</xliff:g> (<xliff:g id="URL">%2$s</xliff:g>)"</string>
+    <string name="selected_sim_content_message" msgid="4504796674843354505">"<xliff:g id="SELECTED_SIM">%s</xliff:g> ਚੁਣਿਆ ਗਿਆ"</string>
+</resources>

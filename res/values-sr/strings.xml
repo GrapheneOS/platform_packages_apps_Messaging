@@ -1,0 +1,545 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    Copyright (C) 2015 The Android Open Source Project
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+         http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+ -->
+
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name" msgid="3062916848713424329">"Размена порука"</string>
+    <string name="share_intent_label" msgid="6920483598866144717">"Размена порука"</string>
+    <string name="share_intent_activity_label" msgid="2939454246983196756">"Изаберите преписку"</string>
+    <string name="action_settings" msgid="1329008122345201684">"Подешавања"</string>
+    <string name="sendButtonContentDescription" msgid="8422114979691093956">"Пошаљи поруку"</string>
+    <string name="attachMediaButtonContentDescription" msgid="2758624209216276682">"Додај прилог"</string>
+    <string name="help_and_feedback_activity_label" msgid="8070710971014835182">"Помоћ"</string>
+    <string name="welcome" msgid="2857560951820802321">"Добро дошли"</string>
+    <string name="skip" msgid="7238879696319945853">"Прескочи"</string>
+    <string name="next_with_arrow" msgid="2840729397885031655">"Следеће &gt;"</string>
+    <string name="next" msgid="4496962051601713843">"Даље"</string>
+    <string name="exit" msgid="1905187380359981199">"Изађи"</string>
+    <string name="settings_with_arrow" msgid="8534633224579301342">"Подешавања &gt;"</string>
+    <string name="settings" msgid="1045695083932447399">"Подешавања"</string>
+    <string name="required_permissions_promo" msgid="3898014894175251590">"Размена порука тражи дозволу за SMS, телефон и контакте."</string>
+    <string name="enable_permission_procedure" msgid="2778471831376319587">"Можете да мењате дозволе у одељку Подешавања &gt; Апликације &gt; Размена порука &gt; Дозволе."</string>
+    <string name="enable_permission_procedure_description" msgid="8672121020793945630">"Можете да мењате дозволе у одељку Подешавања, Апликације, Размена порука, Дозволе."</string>
+    <string name="contact_picker_frequents_tab_title" msgid="7157326165824706883">"Често контактирани"</string>
+    <string name="contact_picker_all_contacts_tab_title" msgid="1424746082040243161">"Сви контакти"</string>
+    <string name="contact_list_send_to_text" msgid="3167455944684758290">"Пошаљи на <xliff:g id="DESTINATION">%s</xliff:g>"</string>
+    <string name="mediapicker_cameraChooserDescription" msgid="8498255650058981250">"Сними слику или видео снимак"</string>
+    <string name="mediapicker_galleryChooserDescription" msgid="1227741581156455777">"Избор слика са овог уређаја"</string>
+    <string name="mediapicker_audioChooserDescription" msgid="3660616501040372452">"Сними звук"</string>
+    <string name="mediapicker_gallery_title" msgid="3169528536727885763">"Изаберите слику"</string>
+    <string name="mediapicker_gallery_item_selected_content_description" msgid="2569545441879514283">"Изабрали сте медијски садржај."</string>
+    <string name="mediapicker_gallery_item_unselected_content_description" msgid="40021674722525910">"Опозвали сте избор медијског садржаја."</string>
+    <string name="mediapicker_gallery_title_selection" msgid="3621616141966436510">"Изабраних: <xliff:g id="COUNT">%d</xliff:g>"</string>
+    <string name="mediapicker_gallery_image_item_description" msgid="8812237405495409901">"слика <xliff:g id="DATE">%1$tB %1$te %1$tY %1$tl %1$tM %1$tp</xliff:g>"</string>
+    <string name="mediapicker_gallery_image_item_description_no_date" msgid="8142175029053370662">"слика"</string>
+    <string name="mediapicker_audio_title" msgid="5455016591560739789">"Снимање звука"</string>
+    <string name="action_share" msgid="2143483844803153871">"Дели"</string>
+    <string name="posted_just_now" msgid="6632467048088811568">"Управо сад"</string>
+    <string name="posted_now" msgid="867560789350406701">"Сада"</string>
+    <plurals name="num_minutes_ago" formatted="false" msgid="4085627474543076735">
+      <item quantity="one"><xliff:g id="COUNT_1">%d</xliff:g> мин</item>
+      <item quantity="few"><xliff:g id="COUNT_1">%d</xliff:g> мин</item>
+      <item quantity="other"><xliff:g id="COUNT_1">%d</xliff:g> мин</item>
+    </plurals>
+    <plurals name="num_hours_ago" formatted="false" msgid="8010868301590914325">
+      <item quantity="one"><xliff:g id="COUNT_1">%d</xliff:g> сат</item>
+      <item quantity="few"><xliff:g id="COUNT_1">%d</xliff:g> сата</item>
+      <item quantity="other"><xliff:g id="COUNT_1">%d</xliff:g> сати</item>
+    </plurals>
+    <plurals name="num_days_ago" formatted="false" msgid="8753803762044567843">
+      <item quantity="one"><xliff:g id="COUNT_1">%d</xliff:g> дан</item>
+      <item quantity="few"><xliff:g id="COUNT_1">%d</xliff:g> дана</item>
+      <item quantity="other"><xliff:g id="COUNT_1">%d</xliff:g> дана</item>
+    </plurals>
+    <plurals name="week_count" formatted="false" msgid="1301973226125551953">
+      <item quantity="one"><xliff:g id="COUNT">%d</xliff:g> недеље</item>
+      <item quantity="few"><xliff:g id="COUNT">%d</xliff:g> недеље</item>
+      <item quantity="other"><xliff:g id="COUNT">%d</xliff:g> недеља</item>
+    </plurals>
+    <plurals name="month_count" formatted="false" msgid="4858515363324110232">
+      <item quantity="one"><xliff:g id="COUNT">%d</xliff:g> месеца</item>
+      <item quantity="few"><xliff:g id="COUNT">%d</xliff:g> месеца</item>
+      <item quantity="other"><xliff:g id="COUNT">%d</xliff:g> месеци</item>
+    </plurals>
+    <plurals name="year_count" formatted="false" msgid="4522546496183798317">
+      <item quantity="one"><xliff:g id="COUNT">%d</xliff:g> године</item>
+      <item quantity="few"><xliff:g id="COUNT">%d</xliff:g> године</item>
+      <item quantity="other"><xliff:g id="COUNT">%d</xliff:g> година</item>
+    </plurals>
+    <string name="class_0_message_activity" msgid="4603850264073169854">"Порука класе 0"</string>
+    <string name="save" msgid="5081141452059463572">"Сачувај"</string>
+    <string name="sms_storage_low_auto_delete_enabled_dialog_text" msgid="8836401937872068406">"Понестаје простора на уређају. Апликација за размену порука ће аутоматски обрисати старије поруке да би ослободила простор."</string>
+    <string name="sms_storage_low_title" msgid="7985379565293259177">"Понестаје складишног простора"</string>
+    <string name="sms_storage_low_text" msgid="7036247475855447830">"Размена порука можда неће моћи да шаље нити прима поруке док још простора не буде доступно на уређају."</string>
+    <string name="sms_storage_low_notification_ticker" msgid="2393739822170029830">"Понестаје меморије за SMS. Можда ћете морати да избришете поруке."</string>
+    <string name="enter_phone_number_title" msgid="7263355879949248448">"Потврдите број телефона"</string>
+    <string name="enter_phone_number_text" msgid="4539767473801195966">"Овим једнократним кораком обезбеђујете да Размена порука правилно испоручује групне поруке."</string>
+    <string name="enter_phone_number_hint" msgid="6242965213882272822">"Број телефона"</string>
+    <string name="delete_all_media" msgid="5549693176734564386">"Избриши све поруке са медијским садржајем"</string>
+    <string name="delete_oldest_messages" msgid="9204277306804390707">"Избриши поруке старије од <xliff:g id="DURATION">%s</xliff:g>"</string>
+    <string name="auto_delete_oldest_messages" msgid="7766679943833404968">"Аутоматски бриши поруке старије од <xliff:g id="DURATION">%s</xliff:g>"</string>
+    <string name="ignore" msgid="7063392681130898793">"Игнориши"</string>
+    <string name="delete_all_media_confirmation" msgid="4601960420953525559">"Желите ли да избришете све поруке са медијским садржајем?"</string>
+    <string name="delete_oldest_messages_confirmation" msgid="6172297718425265784">"Желите ли да избришете поруке старије од <xliff:g id="DURATION">%s</xliff:g>?"</string>
+    <string name="auto_delete_oldest_messages_confirmation" msgid="9071499976729145269">"Желите ли да избришете поруке старије од <xliff:g id="DURATION">%s</xliff:g> и да укључите аутоматско брисање?"</string>
+    <string name="incoming_text_sender_content_description" msgid="2481078288502342745">"<xliff:g id="SENDER">%s</xliff:g> каже"</string>
+    <string name="outgoing_text_sender_content_description" msgid="3492116976256510272">"Рекли сте"</string>
+    <string name="incoming_sender_content_description" msgid="7512757244515303701">"Порука од корисника <xliff:g id="SENDER">%s</xliff:g>"</string>
+    <string name="outgoing_sender_content_description" msgid="5983163141994434778">"Послали сте поруку"</string>
+    <string name="message_status_sending" msgid="3306260780518886107">"Шаље се..."</string>
+    <string name="message_status_send_failed" msgid="5443627648028194631">"Слање није успело. Додирните да бисте покушали поново."</string>
+    <string name="message_status_send_retrying" msgid="650840088043267981">"Слање није успело. Покушавамо поново…"</string>
+    <string name="message_status_resend" msgid="7718458416521355708">"Пошаљите поново или избришите"</string>
+    <string name="message_status_send_failed_emergency_number" msgid="1738854184297159948">"Упутите гласовни позив службама за хитне случајеве. Слање SMS-а тренутно није успело."</string>
+    <string name="message_status_failed" msgid="8009695010381848311">"Није успело"</string>
+    <string name="message_title_manual_download" msgid="2761223322277801061">"Нова MMS порука за преузимање"</string>
+    <string name="message_title_downloading" msgid="6418481644146460124">"Нова MMS порука"</string>
+    <string name="message_title_download_failed" msgid="3867223594671090459">"Преузимање није успело"</string>
+    <string name="message_status_download_failed" msgid="7298035414448355842">"Додирните да бисте покушали поново"</string>
+    <string name="message_status_download" msgid="6527275493954932656">"Додирните да бисте преузели"</string>
+    <string name="message_status_download_action" msgid="285219832844160">"Преузмите или избришите"</string>
+    <string name="message_status_downloading" msgid="7159807805159805428">"Преузима се..."</string>
+    <string name="message_status_download_error" msgid="6957738686287397519">"Порука је истекла или није доступна"</string>
+    <string name="mms_info" msgid="3402311750134118165">"величина: <xliff:g id="MESSAGESIZE">%1$s</xliff:g>, истиче: <xliff:g id="MESSAGEEXPIRE">%2$s</xliff:g>"</string>
+    <string name="invalid_destination" msgid="8214889988397524630">"Слање није могуће. Прималац није важећи."</string>
+    <string name="service_not_activated" msgid="5512558652052977817">"Услуга није активирана у мрежи"</string>
+    <string name="service_network_problem" msgid="3765738916704013318">"Слање није могуће због проблема са мрежом"</string>
+    <string name="service_message_not_found" msgid="8350935323904134751">"Порука је истекла или није доступна"</string>
+    <string name="no_subject" msgid="5587715902648568767">"(Без наслова)"</string>
+    <string name="unknown_sender" msgid="504272434917395677">"Непознати пошиљалац"</string>
+    <string name="delivered_status_content_description" msgid="3433965196058436991">"Испоручено"</string>
+    <string name="dl_failure_notification" msgid="8744588243554006189">"Није могуће преузети поруку <xliff:g id="SUBJECT">%1$s</xliff:g> пошиљаоца <xliff:g id="FROM">%2$s</xliff:g>."</string>
+    <string name="low_memory" msgid="5300743415198486619">"Није могуће довршити операцију у вези са базом података због недостатка меморије"</string>
+    <string name="notification_send_failures_line1_singular" msgid="6783835440207655217">"Порука није послата"</string>
+    <string name="notification_send_failures_line1_plural" msgid="7228944748028969272">"Неке поруке нису послате у Размени порука"</string>
+    <plurals name="notification_send_failures" formatted="false" msgid="6938919932879650691">
+      <item quantity="one"><xliff:g id="MESSAGES_1">%d</xliff:g> поруке(а) у <xliff:g id="CONVERSATIONS">%d</xliff:g> конверзацији</item>
+      <item quantity="few"><xliff:g id="MESSAGES_1">%d</xliff:g> поруке(а) у <xliff:g id="CONVERSATIONS">%d</xliff:g> конверзације</item>
+      <item quantity="other"><xliff:g id="MESSAGES_1">%d</xliff:g> поруке(а) у <xliff:g id="CONVERSATIONS">%d</xliff:g> конверзација</item>
+    </plurals>
+    <string name="notification_download_failures_line1_singular" msgid="4424772073720626885">"Порука није преузета"</string>
+    <string name="notification_download_failures_line1_plural" msgid="1697982467160426345">"Неке поруке нису преузете у Размени порука"</string>
+    <plurals name="notification_download_failures" formatted="false" msgid="5341490525457911398">
+      <item quantity="one"><xliff:g id="MESSAGES_1">%d</xliff:g> поруке(а) у <xliff:g id="CONVERSATIONS">%d</xliff:g> конверзацији</item>
+      <item quantity="few"><xliff:g id="MESSAGES_1">%d</xliff:g> поруке(а) у <xliff:g id="CONVERSATIONS">%d</xliff:g> конверзације</item>
+      <item quantity="other"><xliff:g id="MESSAGES_1">%d</xliff:g> поруке(а) у <xliff:g id="CONVERSATIONS">%d</xliff:g> конверзација</item>
+    </plurals>
+    <string name="notification_emergency_send_failure_line1" msgid="6311715277789488996">"Порука на <xliff:g id="NUMBER">%1$s</xliff:g> није послата"</string>
+    <string name="notification_emergency_send_failure_line2" msgid="6461481033351036996">"Упутите гласовни позив службама за хитне случајеве. Слање SMS-а на <xliff:g id="NUMBER">%1$s</xliff:g> тренутно није успело."</string>
+    <plurals name="notification_new_messages" formatted="false" msgid="610594317958128842">
+      <item quantity="one"><xliff:g id="MESSAGES">%d</xliff:g> нова порука</item>
+      <item quantity="few"><xliff:g id="MESSAGES">%d</xliff:g> нове поруке</item>
+      <item quantity="other"><xliff:g id="MESSAGES">%d</xliff:g> нових порука</item>
+    </plurals>
+    <string name="start_conversation" msgid="7984539515326392793">"Покрени"</string>
+    <string name="camera_error_opening" msgid="2739332294400420426">"Камера није доступна"</string>
+    <string name="camera_error_unknown" msgid="4283956364220459608">"Камера није доступна"</string>
+    <string name="camera_error_video_init_fail" msgid="994632067015578879">"Снимање видео снимака није доступно"</string>
+    <string name="camera_error_storage_fail" msgid="5536300789483863989">"Чување медија није могуће"</string>
+    <string name="camera_error_failure_taking_picture" msgid="4894133709734862250">"Није успело снимање слике"</string>
+    <string name="back" msgid="1477626055115561645">"Назад"</string>
+    <string name="action_menu_show_archived" msgid="1628518043533374868">"Архивирано"</string>
+    <string name="action_delete" msgid="4076795795307486019">"Избриши"</string>
+    <string name="action_archive" msgid="5437034800324083170">"Архивирај"</string>
+    <string name="action_unarchive" msgid="139681611159869493">"Опозови архивирање"</string>
+    <string name="action_notification_off" msgid="4823658797441716246">"Искључи обавештења"</string>
+    <string name="action_notification_on" msgid="8244389452685364211">"Укључи обавештења"</string>
+    <string name="action_add_contact" msgid="8248615862739848672">"Додај контакт"</string>
+    <string name="action_download" msgid="7786338136368564146">"Преузми"</string>
+    <string name="action_send" msgid="377635240181672039">"Пошаљи"</string>
+    <string name="action_delete_message" msgid="2728883749416365507">"Избриши"</string>
+    <string name="delete_message_confirmation_dialog_title" msgid="4723834210275712001">"Желите да избришете ову поруку?"</string>
+    <string name="delete_message_confirmation_dialog_text" msgid="3952533622691031375">"Ова радња не може да се опозове."</string>
+    <string name="delete_message_confirmation_button" msgid="3888584614972573382">"Избриши"</string>
+    <plurals name="delete_conversations_confirmation_dialog_title" formatted="false" msgid="2285567882353326800">
+      <item quantity="one">Желите ли да избришете ове конверзације?</item>
+      <item quantity="few">Желите ли да избришете ове конверзације?</item>
+      <item quantity="other">Желите ли да избришете ове конверзације?</item>
+    </plurals>
+    <string name="delete_conversation_confirmation_button" msgid="744574085809600863">"Избриши"</string>
+    <string name="delete_conversation_decline_button" msgid="5470021965641900456">"Откажи"</string>
+    <string name="recipient_hint" msgid="1819710673158265515">"Прима"</string>
+    <string name="action_multiselect" msgid="1219683118692013380">"Изаберите више слика"</string>
+    <string name="action_confirm_multiselect" msgid="8283370294120913166">"Потврди избор"</string>
+    <string name="attachment_more_items" msgid="2861573099241369958">"+<xliff:g id="COUNT">%d</xliff:g>"</string>
+    <string name="audio_recording_start_failed" msgid="4442450764642560851">"Снимање звука није успело. Покушајте поново."</string>
+    <string name="audio_recording_replay_failed" msgid="3585760856463273828">"Пуштање звука није успело. Покушајте поново."</string>
+    <string name="audio_recording_error" msgid="7762310055059024872">"Чување звука није успело. Покушајте поново."</string>
+    <string name="audio_picker_hint_text" msgid="6986250080467111491">"Додирните и задржите"</string>
+    <string name="enumeration_comma" msgid="7032804261692931808">", "</string>
+    <string name="notification_separator" msgid="3472521786709813414">"  "</string>
+    <string name="notification_ticker_separator" msgid="2027929074008933906">": "</string>
+    <string name="notification_space_separator" msgid="9007689386066977972">"  "</string>
+    <string name="notification_picture" msgid="1176665337098921822">"Слика"</string>
+    <string name="notification_audio" msgid="5926581589398218150">"Аудио исечак"</string>
+    <string name="notification_video" msgid="4331423498662606204">"Видео"</string>
+    <string name="notification_vcard" msgid="7658061674440552878">"Картица контакта"</string>
+    <string name="notification_download_mms" msgid="6206807985355359528">"Преузми"</string>
+    <string name="notification_reply_via_sms" msgid="6990127304684161722">"Одговори преко SMS-а"</string>
+    <string name="notification_reply_via_mms" msgid="6706012871186064035">"Одговори MMS-ом"</string>
+    <string name="notification_reply_prompt" msgid="1836023392294480241">"Одговорите"</string>
+    <plurals name="wearable_participant_count" formatted="false" msgid="3037889420270036143">
+      <item quantity="one"><xliff:g id="COUNT_1">%d</xliff:g> учесник</item>
+      <item quantity="few"><xliff:g id="COUNT_1">%d</xliff:g> учесника</item>
+      <item quantity="other"><xliff:g id="COUNT_1">%d</xliff:g> учесника</item>
+    </plurals>
+    <string name="unknown_self_participant" msgid="3186565052350548852">"Ја"</string>
+    <string name="blocked_toast_message" msgid="7903364256385612569">"Контакт је блокиран и архивиран"</string>
+    <string name="unblocked_toast_message" msgid="4927617874263586622">"Контакт је деблокиран и архивирање је опозвано"</string>
+    <string name="archived_toast_message" msgid="8109348891515322512">"Архивирано: <xliff:g id="COUNT">%d</xliff:g>"</string>
+    <string name="unarchived_toast_message" msgid="5010777423084203833">"Опозвано је архивирање за: <xliff:g id="COUNT">%d</xliff:g>"</string>
+    <string name="notification_off_toast_message" msgid="5203458459139408265">"Обавештења су искључена"</string>
+    <string name="notification_on_toast_message" msgid="1240626023754746310">"Обавештења су укључена"</string>
+    <string name="toast_after_setting_default_sms_app_for_message_send" msgid="2767997591700713113">"Све је спремно. Додирните Пошаљи поново."</string>
+    <string name="toast_after_setting_default_sms_app" msgid="2923745971897322476">"Размена порука је подешена као подразумевана апликација за SMS."</string>
+    <plurals name="attachment_preview_close_content_description" formatted="false" msgid="5631719319690969981">
+      <item quantity="one">Одбаци прилоге</item>
+      <item quantity="few">Одбаци прилоге</item>
+      <item quantity="other">Одбаци прилоге</item>
+    </plurals>
+    <string name="audio_attachment_content_description" msgid="499334244765270108">"Аудио прилог"</string>
+    <string name="audio_play_content_description" msgid="4932509227281251607">"Пусти аудио прилог"</string>
+    <string name="audio_pause_content_description" msgid="7578169887065513701">"Пауза"</string>
+    <string name="incoming_message_announcement" msgid="6369259405539452011">"<xliff:g id="SENDER">%s</xliff:g> вам шаље нову поруку: <xliff:g id="MESSAGE">%s</xliff:g>"</string>
+    <string name="one_on_one_incoming_failed_message_prefix" msgid="6985644411445605747">"Није примљена порука од корисника <xliff:g id="SENDER">%s</xliff:g>: <xliff:g id="MESSAGE">%s</xliff:g>. Време: <xliff:g id="TIME">%s</xliff:g>."</string>
+    <string name="one_on_one_incoming_successful_message_prefix" msgid="6190814597935995703">"Порука од корисника <xliff:g id="SENDER">%s</xliff:g>: <xliff:g id="MESSAGE">%s</xliff:g>. Време: <xliff:g id="TIME">%s</xliff:g>."</string>
+    <string name="one_on_one_outgoing_draft_message_prefix" msgid="8721053088385740646">"Порука није послата кориснику <xliff:g id="CONTACT">%s</xliff:g>: <xliff:g id="MESSAGE">%s</xliff:g>. Време: <xliff:g id="TIME">%s</xliff:g>."</string>
+    <string name="one_on_one_outgoing_sending_message_prefix" msgid="3929653530203574220">"Шаље се порука кориснику <xliff:g id="CONTACT">%s</xliff:g>: <xliff:g id="MESSAGE">%s</xliff:g>. Време: <xliff:g id="TIME">%s</xliff:g>."</string>
+    <string name="one_on_one_outgoing_failed_message_prefix" msgid="7194065651879454314">"Није успело слање поруке кориснику <xliff:g id="CONTACT">%s</xliff:g>: <xliff:g id="MESSAGE">%s</xliff:g>. Време: <xliff:g id="TIME">%s</xliff:g>."</string>
+    <string name="one_on_one_outgoing_successful_message_prefix" msgid="7128492863867327814">"Порука кориснику <xliff:g id="CONTACT">%s</xliff:g>: <xliff:g id="MESSAGE">%s</xliff:g>. Време: <xliff:g id="TIME">%s</xliff:g>."</string>
+    <string name="group_incoming_failed_message_prefix" msgid="7085805237707481779">"Није примљена порука од корисника <xliff:g id="SENDER">%s</xliff:g>: <xliff:g id="MESSAGE">%s</xliff:g>. Време: <xliff:g id="TIME">%s</xliff:g>. <xliff:g id="GROUPINFO">%s</xliff:g>."</string>
+    <string name="group_incoming_successful_message_prefix" msgid="7248506967059447054">"Порука од корисника <xliff:g id="SENDER">%s</xliff:g>: <xliff:g id="MESSAGE">%s</xliff:g>. Време: <xliff:g id="TIME">%s</xliff:g>. <xliff:g id="GROUPINFO">%s</xliff:g>."</string>
+    <string name="group_outgoing_draft_message_prefix" msgid="1655013812805454648">"Порука која није послата групи <xliff:g id="GROUP">%s</xliff:g>: <xliff:g id="MESSAGE">%s</xliff:g>. Време: <xliff:g id="TIME">%s</xliff:g>."</string>
+    <string name="group_outgoing_sending_message_prefix" msgid="7636874745414695556">"Шаље се порука групи <xliff:g id="GROUP">%s</xliff:g>: <xliff:g id="MESSAGE">%s</xliff:g>. Време: <xliff:g id="TIME">%s</xliff:g>."</string>
+    <string name="group_outgoing_failed_message_prefix" msgid="5059983340377901592">"Није успело слање поруке групи <xliff:g id="GROUP">%s</xliff:g>: <xliff:g id="MESSAGE">%s</xliff:g>. Време: <xliff:g id="TIME">%s</xliff:g>."</string>
+    <string name="group_outgoing_successful_message_prefix" msgid="1593702642852987920">"Порука групи <xliff:g id="GROUP">%s</xliff:g>: <xliff:g id="MESSAGE">%s</xliff:g>. Време: <xliff:g id="TIME">%s</xliff:g>."</string>
+    <string name="failed_message_content_description" msgid="7047161648867054936">"Слање поруке није успело. Додирните да бисте поново покушали."</string>
+    <string name="group_conversation_description" msgid="2339270924401184182">"Конверзација са учесницима <xliff:g id="PARTICIPANTS">%s</xliff:g>"</string>
+    <string name="delete_subject_content_description" msgid="8910749398836396698">"Брисање наслова"</string>
+    <string name="camera_switch_to_video_mode" msgid="2926868205952641428">"Снимите видео"</string>
+    <string name="camera_switch_to_still_mode" msgid="4419617715199157958">"Снимите слику"</string>
+    <string name="camera_take_picture" msgid="2573317952200799489">"Снимите слику"</string>
+    <string name="camera_start_recording" msgid="1736478301191221786">"Почните да снимате видео"</string>
+    <string name="camera_switch_full_screen" msgid="6156039742035097276">"Пређите на камеру целог екрана"</string>
+    <string name="camera_switch_camera_facing" msgid="1566112129296559159">"Пребацујте са предње на задњу камеру и обрнуто"</string>
+    <string name="camera_stop_recording" msgid="5331592576107271152">"Заустави снимање и приложи видео"</string>
+    <string name="camera_cancel_recording" msgid="6431544304743145818">"Заустави снимање звука"</string>
+    <string name="photo_view_activity_title" msgid="6556006393051918135">"Слике из Размене порука"</string>
+    <plurals name="photos_saved_to_album" formatted="false" msgid="7529478299745446838">
+      <item quantity="one"><xliff:g id="QUANTITY_2">%d</xliff:g> слика је сачувана у албуму „<xliff:g id="ALBUMNAME_3">%s</xliff:g>“</item>
+      <item quantity="few"><xliff:g id="QUANTITY_2">%d</xliff:g> слике су сачуване у албуму „<xliff:g id="ALBUMNAME_3">%s</xliff:g>“</item>
+      <item quantity="other"><xliff:g id="QUANTITY_2">%d</xliff:g> слика је сачувано у албуму „<xliff:g id="ALBUMNAME_3">%s</xliff:g>“</item>
+    </plurals>
+    <plurals name="videos_saved_to_album" formatted="false" msgid="6821121808257576788">
+      <item quantity="one"><xliff:g id="QUANTITY_2">%d</xliff:g> видео је сачуван у албуму „<xliff:g id="ALBUMNAME_3">%s</xliff:g>“</item>
+      <item quantity="few"><xliff:g id="QUANTITY_2">%d</xliff:g> видео снимка су сачувана у албуму „<xliff:g id="ALBUMNAME_3">%s</xliff:g>“</item>
+      <item quantity="other"><xliff:g id="QUANTITY_2">%d</xliff:g> видео снимака је сачувано у албуму „<xliff:g id="ALBUMNAME_3">%s</xliff:g>“</item>
+    </plurals>
+    <plurals name="attachments_saved_to_album" formatted="false" msgid="8407480699515308929">
+      <item quantity="one"><xliff:g id="QUANTITY_2">%d</xliff:g> прилог је сачуван у албуму „<xliff:g id="ALBUMNAME_3">%s</xliff:g>“</item>
+      <item quantity="few"><xliff:g id="QUANTITY_2">%d</xliff:g> прилога су сачувана у албуму „<xliff:g id="ALBUMNAME_3">%s</xliff:g>“</item>
+      <item quantity="other"><xliff:g id="QUANTITY_2">%d</xliff:g> прилога је сачувано у албуму „<xliff:g id="ALBUMNAME_3">%s</xliff:g>“</item>
+    </plurals>
+    <plurals name="attachments_saved_to_downloads" formatted="false" msgid="1886864019411801995">
+      <item quantity="one"><xliff:g id="QUANTITY_1">%d</xliff:g> прилог је сачуван у директоријуму „Преузимања“</item>
+      <item quantity="few"><xliff:g id="QUANTITY_1">%d</xliff:g> прилога су сачувана у директоријуму „Преузимања“</item>
+      <item quantity="other"><xliff:g id="QUANTITY_1">%d</xliff:g> прилога је сачувано у директоријуму „Преузимања“</item>
+    </plurals>
+    <plurals name="attachments_saved" formatted="false" msgid="6925000482183379648">
+      <item quantity="one"><xliff:g id="QUANTITY_1">%d</xliff:g> прилог је сачуван</item>
+      <item quantity="few"><xliff:g id="QUANTITY_1">%d</xliff:g> прилога су сачувана</item>
+      <item quantity="other"><xliff:g id="QUANTITY_1">%d</xliff:g> прилога је сачувано</item>
+    </plurals>
+    <plurals name="attachment_save_error" formatted="false" msgid="2068837227090109833">
+      <item quantity="one">Нисмо успели да сачувамо <xliff:g id="QUANTITY_1">%d</xliff:g> прилог</item>
+      <item quantity="few">Нисмо успели да сачувамо <xliff:g id="QUANTITY_1">%d</xliff:g> прилога</item>
+      <item quantity="other">Нисмо успели да сачувамо <xliff:g id="QUANTITY_1">%d</xliff:g> прилога</item>
+    </plurals>
+    <string name="attachment_file_description" msgid="3056972820372291694">"Сачувани прилог MMS-а"</string>
+    <string name="settings_activity_title" msgid="3380813834835334258">"Подешавања"</string>
+    <string name="archived_activity_title" msgid="4738212324460451188">"Архивирано"</string>
+    <string name="action_close" msgid="1840519376200478419">"Затвори"</string>
+    <string name="mms_messaging_category_pref_title" msgid="4816815152658525660">"MMS"</string>
+    <string name="advanced_category_pref_title" msgid="6411454224069259687">"Напредно"</string>
+    <string name="debug_category_pref_title" msgid="8765138968242505061">"Отклањање грешака"</string>
+    <string name="notifications_enabled_pref_title" msgid="4127288731844373795">"Обавештења"</string>
+    <string name="notification_sound_pref_title" msgid="3685506528957337849">"Звук"</string>
+    <string name="silent_ringtone" msgid="8073534180322059814">"Нечујно"</string>
+    <string name="notification_vibrate_pref_title" msgid="6668564570045187390">"Вибрација"</string>
+    <string name="blocked_pref_title" msgid="2560554234438548817">"Блокирано"</string>
+    <string name="delivery_reports_pref_title" msgid="5115727259825309087">"Извештаји о испоруци SMS-ова"</string>
+    <string name="delivery_reports_pref_summary" msgid="4272502420621500421">"Захтевајте извештај о испоруци за сваки послати SMS"</string>
+    <string name="auto_retrieve_mms_pref_title" msgid="1316094876978218980">"Аутоматско преузимање"</string>
+    <string name="auto_retrieve_mms_pref_summary" msgid="2253902455786205335">"Аутоматско преузимање MMS порука"</string>
+    <string name="auto_retrieve_mms_when_roaming_pref_title" msgid="2918775628609759349">"Аутоматски преузимај у ромингу"</string>
+    <string name="auto_retrieve_mms_when_roaming_pref_summary" msgid="7347177867673486983">"Аутоматски преузимај MMS у ромингу"</string>
+    <string name="group_mms_pref_title" msgid="6553612309209383106">"Групна размена порука"</string>
+    <string name="group_mms_pref_summary" msgid="3758710015912690629">"Користите MMS за слање једне поруке када постоји више прималаца"</string>
+    <string name="sms_disabled_pref_title" msgid="6352764741524717132">"Подразумевана апликација за SMS"</string>
+    <string name="sms_enabled_pref_title" msgid="2961457081888153323">"Подразумевана апликација за SMS"</string>
+    <!-- no translation found for default_sms_app (3907546126124760465) -->
+    <skip />
+    <string name="mms_phone_number_pref_title" msgid="5445275222817760638">"Број телефона"</string>
+    <string name="unknown_phone_number_pref_display_value" msgid="5191326096424554297">"Непознато"</string>
+    <string name="send_sound_pref_title" msgid="6284747469983942370">"Звукови за одлазне поруке"</string>
+    <string name="dump_sms_pref_title" msgid="4057657151746557281">"Направи сирову копију SMS-а"</string>
+    <string name="dump_sms_pref_summary" msgid="3694039770323225329">"Направи сирову копију необрађених података примљеног SMS-а у датотеци спољног складишног простора"</string>
+    <string name="dump_mms_pref_title" msgid="6699074152055891680">"Направи сирову копију MMS-а"</string>
+    <string name="dump_mms_pref_summary" msgid="7901698352188687659">"Направи сирову копију необрађених података примљеног MMS-а у датотеци спољног складишног простора"</string>
+    <string name="wireless_alerts_title" msgid="8218925605166939654">"Обавештења преко мобилне мреже"</string>
+    <string name="message_context_menu_title" msgid="5036023289586457642">"Опције поруке"</string>
+    <string name="message_context_menu_copy_text" msgid="8241684826917957666">"Копирај текст"</string>
+    <string name="message_context_menu_view_details" msgid="2077089491219912840">"Погледајте детаље"</string>
+    <string name="message_context_menu_delete_message" msgid="4924354182554857475">"Избриши"</string>
+    <string name="message_context_menu_forward_message" msgid="4848326950037554575">"Проследи"</string>
+    <string name="message_details_title" msgid="8451487656255395372">"Детаљи поруке"</string>
+    <string name="message_type_label" msgid="6442873901113487978">"Тип: "</string>
+    <string name="text_message" msgid="7415419755252205721">"SMS"</string>
+    <string name="multimedia_message" msgid="2199989099980111684">"Мултимедијална порука"</string>
+    <string name="from_label" msgid="1947831848146564875">"Од: "</string>
+    <string name="to_address_label" msgid="1816631887533235762">"Коме: "</string>
+    <string name="sent_label" msgid="5186286057597137301">"Послато: "</string>
+    <string name="received_label" msgid="4442494712757995203">"Примљено: "</string>
+    <string name="subject_label" msgid="1887378451808609152">"Наслов: "</string>
+    <string name="message_size_label" msgid="8840394477993741203">"Величина: "</string>
+    <string name="priority_label" msgid="5029073794896222902">"Приоритет: "</string>
+    <string name="sim_label" msgid="2706003016582772108">"SIM картица: "</string>
+    <string name="priority_high" msgid="728836357310908368">"Висок"</string>
+    <string name="priority_normal" msgid="8918221917628753075">"Нормалан"</string>
+    <string name="priority_low" msgid="7398724779026801851">"Низак"</string>
+    <string name="sim_slot_identifier" msgid="5934005977415016295">"Отвор за SIM картицу <xliff:g id="SIM_SLOT_NUMBER">%s</xliff:g>"</string>
+    <string name="hidden_sender_address" msgid="5054789216911282696">"Скривена адреса пошиљаоца"</string>
+    <string name="cant_send_message_while_loading_attachments" msgid="4301887223941009907">"Не можете да пошаљете поруку док се прилози учитавају."</string>
+    <string name="fail_to_load_attachment" msgid="412233184776827353">"Учитавање прилога није успело. Покушајте поново."</string>
+    <string name="cant_send_message_without_active_subscription" msgid="7130532514190813716">"Мрежа није спремна. Покушајте поново."</string>
+    <string name="chips_text_delete_button_content_description" msgid="123760854728616068">"Избриши текст"</string>
+    <string name="numeric_text_keyboard_toggle_button_content_description" msgid="1403198418131594073">"Пребацивање између уноса текста и бројева"</string>
+    <string name="add_more_participants_button_content_description" msgid="12460574490350327">"Додај још учесника"</string>
+    <string name="confrim_participants_button_content_description" msgid="7473740533133798616">"Потврди учеснике"</string>
+    <string name="start_new_conversation" msgid="3924471215595992758">"Започни нову конверзацију"</string>
+    <string name="gallery_checkbox_content_description" msgid="2503122727700475428">"Изаберите ову ставку"</string>
+    <string name="video_thumbnail_view_play_button_content_description" msgid="3506938388391260811">"Пусти видео"</string>
+    <string name="action_people_and_options" msgid="2748020184252106661">"Људи и опције"</string>
+    <string name="action_debug_options" msgid="2440658410677323714">"Отклони грешке"</string>
+    <string name="people_and_options_activity_title" msgid="5443749025829291736">"Људи и опције"</string>
+    <string name="general_settings_title" msgid="4465312111301728995">"Опште"</string>
+    <string name="participant_list_title" msgid="8624855187574757110">"Људи у овој конверзацији"</string>
+    <string name="action_call" msgid="6596167921517350362">"Позови"</string>
+    <string name="compose_message_view_hint_text" msgid="5214836453231753054">"Пошаљите поруку"</string>
+    <string name="compose_message_view_hint_text_multi_sim" msgid="2829154383848677160">"Пошаљите поруку&lt;br/&gt;&lt;small&gt;са картице <xliff:g id="SIM_NAME">%s</xliff:g>&lt;/small&gt;"</string>
+    <plurals name="compose_message_view_hint_text_photo" formatted="false" msgid="8937589900456604618">
+      <item quantity="one">Пошаљите слике</item>
+      <item quantity="few">Пошаљите слике</item>
+      <item quantity="other">Пошаљите слике</item>
+    </plurals>
+    <plurals name="compose_message_view_hint_text_audio" formatted="false" msgid="5934090345811195170">
+      <item quantity="one">Пошаљите аудио снимке</item>
+      <item quantity="few">Пошаљите аудио снимке</item>
+      <item quantity="other">Пошаљите аудио снимке</item>
+    </plurals>
+    <plurals name="compose_message_view_hint_text_video" formatted="false" msgid="9188048653766960507">
+      <item quantity="one">Пошаљите видео снимке</item>
+      <item quantity="few">Пошаљите видео снимке</item>
+      <item quantity="other">Пошаљите видео снимке</item>
+    </plurals>
+    <plurals name="compose_message_view_hint_text_vcard" formatted="false" msgid="933064969858631242">
+      <item quantity="one">Пошаљите картице контаката</item>
+      <item quantity="few">Пошаљите картице контаката</item>
+      <item quantity="other">Пошаљите картице контаката</item>
+    </plurals>
+    <plurals name="compose_message_view_hint_text_attachments" formatted="false" msgid="1778518334602418000">
+      <item quantity="one">Пошаљите прилоге</item>
+      <item quantity="few">Пошаљите прилоге</item>
+      <item quantity="other">Пошаљите прилоге</item>
+    </plurals>
+    <plurals name="attachment_changed_accessibility_announcement" formatted="false" msgid="5592871135747616108">
+      <item quantity="one"><xliff:g id="ATTACHMENT_COUNT">%d</xliff:g> прилог је спреман за слање</item>
+      <item quantity="few"><xliff:g id="ATTACHMENT_COUNT">%d</xliff:g> прилога су спремна за слање</item>
+      <item quantity="other"><xliff:g id="ATTACHMENT_COUNT">%d</xliff:g> прилога је спремно за слање</item>
+    </plurals>
+    <string name="menu_send_feedback" msgid="479412726781330278">"Пошаљи повратне информације"</string>
+    <string name="menu_view_in_store" msgid="3792488955421628684">"Прикажи у Google Play продавници"</string>
+    <string name="menu_version_info" msgid="6122616816253404821">"Информације о верзији"</string>
+    <string name="subtitle_format_for_version_number" msgid="446082111129170749">"Верзија %1$s"</string>
+    <string name="menu_license" msgid="1157954180701135202">"Лиценце отвореног кода"</string>
+    <string name="notifications_enabled_conversation_pref_title" msgid="1492686092760478206">"Обавештења"</string>
+    <string name="mms_attachment_limit_reached" msgid="8303890455085643301">"Ограничење за прилоге је достигнуто"</string>
+    <string name="mms_attachment_load_failed" msgid="5697191348996648727">"Учитавање прилога није успело."</string>
+    <string name="add_contact_confirmation_dialog_title" msgid="1898307408816625598">"Желите ли да додате у контакте?"</string>
+    <string name="add_contact_confirmation" msgid="1479380805406328264">"Додај контакт"</string>
+    <string name="compose_message_view_subject_hint_text" msgid="6076616675845705660">"Наслов"</string>
+    <string name="conversation_message_view_subject_text" msgid="5634274498769555505">"Наслов: "</string>
+    <string name="notification_subject" msgid="5229975483160300625">"<xliff:g id="SUBJECT_LABEL">%s</xliff:g><xliff:g id="MESSAGETEXT">%s</xliff:g>"</string>
+    <string name="loading_vcard" msgid="3961520941271265083">"Учитава се картица контакта"</string>
+    <string name="failed_loading_vcard" msgid="7711070643740368402">"Учитавање картице контакта није успело"</string>
+    <string name="vcard_tap_hint" msgid="4940284329175200952">"Погледајте картицу контакта"</string>
+    <plurals name="vcard_multiple_display_name" formatted="false" msgid="2884224435488996028">
+      <item quantity="one"><xliff:g id="COUNT_1">%d</xliff:g> контакт</item>
+      <item quantity="few"><xliff:g id="COUNT_1">%d</xliff:g> контакта</item>
+      <item quantity="other"><xliff:g id="COUNT_1">%d</xliff:g> контаката</item>
+    </plurals>
+    <string name="vcard_detail_activity_title" msgid="591540798943754991">"Картице контаката"</string>
+    <string name="vcard_detail_birthday_label" msgid="7196021537629120021">"Рођендан"</string>
+    <string name="vcard_detail_notes_label" msgid="6104179009509800126">"Белешке"</string>
+    <string name="forward_message_activity_title" msgid="4689730643900226699">"Проследите поруку"</string>
+    <string name="reply_activity_title" msgid="2967630094609648609">"Одговорите"</string>
+    <string name="plus_one" msgid="9010288417554932581">"+1"</string>
+    <string name="plus_n" msgid="8961547034116059566">"+%d"</string>
+    <string name="sms_disabled" msgid="4988773371061820432">"SMS је онемогућен"</string>
+    <string name="requires_default_sms_app_to_send" msgid="171048611973157166">"Да бисте слали поруке, подесите Размену порука као подразумевану апликацију за SMS"</string>
+    <string name="requires_default_sms_app" msgid="7477365167876194810">"Подесите Размену порука као подразумевану апликацију за SMS"</string>
+    <string name="requires_default_sms_change_button" msgid="6717443481161057941">"Промени"</string>
+    <string name="recommend_set_default_sms_app" msgid="7769636305626277844">"Да бисте примали поруке, подесите Размену порука као подразумевану апликацију за SMS"</string>
+    <string name="no_preferred_sim_selected" msgid="8583927728936521140">"Није изабран жељени SIM за слање SMS-ова"</string>
+    <string name="requires_sms_permissions_message" msgid="2179684358095980506">"Власник уређаја не дозвољава ову апликацију."</string>
+    <string name="requires_sms_permissions_close_button" msgid="8601569832171759435">"Потврди"</string>
+    <string name="too_many_participants" msgid="5857516461210932810">"Превише учесника у конверзацији"</string>
+    <plurals name="add_invalid_contact_error" formatted="false" msgid="782438833843363189">
+      <item quantity="one">Неважећи контакти</item>
+      <item quantity="few">Неважећи контакти</item>
+      <item quantity="other">Неважећи контакти</item>
+    </plurals>
+    <string name="camera_media_failure" msgid="6532763214546593687">"Учитавање слике са камере није успело"</string>
+    <string name="conversation_list_item_view_sent_from_you_prefix" msgid="1735457801737604211">"Ви: "</string>
+    <string name="conversation_list_item_view_sent_from_other_prefix" msgid="9202622757034736175">"<xliff:g id="FIRSTNAMEOFSENDER">%s</xliff:g>: "</string>
+    <string name="conversation_list_item_view_draft_message" msgid="3592923997082845035">"Недовршена порука"</string>
+    <string name="conversation_list_empty_text" msgid="7505706551294769667">"Када започнете нову конверзацију, видећете је наведену овде"</string>
+    <string name="archived_conversation_list_empty_text" msgid="6109126963298874571">"Овде се појављују архивиране преписке"</string>
+    <string name="conversation_list_first_sync_text" msgid="3749751291444609993">"Преписке се учитавају..."</string>
+    <string name="conversation_list_snippet_picture" msgid="5326960910088541826">"Слика"</string>
+    <string name="conversation_list_snippet_audio_clip" msgid="7894183429890407387">"Аудио клип"</string>
+    <string name="conversation_list_snippet_video" msgid="7101059507173671233">"Видео"</string>
+    <string name="conversation_list_snippet_vcard" msgid="5004837959112452394">"Картица контакта"</string>
+    <string name="mms_text" msgid="1528791558806015806">"MMS"</string>
+    <string name="snack_bar_undo" msgid="4523395751563700308">"Опозови"</string>
+    <string name="snack_bar_retry" msgid="7140970704902570020">"Покушај поново"</string>
+    <string name="contact_list_empty_text" msgid="1036353827229041942">"Унесите име или број телефона контакта да бисте започели нову поруку"</string>
+    <string name="action_block" msgid="9032076625645190136">"Блокирај"</string>
+    <string name="block_contact_title" msgid="6968382557194643329">"Блокирај <xliff:g id="DESTINATION">%s</xliff:g>"</string>
+    <string name="unblock_contact_title" msgid="4719854710980066596">"Деблокирај <xliff:g id="DESTINATION">%s</xliff:g>"</string>
+    <string name="block_confirmation_title" msgid="8288283455512985682">"Желите ли да блокирате <xliff:g id="DESTINATION">%s</xliff:g>?"</string>
+    <string name="block_confirmation_message" msgid="185429978461824228">"И даље ћете примати поруке са овог броја, али нећете више добијати обавештења. Ова преписка ће бити архивирана."</string>
+    <string name="blocked_contacts_title" msgid="7709164518967312281">"Блокирани контакти"</string>
+    <string name="tap_to_unblock_message" msgid="1284284144816901647">"ДЕБЛОКИРАЈ"</string>
+    <string name="view_blocked_contacts_title" msgid="7417596291306885403">"Блокирани контакти"</string>
+    <string name="pick_image_from_document_library_content_description" msgid="132845956503874378">"Изаберите слику из библиотеке докумената"</string>
+    <string name="sending_message" msgid="6363584950085384929">"Порука се шаље"</string>
+    <string name="send_message_success" msgid="4088006261869323324">"Порука је послата"</string>
+    <string name="send_message_failure_no_data" msgid="7404080465234559802">"Подаци за мобилне уређаје су искључени. Проверите подешавања."</string>
+    <string name="send_message_failure_airplane_mode" msgid="3966519541237053840">"Слање порука није могуће у Режиму рада у авиону"</string>
+    <string name="send_message_failure" msgid="5273892629851390023">"Порука није послата"</string>
+    <string name="download_message_success" msgid="3514921076616367225">"Порука је преузета"</string>
+    <string name="download_message_failure_no_data" msgid="6830055949399088532">"Подаци за мобилне уређаје су искључени. Проверите подешавања."</string>
+    <string name="download_message_failure_airplane_mode" msgid="6752478540984118382">"Није могуће преузимати поруке у режиму рада у авиону"</string>
+    <string name="download_message_failure" msgid="635370887537738004">"Преузимање поруке није успело"</string>
+    <string name="content_description_for_number_zero" msgid="7992301592202897868">"Нула"</string>
+    <string name="content_description_for_number_one" msgid="3886554185135150473">"Један"</string>
+    <string name="content_description_for_number_two" msgid="1562486479385891146">"Два"</string>
+    <string name="content_description_for_number_three" msgid="8471442614073144385">"Три"</string>
+    <string name="content_description_for_number_four" msgid="7515917522043407213">"Четири"</string>
+    <string name="content_description_for_number_five" msgid="8078774905490022978">"Пет"</string>
+    <string name="content_description_for_number_six" msgid="9192012772645396654">"Шест"</string>
+    <string name="content_description_for_number_seven" msgid="5870011338757220060">"Седам"</string>
+    <string name="content_description_for_number_eight" msgid="7078061834874737466">"Осам"</string>
+    <string name="content_description_for_number_nine" msgid="4276787959475295232">"Девет"</string>
+    <string name="carrier_send_error" msgid="3796492439123251453">"Није могуће послати поруку помоћу мобилног оператера <xliff:g id="CARRIERNAME">%1$s</xliff:g>, грешка <xliff:g id="ERRORCODE">%2$d</xliff:g>"</string>
+    <string name="carrier_send_error_unknown_carrier" msgid="1210665032244425938">"Није могуће послати поруку помоћу непознатог мобилног оператера, грешка <xliff:g id="ERRORCODE">%1$d</xliff:g>"</string>
+    <string name="message_fwd" msgid="2144370964507743673">"Fwd: <xliff:g id="SUBJECT">%s</xliff:g>"</string>
+    <string name="mms_failure_outgoing_service" msgid="4662217039143124592">"Порука није послата: услуга није активирана на мрежи"</string>
+    <string name="mms_failure_outgoing_address" msgid="6212773250215580849">"Порука није послата: неважећа одредишна адреса"</string>
+    <string name="mms_failure_outgoing_corrupt" msgid="6132734324976690436">"Порука није послата: неважећа порука"</string>
+    <string name="mms_failure_outgoing_content" msgid="919220273446626565">"Порука није послата: неподржани садржај"</string>
+    <string name="mms_failure_outgoing_unsupported" msgid="2614377585077448979">"Порука није послата: неподржана порука"</string>
+    <string name="mms_failure_outgoing_too_large" msgid="3917966922000717407">"Порука није послата: превелика је"</string>
+    <string name="in_conversation_notify_new_message_text" msgid="8207541514656839042">"Нова порука"</string>
+    <string name="in_conversation_notify_new_message_action" msgid="7311780674392006753">"Прикажи"</string>
+    <string name="message_image_content_description" msgid="621604138442762130">"Слика"</string>
+    <string name="activity_not_found_message" msgid="2355153262520375529">"Проналажење одговарајуће апликације није успело"</string>
+    <string name="chips_delete_content_description" msgid="4655699207140895492">"Уклањање примаоца"</string>
+    <string name="share_new_message" msgid="2135955613694195483">"Нова порука"</string>
+    <string name="share_cancel" msgid="6666929391961668469">"Откажи"</string>
+    <string name="apn_edit" msgid="2134993966166435648">"Измените приступну тачку"</string>
+    <string name="apn_not_set" msgid="463728018542184151">"Није подешено"</string>
+    <string name="apn_name" msgid="1572691851070894985">"Назив"</string>
+    <string name="apn_apn" msgid="1197541953189716999">"Назив приступне тачке"</string>
+    <string name="apn_mmsc" msgid="2584154739440281747">"MMSC"</string>
+    <string name="apn_mms_proxy" msgid="4343743931563107100">"MMS прокси"</string>
+    <string name="apn_mms_port" msgid="6181253508404620479">"MMS порт"</string>
+    <string name="apn_mcc" msgid="8102023058623950736">"MCC"</string>
+    <string name="apn_mnc" msgid="1372437523197012866">"MNC"</string>
+    <string name="apn_type" msgid="8409755622399386584">"Тип назива приступне тачке"</string>
+    <string name="menu_delete_apn" msgid="4947391038600888284">"Избриши назив приступне тачке"</string>
+    <string name="menu_new_apn" msgid="1564461309350814037">"Нов назив приступне тачке"</string>
+    <string name="menu_save_apn" msgid="5445335896951613691">"Сачувај"</string>
+    <string name="menu_discard_apn_change" msgid="310569150407968648">"Одбаци"</string>
+    <string name="error_apn_name_empty" msgid="7770363665690646716">"Поље Назив не сме да буде празно."</string>
+    <string name="error_apn_empty" msgid="6799644880052534839">"Поље Назив приступне тачке не сме да буде празно."</string>
+    <string name="error_mcc_not3" msgid="3693788817630985838">"Поље MCC мора да садржи 3 цифре."</string>
+    <string name="error_mnc_not23" msgid="3726130455168743554">"Поље MNC мора да садржи 2 или 3 цифре."</string>
+    <string name="restore_default_apn" msgid="7180447255249638396">"Враћање подразумеваних подешавања назива приступне тачке."</string>
+    <string name="menu_restore_default_apn" msgid="6342935229867973523">"Ресетуј подразумеване вредности"</string>
+    <string name="restore_default_apn_completed" msgid="7421687541468349715">"Ресетовање подразумеваних подешавања назива приступне тачке је довршено."</string>
+    <string name="untitled_apn" msgid="3110576506102839465">"Ненасловљено"</string>
+    <string name="sms_apns_title" msgid="1351513141821300879">"Називи приступних тачака"</string>
+    <string name="apn_settings" msgid="3179955111000379490">"Називи приступних тачака"</string>
+    <string name="menu_new" msgid="8286285392706532511">"Нов назив приступне тачке"</string>
+    <string name="apn_settings_not_available" msgid="5136389328322585717">"Подешавања назива приступне тачке нису доступна за овог корисника"</string>
+    <string name="copy_to_clipboard_dialog_title" msgid="494269163973708182">"Желите ли да копирате у привремену меморију?"</string>
+    <string name="copy_to_clipboard" msgid="1977083934277981786">"Копирај"</string>
+    <string name="incoming_sim_name_text" msgid="4244076415705614525">"на картицу <xliff:g id="SIM_NAME">%s</xliff:g>"</string>
+    <string name="general_settings" msgid="5409336577057897710">"Опште"</string>
+    <string name="advanced_settings" msgid="5870459931510000742">"Напредно"</string>
+    <string name="general_settings_activity_title" msgid="3012187932521771578">"Општа подешавања"</string>
+    <string name="advanced_settings_activity_title" msgid="7397017836928206201">"Напредна подешавања"</string>
+    <string name="sim_specific_settings" msgid="948779178668552448">"„<xliff:g id="SIM_NAME">%s</xliff:g>“ SIM"</string>
+    <string name="disable_group_mms" msgid="1016285369211000297">"Шаљите појединачне SMS поруке свим примаоцима. Само ви ћете добијати одговоре"</string>
+    <string name="enable_group_mms" msgid="4311733160940564593">"Пошаљите један MMS свим примаоцима"</string>
+    <string name="sim_settings_unknown_number" msgid="1885996389432991383">"Непознат број"</string>
+    <string name="secondary_user_new_message_title" msgid="201938947573987596">"Нова порука"</string>
+    <string name="secondary_user_new_message_ticker" msgid="2386669280323553032">"Нова порука."</string>
+    <string name="sim_selector_button_content_description" msgid="2407660715957787727">"Бирач SIM картице"</string>
+    <string name="sim_selector_button_content_description_with_selection" msgid="4042539046779910617">"Изабран је <xliff:g id="SIM_0">%1$s</xliff:g>, бирач SIM картица"</string>
+    <string name="send_button_long_click_description_no_sim_selector" msgid="979624100711380593">"Измени наслов"</string>
+    <string name="send_button_long_click_description_with_sim_selector" msgid="7670274457707760465">"Изабери SIM или измени наслов"</string>
+    <string name="audio_record_view_content_description" msgid="29401157183728655">"Додирните и задржите за снимање звука"</string>
+    <string name="widget_new_conversation_content_description" msgid="4214201569175733579">"Започни нову конверзацију"</string>
+    <string name="widget_title_content_description" msgid="5802836840910466231">"Размена порука"</string>
+    <string name="widget_conversation_list_name" msgid="4005037639000611925">"Листа из Размене порука"</string>
+    <string name="widget_conversation_name" msgid="3900606239571892871">"Размена порука"</string>
+    <string name="widget_new_message_content_description" msgid="2706347689522691188">"Нова порука"</string>
+    <string name="widget_conversation_list_content_description" msgid="4137121313374868821">"Листа преписки"</string>
+    <string name="loading_conversations" msgid="2890879017729068514">"Учитавају се конверзације"</string>
+    <string name="loading_messages" msgid="3894765818932489665">"Учитавају се поруке"</string>
+    <string name="view_more_conversations" msgid="2430542054023217740">"Прикажи још конверзација"</string>
+    <string name="view_more_messages" msgid="6463224009407336178">"Прикажи још порука"</string>
+    <string name="conversation_deleted" msgid="6088388615460305424">"Конверзација је избрисана"</string>
+    <string name="tap_to_configure" msgid="7591682335533041774">"Конверзација је избрисана. Додирните да бисте приказали неку другу конверзацију Размене порука"</string>
+    <string name="update_destination_blocked" msgid="4577227174205233981">"Блокирано"</string>
+    <string name="update_destination_unblocked" msgid="5369499874676600478">"Деблокирано"</string>
+    <string name="db_full" msgid="8459265782521418031">"Нема довољно меморијског простора. Неки подаци ће можда бити изгубљени."</string>
+    <string name="attachment_chooser_activity_title" msgid="4049093653421684774">"Изабери прилоге"</string>
+    <string name="action_confirm_selection" msgid="3787494008738625806">"Потврди избор"</string>
+    <string name="attachment_chooser_selection" msgid="3616821885478549778">"Изабраних: <xliff:g id="COUNT">%d</xliff:g>"</string>
+    <string name="attachment_limit_reached_dialog_message_when_composing" msgid="2983376679583030373">"Уклоните један прилог или више њих и покушајте поново."</string>
+    <string name="attachment_limit_reached_dialog_message_when_sending" msgid="3917529855170816197">"Можете да покушате да пошаљете поруку, али можда неће бити испоручена ако не уклоните један прилог или више њих."</string>
+    <string name="video_attachment_limit_exceeded_when_sending" msgid="8545536951461996462">"Можете да пошаљете само један видео по поруци. Уклоните друге видео снимке и покушајте поново."</string>
+    <string name="attachment_load_failed_dialog_message" msgid="4917927407363303333">"Размена порука није успела да учита прилог."</string>
+    <string name="attachment_limit_reached_send_anyway" msgid="2348790618093735551">"Ипак пошаљи"</string>
+    <string name="conversation_creation_failure" msgid="8597624563218724441">"Започињање преписке није успело"</string>
+    <string name="link_display_format" msgid="8700344957248709584">"<xliff:g id="TEXT">%1$s</xliff:g> (<xliff:g id="URL">%2$s</xliff:g>)"</string>
+    <string name="selected_sim_content_message" msgid="4504796674843354505">"Изабрали сте <xliff:g id="SELECTED_SIM">%s</xliff:g>"</string>
+</resources>
