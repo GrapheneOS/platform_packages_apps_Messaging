@@ -29,8 +29,6 @@ import com.android.messaging.Factory;
 import com.android.messaging.datamodel.MediaScratchFileProvider;
 import com.android.messaging.util.Assert.DoesNotRunOnMainThread;
 import com.google.common.io.ByteStreams;
-import com.google.common.io.Files;
-import com.google.common.io.Resources;
 
 import java.io.BufferedInputStream;
 import java.io.File;
@@ -357,28 +355,6 @@ public class UriUtil {
             }
         }
         return AssetFileDescriptor.UNKNOWN_LENGTH;
-    }
-
-    /**
-     * Download data from the given url to the given local file.
-     * @return true if the download was successful.
-     *
-     * TODO: Add retry/exponential backoff logic.
-     */
-    @DoesNotRunOnMainThread
-    public static boolean downloadDataFromUrl(final String urlString, final File localFile) {
-        Assert.isNotMainThread();
-        LogUtil.i(LogUtil.BUGLE_TAG, "Downloading from " + urlString + " to " + localFile);
-        try {
-            Files.createParentDirs(localFile);
-            final URL inUrl = new URL(urlString);
-            ByteStreams.copy(Resources.newInputStreamSupplier(inUrl),
-                    Files.newOutputStreamSupplier(localFile));
-            return true;
-        } catch (final IOException ex) {
-            LogUtil.e(LogUtil.BUGLE_TAG, "Error downloading from " + urlString, ex);
-            return false;
-        }
     }
 
     /** @return string representation of URI or null if URI was null */
