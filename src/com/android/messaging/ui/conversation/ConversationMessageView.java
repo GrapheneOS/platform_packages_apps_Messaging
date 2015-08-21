@@ -1110,7 +1110,7 @@ public class ConversationMessageView extends FrameLayout implements View.OnClick
         @Override
         public void bindView(final View view, final MessagePartData attachment) {
             final AudioAttachmentView audioView = (AudioAttachmentView) view;
-            audioView.bindMessagePartData(attachment, isSelected() || mData.getIsIncoming());
+            audioView.bindMessagePartData(attachment, mData.getIsIncoming(), isSelected());
             audioView.setBackground(ConversationDrawables.get().getBubbleDrawable(
                     isSelected(), mData.getIsIncoming(), false /* needArrow */,
                     mData.hasIncomingErrorStatus()));
@@ -1118,7 +1118,7 @@ public class ConversationMessageView extends FrameLayout implements View.OnClick
 
         @Override
         public void unbind(final View view) {
-            ((AudioAttachmentView) view).bindMessagePartData(null, mData.getIsIncoming());
+            ((AudioAttachmentView) view).bindMessagePartData(null, mData.getIsIncoming(), false);
         }
     };
 

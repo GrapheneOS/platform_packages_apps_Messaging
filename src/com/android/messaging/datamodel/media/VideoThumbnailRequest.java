@@ -23,6 +23,7 @@ import android.provider.MediaStore.Video.Thumbnails;
 
 import com.android.messaging.Factory;
 import com.android.messaging.util.MediaMetadataRetrieverWrapper;
+import com.android.messaging.util.MediaUtil;
 import com.android.messaging.util.OsUtil;
 
 import java.io.FileNotFoundException;
@@ -41,7 +42,7 @@ public class VideoThumbnailRequest extends ImageRequest<UriImageRequestDescripto
     }
 
     public static boolean shouldShowIncomingVideoThumbnails() {
-        return OsUtil.isAtLeastM();
+        return MediaUtil.canAutoAccessIncomingMedia();
     }
 
     @Override
