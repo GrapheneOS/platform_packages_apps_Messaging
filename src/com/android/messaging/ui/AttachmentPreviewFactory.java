@@ -269,7 +269,8 @@ public class AttachmentPreviewFactory {
         final View view = layoutInflater.inflate(layoutId, parent, false /* attachToRoot */);
         final AudioAttachmentView audioView = (AudioAttachmentView)
                 view.findViewById(R.id.audio_attachment_view);
-        audioView.bindMessagePartData(attachmentData, false /* incoming */);
+        audioView.bindMessagePartData(
+                attachmentData, false /* incoming */, false /* showAsSelected */);
         return view;
     }
 
