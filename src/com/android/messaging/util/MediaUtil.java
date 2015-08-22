@@ -33,4 +33,8 @@ public abstract class MediaUtil {
      */
     public abstract void playSound(final Context context, final int resId,
             final OnCompletionListener completionListener);
+
+    public static boolean canAutoAccessIncomingMedia() {
+        return OsUtil.isAtLeastM();
+    }
 }

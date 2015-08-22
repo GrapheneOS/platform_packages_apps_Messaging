@@ -41,6 +41,7 @@ import com.android.messaging.ui.mediapicker.PausableChronometer;
 import com.android.messaging.util.Assert;
 import com.android.messaging.util.ContentType;
 import com.android.messaging.util.LogUtil;
+import com.android.messaging.util.MediaUtil;
 import com.android.messaging.util.UiUtils;
 
 /**
@@ -74,11 +75,15 @@ public class AudioAttachmentView extends LinearLayout {
     private int mClipPathWidth;
     private int mClipPathHeight;
 
-    // Indicates whether the attachment view is to be styled as a part of an incoming message.
-    private boolean mShowAsIncoming;
+    private boolean mUseIncomingStyle;
+    private int mThemeColor;
 
+    private boolean mStartPlayAfterPrepare;
+    // should the MediaPlayer be prepared lazily when the user chooses to play the audio (as
+    // opposed to preparing it early, on bind)
+    private boolean mPrepareOnPlayback;
     private boolean mPrepared;
-    private boolean mPlaybackFinished;
+    private boolean mPlaybackFinished; // Was the audio played all the way to the end
     private final int mMode;
 
     public AudioAttachmentView(final Context context, final AttributeSet attrs) {
@@ -108,7 +113,7 @@ public class AudioAttachmentView extends LinearLayout {
         mPlayPauseButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(final View v) {
-                setupMediaPlayer();
+                // Has the MediaPlayer already been prepared?
                 if (mMediaPlayer != null && mPrepared) {
                     if (mMediaPlayer.isPlaying()) {
                         mMediaPlayer.pause();
@@ -116,6 +121,17 @@ public class AudioAttachmentView extends LinearLayout {
                         mProgressBar.pause();
                     } else {
                         playAudio();
+                    }
+                } else {
+                    // Either eager preparation is still going on (the user must have clicked
+                    // the Play button immediately after the view is bound) or this is lazy
+                    // preparation.
+                    if (mStartPlayAfterPrepare) {
+                        // The user is (starting and) pausing before the MediaPlayer is prepared
+                        mStartPlayAfterPrepare = false;
+                    } else {
+                        mStartPlayAfterPrepare = true;
+                        setupMediaPlayer();
                     }
                 }
                 updatePlayPauseButtonState();
@@ -125,26 +141,52 @@ public class AudioAttachmentView extends LinearLayout {
         initializeViewsForMode();
     }
 
+    private void updateChronometerVisibility(final boolean playing) {
+        if (mChronometer.getVisibility() == View.GONE) {
+            // The chronometer is always GONE for LAYOUT_MODE_SUB_COMPACT
+            Assert.equals(LAYOUT_MODE_SUB_COMPACT, mMode);
+            return;
+        }
+
+        if (mPrepareOnPlayback) {
+            // For lazy preparation, the chronometer will only be shown during playback
+            mChronometer.setVisibility(playing ? View.VISIBLE : View.INVISIBLE);
+        } else {
+            mChronometer.setVisibility(View.VISIBLE);
+        }
+    }
+
     /**
      * Bind the audio attachment view with a MessagePartData.
      * @param incoming indicates whether the attachment view is to be styled as a part of an
      *        incoming message.
      */
     public void bindMessagePartData(final MessagePartData messagePartData,
-            final boolean incoming) {
+            final boolean incoming, final boolean showAsSelected) {
         Assert.isTrue(messagePartData == null ||
                 ContentType.isAudioType(messagePartData.getContentType()));
         final Uri contentUri = (messagePartData == null) ? null : messagePartData.getContentUri();
-        bind(contentUri, incoming);
+        bind(contentUri, incoming, showAsSelected);
     }
 
-    public void bind(final Uri dataSourceUri, final boolean incoming) {
+    public void bind(
+            final Uri dataSourceUri, final boolean incoming, final boolean showAsSelected) {
         final String currentUriString = (mDataSourceUri == null) ? "" : mDataSourceUri.toString();
         final String newUriString = (dataSourceUri == null) ? "" : dataSourceUri.toString();
-        mShowAsIncoming = incoming;
+        final int themeColor = ConversationDrawables.get().getConversationThemeColor();
+        final boolean useIncomingStyle = incoming || showAsSelected;
+        final boolean visualStyleChanged = mThemeColor != themeColor ||
+                mUseIncomingStyle != useIncomingStyle;
+
+        mUseIncomingStyle = useIncomingStyle;
+        mThemeColor = themeColor;
+        mPrepareOnPlayback = incoming && !MediaUtil.canAutoAccessIncomingMedia();
+
         if (!TextUtils.equals(currentUriString, newUriString)) {
             mDataSourceUri = dataSourceUri;
             resetToZeroState();
+        } else if (visualStyleChanged) {
+            updateVisualStyle();
         }
     }
 
@@ -173,11 +215,15 @@ public class AudioAttachmentView extends LinearLayout {
         releaseMediaPlayer();
     }
 
+    /**
+     * Prepare the MediaPlayer, and if mPrepareOnPlayback, start playing the audio
+     */
     private void setupMediaPlayer() {
         Assert.notNull(mDataSourceUri);
         if (mMediaPlayer == null) {
             Assert.isTrue(!mPrepared);
             mMediaPlayer = new MediaPlayer();
+
             try {
                 mMediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
                 mMediaPlayer.setDataSource(Factory.get().getApplicationContext(), mDataSourceUri);
@@ -188,6 +234,7 @@ public class AudioAttachmentView extends LinearLayout {
                         mChronometer.reset();
                         mChronometer.setBase(SystemClock.elapsedRealtime() -
                                 mMediaPlayer.getDuration());
+                        updateChronometerVisibility(false /* playing */);
                         mProgressBar.reset();
 
                         mPlaybackFinished = true;
@@ -203,16 +250,24 @@ public class AudioAttachmentView extends LinearLayout {
                         mProgressBar.setDuration(mMediaPlayer.getDuration());
                         mMediaPlayer.seekTo(0);
                         mPrepared = true;
+
+                        if (mStartPlayAfterPrepare) {
+                            mStartPlayAfterPrepare = false;
+                            playAudio();
+                            updatePlayPauseButtonState();
+                        }
                     }
                 });
 
                 mMediaPlayer.setOnErrorListener(new OnErrorListener() {
                     @Override
                     public boolean onError(final MediaPlayer mp, final int what, final int extra) {
+                        mStartPlayAfterPrepare = false;
                         onAudioReplayError(what, extra, null);
                         return true;
                     }
                 });
+
                 mMediaPlayer.prepareAsync();
             } catch (final Exception exception) {
                 onAudioReplayError(0, 0, exception);
@@ -226,13 +281,17 @@ public class AudioAttachmentView extends LinearLayout {
             mMediaPlayer.release();
             mMediaPlayer = null;
             mPrepared = false;
+            mStartPlayAfterPrepare = false;
             mPlaybackFinished = false;
+            mChronometer.reset();
+            mProgressBar.reset();
         }
     }
 
     @Override
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
+        // The view must have scrolled off. Stop playback.
         releaseMediaPlayer();
     }
 
@@ -258,22 +317,23 @@ public class AudioAttachmentView extends LinearLayout {
     }
 
     private void updatePlayPauseButtonState() {
-        if (mMediaPlayer == null || !mMediaPlayer.isPlaying()) {
-            mPlayPauseButton.setDisplayedChild(PLAY_BUTTON);
-        } else {
+        final boolean playing = mMediaPlayer != null && mMediaPlayer.isPlaying();
+        updateChronometerVisibility(playing);
+        if (mStartPlayAfterPrepare || playing) {
             mPlayPauseButton.setDisplayedChild(PAUSE_BUTTON);
+        } else {
+            mPlayPauseButton.setDisplayedChild(PLAY_BUTTON);
         }
     }
 
     private void resetToZeroState() {
         // Release the media player so it may be set up with the new audio source.
         releaseMediaPlayer();
-        mChronometer.reset();
-        mProgressBar.reset();
         updateVisualStyle();
+        updateChronometerVisibility(false /* playing */);
 
-        if (mDataSourceUri != null) {
-            // Re-ensure the media player, so we can read the duration of the audio.
+        if (mDataSourceUri != null && !mPrepareOnPlayback) {
+            // Prepare the media player, so we can read the duration of the audio.
             setupMediaPlayer();
         }
     }
@@ -284,13 +344,13 @@ public class AudioAttachmentView extends LinearLayout {
             return;
         }
 
-        if (mShowAsIncoming) {
+        if (mUseIncomingStyle) {
             mChronometer.setTextColor(getResources().getColor(R.color.message_text_color_incoming));
         } else {
             mChronometer.setTextColor(getResources().getColor(R.color.message_text_color_outgoing));
         }
-        mProgressBar.setVisualStyle(mShowAsIncoming);
-        mPlayPauseButton.setVisualStyle(mShowAsIncoming);
+        mProgressBar.setVisualStyle(mUseIncomingStyle);
+        mPlayPauseButton.setVisualStyle(mUseIncomingStyle);
         updatePlayPauseButtonState();
     }
 
