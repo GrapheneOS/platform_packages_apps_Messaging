@@ -152,7 +152,7 @@
     <!-- While sending a message display this message. -->
     <string name="message_status_sending">Sending&#8230;</string>
     <!-- When sending a message failed display this message. -->
-    <string name="message_status_send_failed">Not sent. Touch to try again.</string>
+    <string name="message_status_send_failed">Not sent. Tap to try again.</string>
     <!-- When retrying sending for a message. -->
     <string name="message_status_send_retrying">Not sent. Trying again&#8230;</string>
     <!-- When showing resend action display this message. -->
@@ -171,9 +171,9 @@
     <!-- Title line for MMS which failed to download. -->
     <string name="message_title_download_failed">Couldn\'t download</string>
     <!-- Timestamp line for MMS which failed to download. -->
-    <string name="message_status_download_failed">Touch to try again</string>
+    <string name="message_status_download_failed">Tap to try again</string>
     <!-- Timestamp line for MMS which failed to download. -->
-    <string name="message_status_download">Touch to download</string>
+    <string name="message_status_download">Tap to download</string>
     <!-- Timestamp line for MMS which is selected. -->
     <string name="message_status_download_action">Download or delete</string>
     <!-- Timestamp line to display while downloading a message. -->
@@ -296,7 +296,7 @@
     <!-- Error occurred while recording audio -->
     <string name="audio_recording_error"> Couldn\'t save audio. Try again.</string>
     <!-- Hint text on the audio recorder that instructs user how to start recording -->
-    <string name="audio_picker_hint_text">Touch &amp; hold</string>
+    <string name="audio_picker_hint_text">Tap &amp; hold</string>
 
     <!-- An enumeration comma for separating multiple names in notifications. [CHAR LIMIT=2] -->
     <string name="enumeration_comma">,\u0020</string>
@@ -348,7 +348,7 @@
     <string name="notification_on_toast_message">Notifications turned on</string>
 
     <!-- Toast shown when the user tries to send a message, and then sets Bugle as the default SMS app. -->
-    <string name="toast_after_setting_default_sms_app_for_message_send">All set. Touch Send again.</string>
+    <string name="toast_after_setting_default_sms_app_for_message_send">All set. Tap Send again.</string>
     <!-- Toast shown when the user successfully sets Bugle as the default SMS app. -->
     <string name="toast_after_setting_default_sms_app">Messaging successfully set as the default SMS app.</string>
 
@@ -378,7 +378,7 @@
     <string name="group_outgoing_failed_message_prefix">Failed message to <xliff:g id="group">%s</xliff:g>: <xliff:g id="message">%s</xliff:g>. Time: <xliff:g id="time">%s</xliff:g>.</string>
     <string name="group_outgoing_successful_message_prefix">Message to <xliff:g id="group">%s</xliff:g>: <xliff:g id="message">%s</xliff:g>. Time: <xliff:g id="time">%s</xliff:g>.</string>
     <!-- Accessibility description for conversation list for failed messages -->
-    <string name="failed_message_content_description">Failed message. Touch to retry.</string>
+    <string name="failed_message_content_description">Failed message. Tap to retry.</string>
 
     <!-- Accessibility name for a group conversation -->
     <string name="group_conversation_description">Conversation with <xliff:g id="participants">%s</xliff:g></string>
@@ -905,7 +905,7 @@
     <string name="send_button_long_click_description_with_sim_selector">Select SIM or edit subject</string>
 
     <!-- Content description for the audio record view -->
-    <string name="audio_record_view_content_description">Touch and hold to record audio</string>
+    <string name="audio_record_view_content_description">Tap &amp; hold to record audio</string>
 
     <!-- Content description for new conversation button in desktop widget -->
     <string name="widget_new_conversation_content_description">Start new conversation</string>
@@ -931,7 +931,7 @@
     <string name="conversation_deleted">Conversation deleted</string>
     <!-- Displayed when user adds a new conversation widget. Tapping on the widget in this
           mode will bring user to the conversation selection screen -->
-    <string name="tap_to_configure">Conversation deleted. Touch to show a different Messaging conversation</string>
+    <string name="tap_to_configure">Conversation deleted. Tap to show a different Messaging conversation</string>
 
     <!-- Toast message telling the user that someone was blocked -->
     <string name="update_destination_blocked">Blocked</string>
