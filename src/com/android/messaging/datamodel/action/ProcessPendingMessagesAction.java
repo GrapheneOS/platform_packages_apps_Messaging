@@ -24,12 +24,14 @@ import android.net.ConnectivityManager;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.telephony.ServiceState;
+import android.telephony.SubscriptionInfo;
 
 import com.android.messaging.Factory;
 import com.android.messaging.datamodel.BugleDatabaseOperations;
 import com.android.messaging.datamodel.DataModel;
 import com.android.messaging.datamodel.DatabaseHelper;
 import com.android.messaging.datamodel.DatabaseHelper.MessageColumns;
+import com.android.messaging.datamodel.DatabaseHelper.ParticipantColumns;
 import com.android.messaging.datamodel.DatabaseWrapper;
 import com.android.messaging.datamodel.MessagingContentProvider;
 import com.android.messaging.datamodel.data.MessageData;
@@ -45,6 +47,7 @@ import com.android.messaging.util.OsUtil;
 import com.android.messaging.util.PhoneUtils;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -218,18 +221,35 @@ public class ProcessPendingMessagesAction extends Action implements Parcelable {
         final DatabaseWrapper db = DataModel.get().getDatabase();
         final long now = System.currentTimeMillis();
 
-        final String toSendMessageId = findNextMessageToSend(db, now);
-        if (toSendMessageId != null) {
-            return true;
-        } else {
-            final String toDownloadMessageId = findNextMessageToDownload(db, now);
-            if (toDownloadMessageId != null) {
+        for (int subId : getActiveSubscriptionIds()) {
+            final String toSendMessageId = findNextMessageToSend(db, now, subId);
+            if (toSendMessageId != null) {
                 return true;
+            } else {
+                final String toDownloadMessageId = findNextMessageToDownload(db, now, subId);
+                if (toDownloadMessageId != null) {
+                    return true;
+                }
             }
         }
         // Messages may be in the process of sending/downloading even when there are no pending
         // messages...
         return false;
+    }
+
+    private static int[] getActiveSubscriptionIds() {
+        if (!OsUtil.isAtLeastL_MR1()) {
+            return new int[] { ParticipantData.DEFAULT_SELF_SUB_ID };
+        }
+        List<SubscriptionInfo> subscriptions = PhoneUtils.getDefault().toLMr1()
+            .getActiveSubscriptionInfoList();
+
+        int numSubs = subscriptions.size();
+        int[] result = new int[numSubs];
+        for (int i = 0; i < numSubs; i++) {
+            result[i] = subscriptions.get(i).getSubscriptionId();
+        }
+        return result;
     }
 
     /**
@@ -240,37 +260,44 @@ public class ProcessPendingMessagesAction extends Action implements Parcelable {
     private boolean queueActions(final Action processingAction) {
         final DatabaseWrapper db = DataModel.get().getDatabase();
         final long now = System.currentTimeMillis();
-        boolean succeeded = true;
+        boolean succeeded = false;
 
-        // Will queue no more than one message to send plus one message to download
+        // Will queue no more than one message per subscription to send plus one message to download
         // This keeps outgoing messages "in order" but allow downloads to happen even if sending
         //  gets blocked until messages time out.  Manual resend bumps messages to head of queue.
-        final String toSendMessageId = findNextMessageToSend(db, now);
-        final String toDownloadMessageId = findNextMessageToDownload(db, now);
-        if (toSendMessageId != null) {
-            LogUtil.i(TAG, "ProcessPendingMessagesAction: Queueing message " + toSendMessageId
-                    + " for sending");
-            // This could queue nothing
-            if (!SendMessageAction.queueForSendInBackground(toSendMessageId, processingAction)) {
-                LogUtil.w(TAG, "ProcessPendingMessagesAction: Failed to queue message "
-                        + toSendMessageId + " for sending");
-                succeeded = false;
+        for (int subId : getActiveSubscriptionIds()) {
+            final String toSendMessageId = findNextMessageToSend(db, now, subId);
+            final String toDownloadMessageId = findNextMessageToDownload(db, now, subId);
+            if (toSendMessageId != null) {
+                LogUtil.i(TAG, "ProcessPendingMessagesAction: Queueing message " + toSendMessageId
+                        + " for sending");
+                // This could queue nothing
+                if (!SendMessageAction.queueForSendInBackground(toSendMessageId,
+                            processingAction)) {
+                    LogUtil.w(TAG, "ProcessPendingMessagesAction: Failed to queue message "
+                            + toSendMessageId + " for sending");
+                } else {
+                    succeeded = true;
+                }
             }
-        }
-        if (toDownloadMessageId != null) {
-            LogUtil.i(TAG, "ProcessPendingMessagesAction: Queueing message " + toDownloadMessageId
-                    + " for download");
-            // This could queue nothing
-            if (!DownloadMmsAction.queueMmsForDownloadInBackground(toDownloadMessageId,
-                    processingAction)) {
-                LogUtil.w(TAG, "ProcessPendingMessagesAction: Failed to queue message "
+            if (toDownloadMessageId != null) {
+                LogUtil.i(TAG, "ProcessPendingMessagesAction: Queueing message "
                         + toDownloadMessageId + " for download");
-                succeeded = false;
+                // This could queue nothing
+                if (!DownloadMmsAction.queueMmsForDownloadInBackground(toDownloadMessageId,
+                            processingAction)) {
+                    LogUtil.w(TAG, "ProcessPendingMessagesAction: Failed to queue message "
+                            + toDownloadMessageId + " for download");
+                } else {
+                    succeeded = true;
+                }
+
             }
-        }
-        if (toSendMessageId == null && toDownloadMessageId == null) {
-            if (LogUtil.isLoggable(TAG, LogUtil.DEBUG)) {
-                LogUtil.d(TAG, "ProcessPendingMessagesAction: No messages to send or download");
+            if (toSendMessageId == null && toDownloadMessageId == null) {
+                if (LogUtil.isLoggable(TAG, LogUtil.DEBUG)) {
+                    LogUtil.d(TAG, "ProcessPendingMessagesAction: No messages to send or download");
+                }
+                succeeded = true;
             }
         }
         return succeeded;
@@ -293,7 +320,21 @@ public class ProcessPendingMessagesAction extends Action implements Parcelable {
         return null;
     }
 
-    private static String findNextMessageToSend(final DatabaseWrapper db, final long now) {
+    private static String prefixColumnWithTable(final  String tableName, final String column) {
+        return tableName + "." + column;
+    }
+
+    private static String[] prefixProjectionWithTable(final String tableName,
+            final String[] projection) {
+        String[] result = new String[projection.length];
+        for (int i = 0; i < projection.length; i++) {
+            result[i] = prefixColumnWithTable(tableName, projection[i]);
+        }
+        return result;
+    }
+
+    private static String findNextMessageToSend(final DatabaseWrapper db, final long now,
+            final int subId) {
         String toSendMessageId = null;
         db.beginTransaction();
         Cursor sending = null;
@@ -302,12 +343,25 @@ public class ProcessPendingMessagesAction extends Action implements Parcelable {
         int pendingCnt = 0;
         int failedCnt = 0;
         try {
+            String[] projection = prefixProjectionWithTable(DatabaseHelper.MESSAGES_TABLE,
+                    MessageData.getProjection());
+            String subIdClause =
+                    prefixColumnWithTable(DatabaseHelper.MESSAGES_TABLE,
+                            MessageColumns.SELF_PARTICIPANT_ID)
+                    + " = "
+                    + prefixColumnWithTable(DatabaseHelper.PARTICIPANTS_TABLE,
+                            ParticipantColumns._ID)
+                    + " AND " + ParticipantColumns.SUB_ID + " =?";
+
             // First check to see if we have any messages already sending
-            sending = db.query(DatabaseHelper.MESSAGES_TABLE,
-                    MessageData.getProjection(),
-                    DatabaseHelper.MessageColumns.STATUS + " IN (?, ?)",
+            sending = db.query(DatabaseHelper.MESSAGES_TABLE + ","
+                            + DatabaseHelper.PARTICIPANTS_TABLE,
+                            projection,
+                    DatabaseHelper.MessageColumns.STATUS + " IN (?, ?)"
+                            + " AND " + subIdClause,
                     new String[]{Integer.toString(MessageData.BUGLE_STATUS_OUTGOING_SENDING),
-                           Integer.toString(MessageData.BUGLE_STATUS_OUTGOING_RESENDING)},
+                           Integer.toString(MessageData.BUGLE_STATUS_OUTGOING_RESENDING),
+                           Integer.toString(subId)},
                     null,
                     null,
                     DatabaseHelper.MessageColumns.RECEIVED_TIMESTAMP + " ASC");
@@ -317,12 +371,14 @@ public class ProcessPendingMessagesAction extends Action implements Parcelable {
             final ContentValues values = new ContentValues();
             values.put(DatabaseHelper.MessageColumns.STATUS,
                     MessageData.BUGLE_STATUS_OUTGOING_FAILED);
-            cursor = db.query(DatabaseHelper.MESSAGES_TABLE,
-                    MessageData.getProjection(),
+            cursor = db.query(DatabaseHelper.MESSAGES_TABLE + ","
+                            + DatabaseHelper.PARTICIPANTS_TABLE,
+                    projection,
                     DatabaseHelper.MessageColumns.STATUS + " IN ("
                             + MessageData.BUGLE_STATUS_OUTGOING_YET_TO_SEND + ","
-                            + MessageData.BUGLE_STATUS_OUTGOING_AWAITING_RETRY + ")",
-                    null,
+                            + MessageData.BUGLE_STATUS_OUTGOING_AWAITING_RETRY + ")"
+                            + " AND " + subIdClause,
+                    new String[]{Integer.toString(subId)},
                     null,
                     null,
                     DatabaseHelper.MessageColumns.RECEIVED_TIMESTAMP + " ASC");
@@ -388,31 +444,49 @@ public class ProcessPendingMessagesAction extends Action implements Parcelable {
         return toSendMessageId;
     }
 
-    private static String findNextMessageToDownload(final DatabaseWrapper db, final long now) {
+    private static String findNextMessageToDownload(final DatabaseWrapper db, final long now,
+            final int subId) {
         String toDownloadMessageId = null;
         db.beginTransaction();
         Cursor cursor = null;
         int downloadingCnt = 0;
         int pendingCnt = 0;
         try {
+            String[] projection = prefixProjectionWithTable(DatabaseHelper.MESSAGES_TABLE,
+                    MessageData.getProjection());
+            String subIdClause =
+                    prefixColumnWithTable(DatabaseHelper.MESSAGES_TABLE,
+                            MessageColumns.SELF_PARTICIPANT_ID)
+                    + " = "
+                    + prefixColumnWithTable(DatabaseHelper.PARTICIPANTS_TABLE,
+                            ParticipantColumns._ID)
+                    + " AND " + ParticipantColumns.SUB_ID + " =?";
+
             // First check if we have any messages already downloading
-            downloadingCnt = (int) db.queryNumEntries(DatabaseHelper.MESSAGES_TABLE,
-                    DatabaseHelper.MessageColumns.STATUS + " IN (?, ?)",
+            downloadingCnt = (int) db.queryNumEntries(DatabaseHelper.MESSAGES_TABLE
+                    + "," + DatabaseHelper.PARTICIPANTS_TABLE,
+                    DatabaseHelper.MessageColumns.STATUS + " IN (?, ?)"
+                            + " AND " + subIdClause,
                     new String[] {
                         Integer.toString(MessageData.BUGLE_STATUS_INCOMING_AUTO_DOWNLOADING),
-                        Integer.toString(MessageData.BUGLE_STATUS_INCOMING_MANUAL_DOWNLOADING)
+                        Integer.toString(MessageData.BUGLE_STATUS_INCOMING_MANUAL_DOWNLOADING),
+                        Integer.toString(subId)
                     });
 
             // TODO: This query is not actually needed if downloadingCnt == 0.
-            cursor = db.query(DatabaseHelper.MESSAGES_TABLE,
-                    MessageData.getProjection(),
+            cursor = db.query(DatabaseHelper.MESSAGES_TABLE + ","
+                    + DatabaseHelper.PARTICIPANTS_TABLE,
+                    projection,
                     DatabaseHelper.MessageColumns.STATUS + " =? OR "
-                            + DatabaseHelper.MessageColumns.STATUS + " =?",
+                            + DatabaseHelper.MessageColumns.STATUS + " =?"
+                            + " AND " + subIdClause,
                     new String[]{
                             Integer.toString(
                                     MessageData.BUGLE_STATUS_INCOMING_RETRYING_AUTO_DOWNLOAD),
                             Integer.toString(
-                                    MessageData.BUGLE_STATUS_INCOMING_RETRYING_MANUAL_DOWNLOAD)
+                                    MessageData.BUGLE_STATUS_INCOMING_RETRYING_MANUAL_DOWNLOAD),
+                            Integer.toString(
+                                    subId)
                     },
                     null,
                     null,
