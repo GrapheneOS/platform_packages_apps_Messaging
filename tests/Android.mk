@@ -24,8 +24,6 @@ LOCAL_PACKAGE_NAME := messagingtests
 
 LOCAL_INSTRUMENTATION_FOR := messaging
 
-LOCAL_JACK_ENABLED := disabled
-
 # Matching ../Android.mk
 LOCAL_SDK_VERSION := current
 
