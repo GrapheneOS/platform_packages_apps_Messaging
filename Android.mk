@@ -81,6 +81,9 @@ LOCAL_CERTIFICATE := platform
 
 LOCAL_SDK_VERSION := current
 
+# Workaround for http://b/27305482
+LOCAL_JAVA_LANGUAGE_VERSION := 1.7
+
 include $(BUILD_PACKAGE)
 
 include $(call all-makefiles-under, $(LOCAL_PATH))
