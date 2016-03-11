@@ -29,7 +29,7 @@ LOCAL_SRC_FILES := GifTranscoder.cpp
 
 LOCAL_CFLAGS += -Wall -Wno-unused-parameter -Wno-switch
 
-LOCAL_SDK_VERSION := 8
+LOCAL_SDK_VERSION := 9
 LOCAL_NDK_STL_VARIANT := c++_static # LLVM libc++
 
 include $(BUILD_SHARED_LIBRARY)
