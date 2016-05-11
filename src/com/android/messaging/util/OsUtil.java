@@ -22,6 +22,7 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.UserHandle;
 import android.os.UserManager;
+import android.support.v4.os.BuildCompat;
 
 import com.android.messaging.Factory;
 
@@ -41,6 +42,7 @@ public class OsUtil {
     private static boolean sIsAtLeastL;
     private static boolean sIsAtLeastL_MR1;
     private static boolean sIsAtLeastM;
+    private static boolean sIsAtLeastN;
 
     private static Boolean sIsSecondaryUser = null;
 
@@ -54,6 +56,7 @@ public class OsUtil {
         sIsAtLeastL = v >= android.os.Build.VERSION_CODES.LOLLIPOP;
         sIsAtLeastL_MR1 = v >= android.os.Build.VERSION_CODES.LOLLIPOP_MR1;
         sIsAtLeastM = v >= android.os.Build.VERSION_CODES.M;
+        sIsAtLeastN = BuildCompat.isAtLeastN();
     }
 
     /**
@@ -118,6 +121,14 @@ public class OsUtil {
      */
     public static boolean isAtLeastM() {
         return sIsAtLeastM;
+    }
+
+    /**
+     * @return True if the version of Android that we're running on is at least N
+     *  (API level 24).
+     */
+    public static boolean isAtLeastN() {
+        return sIsAtLeastN;
     }
 
     /**
