@@ -63,15 +63,30 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical" >
-        <TextView
-            android:id="@+id/contact_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingBottom="4dp"
-            android:singleLine="true"
-            android:maxLines="1"
-            android:ellipsize="end"
-            style="@style/ContactListItem" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/contact_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingBottom="4dp"
+                android:singleLine="true"
+                android:maxLines="1"
+                android:ellipsize="end"
+                style="@style/ContactListItem" />
+
+            <ImageView android:id="@+id/work_profile_icon"
+                android:src="@drawable/ic_work_profile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="center"
+                android:layout_gravity="center_vertical"
+                android:visibility="gone" />
+        </LinearLayout>
 
         <LinearLayout
             android:orientation="horizontal"
