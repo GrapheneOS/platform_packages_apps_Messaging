@@ -24,7 +24,7 @@
 
 #include "GifTranscoder.h"
 
-#define SQUARE(a) (a)*(a)
+#define SQUARE(a) ((a)*(a))
 
 // GIF does not support partial transparency, so our alpha channels are always 0x0 or 0xff.
 static const ColorARGB TRANSPARENT = 0x0;
@@ -37,7 +37,7 @@ static const ColorARGB TRANSPARENT = 0x0;
 #define MAKE_COLOR_ARGB(a, r, g, b) \
     ((a) << 24 | (r) << 16 | (g) << 8 | (b))
 
-#define MAX_COLOR_DISTANCE 255 * 255 * 255
+#define MAX_COLOR_DISTANCE (255 * 255 * 255)
 
 #define TAG "GifTranscoder.cpp"
 #define LOGD_ENABLED 0
