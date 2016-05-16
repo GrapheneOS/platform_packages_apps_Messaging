@@ -188,4 +188,10 @@
     <dimen name="fastscroll_preview_margin_left_right">8dp</dimen>
     <dimen name="fastscroll_preview_text_size">24sp</dimen>
 
+    <dimen name="directory_header_padding_start">16dp</dimen>
+    <dimen name="directory_header_padding_end">32dp</dimen>
+    <dimen name="directory_header_padding_top">18dp</dimen>
+    <dimen name="directory_header_padding_bottom">8dp</dimen>
+    <dimen name="directory_header_text_size">14sp</dimen>
+
 </resources>
