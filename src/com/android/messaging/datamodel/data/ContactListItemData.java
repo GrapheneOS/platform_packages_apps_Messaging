@@ -46,6 +46,9 @@ public class ContactListItemData {
     // existing chip for which we show full contact detail for the selected contact).
     private boolean mSingleRecipient;
 
+    // Is the contact in managed profile.
+    private boolean mIsWorkContact;
+
     /**
      * Bind to a contact cursor in the contact list.
      */
@@ -77,6 +80,8 @@ public class ContactListItemData {
         mRecipientEntry = ContactUtil.createRecipientEntry(displayName,
                 DisplayNameSources.STRUCTURED_NAME, destination, destinationType, destinationLabel,
                 contactId, lookupKey, dataId, photoThumbnailUri, isFirstLevel);
+
+        mIsWorkContact = ContactUtil.isEnterpriseContactId(contactId);
     }
 
     /**
@@ -84,13 +89,15 @@ public class ContactListItemData {
      * optional styled name & destination for showing bold search match.
      */
     public void bind(final RecipientEntry entry, final CharSequence styledName,
-            final CharSequence styledDestination, final boolean singleRecipient) {
+                     final CharSequence styledDestination, final boolean singleRecipient,
+                     final boolean isWorkContact) {
         Assert.isTrue(entry.isValid());
         mRecipientEntry = entry;
         mStyledName = styledName;
         mStyledDestination = styledDestination;
         mAlphabetHeader = null;
         mSingleRecipient = singleRecipient;
+        mIsWorkContact = isWorkContact;
     }
 
     public CharSequence getDisplayName() {
@@ -156,5 +163,12 @@ public class ContactListItemData {
      */
     public RecipientEntry getRecipientEntry() {
         return mRecipientEntry;
+    }
+
+    /**
+     * @return whether the contact is in managed profile.
+     */
+    public boolean getIsWorkContact() {
+        return mIsWorkContact;
     }
 }
