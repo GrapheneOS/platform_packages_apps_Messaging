@@ -34,6 +34,7 @@ import com.android.messaging.util.BugleGservices;
 import com.android.messaging.util.BugleGservicesKeys;
 import com.android.messaging.util.ContactRecipientEntryUtils;
 import com.android.messaging.util.ContactUtil;
+import com.android.messaging.util.OsUtil;
 import com.android.messaging.util.PhoneUtils;
 
 import java.text.Collator;
@@ -101,15 +102,49 @@ public final class ContactRecipientAdapter extends BaseRecipientAdapter {
             if (BugleGservices.get().getBoolean(
                     BugleGservicesKeys.ALWAYS_AUTOCOMPLETE_EMAIL_ADDRESS,
                     BugleGservicesKeys.ALWAYS_AUTOCOMPLETE_EMAIL_ADDRESS_DEFAULT)) {
-                return Pair.create((Cursor) new MergeCursor(new Cursor[] {
-                        ContactUtil.filterPhones(getContext(), searchText)
-                                .performSynchronousQuery(),
-                        ContactUtil.filterEmails(getContext(), searchText)
-                                .performSynchronousQuery()
-                }), false /* the merged cursor is not sorted */);
+
+                final Cursor personalFilterPhonesCursor = ContactUtil
+                        .filterPhones(getContext(), searchText).performSynchronousQuery();
+                final Cursor personalFilterEmailsCursor = ContactUtil
+                        .filterEmails(getContext(), searchText).performSynchronousQuery();
+                Cursor resultCursor;
+                if (OsUtil.isAtLeastN()) {
+                    // Including enterprise result starting from N.
+                    final Cursor enterpriseFilterPhonesCursor = ContactUtil.filterPhonesEnterprise(
+                            getContext(), searchText).performSynchronousQuery();
+                    final Cursor enterpriseFilterEmailsCursor = ContactUtil.filterEmailsEnterprise(
+                            getContext(), searchText).performSynchronousQuery();
+                    // TODO: Separating enterprise result from personal result (b/26021888)
+                    resultCursor = new MergeCursor(
+                            new Cursor[]{personalFilterEmailsCursor, enterpriseFilterEmailsCursor,
+                                    personalFilterPhonesCursor, enterpriseFilterPhonesCursor});
+                } else {
+                    resultCursor = new MergeCursor(
+                            new Cursor[]{personalFilterEmailsCursor, personalFilterPhonesCursor});
+                }
+                return Pair.create(
+                        resultCursor,
+                        false /* the merged cursor is not sorted */
+                );
             } else {
-                return Pair.create(ContactUtil.filterDestination(getContext(), searchText)
-                        .performSynchronousQuery(), true);
+                final Cursor personalFilterDestinationCursor = ContactUtil
+                        .filterDestination(getContext(), searchText).performSynchronousQuery();
+                Cursor resultCursor;
+                boolean sorted;
+                if (OsUtil.isAtLeastN()) {
+                    // Including enterprise result starting from N.
+                    final Cursor enterpriseFilterDestinationCursor = ContactUtil
+                            .filterDestinationEnterprise(getContext(), searchText)
+                            .performSynchronousQuery();
+                    // TODO: Separating enterprise result from personal result (b/26021888)
+                    resultCursor = new MergeCursor(new Cursor[]{personalFilterDestinationCursor,
+                            enterpriseFilterDestinationCursor});
+                    sorted = false;
+                } else {
+                    resultCursor = personalFilterDestinationCursor;
+                    sorted = true;
+                }
+                return Pair.create(resultCursor, sorted);
             }
         }
 
