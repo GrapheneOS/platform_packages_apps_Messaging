@@ -53,6 +53,7 @@ public class ContactListItemView extends LinearLayout implements OnClickListener
     private TextView mAlphabetHeaderTextView;
     private ContactIconView mContactIconView;
     private ImageView mContactCheckmarkView;
+    private ImageView mWorkProfileIcon;
     private HostInterface mHostInterface;
     private boolean mShouldShowAlphabetHeader;
 
@@ -69,6 +70,7 @@ public class ContactListItemView extends LinearLayout implements OnClickListener
         mAlphabetHeaderTextView = (TextView) findViewById(R.id.alphabet_header);
         mContactIconView = (ContactIconView) findViewById(R.id.contact_icon);
         mContactCheckmarkView = (ImageView) findViewById(R.id.contact_checkmark);
+        mWorkProfileIcon = (ImageView) findViewById(R.id.work_profile_icon);
     }
 
     /**
@@ -100,11 +102,12 @@ public class ContactListItemView extends LinearLayout implements OnClickListener
      * @param isSingleRecipient whether this item is shown as the only line item in the single
      *        recipient drop down from the chips view. If this is the case, we always show the
      *        contact avatar even if it's not a first-level entry.
+     * @param isWorkContact whether the contact is in managed profile.
      */
     public void bind(final RecipientEntry recipientEntry, final CharSequence styledName,
             final CharSequence styledDestination, final HostInterface hostInterface,
-            final boolean isSingleRecipient) {
-        mData.bind(recipientEntry, styledName, styledDestination, isSingleRecipient);
+            final boolean isSingleRecipient, final boolean isWorkContact) {
+        mData.bind(recipientEntry, styledName, styledDestination, isSingleRecipient, isWorkContact);
         mHostInterface = hostInterface;
         mShouldShowAlphabetHeader = false;
         updateViewAppearance();
@@ -152,7 +155,11 @@ public class ContactListItemView extends LinearLayout implements OnClickListener
             mContactDetailsTextView.setVisibility(VISIBLE);
             mContactDetailTypeTextView.setVisibility(VISIBLE);
         }
-
+        if (mData.getIsWorkContact()) {
+            mWorkProfileIcon.setVisibility(VISIBLE);
+        } else {
+            mWorkProfileIcon.setVisibility(GONE);
+        }
         if (mShouldShowAlphabetHeader) {
             mAlphabetHeaderTextView.setVisibility(VISIBLE);
             mAlphabetHeaderTextView.setText(mData.getAlphabetHeader());
