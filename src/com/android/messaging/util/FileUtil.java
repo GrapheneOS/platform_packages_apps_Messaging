@@ -16,7 +16,10 @@
 
 package com.android.messaging.util;
 
+import android.content.ContentResolver;
 import android.content.Context;
+import android.net.Uri;
+import android.text.TextUtils;
 import android.webkit.MimeTypeMap;
 
 import com.android.messaging.Factory;
@@ -114,6 +117,20 @@ public class FileUtil {
                 }
             }
         }
+    }
+
+    private static boolean isFileUri(final Uri uri) {
+        return TextUtils.equals(uri.getScheme(), ContentResolver.SCHEME_FILE);
+    }
+
+    // Checks if the file is in /data/data/com.android.messaging
+    // The other app folders are either symlinks to this, or hold non-private data like binaries.
+    public static boolean isInPrivateDir(Context context, Uri uri) {
+        if (!isFileUri(uri)) {
+            return false;
+        }
+        final File file = new File(uri.getPath());
+        return FileUtil.isSameOrSubDirectory(new File(context.getApplicationInfo().dataDir), file);
     }
 
     /**
