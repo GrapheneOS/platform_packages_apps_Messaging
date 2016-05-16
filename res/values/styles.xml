@@ -623,4 +623,14 @@
         <item name="android:textColor">@android:color/white</item>
         <item name="android:gravity">center</item>
     </style>
+    <style name="DirectoryHeaderStyle">
+        <item name="android:paddingLeft">@dimen/directory_header_padding_start</item>
+        <item name="android:paddingStart">@dimen/directory_header_padding_start</item>
+        <item name="android:paddingRight">@dimen/directory_header_padding_end</item>
+        <item name="android:paddingEnd">@dimen/directory_header_padding_end</item>
+        <item name="android:paddingTop">@dimen/directory_header_padding_top</item>
+        <item name="android:paddingBottom">@dimen/directory_header_padding_bottom</item>
+        <item name="android:textSize">@dimen/directory_header_text_size</item>
+        <item name="android:textStyle">bold</item>
+    </style>
 </resources>
