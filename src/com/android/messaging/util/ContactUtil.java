@@ -519,25 +519,15 @@ public class ContactUtil {
      * Returns if a given contact id belongs to managed profile.
      */
     public static boolean isEnterpriseContactId(final long contactId) {
-        return isWorkProfileSupported()
-                && ContactsContract.Contacts.isEnterpriseContactId(contactId);
-    }
-
-    /**
-     * Returns if managed profile is supported.
-     */
-    public static boolean isWorkProfileSupported() {
-        final PackageManager pm = Factory.get().getApplicationContext().getPackageManager();
-        return pm.hasSystemFeature(PackageManager.FEATURE_MANAGED_USERS);
+        return OsUtil.isAtLeastL() && ContactsContract.Contacts.isEnterpriseContactId(contactId);
     }
 
     /**
      * Returns Email lookup uri that will query both primary and corp profile
      */
     private static Uri getEmailContentLookupUri() {
-        if (isWorkProfileSupported() && OsUtil.isAtLeastM()) {
-            // TODO: use Email.ENTERPRISE_CONTENT_LOOKUP_URI, which will be available in M SDK API
-            return Uri.parse("content://com.android.contacts/data/emails/lookup_enterprise");
+        if (OsUtil.isAtLeastM()) {
+            return Email.ENTERPRISE_CONTENT_LOOKUP_URI;
         }
         return Email.CONTENT_LOOKUP_URI;
     }
@@ -546,8 +536,7 @@ public class ContactUtil {
      * Returns PhoneLookup URI.
      */
     public static Uri getPhoneLookupUri() {
-        // Apply it to M only
-        if (isWorkProfileSupported() && OsUtil.isAtLeastM()) {
+        if (OsUtil.isAtLeastM()) {
             return PhoneLookup.ENTERPRISE_CONTENT_FILTER_URI;
         }
         return PhoneLookup.CONTENT_FILTER_URI;
