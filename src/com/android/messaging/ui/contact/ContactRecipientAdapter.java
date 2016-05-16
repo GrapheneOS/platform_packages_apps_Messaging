@@ -22,12 +22,17 @@ import android.support.v4.util.Pair;
 import android.text.TextUtils;
 import android.text.util.Rfc822Token;
 import android.text.util.Rfc822Tokenizer;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Filter;
+import android.widget.TextView;
 
 import com.android.ex.chips.BaseRecipientAdapter;
 import com.android.ex.chips.RecipientAlternatesAdapter;
 import com.android.ex.chips.RecipientAlternatesAdapter.RecipientMatchCallback;
 import com.android.ex.chips.RecipientEntry;
+import com.android.messaging.R;
 import com.android.messaging.util.Assert;
 import com.android.messaging.util.Assert.DoesNotRunOnMainThread;
 import com.android.messaging.util.BugleGservices;
@@ -54,6 +59,18 @@ import java.util.Map;
  * for {@link ContactRecipientAutoCompleteView}
  */
 public final class ContactRecipientAdapter extends BaseRecipientAdapter {
+    private static final int WORD_DIRECTORY_HEADER_POS_NONE = -1;
+    /**
+     * Stores the index of work directory header.
+     */
+    private int mWorkDirectoryHeaderPos = WORD_DIRECTORY_HEADER_POS_NONE;
+    private final LayoutInflater mInflater;
+
+    /**
+     * Type of directory entry.
+     */
+    private static final int ENTRY_TYPE_DIRECTORY = RecipientEntry.ENTRY_TYPE_SIZE;
+
     public ContactRecipientAdapter(final Context context,
             final ContactListItemView.HostInterface clivHost) {
         this(context, Integer.MAX_VALUE, QUERY_TYPE_PHONE, clivHost);
@@ -63,6 +80,7 @@ public final class ContactRecipientAdapter extends BaseRecipientAdapter {
             final int queryMode, final ContactListItemView.HostInterface clivHost) {
         super(context, preferredMaxResultCount, queryMode);
         setPhotoManager(new ContactRecipientPhotoManager(context, clivHost));
+        mInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
     @Override
@@ -82,6 +100,7 @@ public final class ContactRecipientAdapter extends BaseRecipientAdapter {
      * results.
      */
     public class ContactFilter extends Filter {
+
         // Used to sort filtered contacts when it has combined results from email and phone.
         private final RecipientEntryComparator mComparator = new RecipientEntryComparator();
 
@@ -96,8 +115,7 @@ public final class ContactRecipientAdapter extends BaseRecipientAdapter {
          * return the merged results.
          */
         @DoesNotRunOnMainThread
-        private Pair<Cursor, Boolean> getFilteredResultsCursor(final Context context,
-                final String searchText) {
+        private CursorResult getFilteredResultsCursor(final String searchText) {
             Assert.isNotMainThread();
             if (BugleGservices.get().getBoolean(
                     BugleGservicesKeys.ALWAYS_AUTOCOMPLETE_EMAIL_ADDRESS,
@@ -107,44 +125,35 @@ public final class ContactRecipientAdapter extends BaseRecipientAdapter {
                         .filterPhones(getContext(), searchText).performSynchronousQuery();
                 final Cursor personalFilterEmailsCursor = ContactUtil
                         .filterEmails(getContext(), searchText).performSynchronousQuery();
-                Cursor resultCursor;
+                final Cursor personalCursor = new MergeCursor(
+                        new Cursor[]{personalFilterEmailsCursor, personalFilterPhonesCursor});
+                final CursorResult cursorResult =
+                        new CursorResult(personalCursor, false /* sorted */);
                 if (OsUtil.isAtLeastN()) {
                     // Including enterprise result starting from N.
                     final Cursor enterpriseFilterPhonesCursor = ContactUtil.filterPhonesEnterprise(
                             getContext(), searchText).performSynchronousQuery();
                     final Cursor enterpriseFilterEmailsCursor = ContactUtil.filterEmailsEnterprise(
                             getContext(), searchText).performSynchronousQuery();
-                    // TODO: Separating enterprise result from personal result (b/26021888)
-                    resultCursor = new MergeCursor(
-                            new Cursor[]{personalFilterEmailsCursor, enterpriseFilterEmailsCursor,
-                                    personalFilterPhonesCursor, enterpriseFilterPhonesCursor});
-                } else {
-                    resultCursor = new MergeCursor(
-                            new Cursor[]{personalFilterEmailsCursor, personalFilterPhonesCursor});
+                    final Cursor enterpriseCursor = new MergeCursor(
+                            new Cursor[]{enterpriseFilterEmailsCursor,
+                                    enterpriseFilterPhonesCursor});
+                    cursorResult.enterpriseCursor = enterpriseCursor;
                 }
-                return Pair.create(
-                        resultCursor,
-                        false /* the merged cursor is not sorted */
-                );
+                return cursorResult;
             } else {
                 final Cursor personalFilterDestinationCursor = ContactUtil
                         .filterDestination(getContext(), searchText).performSynchronousQuery();
-                Cursor resultCursor;
-                boolean sorted;
+                final CursorResult cursorResult = new CursorResult(personalFilterDestinationCursor,
+                        true);
                 if (OsUtil.isAtLeastN()) {
                     // Including enterprise result starting from N.
                     final Cursor enterpriseFilterDestinationCursor = ContactUtil
                             .filterDestinationEnterprise(getContext(), searchText)
                             .performSynchronousQuery();
-                    // TODO: Separating enterprise result from personal result (b/26021888)
-                    resultCursor = new MergeCursor(new Cursor[]{personalFilterDestinationCursor,
-                            enterpriseFilterDestinationCursor});
-                    sorted = false;
-                } else {
-                    resultCursor = personalFilterDestinationCursor;
-                    sorted = true;
+                    cursorResult.enterpriseCursor = enterpriseFilterDestinationCursor;
                 }
-                return Pair.create(resultCursor, sorted);
+                return cursorResult;
             }
         }
 
@@ -163,44 +172,57 @@ public final class ContactRecipientAdapter extends BaseRecipientAdapter {
 
             // Query for auto-complete results, since performFiltering() is not done on the
             // main thread, perform the cursor loader queries directly.
-            final Pair<Cursor, Boolean> filteredResults = getFilteredResultsCursor(getContext(),
-                    searchText);
-            final Cursor cursor = filteredResults.first;
-            final boolean sorted = filteredResults.second;
-            if (cursor != null) {
-                try {
-                    final List<RecipientEntry> entries = new ArrayList<RecipientEntry>();
 
-                    // First check if the constraint is a valid SMS destination. If so, add the
-                    // destination as a suggestion item to the drop down.
-                    if (PhoneUtils.isValidSmsMmsDestination(searchText)) {
-                        entries.add(ContactRecipientEntryUtils
-                                .constructSendToDestinationEntry(searchText));
-                    }
+            final CursorResult cursorResult = getFilteredResultsCursor(searchText);
+            final List<RecipientEntry> entries = new ArrayList<>();
 
-                    HashSet<Long> existingContactIds = new HashSet<Long>();
-                    while (cursor.moveToNext()) {
-                        // Make sure there's only one first-level contact (i.e. contact for which
-                        // we show the avatar picture and name) for every contact id.
-                        final long contactId = cursor.getLong(ContactUtil.INDEX_CONTACT_ID);
-                        final boolean isFirstLevel = !existingContactIds.contains(contactId);
-                        if (isFirstLevel) {
-                            existingContactIds.add(contactId);
-                        }
-                        entries.add(ContactUtil.createRecipientEntryForPhoneQuery(cursor,
-                                isFirstLevel));
-                    }
+            // First check if the constraint is a valid SMS destination. If so, add the
+            // destination as a suggestion item to the drop down.
+            if (PhoneUtils.isValidSmsMmsDestination(searchText)) {
+                entries.add(ContactRecipientEntryUtils
+                        .constructSendToDestinationEntry(searchText));
+            }
 
-                    if (!sorted) {
-                        Collections.sort(entries, mComparator);
-                    }
-                    results.values = entries;
-                    results.count = 1;
-
-                } finally {
-                    cursor.close();
+            // Only show work directory header if more than one result in work directory.
+            int workDirectoryHeaderPos = WORD_DIRECTORY_HEADER_POS_NONE;
+            if (cursorResult.enterpriseCursor != null
+                    && cursorResult.enterpriseCursor.getCount() > 0) {
+                if (cursorResult.personalCursor != null) {
+                    workDirectoryHeaderPos = entries.size();
+                    workDirectoryHeaderPos += cursorResult.personalCursor.getCount();
                 }
             }
+
+            final Cursor[] cursors = new Cursor[]{cursorResult.personalCursor,
+                    cursorResult.enterpriseCursor};
+            for (Cursor cursor : cursors) {
+                if (cursor != null) {
+                    try {
+                        final List<RecipientEntry> tempEntries = new ArrayList<>();
+                        HashSet<Long> existingContactIds = new HashSet<>();
+                        while (cursor.moveToNext()) {
+                            // Make sure there's only one first-level contact (i.e. contact for
+                            // which we show the avatar picture and name) for every contact id.
+                            final long contactId = cursor.getLong(ContactUtil.INDEX_CONTACT_ID);
+                            final boolean isFirstLevel = !existingContactIds.contains(contactId);
+                            if (isFirstLevel) {
+                                existingContactIds.add(contactId);
+                            }
+                            tempEntries.add(ContactUtil.createRecipientEntryForPhoneQuery(cursor,
+                                    isFirstLevel));
+                        }
+
+                        if (!cursorResult.isSorted) {
+                            Collections.sort(tempEntries, mComparator);
+                        }
+                        entries.addAll(tempEntries);
+                    } finally {
+                        cursor.close();
+                    }
+                }
+            }
+            results.values = new ContactReceipientFilterResult(entries, workDirectoryHeaderPos);
+            results.count = 1;
             return results;
         }
 
@@ -209,16 +231,20 @@ public final class ContactRecipientAdapter extends BaseRecipientAdapter {
             mCurrentConstraint = constraint;
             clearTempEntries();
 
-            if (results.values != null) {
-                @SuppressWarnings("unchecked")
-                final List<RecipientEntry> entries = (List<RecipientEntry>) results.values;
-                updateEntries(entries);
-            } else {
-                updateEntries(Collections.<RecipientEntry>emptyList());
+            final ContactReceipientFilterResult contactReceipientFilterResult
+                    = (ContactReceipientFilterResult) results.values;
+            if (contactReceipientFilterResult != null) {
+                mWorkDirectoryHeaderPos = contactReceipientFilterResult.workDirectoryPos;
+                if (contactReceipientFilterResult.recipientEntries != null) {
+                    updateEntries(contactReceipientFilterResult.recipientEntries);
+                } else {
+                    updateEntries(Collections.<RecipientEntry>emptyList());
+                }
             }
         }
 
         private class RecipientEntryComparator implements Comparator<RecipientEntry> {
+
             private final Collator mCollator;
 
             public RecipientEntryComparator() {
@@ -272,6 +298,38 @@ public final class ContactRecipientAdapter extends BaseRecipientAdapter {
                 }
             }
         }
+
+        private class CursorResult {
+
+            public final Cursor personalCursor;
+
+            public Cursor enterpriseCursor;
+
+            public final boolean isSorted;
+
+            public CursorResult(Cursor personalCursor, boolean isSorted) {
+                this.personalCursor = personalCursor;
+                this.isSorted = isSorted;
+            }
+        }
+
+        private class ContactReceipientFilterResult {
+            /**
+             * Recipient entries in all directories.
+             */
+            public final List<RecipientEntry> recipientEntries;
+
+            /**
+             * Index of row that showing work directory header.
+             */
+            public final int workDirectoryPos;
+
+            public ContactReceipientFilterResult(List<RecipientEntry> recipientEntries,
+                    int workDirectoryPos) {
+                this.recipientEntries = recipientEntries;
+                this.workDirectoryPos = workDirectoryPos;
+            }
+        }
     }
 
     /**
@@ -318,4 +376,81 @@ public final class ContactRecipientAdapter extends BaseRecipientAdapter {
         // report matches
         callback.matchesFound(recipientEntries);
     }
+
+    /**
+     * We handle directory header here and then delegate the work of creating recipient views to
+     * the {@link BaseRecipientAdapter}. Please notice that we need to fix the position
+     * before passing to {@link BaseRecipientAdapter} because it is not aware of the existence of
+     * directory headers.
+     */
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+        TextView textView;
+        if (isDirectoryEntry(position)) {
+            if (convertView == null) {
+                textView = (TextView) mInflater.inflate(R.layout.work_directory_header, parent,
+                        false);
+            } else {
+                textView = (TextView) convertView;
+            }
+            return textView;
+        }
+        return super.getView(fixPosition(position), convertView, parent);
+    }
+
+    @Override
+    public RecipientEntry getItem(int position) {
+        if (isDirectoryEntry(position)) {
+            return null;
+        }
+        return super.getItem(fixPosition(position));
+    }
+
+    @Override
+    public int getViewTypeCount() {
+        return RecipientEntry.ENTRY_TYPE_SIZE + 1;
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        if (isDirectoryEntry(position)) {
+            return ENTRY_TYPE_DIRECTORY;
+        }
+        return super.getItemViewType(fixPosition(position));
+    }
+
+    @Override
+    public boolean isEnabled(int position) {
+        if (isDirectoryEntry(position)) {
+            return false;
+        }
+        return super.isEnabled(fixPosition(position));
+    }
+
+    @Override
+    public int getCount() {
+        return super.getCount() + ((hasWorkDirectoryHeader()) ? 1 : 0);
+    }
+
+    private boolean isDirectoryEntry(int position) {
+        return position == mWorkDirectoryHeaderPos;
+    }
+
+    /**
+     * @return the position of items without counting directory headers.
+     */
+    private int fixPosition(int position) {
+        if (hasWorkDirectoryHeader()) {
+            Assert.isTrue(position != mWorkDirectoryHeaderPos);
+            if (position > mWorkDirectoryHeaderPos) {
+                return position - 1;
+            }
+        }
+        return position;
+    }
+
+    private boolean hasWorkDirectoryHeader() {
+        return mWorkDirectoryHeaderPos != WORD_DIRECTORY_HEADER_POS_NONE;
+    }
+
 }
