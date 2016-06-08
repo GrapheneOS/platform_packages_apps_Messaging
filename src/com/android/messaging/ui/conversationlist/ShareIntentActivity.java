@@ -159,7 +159,7 @@ public class ShareIntentActivity extends BaseBugleActivity implements
     }
 
     private void addSharedImagePartToDraft(final String contentType, final Uri imageUri) {
-        if (FileUtil.isInPrivateDir(getBaseContext(), imageUri)) {
+        if (FileUtil.isInPrivateDir(imageUri)) {
             Assert.fail("Cannot send private file " + imageUri.toString());
         } else {
             mDraftMessage.addPart(PendingAttachmentData.createPendingAttachmentData(contentType,
