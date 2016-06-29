@@ -28,6 +28,7 @@ import com.android.messaging.datamodel.DatabaseHelper.ParticipantColumns;
 import com.android.messaging.datamodel.DatabaseWrapper;
 import com.android.messaging.datamodel.action.DeleteConversationAction;
 import com.android.messaging.util.Assert;
+import com.android.messaging.util.ContactUtil;
 import com.android.messaging.util.Dates;
 import com.google.common.base.Joiner;
 
@@ -155,8 +156,21 @@ public class ConversationListItemData {
         return mPreviewContentType;
     }
 
+    /**
+     * @see DatabaseHelper.ConversationColumns#PARTICIPANT_CONTACT_ID
+     * @return the contact id of the participant if it is a 1:1 conversation, -1 for group.
+     */
     public long getParticipantContactId() {
         return mParticipantContactId;
+    }
+
+    /**
+     * TODO: support group conversation.
+     * @see android.provider.ContactsContract#isEnterpriseContactId(long)
+     * @return is the participant an enterprise contact. False if it is a group conversation.
+     */
+    public boolean isParticipantEnterpriseContact() {
+        return ContactUtil.isEnterpriseContactId(getParticipantContactId());
     }
 
     public String getParticipantLookupKey() {
