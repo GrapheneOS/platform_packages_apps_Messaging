@@ -186,8 +186,7 @@ public class ConversationListItemView extends FrameLayout implements OnClickList
     }
 
     private void setWorkProfileIcon() {
-        mWorkProfileIconView.setVisibility(
-                mData.isParticipantEnterpriseContact() ? View.VISIBLE : View.GONE);
+        mWorkProfileIconView.setVisibility(mData.isEnterprise() ? View.VISIBLE : View.GONE);
     }
 
     private void setConversationName() {

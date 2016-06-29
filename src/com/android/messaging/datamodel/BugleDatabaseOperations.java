@@ -841,6 +841,11 @@ public class BugleDatabaseOperations {
         values.put(ConversationColumns.NAME,
                 getDefaultConversationName(participants));
 
+        // Fill in IS_ENTERPRISE.
+        final boolean hasAnyEnterpriseContact =
+                ConversationListItemData.hasAnyEnterpriseContact(participants);
+        values.put(ConversationColumns.IS_ENTERPRISE, hasAnyEnterpriseContact);
+
         fillParticipantData(values, participants);
 
         // Used by background thread when refreshing conversation so conversation could be deleted.
