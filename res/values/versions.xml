@@ -16,7 +16,7 @@
 -->
 <resources>
     <!-- DB version -->
-    <string name="database_version" translatable="false">1</string>
+    <string name="database_version" translatable="false">2</string>
 
     <!-- Version for shared preferences. This is used for handling prefs migration when old pref
          keys are moved or renamed. You don't need to bump up the version number if you are just

@@ -149,6 +149,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         // is present (TP-Reply-Path), so that we could use it for the subsequent message to send.
         // Refer to TS 23.040 D.6 and SmsMessageSender.java in Android Messaging app.
         public static final String SMS_SERVICE_CENTER = "sms_service_center";
+
+        // A conversation is enterprise if one of the participant is a enterprise contact.
+        public static final String IS_ENTERPRISE = "IS_ENTERPRISE";
     }
 
     // Conversation table SQL
@@ -182,7 +185,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     + ConversationColumns.NOTIFICATION_SOUND_URI + " TEXT, "
                     + ConversationColumns.NOTIFICATION_VIBRATION + " INT DEFAULT(1), "
                     + ConversationColumns.INCLUDE_EMAIL_ADDRESS + " INT DEFAULT(0), "
-                    + ConversationColumns.SMS_SERVICE_CENTER + " TEXT "
+                    + ConversationColumns.SMS_SERVICE_CENTER + " TEXT ,"
+                    + ConversationColumns.IS_ENTERPRISE + " INT DEFAULT(0)"
                     + ");";
 
     private static final String CONVERSATIONS_TABLE_SMS_THREAD_ID_INDEX_SQL =
@@ -668,6 +672,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
+    public static void rebuildAllViews(final DatabaseWrapper db) {
+        for (final String sql : DatabaseHelper.CREATE_VIEW_SQLS) {
+            db.execSQL(sql);
+        }
+    }
+
     /**
      * Drops all user-defined tables from the given database.
      */
@@ -733,7 +743,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     /**
      * Drops all user-defined views from the given database.
      */
-    private static void dropAllViews(final SQLiteDatabase db) {
+    public static void dropAllViews(final SQLiteDatabase db) {
         final Cursor viewCursor =
                 db.query(MASTER_TABLE, MASTER_COLUMNS, "type='view'", null, null, null, null);
         if (viewCursor != null) {
