@@ -34,6 +34,7 @@ import com.android.messaging.util.Assert;
 import com.android.messaging.util.ContentType;
 import com.android.messaging.util.LogUtil;
 import com.android.messaging.util.MediaMetadataRetrieverWrapper;
+import com.android.messaging.util.FileUtil;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -158,8 +159,12 @@ public class ShareIntentActivity extends BaseBugleActivity implements
     }
 
     private void addSharedImagePartToDraft(final String contentType, final Uri imageUri) {
-        mDraftMessage.addPart(PendingAttachmentData.createPendingAttachmentData(contentType,
-                imageUri));
+        if (FileUtil.isInPrivateDir(imageUri)) {
+            Assert.fail("Cannot send private file " + imageUri.toString());
+        } else {
+            mDraftMessage.addPart(PendingAttachmentData.createPendingAttachmentData(contentType,
+                    imageUri));
+        }
     }
 
     @Override

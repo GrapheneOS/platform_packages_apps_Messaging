@@ -16,7 +16,11 @@
 
 package com.android.messaging.util;
 
+import android.content.ContentResolver;
 import android.content.Context;
+import android.net.Uri;
+import android.os.Environment;
+import android.text.TextUtils;
 import android.webkit.MimeTypeMap;
 
 import com.android.messaging.Factory;
@@ -114,6 +118,21 @@ public class FileUtil {
                 }
             }
         }
+    }
+
+    private static boolean isFileUri(final Uri uri) {
+        return TextUtils.equals(uri.getScheme(), ContentResolver.SCHEME_FILE);
+    }
+
+    // Checks if the file is in /data, and don't allow any app to send personal information.
+    // We're told it's possible to create world readable hardlinks to other apps private data
+    // so we ban all /data file uris.
+    public static boolean isInPrivateDir(Uri uri) {
+        if (!isFileUri(uri)) {
+            return false;
+        }
+        final File file = new File(uri.getPath());
+        return FileUtil.isSameOrSubDirectory(Environment.getDataDirectory(), file);
     }
 
     /**

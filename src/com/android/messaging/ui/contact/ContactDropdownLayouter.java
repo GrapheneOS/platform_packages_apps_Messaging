@@ -34,6 +34,7 @@ import com.android.messaging.ui.ContactIconView;
 import com.android.messaging.util.Assert;
 import com.android.messaging.util.AvatarUriUtil;
 import com.android.messaging.util.ContactRecipientEntryUtils;
+import com.android.messaging.util.ContactUtil;
 
 /**
  * An implementation for {@link DropdownChipLayouter}. Layouts the dropdown
@@ -99,8 +100,9 @@ public class ContactDropdownLayouter extends DropdownChipLayouter {
         Assert.isTrue(itemView instanceof ContactListItemView);
         final ContactListItemView contactListItemView = (ContactListItemView) itemView;
         contactListItemView.setImageClickHandlerDisabled(true);
+        boolean isWorkContact = ContactUtil.isEnterpriseContactId(entry.getContactId());
         contactListItemView.bind(entry, styledResults[0], styledResults[1],
-                mClivHostInterface, (type == AdapterType.SINGLE_RECIPIENT));
+                mClivHostInterface, (type == AdapterType.SINGLE_RECIPIENT), isWorkContact);
         return itemView;
     }
 
