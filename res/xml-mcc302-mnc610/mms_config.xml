@@ -50,6 +50,4 @@
     <!-- Disable SMS to MMS conversion for multiple recipient SMS -->
     <bool name="enableGroupMms">false</bool>
 
-    <!-- Disable the link to the cell broadcast -->
-    <bool name="config_cellBroadcastAppLinks">false</bool>
 </mms_config>
