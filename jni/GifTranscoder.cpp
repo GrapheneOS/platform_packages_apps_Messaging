@@ -274,6 +274,11 @@ bool GifTranscoder::resizeBoxFilter(GifFileType* gifIn, GifFileType* gifOut) {
                     // matches what libframesequence (Rastermill) does.
                     if (imageIndex == 0 && gifIn->SColorMap) {
                         if (gcb.TransparentColor == NO_TRANSPARENT_COLOR) {
+                            if (gifIn->SBackGroundColor < 0 ||
+                                gifIn->SBackGroundColor >= gifIn->SColorMap->ColorCount) {
+                                LOGE("SBackGroundColor overflow");
+                                return false;
+                            }
                             GifColorType bgColorIndex =
                                     gifIn->SColorMap->Colors[gifIn->SBackGroundColor];
                             bgColor = gifColorToColorARGB(bgColorIndex);
