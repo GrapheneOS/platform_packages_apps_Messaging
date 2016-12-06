@@ -18,12 +18,14 @@ package com.android.messaging.datamodel;
 
 import android.content.Context;
 import android.net.Uri;
+import android.text.TextUtils;
 
 import com.android.messaging.Factory;
 import com.android.messaging.util.LogUtil;
 import com.google.common.annotations.VisibleForTesting;
 
 import java.io.File;
+import java.io.IOException;
 
 /**
  * A very simple content provider that can serve mms files from our cache directory.
@@ -60,7 +62,22 @@ public class MmsFileProvider extends FileProvider {
 
     private static File getFile(final String path) {
         final Context context = Factory.get().getApplicationContext();
-        return new File(getDirectory(context), path + ".dat");
+        final File filePath = new File(getDirectory(context), path + ".dat");
+
+        try {
+            if (!filePath.getCanonicalPath()
+                    .startsWith(getDirectory(context).getCanonicalPath())) {
+                LogUtil.e(TAG, "getFile: path "
+                        + filePath.getCanonicalPath()
+                        + " does not start with "
+                        + getDirectory(context).getCanonicalPath());
+                return null;
+            }
+        } catch (IOException e) {
+            LogUtil.e(TAG, "getFile: getCanonicalPath failed ", e);
+            return null;
+        }
+        return filePath;
     }
 
     private static File getDirectory(final Context context) {
