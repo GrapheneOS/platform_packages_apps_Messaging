@@ -32,6 +32,7 @@ import com.android.messaging.util.LogUtil;
 import com.google.common.annotations.VisibleForTesting;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -89,8 +90,23 @@ public class MediaScratchFileProvider extends FileProvider {
 
     private static File getFileWithExtension(final String path, final String extension) {
         final Context context = Factory.get().getApplicationContext();
-        return new File(getDirectory(context),
+        final File filePath = new File(getDirectory(context),
                 TextUtils.isEmpty(extension) ? path : path + "." + extension);
+
+        try {
+            if (!filePath.getCanonicalPath()
+                    .startsWith(getDirectory(context).getCanonicalPath())) {
+                LogUtil.e(TAG, "getFileWithExtension: path "
+                        + filePath.getCanonicalPath()
+                        + " does not start with "
+                        + getDirectory(context).getCanonicalPath());
+                return null;
+            }
+        } catch (IOException e) {
+            LogUtil.e(TAG, "getFileWithExtension: getCanonicalPath failed ", e);
+            return null;
+        }
+        return filePath;
     }
 
     private static File getDirectory(final Context context) {
