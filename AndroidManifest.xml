@@ -317,11 +317,13 @@
 
         <provider android:name=".datamodel.MmsFileProvider"
                   android:authorities="com.android.messaging.datamodel.MmsFileProvider"
-                  android:grantUriPermissions="true" />
+                  android:grantUriPermissions="true"
+                  android:exported="false" />
 
         <provider android:name=".datamodel.MediaScratchFileProvider"
                   android:authorities="com.android.messaging.datamodel.MediaScratchFileProvider"
-                  android:grantUriPermissions="true" />
+                  android:grantUriPermissions="true"
+                  android:exported="false" />
 
 
         <!-- Action Services -->
