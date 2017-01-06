@@ -144,10 +144,10 @@ bool GifTranscoder::resizeBoxFilter(GifFileType* gifIn, GifFileType* gifOut) {
     std::vector<GifByteType> srcBuffer(gifIn->SWidth * gifIn->SHeight);
 
     // Buffer for rendering images from the input GIF.
-    std::unique_ptr<ColorARGB> renderBuffer(new ColorARGB[gifIn->SWidth * gifIn->SHeight]);
+    std::unique_ptr<ColorARGB[]> renderBuffer(new ColorARGB[gifIn->SWidth * gifIn->SHeight]);
 
     // Buffer for writing new images to output GIF (one row at a time).
-    std::unique_ptr<GifByteType> dstRowBuffer(new GifByteType[gifOut->SWidth]);
+    std::unique_ptr<GifByteType[]> dstRowBuffer(new GifByteType[gifOut->SWidth]);
 
     // Many GIFs use DISPOSE_DO_NOT to make images draw on top of previous images. They can also
     // use DISPOSE_BACKGROUND to clear the last image region before drawing the next one. We need
