@@ -384,6 +384,11 @@ bool GifTranscoder::renderImage(GifFileType* gifIn,
     for (int y = 0; y < gifIn->Image.Height; y++) {
         for (int x = 0; x < gifIn->Image.Width; x++) {
             GifByteType colorIndex = *getPixel(rasterBits, gifIn->Image.Width, x, y);
+            if (colorIndex >= colorMap->ColorCount) {
+                LOGE("Color Index %d is out of bounds (count=%d)", colorIndex,
+                    colorMap->ColorCount);
+                return false;
+            }
 
             // This image may be smaller than the GIF's "logical screen"
             int renderX = x + gifIn->Image.Left;
