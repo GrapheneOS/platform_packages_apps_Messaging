@@ -19,9 +19,9 @@ package com.android.messaging.datamodel.data;
 import android.database.Cursor;
 import android.support.v4.util.SimpleArrayMap;
 
-import com.google.common.annotations.VisibleForTesting;
+import com.android.messaging.util.Assert;
 
-import junit.framework.Assert;
+import com.google.common.annotations.VisibleForTesting;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -84,7 +84,7 @@ public class ConversationParticipantsData implements Iterable<ParticipantData> {
                     return participant;
                 }
             }
-            Assert.fail();
+            Assert.fail("Could not find other participant");
         }
         return null;
     }
