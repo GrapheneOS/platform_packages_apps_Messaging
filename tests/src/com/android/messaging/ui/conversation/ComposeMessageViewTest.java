@@ -39,10 +39,10 @@ import com.android.messaging.util.BugleGservices;
 import com.android.messaging.util.FakeMediaUtil;
 import com.android.messaging.util.ImeUtil;
 
-import org.mockito.ArgumentMatcher;
 import org.mockito.Matchers;
 import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.compat.ArgumentMatcher;
 import org.mockito.invocation.InvocationOnMock;
 import org.mockito.stubbing.Answer;
 
@@ -138,7 +138,7 @@ public class ComposeMessageViewTest extends ViewTest<ComposeMessageView> {
         Mockito.verify(mockIComposeMessageViewHost).sendMessage(
                 Mockito.argThat(new ArgumentMatcher<MessageData>() {
                     @Override
-                    public boolean matches(final Object o) {
+                    public boolean matchesObject(final Object o) {
                         assertEquals(message.getMessageText(), ((MessageData) o).getMessageText());
                         return true;
                     }

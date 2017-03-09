@@ -36,10 +36,10 @@ import com.android.messaging.ui.attachmentchooser.AttachmentGridView;
 import com.android.messaging.ui.attachmentchooser.AttachmentChooserFragment.AttachmentChooserFragmentHost;
 import com.android.messaging.ui.conversationlist.ConversationListFragment;
 
-import org.mockito.ArgumentMatcher;
 import org.mockito.Matchers;
 import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.compat.ArgumentMatcher;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -69,7 +69,7 @@ public class AttachmentChooserFragmentTest extends FragmentTestCase<AttachmentCh
         }
 
         @Override
-        public boolean matches(final Object set) {
+        public boolean matchesObject(final Object set) {
             @SuppressWarnings("unchecked")
             final Set<MessagePartData> actualSet = (Set<MessagePartData>) set;
             if (actualSet.size() != mGivenParts.size()) {
