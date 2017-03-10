@@ -35,9 +35,9 @@ import com.android.messaging.ui.ViewTest;
 import com.android.messaging.ui.conversationlist.ConversationListItemView;
 import com.android.messaging.util.Dates;
 
-import org.mockito.ArgumentMatcher;
 import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.compat.ArgumentMatcher;
 
 @MediumTest
 public class ConversationListItemViewTest extends ViewTest<ConversationListItemView> {
@@ -62,7 +62,7 @@ public class ConversationListItemViewTest extends ViewTest<ConversationListItemV
         final ArgumentMatcher<ConversationListItemData> itemDataIdMatcher =
                 new ArgumentMatcher<ConversationListItemData>() {
             @Override
-            public boolean matches(final Object arg) {
+            public boolean matchesObject(final Object arg) {
                 return TextUtils.equals(id, ((ConversationListItemData) arg).getConversationId());
             }
         };
