@@ -466,19 +466,19 @@ public class MmsHttpClient {
     }
 
     /**
-     * Invoke hidden SubscriptionManager.getSlotId(int)
+     * Invoke hidden SubscriptionManager.getSlotIndex(int)
      *
      * @param subId the subId
      * @return the SIM slot ID
      */
     private static int getSlotId(final int subId) {
         try {
-            final Method method = SubscriptionManager.class.getMethod("getSlotId", Integer.TYPE);
+            final Method method = SubscriptionManager.class.getMethod("getSlotIndex", Integer.TYPE);
             if (method != null) {
                 return (Integer) method.invoke(null, subId);
             }
         } catch (Exception e) {
-            Log.w(MmsService.TAG, "SubscriptionManager.getSlotId failed " + e);
+            Log.w(MmsService.TAG, "SubscriptionManager.getSlotIndex failed " + e);
         }
         return -1;
     }
