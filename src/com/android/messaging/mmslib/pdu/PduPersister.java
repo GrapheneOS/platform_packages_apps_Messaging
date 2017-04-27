@@ -918,7 +918,7 @@ public class PduPersister {
                 }
                 if (data == null) {
                     dataUri = part.getDataUri();
-                    if ((dataUri == null) || (dataUri == uri)) {
+                    if ((dataUri == null) || (dataUri.equals(uri))) {
                         Log.w(TAG, "Can't find data for this part.");
                         return;
                     }
@@ -1202,7 +1202,7 @@ public class PduPersister {
         // 1. New binary data supplied or
         // 2. The Uri of the part is different from the current one.
         if ((part.getData() != null)
-                || (uri != part.getDataUri())) {
+                || (!uri.equals(part.getDataUri()))) {
             persistData(part, uri, contentType, preOpenedFiles);
         }
     }
