@@ -474,7 +474,7 @@
 
         <receiver android:name=".receiver.DefaultSmsSubscriptionChangeReceiver">
             <intent-filter>
-                <action android:name="android.intent.action.ACTION_DEFAULT_SMS_SUBSCRIPTION_CHANGED"/>
+                <action android:name="android.telephony.action.DEFAULT_SMS_SUBSCRIPTION_CHANGED"/>
             </intent-filter>
         </receiver>
 
