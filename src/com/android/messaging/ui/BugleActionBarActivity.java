@@ -19,7 +19,7 @@ package com.android.messaging.ui;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.ActionMode;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -40,7 +40,7 @@ import java.util.Set;
  * needs that will be common for all activities.  We can break out the common code if/when we need
  * a version that doesn't use an actionbar.
  */
-public class BugleActionBarActivity extends ActionBarActivity implements ImeUtil.ImeStateHost {
+public class BugleActionBarActivity extends AppCompatActivity implements ImeUtil.ImeStateHost {
     // Tracks the list of observers opting in for IME state change.
     private final Set<ImeUtil.ImeStateObserver> mImeStateObservers = new HashSet<>();
 
