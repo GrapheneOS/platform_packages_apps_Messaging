@@ -27,7 +27,7 @@ import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
 import android.text.Spanned;
 import android.text.TextPaint;
@@ -370,7 +370,7 @@ public class UiUtils {
         return result.toString();
     }
 
-    public static void setActionBarShadowVisibility(final ActionBarActivity activity, final boolean visible) {
+    public static void setActionBarShadowVisibility(final AppCompatActivity activity, final boolean visible) {
         final ActionBar actionBar = activity.getSupportActionBar();
         actionBar.setElevation(visible ?
                 activity.getResources().getDimensionPixelSize(R.dimen.action_bar_elevation) :
