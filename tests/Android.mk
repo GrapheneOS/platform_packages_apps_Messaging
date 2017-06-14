@@ -30,8 +30,9 @@ LOCAL_SDK_VERSION := current
 LOCAL_CERTIFICATE := platform
 
 LOCAL_STATIC_JAVA_LIBRARIES := \
-    mockito-target \
-    legacy-android-test
+    mockito-target
+
+LOCAL_JAVA_LIBRARIES := android.test.mock.sdk legacy-android-test
 
 include $(BUILD_PACKAGE)
 
