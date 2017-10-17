@@ -58,10 +58,10 @@ public class GifImageResource extends ImageResource {
     public Drawable getDrawable(Resources resources) {
         try {
             return new FrameSequenceDrawable(mFrameSequence);
-        } catch (final Exception e) {
-            // Malicious gif images can make platform throw different kind of exceptions. Catch
-            // them all.
-            LogUtil.e(LogUtil.BUGLE_TAG, "Error getting drawable for GIF", e);
+        } catch (final Throwable t) {
+            // Malicious gif images can make the platform throw different kind of throwables, such
+            // as OutOfMemoryError and NullPointerException. Catch them all.
+            LogUtil.e(LogUtil.BUGLE_TAG, "Error getting drawable for GIF", t);
             return null;
         }
     }
