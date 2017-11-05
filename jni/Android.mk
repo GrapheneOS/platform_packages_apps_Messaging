@@ -27,7 +27,7 @@ LOCAL_C_INCLUDES := \
 LOCAL_MODULE    := libgiftranscode
 LOCAL_SRC_FILES := GifTranscoder.cpp
 
-LOCAL_CFLAGS += -Wall -Wno-unused-parameter -Wno-switch
+LOCAL_CFLAGS += -Wall -Werror -Wno-unused-parameter -Wno-switch
 
 LOCAL_SDK_VERSION := 19
 LOCAL_NDK_STL_VARIANT := c++_static # LLVM libc++
