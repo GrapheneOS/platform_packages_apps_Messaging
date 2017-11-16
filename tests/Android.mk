@@ -32,7 +32,7 @@ LOCAL_CERTIFICATE := platform
 LOCAL_STATIC_JAVA_LIBRARIES := \
     mockito-target
 
-LOCAL_JAVA_LIBRARIES := android.test.mock.sdk legacy-android-test
+LOCAL_JAVA_LIBRARIES := android.test.mock.stubs legacy-android-test
 
 include $(BUILD_PACKAGE)
 
