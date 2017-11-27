@@ -36,10 +36,10 @@ import com.android.messaging.ui.attachmentchooser.AttachmentGridView;
 import com.android.messaging.ui.attachmentchooser.AttachmentChooserFragment.AttachmentChooserFragmentHost;
 import com.android.messaging.ui.conversationlist.ConversationListFragment;
 
+import org.mockito.ArgumentMatcher;
 import org.mockito.Matchers;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.compat.ArgumentMatcher;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -62,16 +62,14 @@ public class AttachmentChooserFragmentTest extends FragmentTestCase<AttachmentCh
     /** A custom argument matcher that checks whether the set argument passed in is a set
      * with identical attachment data as the given set.
      */
-    private class IsSetOfGivenAttachments extends ArgumentMatcher<Set<MessagePartData>> {
+    private class IsSetOfGivenAttachments implements ArgumentMatcher<Set<MessagePartData>> {
         private final Set<MessagePartData> mGivenParts;
         public IsSetOfGivenAttachments(final Set<MessagePartData> givenParts) {
             mGivenParts = givenParts;
         }
 
         @Override
-        public boolean matchesObject(final Object set) {
-            @SuppressWarnings("unchecked")
-            final Set<MessagePartData> actualSet = (Set<MessagePartData>) set;
+        public boolean matches(final Set<MessagePartData> actualSet) {
             if (actualSet.size() != mGivenParts.size()) {
                 return false;
             }
