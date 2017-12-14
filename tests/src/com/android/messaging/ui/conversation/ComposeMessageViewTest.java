@@ -16,6 +16,9 @@
 
 package com.android.messaging.ui.conversation;
 
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.isNull;
+
 import android.content.Context;
 import android.media.MediaPlayer;
 import android.test.suitebuilder.annotation.MediumTest;
@@ -39,10 +42,10 @@ import com.android.messaging.util.BugleGservices;
 import com.android.messaging.util.FakeMediaUtil;
 import com.android.messaging.util.ImeUtil;
 
+import org.mockito.ArgumentMatcher;
 import org.mockito.Matchers;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.compat.ArgumentMatcher;
 import org.mockito.invocation.InvocationOnMock;
 import org.mockito.stubbing.Answer;
 
@@ -127,8 +130,8 @@ public class ComposeMessageViewTest extends ViewTest<ComposeMessageView> {
 
         view.requestDraftMessage(false);
 
-        Mockito.verify(mockDraftMessageData).loadFromStorage(Matchers.any(BindingBase.class),
-                Matchers.any(MessageData.class), Mockito.eq(false));
+        Mockito.verify(mockDraftMessageData).loadFromStorage(any(BindingBase.class),
+                isNull(), Mockito.eq(false));
 
         view.onDraftChanged(mockDraftMessageData, DraftMessageData.ALL_CHANGED);
 
@@ -136,12 +139,9 @@ public class ComposeMessageViewTest extends ViewTest<ComposeMessageView> {
 
         sendButton.performClick();
         Mockito.verify(mockIComposeMessageViewHost).sendMessage(
-                Mockito.argThat(new ArgumentMatcher<MessageData>() {
-                    @Override
-                    public boolean matchesObject(final Object o) {
-                        assertEquals(message.getMessageText(), ((MessageData) o).getMessageText());
-                        return true;
-                    }
+                Mockito.argThat(o -> {
+                    assertEquals(message.getMessageText(), o.getMessageText());
+                    return true;
                 }));
     }
 
@@ -170,8 +170,8 @@ public class ComposeMessageViewTest extends ViewTest<ComposeMessageView> {
 
         view.requestDraftMessage(false);
 
-        Mockito.verify(mockDraftMessageData).loadFromStorage(Matchers.any(BindingBase.class),
-                Matchers.any(MessageData.class), Mockito.eq(false));
+        Mockito.verify(mockDraftMessageData).loadFromStorage(any(BindingBase.class),
+                isNull(), Mockito.eq(false));
 
         view.onDraftChanged(mockDraftMessageData, DraftMessageData.ALL_CHANGED);
 
@@ -179,6 +179,6 @@ public class ComposeMessageViewTest extends ViewTest<ComposeMessageView> {
 
         sendButton.performClick();
         Mockito.verify(mockIComposeMessageViewHost).warnOfMissingActionConditions(
-                Matchers.any(Boolean.class), Matchers.any(Runnable.class));
+                any(Boolean.class), any(Runnable.class));
     }
 }
