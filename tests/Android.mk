@@ -32,7 +32,11 @@ LOCAL_CERTIFICATE := platform
 LOCAL_STATIC_JAVA_LIBRARIES := \
     mockito-target
 
-LOCAL_JAVA_LIBRARIES := android.test.mock.stubs android.test.runner.stubs
+LOCAL_JAVA_LIBRARIES := \
+    android.test.mock.stubs \
+    android.test.runner.stubs \
+    android.test.base.stubs \
+
 
 include $(BUILD_PACKAGE)
 
