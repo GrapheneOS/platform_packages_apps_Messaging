@@ -64,11 +64,9 @@ else
     LOCAL_REQUIRED_MODULES:= libframesequence libgiftranscode
 endif
 
-LOCAL_PROGUARD_FLAGS := -ignorewarnings
+LOCAL_PROGUARD_ENABLED := obfuscation optimization
 
-LOCAL_PROGUARD_ENABLED := nosystem
-
-LOCAL_PROGUARD_FLAG_FILES := ../../../build/core/proguard_basic_keeps.flags proguard.flags
+LOCAL_PROGUARD_FLAG_FILES := proguard.flags
 ifeq (eng,$(TARGET_BUILD_VARIANT))
     LOCAL_PROGUARD_FLAG_FILES += proguard-test.flags
 else
