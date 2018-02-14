@@ -17,6 +17,7 @@
 package com.android.messaging.datamodel;
 
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.database.ContentObserver;
 import android.net.Uri;
 import android.provider.Telephony;
@@ -308,6 +309,14 @@ public class SyncManager {
             // Primary users default SMS app - don't monitor telephony (most changes from this app)
             mNotifyOnChanges = false;
             mSyncOnChanges = false;
+            if (context.getPackageManager().hasSystemFeature(PackageManager.FEATURE_AUTOMOTIVE)) {
+                // This is default SMS app but on Auto platform, even default SMS app needs
+                // to be notified of changes because Bluetooth makes changes to Sms database
+                // (thru ContentProvider). Content Change notifications help the default SMS app
+                // refresh display with changes, whenever Bluetooth changes data in SMS db.
+                mNotifyOnChanges = true;
+                mSyncOnChanges = true;
+            }
         }
         if (mNotifyOnChanges || mSyncOnChanges) {
             context.getContentResolver().registerContentObserver(Telephony.MmsSms.CONTENT_URI,
