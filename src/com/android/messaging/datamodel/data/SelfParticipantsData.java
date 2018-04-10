@@ -17,7 +17,7 @@
 package com.android.messaging.datamodel.data;
 
 import android.database.Cursor;
-import android.support.v4.util.ArrayMap;
+import androidx.collection.ArrayMap;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -16,7 +16,7 @@
 
 package com.android.messaging.util;
 
-import android.support.v4.util.LongSparseArray;
+import androidx.collection.LongSparseArray;
 
 /**
  * A space saving set for long values using v4 compat LongSparseArray

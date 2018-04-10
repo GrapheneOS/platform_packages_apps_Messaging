@@ -21,7 +21,7 @@ import android.database.ContentObserver;
 import android.database.Cursor;
 import android.database.DataSetObserver;
 import android.os.Handler;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.ViewGroup;
 import android.widget.FilterQueryProvider;
@@ -158,7 +158,7 @@ public abstract class CursorRecyclerAdapter<VH extends RecyclerView.ViewHolder>
     }
 
     /**
-     * @see android.support.v7.widget.RecyclerView.Adapter#getItem(int)
+     * @see androidx.recyclerview.widget.RecyclerView.Adapter#getItem(int)
      */
     public Object getItem(final int position) {
         if (mDataValid && mCursor != null) {
@@ -170,7 +170,7 @@ public abstract class CursorRecyclerAdapter<VH extends RecyclerView.ViewHolder>
     }
 
     /**
-     * @see android.support.v7.widget.RecyclerView.Adapter#getItemId(int)
+     * @see androidx.recyclerview.widget.RecyclerView.Adapter#getItemId(int)
      */
     @Override
     public long getItemId(final int position) {
@@ -210,7 +210,7 @@ public abstract class CursorRecyclerAdapter<VH extends RecyclerView.ViewHolder>
     public abstract void bindViewHolder(VH holder, Context context, Cursor cursor);
 
     /**
-     * @see android.support.v7.widget.RecyclerView.Adapter#createViewHolder(Context, ViewGroup, int)
+     * @see androidx.recyclerview.widget.RecyclerView.Adapter#createViewHolder(Context, ViewGroup, int)
      */
     public abstract VH createViewHolder(Context context, ViewGroup parent, int viewType);
 

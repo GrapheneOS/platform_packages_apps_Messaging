@@ -21,7 +21,7 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.content.res.XmlResourceParser;
 import android.os.Bundle;
-import android.support.v7.mms.CarrierConfigValuesLoader;
+import androidx.appcompat.mms.CarrierConfigValuesLoader;
 import android.util.SparseArray;
 
 import com.android.messaging.R;

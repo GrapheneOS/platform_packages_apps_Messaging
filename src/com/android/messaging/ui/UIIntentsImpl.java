@@ -34,9 +34,9 @@ import android.provider.ContactsContract.Contacts;
 import android.provider.ContactsContract.Intents;
 import android.provider.MediaStore;
 import android.provider.Telephony;
-import android.support.annotation.Nullable;
-import android.support.v4.app.TaskStackBuilder;
-import android.support.v4.content.LocalBroadcastManager;
+import androidx.annotation.Nullable;
+import androidx.core.app.TaskStackBuilder;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import android.text.TextUtils;
 
 import com.android.ex.photo.Intents.PhotoViewIntentBuilder;

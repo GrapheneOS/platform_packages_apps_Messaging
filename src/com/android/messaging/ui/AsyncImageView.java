@@ -24,7 +24,7 @@ import android.graphics.Path;
 import android.graphics.RectF;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.support.rastermill.FrameSequenceDrawable;
 import android.text.TextUtils;
 import android.util.AttributeSet;

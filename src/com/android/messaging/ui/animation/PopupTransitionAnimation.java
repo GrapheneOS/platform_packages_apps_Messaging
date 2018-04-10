@@ -80,7 +80,7 @@ public class PopupTransitionAnimation extends Animation {
         mPopupRect = new Rect();
         mActionBarRect = new Rect();
         mActionBarView = viewToAnimate.getRootView().findViewById(
-                android.support.v7.appcompat.R.id.action_bar);
+                androidx.appcompat.R.id.action_bar);
         mRectEvaluator = RectEvaluatorCompat.create();
         setDuration(UiUtils.MEDIAPICKER_TRANSITION_DURATION);
         setInterpolator(UiUtils.DEFAULT_INTERPOLATOR);

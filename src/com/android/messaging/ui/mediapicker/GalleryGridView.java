@@ -20,7 +20,7 @@ import android.graphics.Rect;
 import android.net.Uri;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.support.v4.util.ArrayMap;
+import androidx.collection.ArrayMap;
 import android.util.AttributeSet;
 import android.view.Menu;
 import android.view.MenuInflater;

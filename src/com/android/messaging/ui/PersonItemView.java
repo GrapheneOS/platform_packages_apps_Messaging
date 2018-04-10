@@ -17,8 +17,8 @@ package com.android.messaging.ui;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.v4.text.BidiFormatter;
-import android.support.v4.text.TextDirectionHeuristicsCompat;
+import androidx.core.text.BidiFormatter;
+import androidx.core.text.TextDirectionHeuristicsCompat;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
