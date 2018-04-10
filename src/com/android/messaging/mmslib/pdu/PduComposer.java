@@ -19,7 +19,7 @@ package com.android.messaging.mmslib.pdu;
 
 import android.content.ContentResolver;
 import android.content.Context;
-import android.support.v4.util.SimpleArrayMap;
+import androidx.collection.SimpleArrayMap;
 import android.text.TextUtils;
 
 import java.io.ByteArrayOutputStream;

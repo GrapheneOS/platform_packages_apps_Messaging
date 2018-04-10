@@ -22,7 +22,7 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.UserHandle;
 import android.os.UserManager;
-import android.support.v4.os.BuildCompat;
+import androidx.core.os.BuildCompat;
 
 import com.android.messaging.Factory;
 

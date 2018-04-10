@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package android.support.v7.mms;
+package androidx.appcompat.mms;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;

@@ -17,7 +17,7 @@
 package com.android.messaging.sms;
 
 import android.content.Context;
-import android.support.v7.mms.UserAgentInfoLoader;
+import androidx.appcompat.mms.UserAgentInfoLoader;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 

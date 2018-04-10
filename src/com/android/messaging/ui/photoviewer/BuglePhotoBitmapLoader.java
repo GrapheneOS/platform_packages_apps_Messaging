@@ -19,7 +19,7 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.support.rastermill.FrameSequenceDrawable;
-import android.support.v4.content.AsyncTaskLoader;
+import androidx.loader.content.AsyncTaskLoader;
 
 import com.android.ex.photo.PhotoViewController;
 import com.android.ex.photo.loaders.PhotoBitmapLoaderInterface;

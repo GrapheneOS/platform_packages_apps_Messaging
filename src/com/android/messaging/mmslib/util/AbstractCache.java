@@ -17,7 +17,7 @@
 
 package com.android.messaging.mmslib.util;
 
-import android.support.v4.util.SimpleArrayMap;
+import androidx.collection.SimpleArrayMap;
 import android.util.Log;
 
 public abstract class AbstractCache<K, V> {

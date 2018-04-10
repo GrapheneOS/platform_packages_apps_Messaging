@@ -16,7 +16,7 @@
 package com.android.messaging.datamodel.media;
 
 import android.accounts.Account;
-import android.support.v4.util.ArrayMap;
+import androidx.collection.ArrayMap;
 
 import com.android.vcard.VCardEntry;
 import com.android.vcard.VCardProperty;

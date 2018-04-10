@@ -21,7 +21,7 @@ import android.content.Context;
 import android.content.Loader;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import com.android.messaging.datamodel.BoundCursorLoader;
 import com.android.messaging.datamodel.GalleryBoundCursorLoader;

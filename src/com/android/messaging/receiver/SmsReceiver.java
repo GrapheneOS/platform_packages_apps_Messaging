@@ -27,10 +27,10 @@ import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.provider.Telephony;
 import android.provider.Telephony.Sms;
-import android.support.v4.app.NotificationCompat;
-import android.support.v4.app.NotificationCompat.Builder;
-import android.support.v4.app.NotificationCompat.Style;
-import android.support.v4.app.NotificationManagerCompat;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationCompat.Builder;
+import androidx.core.app.NotificationCompat.Style;
+import androidx.core.app.NotificationManagerCompat;
 
 import java.util.ArrayList;
 import java.util.regex.Pattern;

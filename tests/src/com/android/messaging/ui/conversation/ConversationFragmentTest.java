@@ -19,7 +19,7 @@ package com.android.messaging.ui.conversation;
 import android.app.Activity;
 import android.app.Fragment;
 import android.database.Cursor;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.test.suitebuilder.annotation.LargeTest;
 
 import com.android.messaging.FakeFactory;
