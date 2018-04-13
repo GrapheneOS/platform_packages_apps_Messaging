@@ -16,7 +16,7 @@
 package com.android.messaging.ui.conversation;
 
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
+import androidx.appcompat.app.ActionBar;
 
 /**
  * The base class for a method of user input, e.g. media picker.

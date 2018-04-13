@@ -24,8 +24,8 @@ import android.content.IntentFilter;
 import android.content.res.Configuration;
 import android.os.Handler;
 import android.os.Looper;
-import android.support.v7.mms.CarrierConfigValuesLoader;
-import android.support.v7.mms.MmsManager;
+import androidx.appcompat.mms.CarrierConfigValuesLoader;
+import androidx.appcompat.mms.MmsManager;
 import android.telephony.CarrierConfigManager;
 
 import com.android.messaging.datamodel.DataModel;

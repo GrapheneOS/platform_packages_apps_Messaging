@@ -19,7 +19,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.graphics.Rect;
 import android.os.AsyncTask;
-import android.support.v7.appcompat.R;
+import androidx.appcompat.R;
 import android.text.Editable;
 import android.text.TextPaint;
 import android.text.TextWatcher;

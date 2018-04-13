@@ -17,7 +17,7 @@
 package com.android.messaging.sms;
 
 import android.os.Bundle;
-import android.support.v7.mms.CarrierConfigValuesLoader;
+import androidx.appcompat.mms.CarrierConfigValuesLoader;
 import android.telephony.SubscriptionInfo;
 
 import com.android.messaging.Factory;

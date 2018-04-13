@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package android.support.v7.mms;
+package androidx.appcompat.mms;
 
 import android.app.PendingIntent;
 import android.content.ContentResolver;

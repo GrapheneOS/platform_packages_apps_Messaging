@@ -24,7 +24,7 @@ import android.database.CursorWrapper;
 import android.database.sqlite.SQLiteFullException;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.text.TextUtils;
 
 import com.android.common.contacts.DataUsageStatUpdater;

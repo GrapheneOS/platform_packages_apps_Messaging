@@ -21,7 +21,7 @@ import android.database.Cursor;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.format.DateUtils;

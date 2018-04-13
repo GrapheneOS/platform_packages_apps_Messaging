@@ -21,7 +21,7 @@ import android.content.pm.PackageManager;
 import android.database.ContentObserver;
 import android.net.Uri;
 import android.provider.Telephony;
-import android.support.v4.util.LongSparseArray;
+import androidx.collection.LongSparseArray;
 
 import com.android.messaging.datamodel.action.SyncMessagesAction;
 import com.android.messaging.datamodel.data.ParticipantData;

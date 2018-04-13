@@ -17,7 +17,7 @@ package com.android.messaging.datamodel;
 
 import android.app.PendingIntent;
 import android.net.Uri;
-import android.support.v4.app.NotificationCompat;
+import androidx.core.app.NotificationCompat;
 
 import com.android.messaging.datamodel.DatabaseHelper.MessageColumns;
 import com.android.messaging.datamodel.data.MessageData;
