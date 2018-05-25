@@ -35,6 +35,7 @@ import com.android.messaging.util.ContentType;
 import com.android.messaging.util.LogUtil;
 import com.android.messaging.util.MediaMetadataRetrieverWrapper;
 import com.android.messaging.util.FileUtil;
+import com.android.messaging.util.UriUtil;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -75,6 +76,12 @@ public class ShareIntentActivity extends BaseBugleActivity implements
         final String action = intent.getAction();
         if (Intent.ACTION_SEND.equals(action)) {
             final Uri contentUri = (Uri) intent.getParcelableExtra(Intent.EXTRA_STREAM);
+            if (UriUtil.isFileUri(contentUri)) {
+                LogUtil.i(
+                    LogUtil.BUGLE_TAG,
+                    "Ignoring attachment from file URI which are no longer supported.");
+                return;
+            }
             final String contentType = extractContentType(contentUri, intent.getType());
             if (LogUtil.isLoggable(LogUtil.BUGLE_TAG, LogUtil.DEBUG)) {
                 LogUtil.d(LogUtil.BUGLE_TAG, String.format(
@@ -112,6 +119,12 @@ public class ShareIntentActivity extends BaseBugleActivity implements
                 if (imageUris != null && imageUris.size() > 0) {
                     mDraftMessage = MessageData.createSharedMessage(null);
                     for (final Uri imageUri : imageUris) {
+                        if (UriUtil.isFileUri(imageUri)) {
+                            LogUtil.i(
+                                LogUtil.BUGLE_TAG,
+                                "Ignoring attachment from file URI which are no longer supported.");
+                            continue;
+                        }
                         final String actualContentType = extractContentType(imageUri, contentType);
                         addSharedImagePartToDraft(actualContentType, imageUri);
                     }

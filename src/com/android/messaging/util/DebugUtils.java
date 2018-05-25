@@ -22,12 +22,15 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Environment;
 import android.telephony.SmsMessage;
 import android.text.TextUtils;
 import android.widget.ArrayAdapter;
 
+import com.android.messaging.Factory;
 import com.android.messaging.R;
 import com.android.messaging.datamodel.SyncManager;
 import com.android.messaging.datamodel.action.DumpDatabaseAction;
@@ -176,6 +179,13 @@ public class DebugUtils {
             @Override
             public void run() {
                 sDebugClassZeroSms = !sDebugClassZeroSms;
+            }
+        });
+
+        arrayAdapter.add(new DebugAction("Test sharing a file URI") {
+            @Override
+            public void run() {
+                shareFileUri();
             }
         });
 
@@ -421,5 +431,17 @@ public class DebugUtils {
      */
     public static boolean debugClassZeroSmsEnabled() {
         return sDebugClassZeroSms;
+    }
+
+    /** Shares a ringtone file via file URI. */
+    private static void shareFileUri() {
+        final String packageName = "com.android.messaging";
+        final String fileName = "/system/media/audio/ringtones/Andromeda.ogg";
+
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setPackage(packageName);
+        intent.putExtra(Intent.EXTRA_STREAM, Uri.parse("file://" + fileName));
+        intent.setType("image/*");
+        Factory.get().getApplicationContext().startActivity(intent);
     }
 }
