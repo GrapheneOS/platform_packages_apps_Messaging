@@ -67,8 +67,10 @@ public class GetOrCreateConversationActionTest extends BugleTestCase {
         final long threadId = MmsUtils.getOrCreateThreadId(mContext, recipients);
         assertEquals(TestDataFactory.SMS_MMS_THREAD_ID_CURSOR_VALUE, threadId);
 
+        // TestDataFactory creates NUM_TEST_CONVERSATIONS conversations. blank
+        // conversation would be the next conversation.
         final String blankId = BugleDatabaseOperations.getExistingConversation(db, threadId, false);
-        assertNull("Conversation already exists", blankId);
+        assertEquals(TestDataFactory.NUM_TEST_CONVERSATIONS+1, Integer.parseInt((String)blankId));
 
         ArrayList<StubActionServiceCallLog> calls = mService.getCalls();
 
