@@ -91,6 +91,9 @@ public class ConversationFragmentTest extends FragmentTestCase<ConversationFragm
         Mockito.doReturn(mockDraftMessageData)
             .when(mockDataModel)
             .createDraftMessageData(Mockito.anyString());
+        Mockito.doReturn(mockDraftMessageData)
+            .when(mockDataModel)
+            .createDraftMessageData(null);
         Mockito.when(mockDataModel.createConversationData(
                 Matchers.any(Activity.class),
                 Matchers.any(ConversationDataListener.class),
