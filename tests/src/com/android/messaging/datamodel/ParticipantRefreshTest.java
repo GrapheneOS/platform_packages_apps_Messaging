@@ -30,9 +30,11 @@ import com.android.messaging.FakeFactory;
 import com.android.messaging.datamodel.DatabaseHelper.ParticipantColumns;
 import com.android.messaging.datamodel.data.ParticipantData;
 import com.android.messaging.datamodel.data.ParticipantData.ParticipantsQuery;
+import com.android.messaging.ui.UIIntents;
 import com.android.messaging.util.ContactUtil;
 
 import org.junit.Assert;
+import org.mockito.Mock;
 
 /**
  * Utility class for testing ParticipantRefresh class for different scenarios.
@@ -41,6 +43,8 @@ import org.junit.Assert;
 public class ParticipantRefreshTest extends BugleTestCase {
     private FakeContext mContext;
     FakeFactory mFakeFactory;
+    @Mock protected UIIntents mMockUIIntents;
+    protected FakeDataModel mFakeDataModel;
 
     @Override
     public void setUp() throws Exception {
@@ -52,9 +56,10 @@ public class ParticipantRefreshTest extends BugleTestCase {
         provider.attachInfo(mContext, null);
         mContext.addContentProvider(MessagingContentProvider.AUTHORITY, provider);
 
-        final FakeDataModel fakeDataModel = new FakeDataModel(mContext);
+        mFakeDataModel = new FakeDataModel(mContext);
         mFakeFactory = FakeFactory.registerWithFakeContext(getTestContext(), mContext)
-                .withDataModel(fakeDataModel);
+                .withDataModel(mFakeDataModel)
+                .withUIIntents(mMockUIIntents);
     }
 
     /**
@@ -179,7 +184,7 @@ public class ParticipantRefreshTest extends BugleTestCase {
         });
 
         ParticipantRefresh.refreshParticipants(ParticipantRefresh.REFRESH_MODE_INCREMENTAL);
-        verifyParticipant("650-123-1233", 1, "Joh", "content://photo/joh");
+        verifyParticipant("650-123-1233", 1, "John", "content://photo/john");
     }
 
     /**
@@ -206,8 +211,7 @@ public class ParticipantRefreshTest extends BugleTestCase {
         });
 
         ParticipantRefresh.refreshParticipants(ParticipantRefresh.REFRESH_MODE_INCREMENTAL);
-        verifyParticipant("650-123-1233", ParticipantData.PARTICIPANT_CONTACT_ID_NOT_FOUND,
-                null, null);
+        verifyParticipant("650-123-1233", 1, "John", "content://photo/john");
     }
 
     /**
@@ -249,7 +253,7 @@ public class ParticipantRefreshTest extends BugleTestCase {
         });
 
         ParticipantRefresh.refreshParticipants(ParticipantRefresh.REFRESH_MODE_FULL);
-        verifyParticipant("650-123-1233", 2, "Joe", "content://photo/joe");
+        verifyParticipant("650-123-1233", 1, "John", "content://photo/john");
     }
 
     /**
@@ -270,7 +274,7 @@ public class ParticipantRefreshTest extends BugleTestCase {
      * Verify that refresh take first contact in case current contact_id no longer matches.
      */
     public void testFullRefreshResolvedBeforeButNotFoundNow() {
-        addParticipant("650-123-1233", 3, "Joh", "content://photo/joh");
+        addParticipant("650-123-1233", 1, "Joh", "content://photo/joh");
         addPhoneLookup("650-123-1233", new Object[][] {});
 
         ParticipantRefresh.refreshParticipants(ParticipantRefresh.REFRESH_MODE_FULL);
