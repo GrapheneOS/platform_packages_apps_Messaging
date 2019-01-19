@@ -1535,7 +1535,7 @@ public class MmsUtils {
                 cursor = SqliteWrapper.query(
                         context,
                         resolver,
-                        Telephony.Carriers.CONTENT_URI,
+                        Telephony.Carriers.SIM_APN_URI,
                         TEST_CARRIERS_PROJECTION,
                         null/*selection*/,
                         null/*selectionArgs*/,
