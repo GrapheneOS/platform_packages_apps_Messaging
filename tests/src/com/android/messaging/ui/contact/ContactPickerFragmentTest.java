@@ -36,6 +36,7 @@ import com.android.messaging.datamodel.data.TestDataFactory;
 import com.android.messaging.ui.CustomHeaderViewPagerAdapter;
 import com.android.messaging.ui.FragmentTestCase;
 import com.android.messaging.ui.UIIntents;
+import com.android.messaging.ui.contact.ContactPickerFragment;
 import com.android.messaging.ui.contact.ContactPickerFragment.ContactPickerFragmentHost;
 
 import org.mockito.Matchers;
