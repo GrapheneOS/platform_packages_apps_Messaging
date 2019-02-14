@@ -110,7 +110,7 @@ public class GetOrCreateConversationAction extends Action implements Parcelable 
         }
 
         final String conversationId = BugleDatabaseOperations.getOrCreateConversation(db, threadId,
-                false, participants, false, false, null);
+                false, participants);
 
         return conversationId;
     }

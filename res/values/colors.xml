@@ -122,7 +122,6 @@
     <color name="notification_subject_color">#99aaaaaa</color>
 
     <color name="participant_list_text_primary">#4d4d4d</color>
-    <color name="participant_list_text_secondary">#6d6d6d</color>
     <color name="people_and_options_header_text">#6d6d6d</color>
     <color name="people_and_options_list_divider">#cccccc</color>
 

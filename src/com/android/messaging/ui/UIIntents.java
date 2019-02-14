@@ -265,16 +265,6 @@ public abstract class UIIntents {
     public abstract Intent getViewUrlIntent(final String url);
 
     /**
-     * Get an intent to launch the ringtone picker
-     * @param title the title to show in the ringtone picker
-     * @param existingUri the currently set uri
-     * @param defaultUri the default uri if none is currently set
-     * @param toneType type of ringtone to pick, maybe any of RingtoneManager.TYPE_*
-     */
-    public abstract Intent getRingtonePickerIntent(final String title, final Uri existingUri,
-            final Uri defaultUri, final int toneType);
-
-    /**
      * Get an intent to launch the wireless alert viewer.
      */
     public abstract Intent getWirelessAlertsIntent();

@@ -34,7 +34,6 @@
     <dimen name="conversation_list_contact_icon_size">56dp</dimen>
     <dimen name="conversation_message_contact_icon_size">42dp</dimen>
     <dimen name="conversation_message_photo_min_size">96dp</dimen>
-    <dimen name="conversation_list_notification_bell_padding">4dp</dimen>
     <dimen name="conversation_list_empty_text_bottom_margin">30dp</dimen>
     <dimen name="blocked_participant_list_item_view_padding">16dp</dimen>
 
@@ -109,7 +108,6 @@
     <dimen name="progress_indicator_default_stroke_width">2dp</dimen>
     <dimen name="progress_indicator_default_radius">12dp</dimen>
     <dimen name="participant_list_text_size">18sp</dimen>
-    <dimen name="participant_list_detail_text_size">14sp</dimen>
     <dimen name="people_and_options_header_text_size">16sp</dimen>
     <dimen name="image_attachment_fallback_width">240dp</dimen>
     <dimen name="image_attachment_fallback_height">240dp</dimen>

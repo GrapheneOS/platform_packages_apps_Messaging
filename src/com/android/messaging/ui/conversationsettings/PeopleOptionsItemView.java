@@ -38,7 +38,7 @@ public class PeopleOptionsItemView extends LinearLayout {
      * Implemented by the host of this view that handles options click event.
      */
     public interface HostInterface {
-        void onOptionsItemViewClicked(PeopleOptionsItemData item, boolean isChecked);
+        void onOptionsItemViewClicked(PeopleOptionsItemData item);
     }
 
     private TextView mTitle;
@@ -55,12 +55,10 @@ public class PeopleOptionsItemView extends LinearLayout {
     @Override
     protected void onFinishInflate () {
         mTitle = (TextView) findViewById(R.id.title);
-        mSubtitle = (TextView) findViewById(R.id.subtitle);
-        mSwitch = (SwitchCompat) findViewById(R.id.switch_button);
         setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(final View v) {
-                mHostInterface.onOptionsItemViewClicked(mData, !mData.getChecked());
+                mHostInterface.onOptionsItemViewClicked(mData);
             }
         });
     }
@@ -72,28 +70,5 @@ public class PeopleOptionsItemView extends LinearLayout {
         mHostInterface = hostInterface;
 
         mTitle.setText(mData.getTitle());
-        final String subtitle = mData.getSubtitle();
-        if (TextUtils.isEmpty(subtitle)) {
-            mSubtitle.setVisibility(GONE);
-        } else {
-            mSubtitle.setVisibility(VISIBLE);
-            mSubtitle.setText(subtitle);
-        }
-
-        if (mData.getCheckable()) {
-            mSwitch.setVisibility(VISIBLE);
-            mSwitch.setChecked(mData.getChecked());
-        } else {
-            mSwitch.setVisibility(GONE);
-        }
-
-        final boolean enabled = mData.getEnabled();
-        if (enabled != isEnabled()) {
-            mTitle.setEnabled(enabled);
-            mSubtitle.setEnabled(enabled);
-            mSwitch.setEnabled(enabled);
-            setAlpha(enabled ? 1.0f : 0.5f);
-            setEnabled(enabled);
-        }
     }
 }

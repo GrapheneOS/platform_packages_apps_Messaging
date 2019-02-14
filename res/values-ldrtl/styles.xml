@@ -74,10 +74,6 @@
         <item name="android:textColor">@color/conversation_list_name</item>
     </style>
 
-    <style name="ConversationListNotificationBellPaddingStyle">
-        <item name="android:paddingEnd">@dimen/conversation_list_notification_bell_padding</item>
-    </style>
-
     <style name="ComposeMessageViewFrameLayoutStyle">
         <item name="android:paddingEnd">@dimen/compose_message_send_button_padding_right</item>
     </style>

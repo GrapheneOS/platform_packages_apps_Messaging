@@ -21,8 +21,7 @@
     <string name="notifications_category_pref_key" translatable="false">notifications_category</string>
     <string name="mms_messaging_category_pref_key" translatable="false">mms_messaging_category</string>
     <string name="advanced_category_pref_key" translatable="false">advanced_category</string>
-    <string name="notifications_enabled_pref_key" translatable="false">notifications_enabled</string>
-    <bool name="notifications_enabled_pref_default" translatable="false">true</bool>
+    <string name="notifications_pref_key" translatable="false">notifications_enabled</string>
     <string name="notification_sound_pref_key" translatable="false">notification_sound</string>
     <string name="notification_vibration_pref_key" translatable="false">notification_vibration</string>
     <bool name="notification_vibration_pref_default" translatable="false">true</bool>

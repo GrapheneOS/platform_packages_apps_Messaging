@@ -134,15 +134,6 @@ public abstract class NotificationState {
      */
     public abstract int getPriority();
 
-    /** @return custom ringtone URI or null if not set */
-    public String getRingtoneUri() {
-        return null;
-    }
-
-    public boolean getNotificationVibrate() {
-        return false;
-    }
-
     public long getLatestReceivedTimestamp() {
         return Long.MIN_VALUE;
     }

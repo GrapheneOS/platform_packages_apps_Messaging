@@ -26,7 +26,6 @@ import android.os.Bundle;
 import com.android.messaging.datamodel.BoundCursorLoader;
 import com.android.messaging.datamodel.MessagingContentProvider;
 import com.android.messaging.datamodel.action.BugleActionToasts;
-import com.android.messaging.datamodel.action.UpdateConversationOptionsAction;
 import com.android.messaging.datamodel.action.UpdateDestinationBlockedAction;
 import com.android.messaging.datamodel.binding.BindableData;
 import com.android.messaging.datamodel.binding.BindingBase;
@@ -74,7 +73,7 @@ public class PeopleAndOptionsData extends BindableData implements
                     final Uri uri =
                             MessagingContentProvider.buildConversationMetadataUri(mConversationId);
                     return new BoundCursorLoader(bindingId, mContext, uri,
-                            PeopleOptionsItemData.PROJECTION, null, null, null);
+                            new String[]{}, null, null, null);
                 }
 
                 case PARTICIPANT_LOADER: {
@@ -169,33 +168,6 @@ public class PeopleAndOptionsData extends BindableData implements
         }
     }
 
-    public void enableConversationNotifications(final BindingBase<PeopleAndOptionsData> binding,
-            final boolean enable) {
-        final String bindingId = binding.getBindingId();
-        if (isBound(bindingId)) {
-            UpdateConversationOptionsAction.enableConversationNotifications(
-                    mConversationId, enable);
-        }
-    }
-
-    public void setConversationNotificationSound(final BindingBase<PeopleAndOptionsData> binding,
-            final String ringtoneUri) {
-        final String bindingId = binding.getBindingId();
-        if (isBound(bindingId)) {
-            UpdateConversationOptionsAction.setConversationNotificationSound(mConversationId,
-                    ringtoneUri);
-        }
-    }
-
-    public void enableConversationNotificationVibration(
-            final BindingBase<PeopleAndOptionsData> binding, final boolean enable) {
-        final String bindingId = binding.getBindingId();
-        if (isBound(bindingId)) {
-            UpdateConversationOptionsAction.enableVibrationForConversationNotification(
-                    mConversationId, enable);
-        }
-    }
-
     public void setDestinationBlocked(final BindingBase<PeopleAndOptionsData> binding,
             final boolean blocked) {
         final String bindingId = binding.getBindingId();
@@ -206,5 +178,9 @@ public class PeopleAndOptionsData extends BindableData implements
                     blocked, mConversationId,
                     BugleActionToasts.makeUpdateDestinationBlockedActionListener(mContext));
         }
+    }
+
+    public String getConversationId() {
+        return mConversationId;
     }
 }

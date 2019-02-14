@@ -257,10 +257,6 @@
     <string name="action_archive">Archive</string>
     <!-- Action menu title for unarchiving selected conversations in conversation list -->
     <string name="action_unarchive">Unarchive</string>
-    <!-- Action menu title for turning off notification for the selected conversations in conversation list -->
-    <string name="action_notification_off">Turn off notifications</string>
-    <!-- Action menu title for turning on notification for the selected conversations in conversation list -->
-    <string name="action_notification_on">Turn on notifications</string>
     <!-- Action menu title for adding the contacts for the selected conversations in conversation list -->
     <string name="action_add_contact">Add contact</string>
     <!-- Action menu title for downloading failed message selected in conversation -->
@@ -440,13 +436,9 @@
     <!-- Preference category: Debug -->
     <string name="debug_category_pref_title">Debug</string>
     <!-- Title for the preference for whether or to notify the user of new messages -->
-    <string name="notifications_enabled_pref_title">Notifications</string>
+    <string name="notifications_pref_title">Notifications</string>
     <!-- Title for the notification sound preference -->
-    <string name="notification_sound_pref_title">Sound</string>
-    <!-- What to display in the settings screen for Ringtone when the user chooses "silent" [CHAR LIMIT=100]-->
     <string name="silent_ringtone">Silent</string>
-    <!-- Title for the preference for whether or not to vibrate with notifications -->
-    <string name="notification_vibrate_pref_title">Vibrate</string>
     <string name="blocked_pref_title">Blocked</string>
     <!-- Title for the preference for whether or not to request/show delivery reports for SMS -->
     <string name="delivery_reports_pref_title">SMS delivery reports</string>
@@ -982,4 +974,7 @@
 
     <!-- When making a call to emergency numbers, show this toast -->
     <string name="disallow_emergency_call">Can\'t make a voice call to emergency services here.</string>
+
+    <!-- Notification channel -->
+    <string name="notification_channel_messages_title">Messages</string>
 </resources>

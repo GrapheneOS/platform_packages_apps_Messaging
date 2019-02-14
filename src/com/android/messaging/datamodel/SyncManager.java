@@ -51,32 +51,13 @@ public class SyncManager {
      */
     public static class ConversationCustomization {
         private final boolean mArchived;
-        private final boolean mMuted;
-        private final boolean mNoVibrate;
-        private final String mNotificationSoundUri;
 
-        public ConversationCustomization(final boolean archived, final boolean muted,
-                final boolean noVibrate, final String notificationSoundUri) {
+        public ConversationCustomization(final boolean archived) {
             mArchived = archived;
-            mMuted = muted;
-            mNoVibrate = noVibrate;
-            mNotificationSoundUri = notificationSoundUri;
         }
 
         public boolean isArchived() {
             return mArchived;
-        }
-
-        public boolean isMuted() {
-            return mMuted;
-        }
-
-        public boolean noVibrate() {
-            return mNoVibrate;
-        }
-
-        public String getNotificationSoundUri() {
-            return mNotificationSoundUri;
         }
     }
 
@@ -436,15 +417,13 @@ public class SyncManager {
             if (customization != null) {
                 // There is user customization we need to recover
                 conversationId = BugleDatabaseOperations.getOrCreateConversation(db, threadId,
-                        customization.isArchived(), participants, customization.isMuted(),
-                        customization.noVibrate(), customization.getNotificationSoundUri());
+                        customization.isArchived(), participants);
                 if (customization.isArchived()) {
                     mArchivedConversations.add(conversationId);
                 }
             } else {
                 conversationId = BugleDatabaseOperations.getOrCreateConversation(db, threadId,
-                        false/*archived*/, participants, false/*noNotification*/,
-                        false/*noVibrate*/, null/*soundUri*/);
+                        false/*archived*/, participants);
             }
 
             if (conversationId != null) {

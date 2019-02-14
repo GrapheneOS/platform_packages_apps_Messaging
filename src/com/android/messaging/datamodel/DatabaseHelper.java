@@ -136,15 +136,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         /* Participant count not including self (so will be 1 for 1:1 or bigger for group) */
         public static final String PARTICIPANT_COUNT = "participant_count";
 
-        /* Should notifications be enabled for this conversation? */
-        public static final String NOTIFICATION_ENABLED = "notification_enabled";
-
-        /* Notification sound used for the conversation */
-        public static final String NOTIFICATION_SOUND_URI = "notification_sound_uri";
-
-        /* Should vibrations be enabled for the conversation's notification? */
-        public static final String NOTIFICATION_VIBRATION = "notification_vibration";
-
         /* Conversation recipients include email address */
         public static final String INCLUDE_EMAIL_ADDRESS = "include_email_addr";
 
@@ -184,9 +175,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     + ConversationColumns.OTHER_PARTICIPANT_NORMALIZED_DESTINATION + " TEXT, "
                     + ConversationColumns.CURRENT_SELF_ID + " TEXT, "
                     + ConversationColumns.PARTICIPANT_COUNT + " INT DEFAULT(0), "
-                    + ConversationColumns.NOTIFICATION_ENABLED + " INT DEFAULT(1), "
-                    + ConversationColumns.NOTIFICATION_SOUND_URI + " TEXT, "
-                    + ConversationColumns.NOTIFICATION_VIBRATION + " INT DEFAULT(1), "
                     + ConversationColumns.INCLUDE_EMAIL_ADDRESS + " INT DEFAULT(0), "
                     + ConversationColumns.SMS_SERVICE_CENTER + " TEXT ,"
                     + ConversationColumns.IS_ENTERPRISE + " INT DEFAULT(0)"

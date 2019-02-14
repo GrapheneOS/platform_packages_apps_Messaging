@@ -120,10 +120,6 @@ public class WidgetConversationListService extends RemoteViewsService {
                 remoteViews.setTextViewText(R.id.from,
                         boldifyIfUnread(conv.getName(), hasUnreadMessages));
 
-                // Notifications turned off mini-bell icon
-                remoteViews.setViewVisibility(R.id.conversation_notification_bell,
-                        conv.getNotificationEnabled() ? View.GONE : View.VISIBLE);
-
                 // On click intent.
                 final Intent intent = UIIntents.get().getIntentForConversationActivity(mContext,
                         conv.getConversationId(), null /* draft */);

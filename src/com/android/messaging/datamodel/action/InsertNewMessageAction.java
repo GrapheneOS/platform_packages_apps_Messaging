@@ -274,7 +274,7 @@ public class InsertNewMessageAction extends Action implements Parcelable {
         }
 
         final String conversationId = BugleDatabaseOperations.getOrCreateConversation(db, threadId,
-                false, participants, false, false, null);
+                false, participants);
 
         final ParticipantData self = BugleDatabaseOperations.getOrCreateSelf(db, subId);
 

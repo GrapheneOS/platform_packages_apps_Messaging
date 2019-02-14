@@ -197,15 +197,6 @@ public abstract class MessageNotificationState extends NotificationState {
         // line infos is capped.
         int mTotalMessageCount;
 
-        // Custom ringtone if set
-        final String mRingtoneUri;
-
-        // Should notification be enabled for this conversation?
-        final boolean mNotificationEnabled;
-
-        // Should notifications vibrate for this conversation?
-        final boolean mNotificationVibrate;
-
         // Avatar uri of sender
         final Uri mAvatarUri;
 
@@ -224,9 +215,6 @@ public abstract class MessageNotificationState extends NotificationState {
                 final boolean includeEmailAddress,
                 final long receivedTimestamp,
                 final String selfParticipantId,
-                final String ringtoneUri,
-                final boolean notificationEnabled,
-                final boolean notificationVibrate,
                 final Uri avatarUri,
                 final Uri contactUri,
                 final int subId,
@@ -239,11 +227,8 @@ public abstract class MessageNotificationState extends NotificationState {
             mSelfParticipantId = selfParticipantId;
             mLineInfos = new ArrayList<NotificationLineInfo>();
             mTotalMessageCount = 0;
-            mRingtoneUri = ringtoneUri;
             mAvatarUri = avatarUri;
             mContactUri = contactUri;
-            mNotificationEnabled = notificationEnabled;
-            mNotificationVibrate = notificationVibrate;
             mSubId = subId;
             mParticipantCount = participantCount;
         }
@@ -870,10 +855,6 @@ public abstract class MessageNotificationState extends NotificationState {
                     if (currConvInfo == null) {
                         final ConversationListItemData convData =
                                 ConversationListItemData.getExistingConversation(db, convId);
-                        if (!convData.getNotificationEnabled()) {
-                            // Skip conversations that have notifications disabled.
-                            continue;
-                        }
                         final int subId = BugleDatabaseOperations.getSelfSubscriptionId(db,
                                 convData.getSelfId());
                         groupConversationName = convData.getName();
@@ -888,9 +869,6 @@ public abstract class MessageNotificationState extends NotificationState {
                                 convData.getIncludeEmailAddress(),
                                 convMessageData.getReceivedTimeStamp(),
                                 convData.getSelfId(),
-                                convData.getNotificationSoundUri(),
-                                convData.getNotificationEnabled(),
-                                convData.getNotifiationVibrate(),
                                 avatarUri,
                                 convMessageData.getSenderContactLookupUri(),
                                 subId,
@@ -1101,22 +1079,6 @@ public abstract class MessageNotificationState extends NotificationState {
             return convInfo.getLatestMessageNotificationType();
         }
         return BugleNotifications.LOCAL_SMS_NOTIFICATION;
-    }
-
-    @Override
-    public String getRingtoneUri() {
-        if (mConvList.mConvInfos.size() > 0) {
-            return mConvList.mConvInfos.get(0).mRingtoneUri;
-        }
-        return null;
-    }
-
-    @Override
-    public boolean getNotificationVibrate() {
-        if (mConvList.mConvInfos.size() > 0) {
-            return mConvList.mConvInfos.get(0).mNotificationVibrate;
-        }
-        return false;
     }
 
     protected CharSequence getTicker() {

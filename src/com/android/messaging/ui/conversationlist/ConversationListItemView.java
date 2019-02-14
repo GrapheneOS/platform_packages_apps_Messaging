@@ -124,7 +124,6 @@ public class ConversationListItemView extends FrameLayout implements OnClickList
     private TextView mTimestampTextView;
     private ContactIconView mContactIconView;
     private ImageView mContactCheckmarkView;
-    private ImageView mNotificationBellView;
     private ImageView mFailedStatusIconView;
     private ImageView mCrossSwipeArchiveLeftImageView;
     private ImageView mCrossSwipeArchiveRightImageView;
@@ -150,7 +149,6 @@ public class ConversationListItemView extends FrameLayout implements OnClickList
         mTimestampTextView = (TextView) findViewById(R.id.conversation_timestamp);
         mContactIconView = (ContactIconView) findViewById(R.id.conversation_icon);
         mContactCheckmarkView = (ImageView) findViewById(R.id.conversation_checkmark);
-        mNotificationBellView = (ImageView) findViewById(R.id.conversation_notification_bell);
         mFailedStatusIconView = (ImageView) findViewById(R.id.conversation_failed_status_icon);
         mCrossSwipeArchiveLeftImageView = (ImageView) findViewById(R.id.crossSwipeArchiveIconLeft);
         mCrossSwipeArchiveRightImageView =
@@ -500,8 +498,6 @@ public class ConversationListItemView extends FrameLayout implements OnClickList
         mAudioAttachmentView.setOnLongClickListener(this);
         mAudioAttachmentView.setVisibility(audioPreviewVisiblity);
 
-        final int notificationBellVisiblity = mData.getNotificationEnabled() ? GONE : VISIBLE;
-        mNotificationBellView.setVisibility(notificationBellVisiblity);
     }
 
     public boolean isSwipeAnimatable() {

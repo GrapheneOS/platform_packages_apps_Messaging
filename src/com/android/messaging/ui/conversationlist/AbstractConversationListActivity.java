@@ -30,7 +30,6 @@ import android.view.View;
 import com.android.messaging.R;
 import com.android.messaging.datamodel.action.DeleteConversationAction;
 import com.android.messaging.datamodel.action.UpdateConversationArchiveStatusAction;
-import com.android.messaging.datamodel.action.UpdateConversationOptionsAction;
 import com.android.messaging.datamodel.action.UpdateDestinationBlockedAction;
 import com.android.messaging.datamodel.data.ConversationListData;
 import com.android.messaging.datamodel.data.ConversationListItemData;
@@ -186,23 +185,6 @@ public abstract class AbstractConversationListActivity  extends BugleActionBarAc
         UiUtils.showSnackBar(this, findViewById(android.R.id.list), message, undoRunnable,
                 SnackBar.Action.SNACK_BAR_UNDO,
                 mConversationListFragment.getSnackBarInteractions());
-        exitMultiSelectState();
-    }
-
-    @Override
-    public void onActionBarNotification(final Iterable<SelectedConversation> conversations,
-            final boolean isNotificationOn) {
-        for (final SelectedConversation conversation : conversations) {
-            UpdateConversationOptionsAction.enableConversationNotifications(
-                    conversation.conversationId, isNotificationOn);
-        }
-
-        final int textId = isNotificationOn ?
-                R.string.notification_on_toast_message : R.string.notification_off_toast_message;
-        final String message = getResources().getString(textId, 1);
-        UiUtils.showSnackBar(this, findViewById(android.R.id.list), message,
-            null /* undoRunnable */,
-            SnackBar.Action.SNACK_BAR_UNDO, mConversationListFragment.getSnackBarInteractions());
         exitMultiSelectState();
     }
 

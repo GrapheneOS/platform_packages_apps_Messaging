@@ -171,8 +171,7 @@ public class BugleDatabaseOperations {
         final ArrayList<ParticipantData> participants =
                 getConversationParticipantsFromRecipients(recipients, refSubId);
 
-        return getOrCreateConversation(db, threadId, senderBlocked, participants, false, false,
-                null);
+        return getOrCreateConversation(db, threadId, senderBlocked, participants);
     }
 
     /**
@@ -190,7 +189,7 @@ public class BugleDatabaseOperations {
         Assert.isNotMainThread();
         final ArrayList<ParticipantData> recipients = new ArrayList<>(1);
         recipients.add(recipient);
-        return getOrCreateConversation(db, threadId, senderBlocked, recipients, false, false, null);
+        return getOrCreateConversation(db, threadId, senderBlocked, recipients);
     }
 
     /**
@@ -200,15 +199,11 @@ public class BugleDatabaseOperations {
      * @param threadId The message's thread
      * @param archived Flag whether the conversation should be created archived
      * @param participants list of conversation participants
-     * @param noNotification If notification should be disabled
-     * @param noVibrate If vibrate on notification should be disabled
-     * @param soundUri If there is custom sound URI
      * @return a conversation id
      */
     @DoesNotRunOnMainThread
     public static String getOrCreateConversation(final DatabaseWrapper db, final long threadId,
-            final boolean archived, final ArrayList<ParticipantData> participants,
-            boolean noNotification, boolean noVibrate, String soundUri) {
+            final boolean archived, final ArrayList<ParticipantData> participants) {
         Assert.isNotMainThread();
 
         // Check to see if this conversation is already in out local db cache
@@ -231,8 +226,7 @@ public class BugleDatabaseOperations {
                         BugleDatabaseOperations.getOrCreateParticipantInTransaction(db, self);
                 // Create a new conversation
                 conversationId = BugleDatabaseOperations.createConversationInTransaction(
-                        db, threadId, conversationName, selfId, participants, archived,
-                        noNotification, noVibrate, soundUri);
+                        db, threadId, conversationName, selfId, participants, archived);
                 db.setTransactionSuccessful();
             } finally {
                 db.endTransaction();
@@ -357,15 +351,11 @@ public class BugleDatabaseOperations {
      * @param threadId      The message's thread
      * @param selfId        The selfId to make default for this conversation
      * @param archived      Flag whether the conversation should be created archived
-     * @param noNotification If notification should be disabled
-     * @param noVibrate     If vibrate on notification should be disabled
-     * @param soundUri      The customized sound
      * @return The existing conversation id or new conversation id
      */
     static String createConversationInTransaction(final DatabaseWrapper dbWrapper,
             final long threadId, final String conversationName, final String selfId,
-            final List<ParticipantData> participants, final boolean archived,
-            boolean noNotification, boolean noVibrate, String soundUri) {
+            final List<ParticipantData> participants, final boolean archived) {
         // We want conversation and participant creation to be atomic
         Assert.isTrue(dbWrapper.getDatabase().inTransaction());
         boolean hasEmailAddress = false;
@@ -388,15 +378,6 @@ public class BugleDatabaseOperations {
         values.put(ConversationColumns.INCLUDE_EMAIL_ADDRESS, (hasEmailAddress ? 1 : 0));
         if (archived) {
             values.put(ConversationColumns.ARCHIVE_STATUS, 1);
-        }
-        if (noNotification) {
-            values.put(ConversationColumns.NOTIFICATION_ENABLED, 0);
-        }
-        if (noVibrate) {
-            values.put(ConversationColumns.NOTIFICATION_VIBRATION, 0);
-        }
-        if (!TextUtils.isEmpty(soundUri)) {
-            values.put(ConversationColumns.NOTIFICATION_SOUND_URI, soundUri);
         }
 
         fillParticipantData(values, participants);

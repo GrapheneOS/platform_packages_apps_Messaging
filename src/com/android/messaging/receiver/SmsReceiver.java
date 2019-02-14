@@ -252,11 +252,6 @@ public final class SmsReceiver extends BroadcastReceiver {
         protected Style build(Builder builder) {
             return null;
         }
-
-        @Override
-        public boolean getNotificationVibrate() {
-            return true;
-        }
     }
 
     public static void postNewMessageSecondaryUserNotification() {
@@ -282,10 +277,7 @@ public final class SmsReceiver extends BroadcastReceiver {
         final NotificationManagerCompat notificationManager =
                 NotificationManagerCompat.from(Factory.get().getApplicationContext());
 
-        int defaults = Notification.DEFAULT_LIGHTS;
-        if (BugleNotifications.shouldVibrate(new SecondaryUserNotificationState())) {
-            defaults |= Notification.DEFAULT_VIBRATE;
-        }
+        int defaults = Notification.DEFAULT_LIGHTS | Notification.DEFAULT_VIBRATE;
         notification.defaults = defaults;
 
         notificationManager.notify(getNotificationTag(),

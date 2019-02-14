@@ -35,6 +35,7 @@ import com.android.messaging.datamodel.MessagingContentProvider;
 import com.android.messaging.sms.MmsUtils;
 import com.android.messaging.util.Assert;
 import com.android.messaging.util.LogUtil;
+import com.android.messaging.util.NotificationsUtil;
 import com.android.messaging.widget.WidgetConversationProvider;
 
 import java.util.ArrayList;
@@ -118,6 +119,10 @@ public class DeleteConversationAction extends Action implements Parcelable {
                         + " has an invalid telephony thread id; will delete messages individually");
                 deleteConversationMessagesFromTelephony();
             }
+
+            // Finally, remove the conversation specific notification channel
+            NotificationsUtil.deleteNotificationChannel(Factory.get().getApplicationContext(),
+                    conversationId);
         } else {
             LogUtil.e(TAG, "DeleteConversationAction: conversationId is empty");
         }

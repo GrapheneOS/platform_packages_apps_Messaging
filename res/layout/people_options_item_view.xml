@@ -40,25 +40,5 @@
             android:ellipsize="end"
             style="@style/ParticipantListItem"
             android:layout_gravity="center_vertical" />
-
-        <TextView
-            android:id="@+id/subtitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:singleLine="true"
-            android:maxLines="1"
-            android:ellipsize="end"
-            style="@style/ParticipantListItemDetail"
-            android:layout_gravity="center_vertical" />
-
     </LinearLayout>
-
-    <androidx.appcompat.widget.SwitchCompat
-        android:id="@+id/switch_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:focusable="false"
-        android:clickable="false"
-        android:visibility="gone" />
-
 </com.android.messaging.ui.conversationsettings.PeopleOptionsItemView>

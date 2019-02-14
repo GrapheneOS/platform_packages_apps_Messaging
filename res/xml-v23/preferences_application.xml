@@ -43,29 +43,10 @@
         android:defaultValue="@bool/send_sound_pref_default"
         android:persistent="true" />
 
-    <SwitchPreference
-        android:key="@string/notifications_enabled_pref_key"
-        android:title="@string/notifications_enabled_pref_title"
-        android:defaultValue="@bool/notifications_enabled_pref_default"
-        android:persistent="true"
-        android:disableDependentsState="false" />
-
-    <RingtonePreference
-        android:key="@string/notification_sound_pref_key"
-        android:title="@string/notification_sound_pref_title"
-        android:ringtoneType="notification"
-        android:showSilent="true"
-        android:showDefault="true"
-        android:persistent="true"
-        android:defaultValue=""
-        android:dependency="@string/notifications_enabled_pref_key" />
-
-    <SwitchPreference
-        android:key="@string/notification_vibration_pref_key"
-        android:title="@string/notification_vibrate_pref_title"
-        android:defaultValue="@bool/notification_vibration_pref_default"
-        android:persistent="true"
-        android:dependency="@string/notifications_enabled_pref_key" />
+    <Preference
+        android:key="@string/notifications_pref_key"
+        android:title="@string/notifications_pref_title"
+        android:persistent="true" />
 
     <PreferenceScreen
             android:key="@string/advanced_pref_key"

@@ -18,12 +18,12 @@ package com.android.messaging.ui.conversationsettings;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Fragment;
+import android.app.NotificationManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.database.Cursor;
-import android.media.RingtoneManager;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.provider.Settings;
@@ -49,6 +49,7 @@ import com.android.messaging.ui.CompositeAdapter;
 import com.android.messaging.ui.PersonItemView;
 import com.android.messaging.ui.UIIntents;
 import com.android.messaging.ui.conversation.ConversationActivity;
+import com.android.messaging.util.NotificationsUtil;
 import com.android.messaging.util.Assert;
 
 import java.util.ArrayList;
@@ -62,10 +63,9 @@ public class PeopleAndOptionsFragment extends Fragment
     private ListView mListView;
     private OptionsListAdapter mOptionsListAdapter;
     private PeopleListAdapter mPeopleListAdapter;
+    private List<ParticipantData> mOtherParticipants;
     private final Binding<PeopleAndOptionsData> mBinding =
             BindingBase.createBinding(this);
-
-    private static final int REQUEST_CODE_RINGTONE_PICKER = 1000;
 
     @Override
     public void onCreate(final Bundle savedInstanceState) {
@@ -87,17 +87,6 @@ public class PeopleAndOptionsFragment extends Fragment
                 R.string.participant_list_title, true));
         mListView.setAdapter(compositeAdapter);
         return view;
-    }
-
-    @Override
-    public void onActivityResult(final int requestCode, final int resultCode, final Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == Activity.RESULT_OK && requestCode == REQUEST_CODE_RINGTONE_PICKER) {
-            final Parcelable pick = data.getParcelableExtra(
-                    RingtoneManager.EXTRA_RINGTONE_PICKED_URI);
-            final String pickedUri = pick == null ? "" : pick.toString();
-            mBinding.getData().setConversationNotificationSound(mBinding, pickedUri);
-        }
     }
 
     @Override
@@ -125,30 +114,31 @@ public class PeopleAndOptionsFragment extends Fragment
             final List<ParticipantData> participants) {
         mBinding.ensureBound(data);
         mPeopleListAdapter.updateParticipants(participants);
+        mOtherParticipants = participants;
         final ParticipantData otherParticipant = participants.size() == 1 ?
                 participants.get(0) : null;
         mOptionsListAdapter.setOtherParticipant(otherParticipant);
     }
 
     @Override
-    public void onOptionsItemViewClicked(final PeopleOptionsItemData item,
-            final boolean isChecked) {
+    public void onOptionsItemViewClicked(final PeopleOptionsItemData item) {
         switch (item.getItemId()) {
-            case PeopleOptionsItemData.SETTING_NOTIFICATION_ENABLED:
-                mBinding.getData().enableConversationNotifications(mBinding, isChecked);
-                break;
-
-            case PeopleOptionsItemData.SETTING_NOTIFICATION_SOUND_URI:
-                final Intent ringtonePickerIntent = UIIntents.get().getRingtonePickerIntent(
-                        getString(R.string.notification_sound_pref_title),
-                        item.getRingtoneUri(), Settings.System.DEFAULT_NOTIFICATION_URI,
-                        RingtoneManager.TYPE_NOTIFICATION);
-                startActivityForResult(ringtonePickerIntent, REQUEST_CODE_RINGTONE_PICKER);
-                break;
-
-            case PeopleOptionsItemData.SETTING_NOTIFICATION_VIBRATION:
-                mBinding.getData().enableConversationNotificationVibration(mBinding,
-                        isChecked);
+            case PeopleOptionsItemData.SETTING_NOTIFICATION:
+                ArrayList<String> participantsNames = new ArrayList<String>();
+                for (ParticipantData participant : mOtherParticipants) {
+                    participantsNames.add(participant.getDisplayName(true));
+                }
+                NotificationsUtil.createNotificationChannelGroup(getActivity(),
+                        NotificationsUtil.CONVERSATION_GROUP_NAME,
+                        R.string.notification_channel_messages_title);
+                NotificationsUtil.createNotificationChannel(getActivity(),
+                        mBinding.getData().getConversationId(),
+                        String.join(", ", participantsNames),
+                        NotificationManager.IMPORTANCE_DEFAULT,
+                        NotificationsUtil.CONVERSATION_GROUP_NAME);
+                Intent intent = new Intent(Settings.ACTION_APP_NOTIFICATION_SETTINGS);
+                intent.putExtra(Settings.EXTRA_APP_PACKAGE, getContext().getPackageName());
+                startActivity(intent);
                 break;
 
             case PeopleOptionsItemData.SETTING_BLOCKED:

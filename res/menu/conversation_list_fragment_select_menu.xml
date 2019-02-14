@@ -37,18 +37,6 @@
         android:title="@string/action_delete"
         appcompat:showAsAction="collapseActionView|always"/>
     <item
-        android:id="@+id/action_notification_off"
-        android:icon="@drawable/ic_notifications_off_dark"
-        android:orderInCategory="70"
-        android:title="@string/action_notification_off"
-        appcompat:showAsAction="collapseActionView|always"/>
-    <item
-        android:id="@+id/action_notification_on"
-        android:icon="@drawable/ic_notifications_on_dark"
-        android:orderInCategory="80"
-        android:title="@string/action_notification_on"
-        appcompat:showAsAction="collapseActionView|always"/>
-    <item
         android:id="@+id/action_add_contact"
         android:icon="@drawable/ic_person_add_dark"
         android:orderInCategory="90"
