@@ -96,8 +96,6 @@ android_app {
         enabled: true,
     },
 
-    certificate: "platform",
-
     sdk_version: "current",
 
     product_specific: true,
