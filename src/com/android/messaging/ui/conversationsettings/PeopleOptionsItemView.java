@@ -17,7 +17,7 @@ package com.android.messaging.ui.conversationsettings;
 
 import android.content.Context;
 import android.database.Cursor;
-import android.support.v7.widget.SwitchCompat;
+import androidx.appcompat.widget.SwitchCompat;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;

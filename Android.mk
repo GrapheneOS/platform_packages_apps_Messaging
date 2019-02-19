@@ -23,21 +23,21 @@ LOCAL_RESOURCE_DIR := $(LOCAL_PATH)/res
 LOCAL_USE_AAPT2 := true
 
 LOCAL_STATIC_ANDROID_LIBRARIES := \
-    android-support-compat \
-    android-support-media-compat \
-    android-support-core-utils \
-    android-support-core-ui \
-    android-support-fragment \
-    android-support-v7-appcompat \
-    android-support-v7-palette \
-    android-support-v7-recyclerview \
-    android-support-v13 \
+    androidx.core_core \
+    androidx.media_media \
+    androidx.legacy_legacy-support-core-utils \
+    androidx.legacy_legacy-support-core-ui \
+    androidx.fragment_fragment \
+    androidx.appcompat_appcompat \
+    androidx.palette_palette \
+    androidx.recyclerview_recyclerview \
+    androidx.legacy_legacy-support-v13 \
     colorpicker \
     libchips \
     libphotoviewer
 
 LOCAL_STATIC_JAVA_LIBRARIES := \
-    android-support-annotations \
+    androidx.annotation_annotation \
     android-common \
     android-common-framesequence \
     com.android.vcard \

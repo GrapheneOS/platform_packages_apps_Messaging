@@ -20,7 +20,7 @@ import android.app.IntentService;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.RemoteInput;
+import androidx.core.app.RemoteInput;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 

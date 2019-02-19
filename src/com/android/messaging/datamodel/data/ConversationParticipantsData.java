@@ -17,7 +17,7 @@
 package com.android.messaging.datamodel.data;
 
 import android.database.Cursor;
-import android.support.v4.util.SimpleArrayMap;
+import androidx.collection.SimpleArrayMap;
 
 import com.android.messaging.util.Assert;
 

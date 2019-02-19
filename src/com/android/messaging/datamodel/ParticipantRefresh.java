@@ -22,7 +22,7 @@ import android.database.Cursor;
 import android.database.DatabaseUtils;
 import android.graphics.Color;
 import android.provider.ContactsContract.CommonDataKinds.Phone;
-import android.support.v4.util.ArrayMap;
+import androidx.collection.ArrayMap;
 import android.telephony.SubscriptionInfo;
 import android.text.TextUtils;
 

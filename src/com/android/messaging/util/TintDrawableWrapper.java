@@ -20,10 +20,10 @@ import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
-import android.support.v7.graphics.drawable.DrawableWrapper;
+import androidx.appcompat.graphics.drawable.DrawableWrapper;
 
 /*
- * This is directly copied from v7/appcompat/src/android/support/v7/internal/widget/TintManager.java
+ * This is directly copied from v7/appcompat/src/androidx.appcompat.internal/widget/TintManager.java
  */
 
 /**

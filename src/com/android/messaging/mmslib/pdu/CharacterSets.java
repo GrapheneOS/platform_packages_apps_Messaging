@@ -17,7 +17,7 @@
 
 package com.android.messaging.mmslib.pdu;
 
-import android.support.v4.util.SimpleArrayMap;
+import androidx.collection.SimpleArrayMap;
 import android.util.SparseArray;
 
 import java.io.UnsupportedEncodingException;

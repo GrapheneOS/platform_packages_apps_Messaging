@@ -18,7 +18,7 @@ package com.android.messaging.ui.photoviewer;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.support.rastermill.FrameSequenceDrawable;
-import android.support.v4.content.Loader;
+import androidx.loader.content.Loader;
 
 import com.android.ex.photo.PhotoViewCallbacks;
 import com.android.ex.photo.fragments.PhotoViewFragment;

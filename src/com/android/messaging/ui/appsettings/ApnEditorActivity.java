@@ -29,7 +29,7 @@ import android.preference.EditTextPreference;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.provider.Telephony;
-import android.support.v4.app.NavUtils;
+import androidx.core.app.NavUtils;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;

@@ -24,7 +24,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.os.SystemClock;
 import android.provider.Telephony.Mms;
-import android.support.v4.util.LongSparseArray;
+import androidx.collection.LongSparseArray;
 
 import com.android.messaging.Factory;
 import com.android.messaging.datamodel.DataModel;
