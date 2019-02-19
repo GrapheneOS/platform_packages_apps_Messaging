@@ -18,8 +18,8 @@ package com.android.messaging.util;
 import android.graphics.Color;
 import android.net.Uri;
 import android.net.Uri.Builder;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import android.text.TextUtils;
 
 import com.android.messaging.datamodel.data.ParticipantData;

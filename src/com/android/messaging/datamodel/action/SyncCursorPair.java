@@ -21,7 +21,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteException;
 import android.provider.Telephony.Mms;
 import android.provider.Telephony.Sms;
-import android.support.v4.util.LongSparseArray;
+import androidx.collection.LongSparseArray;
 import android.text.TextUtils;
 
 import com.android.messaging.Factory;

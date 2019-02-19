@@ -18,7 +18,7 @@ package com.android.messaging.ui.contact;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.MergeCursor;
-import android.support.v4.util.Pair;
+import androidx.core.util.Pair;
 import android.text.TextUtils;
 import android.text.util.Rfc822Token;
 import android.text.util.Rfc822Tokenizer;

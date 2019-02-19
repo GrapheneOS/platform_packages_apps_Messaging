@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package android.support.v7.mms.pdu;
+package androidx.appcompat.mms.pdu;
 
 /**
  * A generic exception that is thrown by the Mms client.

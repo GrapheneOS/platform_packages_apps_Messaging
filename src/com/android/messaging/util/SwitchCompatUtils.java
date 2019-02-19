@@ -21,12 +21,12 @@ import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
-import android.support.v7.graphics.drawable.DrawableWrapper;
-import android.support.v7.widget.SwitchCompat;
+import androidx.appcompat.graphics.drawable.DrawableWrapper;
+import androidx.appcompat.widget.SwitchCompat;
 import android.util.TypedValue;
 
 /* Most methods in this file are copied from
- * v7/appcompat/src/android/support/v7/internal/widget/TintManager.java. It would be better if
+ * v7/appcompat/src/androidx.appcompat.internal/widget/TintManager.java. It would be better if
  * we could have just extended the TintManager but this is a final class that we do not have
  * access to. */
 
@@ -78,7 +78,7 @@ public class SwitchCompatUtils {
         // Default enabled state
         states[i] = new int[0];
         colors[i] = getThemeAttrColor(context, typedValue,
-                android.support.v7.appcompat.R.attr.colorSwitchThumbNormal);
+                androidx.appcompat.R.attr.colorSwitchThumbNormal);
         i++;
         return new ColorStateList(states, colors);
     }
