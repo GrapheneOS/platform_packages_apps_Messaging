@@ -37,7 +37,6 @@ import com.android.messaging.datamodel.action.ActionTestHelpers.ResultTracker;
 import com.android.messaging.datamodel.action.ActionTestHelpers.StubBackgroundWorker;
 import com.android.messaging.datamodel.action.ActionTestHelpers.StubConnectivityUtil;
 import com.android.messaging.datamodel.action.ActionTestHelpers.StubLoader;
-import com.android.messaging.util.WakeLockHelper;
 
 import java.util.ArrayList;
 
@@ -94,29 +93,18 @@ public class ActionServiceTest extends BugleServiceTestCase<ActionServiceImpl>
         action.dontRelyOnMe = dontRelyOnMe;
         assertFalse("Expect service initially stopped", mServiceStarted);
 
-        action.start(monitor);
-
-        assertTrue("Expect service started", mServiceStarted);
-
-        final ArrayList<Intent> intents = mContext.extractIntents();
-        assertNotNull(intents);
-        assertEquals("Expect to see 1 server request queued", 1, intents.size());
-        final Intent intent = intents.get(0);
-        assertEquals("Check pid", intent.getIntExtra(WakeLockHelper.EXTRA_CALLING_PID, 0),
-                Process.myPid());
-        assertEquals("Check opcode", intent.getIntExtra(ActionServiceImpl.EXTRA_OP_CODE, 0),
-                ActionServiceImpl.OP_START_ACTION);
-        assertTrue("Check wakelock held", ActionServiceImpl.sWakeLock.isHeld(intent));
-
-        synchronized(tracker) {
+        synchronized(mWorker) {
             try {
-                this.startService(intent);
+                action.start(monitor);
                 // Wait for callback across threads
-                tracker.wait(2000);
+                mWorker.wait(2000);
+                mServiceStarted = true;
             } catch (final InterruptedException e) {
-                assertTrue("Interrupted waiting for response processing", false);
+                assertTrue("Interrupted waiting for execution", false);
             }
         }
+
+        assertTrue("Expect service started", mServiceStarted);
 
         assertEquals("Expect three states ", mStates.size(), 3);
         assertEquals("State-0 should be STATE_QUEUED", (int)mStates.get(0),
@@ -125,15 +113,6 @@ public class ActionServiceTest extends BugleServiceTestCase<ActionServiceImpl>
                 ActionMonitor.STATE_EXECUTING);
         assertEquals("State-2 should be STATE_COMPLETE", (int)mStates.get(2),
                 ActionMonitor.STATE_COMPLETE);
-        // TODO: Should find a way to reliably wait, this is a bit of a hack
-        if (ActionServiceImpl.sWakeLock.isHeld(intent)) {
-            Log.d(TAG, "ActionServiceTest: waiting for wakelock release");
-            try {
-                Thread.sleep(100);
-            } catch (final InterruptedException e) {
-            }
-        }
-        assertFalse("Check wakelock released", ActionServiceImpl.sWakeLock.isHeld(intent));
     }
 
     StubBackgroundWorker mWorker;

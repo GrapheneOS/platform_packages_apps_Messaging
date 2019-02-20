@@ -18,7 +18,7 @@
     package="com.android.messaging"
     android:installLocation="internalOnly">
 
-    <uses-sdk android:minSdkVersion="19" android:targetSdkVersion="24" />
+    <uses-sdk android:minSdkVersion="19" android:targetSdkVersion="28" />
 
     <!-- Application holds CPU wakelock while working in background -->
     <uses-permission android:name="android.permission.WAKE_LOCK" />
@@ -327,8 +327,12 @@
 
 
         <!-- Action Services -->
-        <service android:name=".datamodel.action.ActionServiceImpl"/>
-        <service android:name=".datamodel.action.BackgroundWorkerService"/>
+        <service android:name=".datamodel.action.ActionServiceImpl"
+                 android:permission="android.permission.BIND_JOB_SERVICE"
+                 android:exported="true"/>
+        <service android:name=".datamodel.action.BackgroundWorkerService"
+                 android:permission="android.permission.BIND_JOB_SERVICE"
+                 android:exported="true"/>
 
         <!-- Sms and Mms related items -->
 
