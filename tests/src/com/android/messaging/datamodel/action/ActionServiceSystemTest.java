@@ -160,10 +160,6 @@ public class ActionServiceSystemTest extends BugleServiceTestCase<ActionServiceI
             }
         }
 
-        final ArrayList<Intent> intents = mContext.extractIntents();
-        assertNotNull(intents);
-        assertEquals("Expect to see one intent", intents.size(), 1);
-
         assertEquals("Expect to see 1 server request queued", 1,
                 mWorker.getRequestsMade().size());
         final Action request = mWorker.getRequestsMade().get(0);
