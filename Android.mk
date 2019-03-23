@@ -70,8 +70,6 @@ LOCAL_CERTIFICATE := platform
 
 LOCAL_SDK_VERSION := current
 
-LOCAL_COMPATIBILITY_SUITE := device-tests
-
 include $(BUILD_PACKAGE)
 
 include $(call all-makefiles-under, $(LOCAL_PATH))
