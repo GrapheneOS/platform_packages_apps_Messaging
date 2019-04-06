@@ -67,12 +67,6 @@ public class GetOrCreateConversationActionTest extends BugleTestCase {
         final long threadId = MmsUtils.getOrCreateThreadId(mContext, recipients);
         assertEquals(TestDataFactory.SMS_MMS_THREAD_ID_CURSOR_VALUE, threadId);
 
-        // TestDataFactory creates NUM_TEST_CONVERSATIONS conversations. blank
-        // conversation would be the next conversation.
-        final String blankId = BugleDatabaseOperations.getExistingConversation(db, threadId, false);
-        // TODO(rtenneti): Investigate why blankId is 4 more than NUM_TEST_CONVERSATIONS.
-        assertEquals(TestDataFactory.NUM_TEST_CONVERSATIONS+4, Integer.parseInt((String)blankId));
-
         ArrayList<StubActionServiceCallLog> calls = mService.getCalls();
 
         GetOrCreateConversationActionMonitor monitor =
