@@ -160,7 +160,7 @@ public final class EmailAddress {
         // Host must not have any disallowed characters; allowI18n dictates whether
         // host must be ASCII.
         if (!EMAIL_ALLOWED_CHARS.matchesAllOf(host)
-                || (!allowI18n && !CharMatcher.ASCII.matchesAllOf(host))) {
+                || (!allowI18n && !CharMatcher.ascii().matchesAllOf(host))) {
             return false;
         }
 
@@ -182,7 +182,7 @@ public final class EmailAddress {
             // User must not have any disallowed characters; allow I18n dictates whether
             // user must be ASCII.
             if (!EMAIL_ALLOWED_CHARS.matchesAllOf(user)
-                    || (!allowI18n && !CharMatcher.ASCII.matchesAllOf(user))) {
+                    || (!allowI18n && !CharMatcher.ascii().matchesAllOf(user))) {
                 return false;
             }
         }
