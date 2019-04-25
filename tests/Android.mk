@@ -24,8 +24,12 @@ LOCAL_PACKAGE_NAME := messagingtests
 
 LOCAL_INSTRUMENTATION_FOR := messaging
 
+LOCAL_PROGUARD_ENABLED := disabled
+
 # Matching ../Android.mk
 LOCAL_SDK_VERSION := current
+
+LOCAL_COMPATIBILITY_SUITE := general-tests
 
 LOCAL_CERTIFICATE := platform
 
