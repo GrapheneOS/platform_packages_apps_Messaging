@@ -21,6 +21,7 @@
 -keepclassmembers class * {
   @com.google.common.annotations.VisibleForTesting *;
 }
+-keep class com.android.messaging.ui.contact.* { *; }
 
 # Keep methods that have the @VisibleForAnimation annotation
 -keep @interface com.android.messaging.annotation.VisibleForAnimation
