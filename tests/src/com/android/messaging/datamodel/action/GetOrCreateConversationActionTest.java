@@ -85,8 +85,7 @@ public class GetOrCreateConversationActionTest extends BugleTestCase {
         assertTrue(result instanceof String);
 
         // Make sure that we created a new conversation
-        // TODO(rtenneti): Investigate why blankId is 4 more than NUM_TEST_CONVERSATIONS.
-        assertEquals(TestDataFactory.NUM_TEST_CONVERSATIONS+4, Integer.parseInt((String)result));
+        assertEquals(TestDataFactory.NUM_TEST_CONVERSATIONS, Integer.parseInt((String)result));
 
         // Now get the conversation that we just created again
         monitor = GetOrCreateConversationAction.getOrCreateConversation(participants, null,
@@ -104,8 +103,7 @@ public class GetOrCreateConversationActionTest extends BugleTestCase {
         final String conversationId = (String) result;
 
         // Make sure that we found the same conversation id
-        // TODO(rtenneti): Investigate why blankId is 4 more than NUM_TEST_CONVERSATIONS.
-        assertEquals(TestDataFactory.NUM_TEST_CONVERSATIONS+4, Integer.parseInt((String)result));
+        assertEquals(TestDataFactory.NUM_TEST_CONVERSATIONS, Integer.parseInt((String)result));
 
         final ArrayList<ParticipantData> conversationParticipants =
                 BugleDatabaseOperations.getParticipantsForConversation(db, conversationId);
