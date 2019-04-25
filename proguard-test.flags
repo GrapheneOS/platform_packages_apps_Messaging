@@ -35,6 +35,8 @@
   !private *;
 }
 
+-keep class com.android.messaging.ui.contact.* { *; }
+
 # Keep the classes needed by emma
 -keep class com.vladium.** { *; }
 
