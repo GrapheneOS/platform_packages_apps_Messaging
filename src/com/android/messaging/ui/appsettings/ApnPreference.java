@@ -94,7 +94,7 @@ public class ApnPreference extends Preference implements
 
     public void setApnRadioButtonContentDescription(final CompoundButton buttonView) {
         final View widget = (View) buttonView.getParent();
-        final TextView tv = (TextView) widget.findViewById(android.R.id.title);
+        final TextView tv = (TextView) widget.findViewById(R.id.title);
         final String apnTitle = tv.getText().toString();
         buttonView.setContentDescription(apnTitle);
     }
