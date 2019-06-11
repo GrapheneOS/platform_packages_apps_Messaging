@@ -134,7 +134,7 @@ public class PerSubscriptionSettingsActivity extends BugleActionBarActivity {
             if (!MmsConfig.get(mSubId).getSMSDeliveryReportsEnabled()) {
                 final Preference deliveryReportsPref = findPreference(
                         getString(R.string.delivery_reports_pref_key));
-                mmsCategory.removePreference(deliveryReportsPref);
+                advancedCategory.removePreference(deliveryReportsPref);
             }
             final Preference wirelessAlertPref = findPreference(getString(
                     R.string.wireless_alerts_key));
