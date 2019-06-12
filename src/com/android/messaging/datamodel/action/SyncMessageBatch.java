@@ -202,11 +202,11 @@ class SyncMessageBatch {
         // For a message we sync either
         if (isOutgoing) {
             // Outgoing message not yet been sent
-            if (type == Telephony.Sms.MESSAGE_TYPE_FAILED ||
-                    type == Telephony.Sms.MESSAGE_TYPE_OUTBOX ||
-                    type == Telephony.Sms.MESSAGE_TYPE_QUEUED ||
-                    (type == Telephony.Sms.MESSAGE_TYPE_SENT &&
-                     status == Telephony.Sms.STATUS_FAILED)) {
+            if (type == Telephony.Sms.MESSAGE_TYPE_FAILED
+                    || type == Telephony.Sms.MESSAGE_TYPE_OUTBOX
+                    || type == Telephony.Sms.MESSAGE_TYPE_QUEUED
+                    || (type == Telephony.Sms.MESSAGE_TYPE_SENT
+                            && status >= Telephony.Sms.STATUS_FAILED)) {
                 // Not sent counts as failed and available for manual resend
                 bugleStatus = MessageData.BUGLE_STATUS_OUTGOING_FAILED;
             } else if (status == Sms.STATUS_COMPLETE) {
