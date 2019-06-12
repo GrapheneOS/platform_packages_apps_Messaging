@@ -20,6 +20,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.provider.Telephony.Sms;
 import android.telephony.SmsMessage;
 
 import com.android.messaging.datamodel.action.ProcessDeliveryReportAction;
@@ -81,9 +82,32 @@ public class SendStatusReceiver extends BroadcastReceiver {
                 LogUtil.e(LogUtil.BUGLE_TAG, "SendStatusReceiver: empty report message");
                 return;
             }
-            int status = 0;
+            int status = Sms.STATUS_COMPLETE;
             try {
+                final String format = intent.getStringExtra("format");
                 status = smsMessage.getStatus();
+                // Simple matching up CDMA status with GSM status.
+                if (SmsMessage.FORMAT_3GPP2.equals(format)) {
+                    final int errorClass = (status >> 24) & 0x03;
+                    final int statusCode = (status >> 16) & 0x3f;
+                    switch (errorClass) {
+                        case 0: /*ERROR_NONE*/
+                            if (statusCode == 0x02 /*STATUS_DELIVERED*/) {
+                                status = Sms.STATUS_COMPLETE;
+                            } else status = Sms.STATUS_PENDING;
+                            break;
+                        case 2: /*ERROR_TEMPORARY*/
+                            // TODO: Need to check whether SC still trying to deliver the SMS to
+                            // destination and will send the report again?
+                            status = Sms.STATUS_PENDING;
+                            break;
+                        case 3: /*ERROR_PERMANENT*/
+                            status = Sms.STATUS_FAILED;
+                            break;
+                        default:
+                            status = Sms.STATUS_PENDING;
+                    }
+                }
             } catch (final NullPointerException e) {
                 // Sometimes, SmsMessage.mWrappedSmsMessage is null causing NPE when we access
                 // the methods on it although the SmsMessage itself is not null.
