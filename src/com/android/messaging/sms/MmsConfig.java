@@ -90,6 +90,8 @@ public class MmsConfig {
         sKeyTypeMap.put(CarrierConfigValuesLoader.CONFIG_HTTP_PARAMS, KEY_TYPE_STRING);
         sKeyTypeMap.put(CarrierConfigValuesLoader.CONFIG_EMAIL_GATEWAY_NUMBER, KEY_TYPE_STRING);
         sKeyTypeMap.put(CarrierConfigValuesLoader.CONFIG_NAI_SUFFIX, KEY_TYPE_STRING);
+        sKeyTypeMap.put(CarrierConfigValuesLoader.CONFIG_UA_PROF_URL, KEY_TYPE_STRING);
+        sKeyTypeMap.put(CarrierConfigValuesLoader.CONFIG_USER_AGENT, KEY_TYPE_STRING);
     }
 
     // A map that stores all MmsConfigs, one per active subscription. For pre-LMSim, this will
