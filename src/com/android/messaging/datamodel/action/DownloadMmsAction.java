@@ -82,6 +82,7 @@ public class DownloadMmsAction extends Action implements Parcelable {
     private static final String KEY_SUB_PHONE_NUMBER = "sub_phone_number";
     private static final String KEY_AUTO_DOWNLOAD = "auto_download";
     private static final String KEY_FAILURE_STATUS = "failure_status";
+    private static final String KEY_EXPIRY = "expiry";
 
     // Values we attach to the pending intent that's fired when the message is downloaded.
     // Only applicable when downloading via the platform APIs on L+.
@@ -97,6 +98,7 @@ public class DownloadMmsAction extends Action implements Parcelable {
     public static final String EXTRA_CONVERSATION_ID = "conversation_id";
     public static final String EXTRA_PARTICIPANT_ID = "participant_id";
     public static final String EXTRA_STATUS_IF_FAILED = "status_if_failed";
+    public static final String EXTRA_EXPIRY = "expiry";
 
     private DownloadMmsAction() {
         super();
@@ -130,6 +132,7 @@ public class DownloadMmsAction extends Action implements Parcelable {
             actionParameters.putString(KEY_TRANSACTION_ID, message.getMmsTransactionId());
             actionParameters.putParcelable(KEY_NOTIFICATION_URI, notificationUri);
             actionParameters.putBoolean(KEY_AUTO_DOWNLOAD, isAutoDownload(status));
+            actionParameters.putLong(KEY_EXPIRY, message.getMmsExpiry());
 
             final long now = System.currentTimeMillis();
             if (message.getInDownloadWindow(now)) {
@@ -239,6 +242,7 @@ public class DownloadMmsAction extends Action implements Parcelable {
         final String conversationId = actionParameters.getString(KEY_CONVERSATION_ID);
         final String participantId = actionParameters.getString(KEY_PARTICIPANT_ID);
         final int statusIfFailed = actionParameters.getInt(KEY_FAILURE_STATUS);
+        final long expiry = actionParameters.getLong(KEY_EXPIRY);
 
         final long receivedTimestampRoundedToSecond =
                 1000 * ((System.currentTimeMillis() + 500) / 1000);
@@ -256,7 +260,7 @@ public class DownloadMmsAction extends Action implements Parcelable {
         // Start the download
         final MmsUtils.StatusPlusUri status = MmsUtils.downloadMmsMessage(context,
                 notificationUri, subId, subPhoneNumber, transactionId, contentLocation,
-                autoDownload, receivedTimestampRoundedToSecond / 1000L, extras);
+                autoDownload, receivedTimestampRoundedToSecond / 1000L, expiry / 1000L, extras);
         if (status == MmsUtils.STATUS_PENDING) {
             // Async download; no status yet
             if (LogUtil.isLoggable(TAG, LogUtil.DEBUG)) {
