@@ -174,7 +174,7 @@ public interface CarrierConfigValuesLoader {
     /**
      * String value: name for the user agent profile HTTP header
      */
-    public static final String CONFIG_UA_PROF_TAG_NAME = "mUaProfTagName";
+    public static final String CONFIG_UA_PROF_TAG_NAME = "uaProfTagName";
     public static final String CONFIG_UA_PROF_TAG_NAME_DEFAULT = "x-wap-profile";
     /**
      * String value: additional HTTP headers for MMS HTTP requests.
@@ -195,4 +195,14 @@ public interface CarrierConfigValuesLoader {
      */
     public static final String CONFIG_NAI_SUFFIX = "naiSuffix";
     public static final String CONFIG_NAI_SUFFIX_DEFAULT = null;
+    /**
+     * String value: Url for user agent profile
+     */
+    public static final String CONFIG_UA_PROF_URL = "uaProfUrl";
+    public static final String CONFIG_UA_PROF_URL_DEFAULT = null;
+    /**
+     * String value: user agent
+     */
+    public static final String CONFIG_USER_AGENT = "userAgent";
+    public static final String CONFIG_USER_AGENT_DEFAULT = null;
 }
