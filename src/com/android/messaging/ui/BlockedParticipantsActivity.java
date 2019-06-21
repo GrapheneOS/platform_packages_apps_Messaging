@@ -16,12 +16,10 @@
 
 package com.android.messaging.ui;
 
-import android.app.Fragment;
 import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.android.messaging.R;
-import com.android.messaging.util.Assert;
 
 /**
  * Show a list of currently blocked participants.
@@ -34,11 +32,6 @@ public class BlockedParticipantsActivity extends BugleActionBarActivity {
         setContentView(R.layout.blocked_participants_activity);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-    }
-
-    @Override
-    public void onAttachFragment(final Fragment fragment) {
-        Assert.isTrue(fragment instanceof BlockedParticipantsFragment);
     }
 
     @Override
