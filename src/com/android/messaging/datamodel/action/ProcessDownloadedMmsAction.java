@@ -78,6 +78,7 @@ public class ProcessDownloadedMmsAction extends Action {
     private static final String KEY_CONTENT_LOCATION = "content_location";
     private static final String KEY_AUTO_DOWNLOAD = "auto_download";
     private static final String KEY_RECEIVED_TIMESTAMP = "received_timestamp";
+    private static final String KEY_EXPIRY = "expiry";
 
     // Set when message downloaded by us (legacy)
     private static final String KEY_STATUS = "status";
@@ -130,6 +131,7 @@ public class ProcessDownloadedMmsAction extends Action {
         params.putString(KEY_PARTICIPANT_ID, participantId);
         params.putInt(KEY_STATUS_IF_FAILED,
                 extras.getInt(DownloadMmsAction.EXTRA_STATUS_IF_FAILED));
+        params.putLong(KEY_EXPIRY, extras.getLong(DownloadMmsAction.EXTRA_EXPIRY));
         action.start();
     }
 
@@ -279,6 +281,7 @@ public class ProcessDownloadedMmsAction extends Action {
                                 KEY_AUTO_DOWNLOAD);
                         final long receivedTimestampInSeconds =
                                 actionParameters.getLong(KEY_RECEIVED_TIMESTAMP);
+                        final long expiry = actionParameters.getLong(KEY_EXPIRY);
 
                         // Inform sync we're adding a message to telephony
                         final SyncManager syncManager = DataModel.get().getSyncManager();
@@ -288,7 +291,7 @@ public class ProcessDownloadedMmsAction extends Action {
                                 MmsUtils.insertDownloadedMessageAndSendResponse(context,
                                         notificationUri, subId, subPhoneNumber, transactionId,
                                         contentLocation, autoDownload, receivedTimestampInSeconds,
-                                        retrieveConf);
+                                        expiry, retrieveConf);
                         status = result.status;
                         rawStatus = result.rawStatus;
                         mmsUri = result.uri;

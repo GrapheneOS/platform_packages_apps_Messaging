@@ -952,7 +952,7 @@ public class MmsUtils {
     // Persist a received MMS message in telephony
     public static Uri insertReceivedMmsMessage(final Context context,
             final RetrieveConf retrieveConf, final int subId, final String subPhoneNumber,
-            final long receivedTimestampInSeconds, final String contentLocation) {
+            final long receivedTimestampInSeconds, final long expiry, final String transactionId) {
         final PduPersister persister = PduPersister.getPduPersister(context);
         Uri uri = null;
         try {
@@ -963,12 +963,13 @@ public class MmsUtils {
                     subPhoneNumber,
                     null/*preOpenedFiles*/);
 
-            final ContentValues values = new ContentValues(2);
+            final ContentValues values = new ContentValues(3);
             // Update mms table with local time instead of PDU time
             values.put(Mms.DATE, receivedTimestampInSeconds);
-            // Also update the content location field from NotificationInd so that
-            // wap push dedup would work even after the wap push is deleted
-            values.put(Mms.CONTENT_LOCATION, contentLocation);
+            // Also update the transaction id and the expiry from NotificationInd so that
+            // wap push dedup would work even after the wap push is deleted.
+            values.put(Mms.TRANSACTION_ID, transactionId);
+            values.put(Mms.EXPIRY, expiry);
             SqliteWrapper.update(context, context.getContentResolver(), uri, values, null, null);
             if (LogUtil.isLoggable(TAG, LogUtil.DEBUG)) {
                 LogUtil.d(TAG, "MmsUtils: Inserted MMS message into telephony, uri: " + uri);
@@ -1843,7 +1844,7 @@ public class MmsUtils {
     public static StatusPlusUri downloadMmsMessage(final Context context, final Uri notificationUri,
             final int subId, final String subPhoneNumber, final String transactionId,
             final String contentLocation, final boolean autoDownload,
-            final long receivedTimestampInSeconds, Bundle extras) {
+            final long receivedTimestampInSeconds, final long expiry, Bundle extras) {
         if (TextUtils.isEmpty(contentLocation)) {
             LogUtil.e(TAG, "MmsUtils: Download from empty content location URL");
             return new StatusPlusUri(
@@ -1894,13 +1895,14 @@ public class MmsUtils {
                 extras.putBoolean(DownloadMmsAction.EXTRA_AUTO_DOWNLOAD, autoDownload);
                 extras.putLong(DownloadMmsAction.EXTRA_RECEIVED_TIMESTAMP,
                         receivedTimestampInSeconds);
+                extras.putLong(DownloadMmsAction.EXTRA_EXPIRY, expiry);
 
                 MmsSender.downloadMms(context, subId, contentLocation, extras);
                 return STATUS_PENDING; // Download happens asynchronously; no status to return
             }
             return insertDownloadedMessageAndSendResponse(context, notificationUri, subId,
                     subPhoneNumber, transactionId, contentLocation, autoDownload,
-                    receivedTimestampInSeconds, retrieveConf);
+                    receivedTimestampInSeconds, expiry, retrieveConf);
 
         } catch (final MmsFailureException e) {
             LogUtil.e(TAG, "MmsUtils: failed to download message " + notificationUri, e);
@@ -1915,7 +1917,7 @@ public class MmsUtils {
             final Uri notificationUri, final int subId, final String subPhoneNumber,
             final String transactionId, final String contentLocation,
             final boolean autoDownload, final long receivedTimestampInSeconds,
-            final RetrieveConf retrieveConf) {
+            final long expiry, final RetrieveConf retrieveConf) {
         final byte[] notificationTransactionId = stringToBytes(transactionId, "UTF-8");
         Uri messageUri = null;
         int status = MMS_REQUEST_MANUAL_RETRY;
@@ -1954,7 +1956,7 @@ public class MmsUtils {
 
             // Insert downloaded message into telephony
             final Uri inboxUri = MmsUtils.insertReceivedMmsMessage(context, retrieveConf, subId,
-                    subPhoneNumber, receivedTimestampInSeconds, contentLocation);
+                    subPhoneNumber, receivedTimestampInSeconds, expiry, transactionId);
             messageUri = ContentUris.withAppendedId(Mms.CONTENT_URI, ContentUris.parseId(inboxUri));
         } else if (status == MMS_REQUEST_AUTO_RETRY) {
             // For a retry do nothing
@@ -2171,57 +2173,28 @@ public class MmsUtils {
                     uri, values, null, null);
     }
 
-    // Selection for new dedup algorithm:
-    // ((m_type<>130) OR (exp>NOW)) AND (date>NOW-7d) AND (date<NOW+7d) AND (ct_l=xxxxxx)
-    // i.e. If it is NotificationInd and not expired or not NotificationInd
-    //      AND message is received with +/- 7 days from now
-    //      AND content location is the input URL
+    // Selection for dedup algorithm:
+    // ((m_type=NOTIFICATION_IND) OR (m_type=RETRIEVE_CONF)) AND (exp>NOW)) AND (t_id=xxxxxx)
+    // i.e. If it is NotificationInd or RetrieveConf and not expired
+    //      AND transaction id is the input id
     private static final String DUP_NOTIFICATION_QUERY_SELECTION =
-            "((" + Mms.MESSAGE_TYPE + "<>?) OR (" + Mms.EXPIRY + ">?)) AND ("
-                    + Mms.DATE + ">?) AND (" + Mms.DATE + "<?) AND (" + Mms.CONTENT_LOCATION +
-                    "=?)";
-    // Selection for old behavior: only checks NotificationInd and its content location
-    private static final String DUP_NOTIFICATION_QUERY_SELECTION_OLD =
-            "(" + Mms.MESSAGE_TYPE + "=?) AND (" + Mms.CONTENT_LOCATION + "=?)";
+            "((" + Mms.MESSAGE_TYPE + "=?) OR (" + Mms.MESSAGE_TYPE + "=?)) AND ("
+                    + Mms.EXPIRY + ">?) AND (" + Mms.TRANSACTION_ID + "=?)";
 
     private static final int MAX_RETURN = 32;
     private static String[] getDupNotifications(final Context context, final NotificationInd nInd) {
-        final byte[] rawLocation = nInd.getContentLocation();
-        if (rawLocation != null) {
-            final String location = new String(rawLocation);
-            // We can not be sure if the content location of an MMS is globally and historically
-            // unique. So we limit the dedup time within the last 7 days
-            // (or configured by gservices remotely). If the same content location shows up after
-            // that, we will download regardless. Duplicated message is better than no message.
-            String selection;
-            String[] selectionArgs;
-            final long timeLimit = BugleGservices.get().getLong(
-                    BugleGservicesKeys.MMS_WAP_PUSH_DEDUP_TIME_LIMIT_SECS,
-                    BugleGservicesKeys.MMS_WAP_PUSH_DEDUP_TIME_LIMIT_SECS_DEFAULT);
-            if (timeLimit > 0) {
-                // New dedup algorithm
-                selection = DUP_NOTIFICATION_QUERY_SELECTION;
-                final long nowSecs = System.currentTimeMillis() / 1000;
-                final long timeLowerBoundSecs = nowSecs - timeLimit;
-                // Need upper bound to protect against clock change so that a message has a time
-                // stamp in the future
-                final long timeUpperBoundSecs = nowSecs + timeLimit;
-                selectionArgs = new String[] {
-                        Integer.toString(PduHeaders.MESSAGE_TYPE_NOTIFICATION_IND),
-                        Long.toString(nowSecs),
-                        Long.toString(timeLowerBoundSecs),
-                        Long.toString(timeUpperBoundSecs),
-                        location
-                };
-            } else {
-                // If time limit is 0, we revert back to old behavior in case the new
-                // dedup algorithm behaves badly
-                selection = DUP_NOTIFICATION_QUERY_SELECTION_OLD;
-                selectionArgs = new String[] {
-                        Integer.toString(PduHeaders.MESSAGE_TYPE_NOTIFICATION_IND),
-                        location
-                };
-            }
+        final byte[] rawTransactionId = nInd.getTransactionId();
+        if (rawTransactionId != null) {
+            // dedup algorithm
+            String selection = DUP_NOTIFICATION_QUERY_SELECTION;
+            final long nowSecs = System.currentTimeMillis() / 1000;
+            String[] selectionArgs = new String[] {
+                    Integer.toString(PduHeaders.MESSAGE_TYPE_NOTIFICATION_IND),
+                    Integer.toString(PduHeaders.MESSAGE_TYPE_RETRIEVE_CONF),
+                    Long.toString(nowSecs),
+                    new String(rawTransactionId)
+            };
+
             Cursor cursor = null;
             try {
                 cursor = SqliteWrapper.query(
@@ -2358,7 +2331,7 @@ public class MmsUtils {
                 } else {
                     LogUtil.w(TAG, "Received WAP Push is a dup: " + Joiner.on(',').join(dups));
                     if (LogUtil.isLoggable(TAG, LogUtil.VERBOSE)) {
-                        LogUtil.w(TAG, "Dup WAP Push url=" + new String(nInd.getContentLocation()));
+                        LogUtil.w(TAG, "Dup Transaction Id=" + new String(nInd.getTransactionId()));
                     }
                 }
                 break;
