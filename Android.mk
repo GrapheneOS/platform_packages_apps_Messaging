@@ -48,6 +48,7 @@ include $(LOCAL_PATH)/version.mk
 
 LOCAL_AAPT_FLAGS += --version-name "$(version_name_package)"
 LOCAL_AAPT_FLAGS += --version-code $(version_code_package)
+LOCAL_AAPT_FLAGS += --legacy
 
 ifdef TARGET_BUILD_APPS
     LOCAL_JNI_SHARED_LIBRARIES := libframesequence libgiftranscode
