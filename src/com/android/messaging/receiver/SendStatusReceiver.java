@@ -52,7 +52,7 @@ public class SendStatusReceiver extends BroadcastReceiver {
     public static final String EXTRA_PART_ID = "partId";
     public static final String EXTRA_SUB_ID = "subId";
 
-    public static final int NO_ERROR_CODE = 0;
+    public static final int NO_ERROR_CODE = -1;
     public static final int NO_PART_ID = -1;
 
     @Override
