@@ -186,7 +186,8 @@ public final class SmsReceiver extends BroadcastReceiver {
             return;
         }
 
-        final int errorCode = intent.getIntExtra(EXTRA_ERROR_CODE, 0);
+        final int errorCode =
+                intent.getIntExtra(EXTRA_ERROR_CODE, SendStatusReceiver.NO_ERROR_CODE);
         // Always convert negative subIds into -1
         int subId = PhoneUtils.getDefault().getEffectiveIncomingSubIdFromSystem(
                 intent, EXTRA_SUB_ID);
