@@ -362,21 +362,21 @@
     <string name="audio_pause_content_description">Pause</string>
 
     <!-- Accessibility announcement for an incoming message -->
-    <string name="incoming_message_announcement">Message from <xliff:g id="sender">%s</xliff:g>: <xliff:g id="message">%s</xliff:g>.</string>
+    <string name="incoming_message_announcement">Message from <xliff:g id="sender">%1$s</xliff:g>: <xliff:g id="message">%2$s</xliff:g>.</string>
     <!-- Accessibility description for conversation list for 1:1 conversations -->
-    <string name="one_on_one_incoming_failed_message_prefix">Failed message from <xliff:g id="sender">%s</xliff:g>: <xliff:g id="message">%s</xliff:g>. Time: <xliff:g id="time">%s</xliff:g>.</string>
-    <string name="one_on_one_incoming_successful_message_prefix">Message from <xliff:g id="sender">%s</xliff:g>: <xliff:g id="message">%s</xliff:g>. Time: <xliff:g id="time">%s</xliff:g>.</string>
-    <string name="one_on_one_outgoing_draft_message_prefix">Unsent message to <xliff:g id="contact">%s</xliff:g>: <xliff:g id="message">%s</xliff:g>. Time: <xliff:g id="time">%s</xliff:g>.</string>
-    <string name="one_on_one_outgoing_sending_message_prefix">Sending message to <xliff:g id="contact">%s</xliff:g>: <xliff:g id="message">%s</xliff:g>. Time: <xliff:g id="time">%s</xliff:g>.</string>
-    <string name="one_on_one_outgoing_failed_message_prefix">Failed message to <xliff:g id="contact">%s</xliff:g>: <xliff:g id="message">%s</xliff:g>. Time: <xliff:g id="time">%s</xliff:g>.</string>
-    <string name="one_on_one_outgoing_successful_message_prefix">Message to <xliff:g id="contact">%s</xliff:g>: <xliff:g id="message">%s</xliff:g>. Time: <xliff:g id="time">%s</xliff:g>.</string>
+    <string name="one_on_one_incoming_failed_message_prefix">Failed message from <xliff:g id="sender">%1$s</xliff:g>: <xliff:g id="message">%2$s</xliff:g>. Time: <xliff:g id="time">%3$s</xliff:g>.</string>
+    <string name="one_on_one_incoming_successful_message_prefix">Message from <xliff:g id="sender">%1$s</xliff:g>: <xliff:g id="message">%2$s</xliff:g>. Time: <xliff:g id="time">%3$s</xliff:g>.</string>
+    <string name="one_on_one_outgoing_draft_message_prefix">Unsent message to <xliff:g id="contact">%1$s</xliff:g>: <xliff:g id="message">%2$s</xliff:g>. Time: <xliff:g id="time">%3$s</xliff:g>.</string>
+    <string name="one_on_one_outgoing_sending_message_prefix">Sending message to <xliff:g id="contact">%1$s</xliff:g>: <xliff:g id="message">%2$s</xliff:g>. Time: <xliff:g id="time">%3$s</xliff:g>.</string>
+    <string name="one_on_one_outgoing_failed_message_prefix">Failed message to <xliff:g id="contact">%1$s</xliff:g>: <xliff:g id="message">%2$s</xliff:g>. Time: <xliff:g id="time">%3$s</xliff:g>.</string>
+    <string name="one_on_one_outgoing_successful_message_prefix">Message to <xliff:g id="contact">%1$s</xliff:g>: <xliff:g id="message">%2$s</xliff:g>. Time: <xliff:g id="time">%3$s</xliff:g>.</string>
     <!-- Accessibility description for conversation list for group conversations -->
-    <string name="group_incoming_failed_message_prefix">Failed message from <xliff:g id="sender">%s</xliff:g>: <xliff:g id="message">%s</xliff:g>. Time: <xliff:g id="time">%s</xliff:g>. <xliff:g id="groupInfo">%s</xliff:g>.</string>
-    <string name="group_incoming_successful_message_prefix">Message from <xliff:g id="sender">%s</xliff:g>: <xliff:g id="message">%s</xliff:g>. Time: <xliff:g id="time">%s</xliff:g>. <xliff:g id="groupInfo">%s</xliff:g>.</string>
-    <string name="group_outgoing_draft_message_prefix">Unsent message to <xliff:g id="group">%s</xliff:g>: <xliff:g id="message">%s</xliff:g>. Time: <xliff:g id="time">%s</xliff:g>.</string>
-    <string name="group_outgoing_sending_message_prefix">Sending message to <xliff:g id="group">%s</xliff:g>: <xliff:g id="message">%s</xliff:g>. Time: <xliff:g id="time">%s</xliff:g>.</string>
-    <string name="group_outgoing_failed_message_prefix">Failed message to <xliff:g id="group">%s</xliff:g>: <xliff:g id="message">%s</xliff:g>. Time: <xliff:g id="time">%s</xliff:g>.</string>
-    <string name="group_outgoing_successful_message_prefix">Message to <xliff:g id="group">%s</xliff:g>: <xliff:g id="message">%s</xliff:g>. Time: <xliff:g id="time">%s</xliff:g>.</string>
+    <string name="group_incoming_failed_message_prefix">Failed message from <xliff:g id="sender">%1$s</xliff:g>: <xliff:g id="message">%2$s</xliff:g>. Time: <xliff:g id="time">%3$s</xliff:g>. <xliff:g id="groupInfo">%4$s</xliff:g>.</string>
+    <string name="group_incoming_successful_message_prefix">Message from <xliff:g id="sender">%1$s</xliff:g>: <xliff:g id="message">%2$s</xliff:g>. Time: <xliff:g id="time">%3$s</xliff:g>. <xliff:g id="groupInfo">%4$s</xliff:g>.</string>
+    <string name="group_outgoing_draft_message_prefix">Unsent message to <xliff:g id="group">%1$s</xliff:g>: <xliff:g id="message">%2$s</xliff:g>. Time: <xliff:g id="time">%3$s</xliff:g>.</string>
+    <string name="group_outgoing_sending_message_prefix">Sending message to <xliff:g id="group">%1$s</xliff:g>: <xliff:g id="message">%2$s</xliff:g>. Time: <xliff:g id="time">%3$s</xliff:g>.</string>
+    <string name="group_outgoing_failed_message_prefix">Failed message to <xliff:g id="group">%1$s</xliff:g>: <xliff:g id="message">%2$s</xliff:g>. Time: <xliff:g id="time">%3$s</xliff:g>.</string>
+    <string name="group_outgoing_successful_message_prefix">Message to <xliff:g id="group">%1$s</xliff:g>: <xliff:g id="message">%2$s</xliff:g>. Time: <xliff:g id="time">%3$s</xliff:g>.</string>
     <!-- Accessibility description for conversation list for failed messages -->
     <string name="failed_message_content_description">Failed message. Tap to retry.</string>
 
@@ -610,7 +610,7 @@
     <!-- The text shown as a label before the message subject input box -->
     <string name="conversation_message_view_subject_text">Subject:\u0020</string>
     <!-- When there's a subject in an mms, the subject + message are shown in a notification -->
-    <string name="notification_subject"><xliff:g id="subject_label">%s</xliff:g><xliff:g id="messageText">%s</xliff:g></string>
+    <string name="notification_subject"><xliff:g id="subject_label">%1$s</xliff:g><xliff:g id="messageText">%2$s</xliff:g></string>
 
     <!-- Text shown on contact VCard when it's being loaded -->
     <string name="loading_vcard">Loading contact card</string>
