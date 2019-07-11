@@ -359,7 +359,7 @@
     <string name="add_contact_confirmation" msgid="1479380805406328264">"සම්බන්ධතාවය එකතු කරන්න"</string>
     <string name="compose_message_view_subject_hint_text" msgid="6076616675845705660">"මාතෘකාව"</string>
     <string name="conversation_message_view_subject_text" msgid="5634274498769555505">"මාතෘකාව "</string>
-    <string name="notification_subject" msgid="5229975483160300625">"<xliff:g id="SUBJECT_LABEL">%s</xliff:g><xliff:g id="MESSAGETEXT">%s</xliff:g>"</string>
+    <string name="notification_subject" msgid="5229975483160300625">"<xliff:g id="SUBJECT_LABEL">%1$s</xliff:g><xliff:g id="MESSAGETEXT">%2$s</xliff:g>"</string>
     <string name="loading_vcard" msgid="3961520941271265083">"සම්බන්ධතා කාඩ් පත් පුර්ණ කරමින්"</string>
     <string name="failed_loading_vcard" msgid="7711070643740368402">"සම්බන්ධතා කාඩ්පත පුර්ණය කළ නොහැක"</string>
     <string name="vcard_tap_hint" msgid="4940284329175200952">"සම්බන්ධ්තා කාඩ්පත පෙන්වන්න"</string>

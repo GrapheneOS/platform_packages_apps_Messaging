@@ -359,7 +359,7 @@
     <string name="add_contact_confirmation" msgid="1479380805406328264">"新增聯絡人"</string>
     <string name="compose_message_view_subject_hint_text" msgid="6076616675845705660">"主旨"</string>
     <string name="conversation_message_view_subject_text" msgid="5634274498769555505">"主旨： "</string>
-    <string name="notification_subject" msgid="5229975483160300625">"<xliff:g id="SUBJECT_LABEL">%s</xliff:g>：<xliff:g id="MESSAGETEXT">%s</xliff:g>"</string>
+    <string name="notification_subject" msgid="5229975483160300625">"<xliff:g id="SUBJECT_LABEL">%1$s</xliff:g>：<xliff:g id="MESSAGETEXT">%2$s</xliff:g>"</string>
     <string name="loading_vcard" msgid="3961520941271265083">"正在載入聯絡人卡片"</string>
     <string name="failed_loading_vcard" msgid="7711070643740368402">"無法載入聯絡人卡片"</string>
     <string name="vcard_tap_hint" msgid="4940284329175200952">"查看聯絡人卡片"</string>

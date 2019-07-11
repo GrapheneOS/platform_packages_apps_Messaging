@@ -361,7 +361,7 @@
     <string name="add_contact_confirmation" msgid="1479380805406328264">"सम्पर्क थप्नुहोस्"</string>
     <string name="compose_message_view_subject_hint_text" msgid="6076616675845705660">"विषय"</string>
     <string name="conversation_message_view_subject_text" msgid="5634274498769555505">"विषय: "</string>
-    <string name="notification_subject" msgid="5229975483160300625">"<xliff:g id="SUBJECT_LABEL">%s</xliff:g><xliff:g id="MESSAGETEXT">%s</xliff:g>"</string>
+    <string name="notification_subject" msgid="5229975483160300625">"<xliff:g id="SUBJECT_LABEL">%1$s</xliff:g><xliff:g id="MESSAGETEXT">%2$s</xliff:g>"</string>
     <string name="loading_vcard" msgid="3961520941271265083">"सम्पर्क कार्ड लोड गर्दै"</string>
     <string name="failed_loading_vcard" msgid="7711070643740368402">"सम्पर्क कार्ड लोड गर्न सकिएन"</string>
     <string name="vcard_tap_hint" msgid="4940284329175200952">"सम्पर्क कार्ड हेर्नुहोस्"</string>

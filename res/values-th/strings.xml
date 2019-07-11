@@ -359,7 +359,7 @@
     <string name="add_contact_confirmation" msgid="1479380805406328264">"เพิ่มรายชื่อติดต่อ"</string>
     <string name="compose_message_view_subject_hint_text" msgid="6076616675845705660">"เรื่อง"</string>
     <string name="conversation_message_view_subject_text" msgid="5634274498769555505">"เรื่อง: "</string>
-    <string name="notification_subject" msgid="5229975483160300625">"<xliff:g id="SUBJECT_LABEL">%s</xliff:g><xliff:g id="MESSAGETEXT">%s</xliff:g>"</string>
+    <string name="notification_subject" msgid="5229975483160300625">"<xliff:g id="SUBJECT_LABEL">%1$s</xliff:g><xliff:g id="MESSAGETEXT">%2$s</xliff:g>"</string>
     <string name="loading_vcard" msgid="3961520941271265083">"กำลังโหลดบัตรติดต่อ"</string>
     <string name="failed_loading_vcard" msgid="7711070643740368402">"ไม่สามารถโหลดการ์ดรายชื่อติดต่อได้"</string>
     <string name="vcard_tap_hint" msgid="4940284329175200952">"ดูบัตรติดต่อ"</string>
