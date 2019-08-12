@@ -20,6 +20,8 @@ import android.database.Cursor;
 import androidx.collection.ArrayMap;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import com.android.messaging.util.OsUtil;
@@ -61,6 +63,15 @@ public class SelfParticipantsData {
                 list.add(self);
             }
         }
+        Collections.sort(
+                list,
+                new Comparator() {
+                    public int compare(Object o1, Object o2) {
+                        int slotId1 = ((ParticipantData) o1).getSlotId();
+                        int slotId2 = ((ParticipantData) o2).getSlotId();
+                        return slotId1 > slotId2 ? 1 : -1;
+                    }
+                });
         return list;
     }
 
