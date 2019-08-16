@@ -39,3 +39,5 @@
 # ************************************************
 
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/app/messaging)
+$(call add-clean-step, rm -f $(PRODUCT_OUT)/system/lib/libgiftranscode.so)
+$(call add-clean-step, rm -f $(PRODUCT_OUT)/system/lib64/libgiftranscode.so)
