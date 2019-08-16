@@ -32,4 +32,6 @@ LOCAL_CFLAGS += -Wall -Werror -Wno-unused-parameter -Wno-switch
 LOCAL_SDK_VERSION := 19
 LOCAL_NDK_STL_VARIANT := c++_static # LLVM libc++
 
+LOCAL_PRODUCT_MODULE := true
+
 include $(BUILD_SHARED_LIBRARY)
