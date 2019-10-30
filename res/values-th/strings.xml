@@ -258,7 +258,7 @@
     <string name="mms_messaging_category_pref_title" msgid="4816815152658525660">"MMS"</string>
     <string name="advanced_category_pref_title" msgid="6411454224069259687">"ขั้นสูง"</string>
     <string name="debug_category_pref_title" msgid="8765138968242505061">"แก้ไขข้อบกพร่อง"</string>
-    <string name="notifications_enabled_pref_title" msgid="4127288731844373795">"การแจ้งเตือน"</string>
+    <string name="notifications_pref_title" msgid="4127288731844373795">"การแจ้งเตือน"</string>
     <string name="notification_sound_pref_title" msgid="3685506528957337849">"เสียง"</string>
     <string name="silent_ringtone" msgid="8073534180322059814">"เงียบ"</string>
     <string name="notification_vibrate_pref_title" msgid="6668564570045187390">"สั่น"</string>

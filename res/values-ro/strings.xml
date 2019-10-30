@@ -276,7 +276,7 @@
     <string name="mms_messaging_category_pref_title" msgid="4816815152658525660">"MMS"</string>
     <string name="advanced_category_pref_title" msgid="6411454224069259687">"Avansate"</string>
     <string name="debug_category_pref_title" msgid="8765138968242505061">"Remedierea erorilor"</string>
-    <string name="notifications_enabled_pref_title" msgid="4127288731844373795">"Notificări"</string>
+    <string name="notifications_pref_title" msgid="4127288731844373795">"Notificări"</string>
     <string name="notification_sound_pref_title" msgid="3685506528957337849">"Sunet"</string>
     <string name="silent_ringtone" msgid="8073534180322059814">"Silențios"</string>
     <string name="notification_vibrate_pref_title" msgid="6668564570045187390">"Vibrații"</string>

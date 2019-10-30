@@ -276,7 +276,7 @@
     <string name="mms_messaging_category_pref_title" msgid="4816815152658525660">"Multiziņa"</string>
     <string name="advanced_category_pref_title" msgid="6411454224069259687">"Papildu"</string>
     <string name="debug_category_pref_title" msgid="8765138968242505061">"Atkļūdot"</string>
-    <string name="notifications_enabled_pref_title" msgid="4127288731844373795">"Paziņojumi"</string>
+    <string name="notifications_pref_title" msgid="4127288731844373795">"Paziņojumi"</string>
     <string name="notification_sound_pref_title" msgid="3685506528957337849">"Signāls"</string>
     <string name="silent_ringtone" msgid="8073534180322059814">"Klusums"</string>
     <string name="notification_vibrate_pref_title" msgid="6668564570045187390">"Vibrozvans"</string>
