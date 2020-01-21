@@ -21,24 +21,17 @@ import com.android.messaging.util.ImageUtils;
 import com.android.messaging.util.UriUtil;
 
 public class VideoThumbnailRequestDescriptor extends UriImageRequestDescriptor {
-    protected final long mMediaId;
-    public VideoThumbnailRequestDescriptor(final long id, String path, int desiredWidth,
-            int desiredHeight, int sourceWidth, int sourceHeight) {
-        super(UriUtil.getUriForResourceFile(path), desiredWidth, desiredHeight, sourceWidth,
+    public VideoThumbnailRequestDescriptor(final long id, int desiredWidth, int desiredHeight,
+            int sourceWidth, int sourceHeight) {
+        super(UriUtil.getContentUriForMediaStoreId(id), desiredWidth, desiredHeight, sourceWidth,
                 sourceHeight, false /* canCompress */, false /* isStatic */,
                 false /* cropToCircle */,
                 ImageUtils.DEFAULT_CIRCLE_BACKGROUND_COLOR /* circleBackgroundColor */,
                 ImageUtils.DEFAULT_CIRCLE_STROKE_COLOR /* circleStrokeColor */);
-        mMediaId = id;
     }
 
     @Override
     public MediaRequest<ImageResource> buildSyncMediaRequest(Context context) {
         return new VideoThumbnailRequest(context, this);
-    }
-
-    @Override
-    public Long getMediaStoreId() {
-        return mMediaId;
     }
 }

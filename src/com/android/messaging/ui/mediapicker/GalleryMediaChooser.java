@@ -63,7 +63,7 @@ class GalleryMediaChooser extends MediaChooser implements
         mAdapter.setHostInterface(null);
         // The loader is started only if startMediaPickerDataLoader() is called
         if (OsUtil.hasStoragePermission()) {
-            mBindingRef.getData().destroyLoader(MediaPickerData.GALLERY_IMAGE_LOADER);
+            mBindingRef.getData().destroyLoader(MediaPickerData.GALLERY_MEDIA_LOADER);
         }
         return super.destroyView();
     }
@@ -121,7 +121,7 @@ class GalleryMediaChooser extends MediaChooser implements
     protected View createView(final ViewGroup container) {
         final LayoutInflater inflater = getLayoutInflater();
         final View view = inflater.inflate(
-                R.layout.mediapicker_image_chooser,
+                R.layout.mediapicker_gallery_chooser,
                 container /* root */,
                 false /* attachToRoot */);
 
@@ -167,7 +167,7 @@ class GalleryMediaChooser extends MediaChooser implements
     public void onMediaPickerDataUpdated(final MediaPickerData mediaPickerData, final Object data,
             final int loaderId) {
         mBindingRef.ensureBound(mediaPickerData);
-        Assert.equals(MediaPickerData.GALLERY_IMAGE_LOADER, loaderId);
+        Assert.equals(MediaPickerData.GALLERY_MEDIA_LOADER, loaderId);
         Cursor rawCursor = null;
         if (data instanceof Cursor) {
             rawCursor = (Cursor) data;
@@ -202,8 +202,9 @@ class GalleryMediaChooser extends MediaChooser implements
     }
 
     private void startMediaPickerDataLoader() {
-        mBindingRef.getData().startLoader(MediaPickerData.GALLERY_IMAGE_LOADER, mBindingRef, null,
-                this);
+        mBindingRef
+                .getData()
+                .startLoader(MediaPickerData.GALLERY_MEDIA_LOADER, mBindingRef, null, this);
     }
 
     @Override

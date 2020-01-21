@@ -24,13 +24,14 @@ import android.view.TouchDelegate;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.FrameLayout;
-import android.widget.ImageView.ScaleType;
+import android.widget.ImageView;
 
 import com.android.messaging.R;
 import com.android.messaging.datamodel.DataModel;
 import com.android.messaging.datamodel.data.GalleryGridItemData;
 import com.android.messaging.ui.AsyncImageView;
 import com.android.messaging.ui.ConversationDrawables;
+import com.android.messaging.util.ContentType;
 import com.google.common.annotations.VisibleForTesting;
 
 import java.util.concurrent.TimeUnit;
@@ -135,17 +136,24 @@ public class GalleryGridItemView extends FrameLayout {
     }
 
     private void updateImageView() {
+        ImageView playButton = (ImageView) findViewById(R.id.video_thumbnail_play_button);
         if (mData.isDocumentPickerItem()) {
-            mImageView.setScaleType(ScaleType.CENTER);
+            mImageView.setScaleType(ImageView.ScaleType.CENTER);
             setBackgroundColor(ConversationDrawables.get().getConversationThemeColor());
             mImageView.setImageResourceId(null);
             mImageView.setImageResource(R.drawable.ic_photo_library_light);
+            playButton.setVisibility(GONE);
             mImageView.setContentDescription(getResources().getString(
                     R.string.pick_image_from_document_library_content_description));
         } else {
-            mImageView.setScaleType(ScaleType.CENTER_CROP);
+            mImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             setBackgroundColor(getResources().getColor(R.color.gallery_image_default_background));
             mImageView.setImageResourceId(mData.getImageRequestDescriptor());
+            if (ContentType.isVideoType(mData.getContentType())) {
+                playButton.setVisibility(VISIBLE);
+            } else {
+                playButton.setVisibility(GONE);
+            }
             final long dateSeconds = mData.getDateSeconds();
             final boolean isValidDate = (dateSeconds > 0);
             final int templateId = isValidDate ?

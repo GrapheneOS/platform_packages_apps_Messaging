@@ -87,9 +87,4 @@ public class UriImageRequestDescriptor extends ImageRequestDescriptor {
             return new NetworkUriImageRequest<UriImageRequestDescriptor>(context, this);
         }
     }
-
-    /** ID of the resource in MediaStore or null if this resource didn't come from MediaStore */
-    public Long getMediaStoreId() {
-        return null;
-    }
 }

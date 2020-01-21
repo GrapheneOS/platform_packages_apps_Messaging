@@ -159,7 +159,7 @@ public class MediaPicker extends Fragment implements DraftMessageSubscriptionDat
     @VisibleForTesting
     final Binding<MediaPickerData> mBinding = BindingBase.createBinding(this);
 
-    /** Handles picking image from the document picker */
+    /** Handles picking a media from the document picker. */
     private DocumentImagePicker mDocumentImagePicker;
 
     /** Provides subscription-related data to access per-subscription configurations. */
