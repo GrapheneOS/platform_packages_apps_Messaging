@@ -202,19 +202,19 @@
     <string name="audio_attachment_content_description" msgid="499334244765270108">"ஆடியோ இணைப்பு"</string>
     <string name="audio_play_content_description" msgid="4932509227281251607">"ஆடியோ இணைப்பை இயக்கவும்"</string>
     <string name="audio_pause_content_description" msgid="7578169887065513701">"இடைநிறுத்து"</string>
-    <string name="incoming_message_announcement" msgid="6369259405539452011">"செய்தி அனுப்பியவர்: <xliff:g id="SENDER">%s</xliff:g> - <xliff:g id="MESSAGE">%s</xliff:g>."</string>
-    <string name="one_on_one_incoming_failed_message_prefix" msgid="6985644411445605747">"<xliff:g id="SENDER">%s</xliff:g>க்கு அனுப்பிய செய்தி தோல்வி: <xliff:g id="MESSAGE">%s</xliff:g>. நேரம்: <xliff:g id="TIME">%s</xliff:g>."</string>
-    <string name="one_on_one_incoming_successful_message_prefix" msgid="6190814597935995703">"<xliff:g id="SENDER">%s</xliff:g> அனுப்பிய செய்தி: <xliff:g id="MESSAGE">%s</xliff:g>. நேரம்: <xliff:g id="TIME">%s</xliff:g>."</string>
-    <string name="one_on_one_outgoing_draft_message_prefix" msgid="8721053088385740646">"<xliff:g id="CONTACT">%s</xliff:g>க்கு அனுப்பப்படாத செய்தி: <xliff:g id="MESSAGE">%s</xliff:g>. நேரம்: <xliff:g id="TIME">%s</xliff:g>."</string>
-    <string name="one_on_one_outgoing_sending_message_prefix" msgid="3929653530203574220">"<xliff:g id="CONTACT">%s</xliff:g>க்குச் செய்தி அனுப்புகிறது: <xliff:g id="MESSAGE">%s</xliff:g>. நேரம்: <xliff:g id="TIME">%s</xliff:g>."</string>
-    <string name="one_on_one_outgoing_failed_message_prefix" msgid="7194065651879454314">"<xliff:g id="CONTACT">%s</xliff:g>க்கு அனுப்பிய செய்தி தோல்வி: <xliff:g id="MESSAGE">%s</xliff:g>. நேரம்: <xliff:g id="TIME">%s</xliff:g>."</string>
-    <string name="one_on_one_outgoing_successful_message_prefix" msgid="7128492863867327814">"<xliff:g id="CONTACT">%s</xliff:g>க்கான செய்தி: <xliff:g id="MESSAGE">%s</xliff:g>. நேரம்: <xliff:g id="TIME">%s</xliff:g>."</string>
-    <string name="group_incoming_failed_message_prefix" msgid="7085805237707481779">"<xliff:g id="SENDER">%s</xliff:g>க்கு அனுப்பிய செய்தி தோல்வி: <xliff:g id="MESSAGE">%s</xliff:g>. நேரம்: <xliff:g id="TIME">%s</xliff:g>. <xliff:g id="GROUPINFO">%s</xliff:g>."</string>
-    <string name="group_incoming_successful_message_prefix" msgid="7248506967059447054">"<xliff:g id="SENDER">%s</xliff:g> இடமிருந்து செய்தி: <xliff:g id="MESSAGE">%s</xliff:g>. நேரம்: <xliff:g id="TIME">%s</xliff:g>. <xliff:g id="GROUPINFO">%s</xliff:g>."</string>
-    <string name="group_outgoing_draft_message_prefix" msgid="1655013812805454648">"<xliff:g id="GROUP">%s</xliff:g>க்கு அனுப்பப்படாத செய்தி: <xliff:g id="MESSAGE">%s</xliff:g>. நேரம்: <xliff:g id="TIME">%s</xliff:g>."</string>
-    <string name="group_outgoing_sending_message_prefix" msgid="7636874745414695556">"<xliff:g id="GROUP">%s</xliff:g>க்குச் செய்தி அனுப்புகிறது: <xliff:g id="MESSAGE">%s</xliff:g>. நேரம்: <xliff:g id="TIME">%s</xliff:g>."</string>
-    <string name="group_outgoing_failed_message_prefix" msgid="5059983340377901592">"<xliff:g id="GROUP">%s</xliff:g>க்கு அனுப்பிய செய்தி தோல்வி: <xliff:g id="MESSAGE">%s</xliff:g>. நேரம்: <xliff:g id="TIME">%s</xliff:g>."</string>
-    <string name="group_outgoing_successful_message_prefix" msgid="1593702642852987920">"<xliff:g id="GROUP">%s</xliff:g>க்கான செய்தி: <xliff:g id="MESSAGE">%s</xliff:g>. நேரம்: <xliff:g id="TIME">%s</xliff:g>."</string>
+    <string name="incoming_message_announcement" msgid="6369259405539452011">"செய்தி அனுப்பியவர்: <xliff:g id="SENDER">%1$s</xliff:g> - <xliff:g id="MESSAGE">%2$s</xliff:g>."</string>
+    <string name="one_on_one_incoming_failed_message_prefix" msgid="6985644411445605747">"<xliff:g id="SENDER">%1$s</xliff:g>க்கு அனுப்பிய செய்தி தோல்வி: <xliff:g id="MESSAGE">%2$s</xliff:g>. நேரம்: <xliff:g id="TIME">%3$s</xliff:g>."</string>
+    <string name="one_on_one_incoming_successful_message_prefix" msgid="6190814597935995703">"<xliff:g id="SENDER">%1$s</xliff:g> அனுப்பிய செய்தி: <xliff:g id="MESSAGE">%2$s</xliff:g>. நேரம்: <xliff:g id="TIME">%3$s</xliff:g>."</string>
+    <string name="one_on_one_outgoing_draft_message_prefix" msgid="8721053088385740646">"<xliff:g id="CONTACT">%1$s</xliff:g>க்கு அனுப்பப்படாத செய்தி: <xliff:g id="MESSAGE">%2$s</xliff:g>. நேரம்: <xliff:g id="TIME">%3$s</xliff:g>."</string>
+    <string name="one_on_one_outgoing_sending_message_prefix" msgid="3929653530203574220">"<xliff:g id="CONTACT">%1$s</xliff:g>க்குச் செய்தி அனுப்புகிறது: <xliff:g id="MESSAGE">%2$s</xliff:g>. நேரம்: <xliff:g id="TIME">%3$s</xliff:g>."</string>
+    <string name="one_on_one_outgoing_failed_message_prefix" msgid="7194065651879454314">"<xliff:g id="CONTACT">%1$s</xliff:g>க்கு அனுப்பிய செய்தி தோல்வி: <xliff:g id="MESSAGE">%2$s</xliff:g>. நேரம்: <xliff:g id="TIME">%3$s</xliff:g>."</string>
+    <string name="one_on_one_outgoing_successful_message_prefix" msgid="7128492863867327814">"<xliff:g id="CONTACT">%1$s</xliff:g>க்கான செய்தி: <xliff:g id="MESSAGE">%2$s</xliff:g>. நேரம்: <xliff:g id="TIME">%3$s</xliff:g>."</string>
+    <string name="group_incoming_failed_message_prefix" msgid="7085805237707481779">"<xliff:g id="SENDER">%1$s</xliff:g>க்கு அனுப்பிய செய்தி தோல்வி: <xliff:g id="MESSAGE">%2$s</xliff:g>. நேரம்: <xliff:g id="TIME">%3$s</xliff:g>. <xliff:g id="GROUPINFO">%3$s</xliff:g>."</string>
+    <string name="group_incoming_successful_message_prefix" msgid="7248506967059447054">"<xliff:g id="SENDER">%1$s</xliff:g> இடமிருந்து செய்தி: <xliff:g id="MESSAGE">%2$s</xliff:g>. நேரம்: <xliff:g id="TIME">%3$s</xliff:g>. <xliff:g id="GROUPINFO">%3$s</xliff:g>."</string>
+    <string name="group_outgoing_draft_message_prefix" msgid="1655013812805454648">"<xliff:g id="GROUP">%1$s</xliff:g>க்கு அனுப்பப்படாத செய்தி: <xliff:g id="MESSAGE">%2$s</xliff:g>. நேரம்: <xliff:g id="TIME">%3$s</xliff:g>."</string>
+    <string name="group_outgoing_sending_message_prefix" msgid="7636874745414695556">"<xliff:g id="GROUP">%1$s</xliff:g>க்குச் செய்தி அனுப்புகிறது: <xliff:g id="MESSAGE">%2$s</xliff:g>. நேரம்: <xliff:g id="TIME">%3$s</xliff:g>."</string>
+    <string name="group_outgoing_failed_message_prefix" msgid="5059983340377901592">"<xliff:g id="GROUP">%1$s</xliff:g>க்கு அனுப்பிய செய்தி தோல்வி: <xliff:g id="MESSAGE">%2$s</xliff:g>. நேரம்: <xliff:g id="TIME">%3$s</xliff:g>."</string>
+    <string name="group_outgoing_successful_message_prefix" msgid="1593702642852987920">"<xliff:g id="GROUP">%1$s</xliff:g>க்கான செய்தி: <xliff:g id="MESSAGE">%2$s</xliff:g>. நேரம்: <xliff:g id="TIME">%3$s</xliff:g>."</string>
     <string name="failed_message_content_description" msgid="7047161648867054936">"செய்தி அனுப்புவதில் தோல்வி. மீண்டும் முயற்சிக்க, தொடவும்."</string>
     <string name="group_conversation_description" msgid="2339270924401184182">"<xliff:g id="PARTICIPANTS">%s</xliff:g> உடனான உரையாடல்"</string>
     <string name="delete_subject_content_description" msgid="8910749398836396698">"தலைப்பை நீக்கு"</string>
@@ -359,7 +359,7 @@
     <string name="add_contact_confirmation" msgid="1479380805406328264">"தொடர்பைச் சேர்"</string>
     <string name="compose_message_view_subject_hint_text" msgid="6076616675845705660">"தலைப்பு"</string>
     <string name="conversation_message_view_subject_text" msgid="5634274498769555505">"தலைப்பு: "</string>
-    <string name="notification_subject" msgid="5229975483160300625">"<xliff:g id="SUBJECT_LABEL">%s</xliff:g><xliff:g id="MESSAGETEXT">%s</xliff:g>"</string>
+    <string name="notification_subject" msgid="5229975483160300625">"<xliff:g id="SUBJECT_LABEL">%1$s</xliff:g><xliff:g id="MESSAGETEXT">%2$s</xliff:g>"</string>
     <string name="loading_vcard" msgid="3961520941271265083">"தொடர்பு கார்டை ஏற்றுகிறது"</string>
     <string name="failed_loading_vcard" msgid="7711070643740368402">"தொடர்பு கார்டை ஏற்ற முடியவில்லை"</string>
     <string name="vcard_tap_hint" msgid="4940284329175200952">"தொடர்பு கார்டைக் காட்டு"</string>
