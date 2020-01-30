@@ -30,7 +30,7 @@ import com.android.messaging.util.ImageUtils;
 import com.android.messaging.util.SafeAsyncTask;
 
 /**
- * Wraps around the functionalities to allow the user to pick an image/video from the document
+ * Wraps around the functionalities to allow the user to pick an image/video/audio from the document
  * picker. Instances of this class must be tied to a Fragment which is able to delegate activity
  * result callbacks.
  */

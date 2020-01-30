@@ -21,11 +21,66 @@
     android:background="@color/gallery_image_default_background"
     android:clickable="true">
 
+    <!-- Thumbnail for image and video contents. -->
     <com.android.messaging.ui.AsyncImageView
-        android:id="@+id/image"
+        android:id="@+id/thumbnail"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop" />
+
+    <!-- Additional info such as icon, name and etc. -->
+    <RelativeLayout
+        android:id="@+id/additional_info"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone" >
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/file_info" >
+            <ImageView
+                android:id="@+id/icon"
+                android:layout_width="@dimen/gallery_icon_size"
+                android:layout_height="@dimen/gallery_icon_size"
+                android:layout_gravity="center"
+                android:scaleType="fitCenter"
+                android:background="@color/background_item_transparent"
+                android:visibility="gone" />
+        </FrameLayout>
+
+        <!-- File info for audio contents only -->
+        <LinearLayout
+            android:id="@+id/file_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="4dp"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            android:orientation="vertical"
+            android:visibility="gone" >
+
+            <TextView
+                android:id="@+id/file_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:ellipsize="end"
+                android:textAppearance="@android:style/TextAppearance.Material.Subhead" />
+
+            <TextView
+                android:id="@+id/file_type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:ellipsize="end"
+                android:gravity="right"
+                android:textAppearance="@android:style/TextAppearance.Material.Caption" />
+        </LinearLayout>
+    </RelativeLayout>
 
     <View
         android:layout_width="match_parent"
@@ -44,13 +99,4 @@
         android:visibility="gone"
         android:contentDescription="@string/gallery_checkbox_content_description" />
 
-    <!-- Play button image for video contents only -->
-    <ImageView
-        android:id="@+id/video_thumbnail_play_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:background="@color/background_item_transparent"
-        android:src="@drawable/ic_video_play_light"
-        android:visibility="gone" />
 </com.android.messaging.ui.mediapicker.GalleryGridItemView>

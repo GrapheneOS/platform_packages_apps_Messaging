@@ -55,7 +55,7 @@ public class GalleryGridItemViewTest extends ViewTest<GalleryGridItemView> {
             final String imageUrl,
             final boolean showCheckbox,
             final boolean isSelected) {
-        final AsyncImageView imageView = (AsyncImageView) view.findViewById(R.id.image);
+        final AsyncImageView imageView = (AsyncImageView) view.findViewById(R.id.thumbnail);
         final CheckBox checkBox = (CheckBox) view.findViewById(R.id.checkbox);
 
         assertNotNull(imageView);
