@@ -168,6 +168,12 @@ public final class ContentType {
         return contentType;
     }
 
+    public static String getExtensionFromMimeType(final String mimeType) {
+        final MimeTypeMap mimeTypeMap = MimeTypeMap.getSingleton();
+        final String extension = mimeTypeMap.getExtensionFromMimeType(mimeType);
+        return extension;
+    }
+
     /**
      * Get the common file extension for a given content type
      * @param contentType The content type
