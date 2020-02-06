@@ -125,6 +125,8 @@ public class AsyncImageView extends ImageView implements MediaResourceLoadListen
                 return;
             }
             unbindView();
+        } else {
+            mDetachedRequestDescriptor = null;
         }
         setImage(null);
         resetTransientViewStates();
