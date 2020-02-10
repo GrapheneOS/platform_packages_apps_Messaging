@@ -682,8 +682,11 @@ public class ImageUtils {
                 if (mScaled == null) {
                     if (mDecoded == null) {
                         mOptions.inSampleSize = mSampleSize;
-                        final InputStream inputStream = cr.openInputStream(mUri);
-                        mDecoded = BitmapFactory.decodeStream(inputStream, null, mOptions);
+                        try (final InputStream inputStream = cr.openInputStream(mUri)) {
+                            mDecoded = BitmapFactory.decodeStream(inputStream, null, mOptions);
+                        } catch (IOException e) {
+                            // Ignore
+                        }
                         if (mDecoded == null) {
                             if (logv) {
                                 LogUtil.v(LogUtil.BUGLE_IMAGE_TAG,

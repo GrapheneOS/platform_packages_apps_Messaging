@@ -20,6 +20,7 @@ import android.hardware.Camera;
 import android.media.CamcorderProfile;
 import android.media.MediaRecorder;
 import android.net.Uri;
+import android.os.ParcelFileDescriptor;
 
 import com.android.messaging.Factory;
 import com.android.messaging.datamodel.MediaScratchFileProvider;
@@ -27,6 +28,7 @@ import com.android.messaging.util.ContentType;
 import com.android.messaging.util.SafeAsyncTask;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 
 class MmsVideoRecorder extends MediaRecorder {
     private static final float VIDEO_OVERSHOOT_SLOP = .85F;
@@ -38,6 +40,8 @@ class MmsVideoRecorder extends MediaRecorder {
 
     /** The uri where video is being recorded to */
     private Uri mTempVideoUri;
+
+    private ParcelFileDescriptor mVideoFD;
 
     /** The settings used for video recording */
     private final CamcorderProfile mCamcorderProfile;
@@ -75,9 +79,9 @@ class MmsVideoRecorder extends MediaRecorder {
         setAudioSource(MediaRecorder.AudioSource.CAMCORDER);
         setVideoSource(MediaRecorder.VideoSource.CAMERA);
         setOutputFormat(mCamcorderProfile.fileFormat);
-        setOutputFile(
-                Factory.get().getApplicationContext().getContentResolver().openFileDescriptor(
-                        mTempVideoUri, "w").getFileDescriptor());
+        mVideoFD = Factory.get().getApplicationContext().getContentResolver()
+                .openFileDescriptor(mTempVideoUri, "w");
+        setOutputFile(mVideoFD.getFileDescriptor());
 
         // Copy settings from CamcorderProfile to MediaRecorder
         setAudioEncodingBitRate(audioBitRate);
@@ -122,6 +126,17 @@ class MmsVideoRecorder extends MediaRecorder {
         } else {
             // 3GPP is the only other video format with a constant in OutputFormat
             return ContentType.VIDEO_3GPP;
+        }
+    }
+
+    public void closeVideoFileDescriptor() {
+        if (mVideoFD != null) {
+            try {
+                mVideoFD.close();
+            } catch (IOException e) {
+                // Ignore
+            }
+            mVideoFD = null;
         }
     }
 }
