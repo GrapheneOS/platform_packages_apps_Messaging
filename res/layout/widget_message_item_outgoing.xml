@@ -111,7 +111,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:visibility="gone"
-                android:src="@drawable/ic_preview_play"
+                android:src="@drawable/ic_video_play_light"
                 android:importantForAccessibility="no"
                 android:contentDescription="@null"/>
         </FrameLayout>
