@@ -625,10 +625,13 @@ public abstract class MessageNotificationState extends NotificationState {
         final Context context = Factory.get().getApplicationContext();
         final Uri uri =
                 MessagingContentProvider.buildConversationParticipantsUri(conversationId);
-        final Cursor participantsCursor = context.getContentResolver().query(
-                uri, ParticipantData.ParticipantsQuery.PROJECTION, null, null, null);
         final ConversationParticipantsData participantsData = new ConversationParticipantsData();
-        participantsData.bind(participantsCursor);
+
+        try (final Cursor participantsCursor = context.getContentResolver().query(
+                    uri, ParticipantData.ParticipantsQuery.PROJECTION, null, null, null)) {
+            participantsData.bind(participantsCursor);
+        }
+
         final Iterator<ParticipantData> iter = participantsData.iterator();
 
         final HashMap<String, Integer> firstNames = new HashMap<String, Integer>();
