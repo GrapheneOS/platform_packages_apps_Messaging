@@ -636,6 +636,7 @@ class CameraManager implements FocusOverlayManager.Listener {
             }
         }
 
+        mMediaRecorder.closeVideoFileDescriptor();
         mMediaRecorder.release();
         mMediaRecorder = null;
 
