@@ -191,7 +191,8 @@ public class ConversationFragment extends Fragment implements ConversationDataLi
                     intent.getStringExtra(UIIntents.UI_INTENT_EXTRA_CONVERSATION_SELF_ID);
             Assert.notNull(conversationId);
             Assert.notNull(selfId);
-            if (TextUtils.equals(mBinding.getData().getConversationId(), conversationId)) {
+            if (isBound() && TextUtils
+                    .equals(mBinding.getData().getConversationId(), conversationId)) {
                 mComposeMessageView.updateConversationSelfIdOnExternalChange(selfId);
             }
         }
