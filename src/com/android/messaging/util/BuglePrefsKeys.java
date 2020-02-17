@@ -66,6 +66,6 @@ public final class BuglePrefsKeys {
      * The attempt number when retrying ProcessPendingMessagesAction
      */
     public static final String PROCESS_PENDING_MESSAGES_RETRY_COUNT
-            = "process_pending_retry";
+            = BuglePrefs.SHARED_PREFERENCES_PER_SUBSCRIPTION_PREFIX + "process_pending_retry";
 
 }
