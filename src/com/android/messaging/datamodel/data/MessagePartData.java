@@ -492,16 +492,8 @@ public class MessagePartData implements Parcelable {
             }
             // Other images should be arbitrarily resized by ImageResizer before sending.
             return MmsUtils.MIN_IMAGE_BYTE_SIZE;
-        } else if (isAudio()) {
-            // Audios are already recorded with the lowest sampling settings (AMR_NB), so just
-            // return the file size as the minimum size.
-            return UriUtil.getContentSize(mContentUri);
-        } else if (isVideo()) {
-            final int mediaDurationMs = UriUtil.getMediaDurationMs(mContentUri);
-            return MmsUtils.MIN_VIDEO_BYTES_PER_SECOND * mediaDurationMs
-                    / TimeUnit.SECONDS.toMillis(1);
-        } else if (isVCard()) {
-            // We can't compress vCards.
+        } else if (isMedia()) {
+            // We can't compress attachments except images.
             return UriUtil.getContentSize(mContentUri);
         } else {
             // This is some unknown media type that we don't know how to handle. Log an error
