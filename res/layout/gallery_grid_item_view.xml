@@ -43,4 +43,14 @@
         android:paddingTop="4dp"
         android:visibility="gone"
         android:contentDescription="@string/gallery_checkbox_content_description" />
+
+    <!-- Play button image for video contents only -->
+    <ImageView
+        android:id="@+id/video_thumbnail_play_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@color/background_item_transparent"
+        android:src="@drawable/ic_video_play_light"
+        android:visibility="gone" />
 </com.android.messaging.ui.mediapicker.GalleryGridItemView>

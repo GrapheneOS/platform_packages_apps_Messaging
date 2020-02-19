@@ -30,8 +30,8 @@ import com.android.messaging.util.ImageUtils;
 import com.android.messaging.util.SafeAsyncTask;
 
 /**
- * Wraps around the functionalities to allow the user to pick images from the document
- * picker.  Instances of this class must be tied to a Fragment which is able to delegate activity
+ * Wraps around the functionalities to allow the user to pick an image/video from the document
+ * picker. Instances of this class must be tied to a Fragment which is able to delegate activity
  * result callbacks.
  */
 public class DocumentImagePicker {
@@ -79,8 +79,8 @@ public class DocumentImagePicker {
      * Must be called from the fragment/activity's onActivityResult().
      */
     public void onActivityResult(final int requestCode, final int resultCode, final Intent data) {
-        if (requestCode == UIIntents.REQUEST_PICK_IMAGE_FROM_DOCUMENT_PICKER &&
-                resultCode == Activity.RESULT_OK) {
+        if (requestCode == UIIntents.REQUEST_PICK_MEDIA_FROM_DOCUMENT_PICKER
+                && resultCode == Activity.RESULT_OK) {
             // Sometimes called after media item has been picked from the document picker.
             String url = data.getStringExtra(EXTRA_PHOTO_URL);
             if (url == null) {
