@@ -53,7 +53,7 @@
     <string name="mediapicker_cameraChooserDescription">Capture pictures or video</string>
     <string name="mediapicker_galleryChooserDescription">Choose images from this device</string>
     <string name="mediapicker_audioChooserDescription">Record audio</string>
-    <string name="mediapicker_gallery_title">Choose photo</string>
+    <string name="mediapicker_gallery_title">Choose media</string>
     <string name="mediapicker_gallery_item_selected_content_description">The media is selected.</string>
     <string name="mediapicker_gallery_item_unselected_content_description">The media is unselected.</string>
     <string name="mediapicker_gallery_title_selection"><xliff:g id="count">%d</xliff:g> selected</string>

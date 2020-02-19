@@ -16,15 +16,11 @@
 
 package com.android.messaging.datamodel.media;
 
-import android.content.ContentResolver;
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.provider.MediaStore.Video.Thumbnails;
 
-import com.android.messaging.Factory;
 import com.android.messaging.util.MediaMetadataRetrieverWrapper;
 import com.android.messaging.util.MediaUtil;
-import com.android.messaging.util.OsUtil;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -57,19 +53,15 @@ public class VideoThumbnailRequest extends ImageRequest<UriImageRequestDescripto
 
     @Override
     protected Bitmap getBitmapForResource() throws IOException {
-        final Long mediaId = mDescriptor.getMediaStoreId();
         Bitmap bitmap = null;
-        if (mediaId != null) {
-            final ContentResolver cr = Factory.get().getApplicationContext().getContentResolver();
-            bitmap = Thumbnails.getThumbnail(cr, mediaId, Thumbnails.MICRO_KIND, null);
-        } else {
-            final MediaMetadataRetrieverWrapper retriever = new MediaMetadataRetrieverWrapper();
-            try {
-                retriever.setDataSource(mDescriptor.uri);
-                bitmap = retriever.getFrameAtTime();
-            } finally {
-                retriever.release();
-            }
+        // Get a thumbnail through MediaMetadataRetriever to get a representative frame at any time
+        // position instead.
+        final MediaMetadataRetrieverWrapper retriever = new MediaMetadataRetrieverWrapper();
+        try {
+            retriever.setDataSource(mDescriptor.uri);
+            bitmap = retriever.getFrameAtTime();
+        } finally {
+            retriever.release();
         }
         if (bitmap != null) {
             mDescriptor.updateSourceDimensions(bitmap.getWidth(), bitmap.getHeight());

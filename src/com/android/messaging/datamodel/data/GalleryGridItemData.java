@@ -20,25 +20,27 @@ import android.database.Cursor;
 import android.graphics.Rect;
 import android.net.Uri;
 import android.provider.BaseColumns;
-import android.provider.MediaStore.Images.Media;
+import android.provider.MediaStore.MediaColumns;
 import android.text.TextUtils;
 
 import com.android.messaging.datamodel.media.FileImageRequestDescriptor;
 import com.android.messaging.datamodel.media.ImageRequest;
 import com.android.messaging.datamodel.media.UriImageRequestDescriptor;
+import com.android.messaging.datamodel.media.VideoThumbnailRequestDescriptor;
 import com.android.messaging.util.Assert;
+import com.android.messaging.util.ContentType;
 
 /**
  * Provides data for GalleryGridItemView
  */
 public class GalleryGridItemData {
-    public static final String[] IMAGE_PROJECTION = new String[] {
-        Media._ID,
-        Media.DATA,
-        Media.WIDTH,
-        Media.HEIGHT,
-        Media.MIME_TYPE,
-        Media.DATE_MODIFIED};
+    public static final String[] MEDIA_PROJECTION = new String[] {
+        MediaColumns._ID,
+        MediaColumns.DATA,
+        MediaColumns.WIDTH,
+        MediaColumns.HEIGHT,
+        MediaColumns.MIME_TYPE,
+        MediaColumns.DATE_MODIFIED};
 
     public static final String[] SPECIAL_ITEM_COLUMNS = new String[] {
         BaseColumns._ID
@@ -46,14 +48,14 @@ public class GalleryGridItemData {
 
     private static final int INDEX_ID = 0;
 
-    // For local image gallery.
+    // For local media gallery.
     private static final int INDEX_DATA_PATH = 1;
     private static final int INDEX_WIDTH = 2;
     private static final int INDEX_HEIGHT = 3;
     private static final int INDEX_MIME_TYPE = 4;
     private static final int INDEX_DATE_MODIFIED = 5;
 
-    /** A special item's id for picking images from document picker */
+    /** A special item's id for picking a media from document picker */
     public static final String ID_DOCUMENT_PICKER_ITEM = "-1";
 
     private UriImageRequestDescriptor mImageData;
@@ -85,15 +87,24 @@ public class GalleryGridItemData {
             mContentType = cursor.getString(INDEX_MIME_TYPE);
             final String dateModified = cursor.getString(INDEX_DATE_MODIFIED);
             mDateSeconds = !TextUtils.isEmpty(dateModified) ? Long.parseLong(dateModified) : -1;
-            mImageData = new FileImageRequestDescriptor(
-                    cursor.getString(INDEX_DATA_PATH),
-                    desiredWidth,
-                    desiredHeight,
-                    sourceWidth,
-                    sourceHeight,
-                    true /* canUseThumbnail */,
-                    true /* allowCompression */,
-                    true /* isStatic */);
+            if (ContentType.isVideoType(mContentType)) {
+                mImageData = new VideoThumbnailRequestDescriptor(
+                        cursor.getLong(INDEX_ID),
+                        desiredWidth,
+                        desiredHeight,
+                        sourceWidth,
+                        sourceHeight);
+            } else {
+                mImageData = new FileImageRequestDescriptor(
+                        cursor.getString(INDEX_DATA_PATH),
+                        desiredWidth,
+                        desiredHeight,
+                        sourceWidth,
+                        sourceHeight,
+                        true /* canUseThumbnail */,
+                        true /* allowCompression */,
+                        true /* isStatic */);
+            }
         }
     }
 
