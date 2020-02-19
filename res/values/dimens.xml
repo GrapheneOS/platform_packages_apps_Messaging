@@ -116,7 +116,7 @@
     <dimen name="fab_elevation_pressed">6dp</dimen>
     <dimen name="fab_bottom_margin">12dp</dimen>
     <dimen name="fab_left_right_margin">14dp</dimen>
-    <dimen name="message_text_counter_size">12sp</dimen>
+    <dimen name="message_body_size_text_size">12sp</dimen>
 
     <dimen name="vcard_detail_group_indicator_width">40dp</dimen>
     <dimen name="mms_indicator_size">12sp</dimen>
