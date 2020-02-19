@@ -159,10 +159,9 @@ public class WidgetConversationListService extends RemoteViewsService {
                 // Error
                 // Only show the fail icon if it is not a group conversation.
                 // And also require that we be the default sms app.
-                final boolean showError = conv.getIsFailedStatus() &&
-                        isDefaultSmsApp;
-                final boolean showDraft = conv.getShowDraft() &&
-                        isDefaultSmsApp;
+                final boolean showError =
+                        conv.getIsFailedStatus() && !conv.getIsGroup() && isDefaultSmsApp;
+                final boolean showDraft = conv.getShowDraft() && isDefaultSmsApp;
                 remoteViews.setViewVisibility(R.id.conversation_failed_status_icon,
                         showError && includeAvatar ?
                         View.VISIBLE : View.GONE);
