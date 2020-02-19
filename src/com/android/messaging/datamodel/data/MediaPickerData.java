@@ -51,7 +51,7 @@ public class MediaPickerData extends BindableData {
         mGalleryLoaderCallbacks = new GalleryLoaderCallbacks();
     }
 
-    public static final int GALLERY_IMAGE_LOADER = 1;
+    public static final int GALLERY_MEDIA_LOADER = 1;
 
     /**
      * A trampoline class so that we can inherit from LoaderManager.LoaderCallbacks multiple times.
@@ -63,7 +63,7 @@ public class MediaPickerData extends BindableData {
             // Check if data still bound to the requesting ui element
             if (isBound(bindingId)) {
                 switch (id) {
-                    case GALLERY_IMAGE_LOADER:
+                    case GALLERY_MEDIA_LOADER:
                         return new GalleryBoundCursorLoader(bindingId, mContext);
 
                     default:
@@ -84,9 +84,9 @@ public class MediaPickerData extends BindableData {
             final BoundCursorLoader cursorLoader = (BoundCursorLoader) loader;
             if (isBound(cursorLoader.getBindingId())) {
                 switch (loader.getId()) {
-                    case GALLERY_IMAGE_LOADER:
+                    case GALLERY_MEDIA_LOADER:
                         mListener.onMediaPickerDataUpdated(MediaPickerData.this, data,
-                                GALLERY_IMAGE_LOADER);
+                                GALLERY_MEDIA_LOADER);
                         break;
 
                     default:
@@ -106,9 +106,9 @@ public class MediaPickerData extends BindableData {
             final BoundCursorLoader cursorLoader = (BoundCursorLoader) loader;
             if (isBound(cursorLoader.getBindingId())) {
                 switch (loader.getId()) {
-                    case GALLERY_IMAGE_LOADER:
+                    case GALLERY_MEDIA_LOADER:
                         mListener.onMediaPickerDataUpdated(MediaPickerData.this, null,
-                                GALLERY_IMAGE_LOADER);
+                                GALLERY_MEDIA_LOADER);
                         break;
 
                     default:
@@ -129,7 +129,7 @@ public class MediaPickerData extends BindableData {
             args = new Bundle();
         }
         args.putString(BINDING_ID, binding.getBindingId());
-        if (loaderId == GALLERY_IMAGE_LOADER) {
+        if (loaderId == GALLERY_MEDIA_LOADER) {
             mLoaderManager.initLoader(loaderId, args, mGalleryLoaderCallbacks).forceLoad();
         } else {
             Assert.fail("Unsupported loader id for media picker!");
@@ -149,7 +149,7 @@ public class MediaPickerData extends BindableData {
     protected void unregisterListeners() {
         // This could be null if we bind but the caller doesn't init the BindableData
         if (mLoaderManager != null) {
-            mLoaderManager.destroyLoader(GALLERY_IMAGE_LOADER);
+            mLoaderManager.destroyLoader(GALLERY_MEDIA_LOADER);
             mLoaderManager = null;
         }
     }
