@@ -171,9 +171,9 @@
         <item name="android:layout_marginStart">4dp</item>
     </style>
 
-    <style name="ComposeMessageViewTextCounterStyle">
-        <item name="android:textColor">@color/message_text_counter_color</item>
-        <item name="android:textSize">@dimen/message_text_counter_size</item>
+    <style name="ComposeMessageViewMessageBodySizeStyle">
+        <item name="android:textColor">@color/message_body_size_text_color</item>
+        <item name="android:textSize">@dimen/message_body_size_text_size</item>
         <item name="android:fontFamily">sans-serif</item>
         <item name="android:layout_gravity">end|center_vertical</item>
         <item name="android:paddingEnd">@dimen/compose_message_text_box_padding_side</item>
