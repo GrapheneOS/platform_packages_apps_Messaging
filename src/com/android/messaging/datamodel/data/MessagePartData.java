@@ -341,6 +341,11 @@ public class MessagePartData implements Parcelable {
         return mHeight;
     }
 
+    public static boolean isSupportedMediaType(final String contentType) {
+        return ContentType.isVCardType(contentType)
+                || Arrays.asList(ACCEPTABLE_GALLERY_MEDIA_TYPES).contains(contentType);
+    }
+
     /**
     *
     * @return true if this part can only exist by itself, with no other attachments
