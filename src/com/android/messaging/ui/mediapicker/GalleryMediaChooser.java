@@ -39,7 +39,7 @@ import com.android.messaging.util.Assert;
 import com.android.messaging.util.OsUtil;
 
 /**
- * Chooser which allows the user to select one or more existing images or videos
+ * Chooser which allows the user to select one or more existing images or videos or audios.
  */
 class GalleryMediaChooser extends MediaChooser implements
         GalleryGridView.GalleryGridViewListener, MediaPickerDataListener {
@@ -54,7 +54,9 @@ class GalleryMediaChooser extends MediaChooser implements
 
     @Override
     public int getSupportedMediaTypes() {
-        return MediaPicker.MEDIA_TYPE_IMAGE | MediaPicker.MEDIA_TYPE_VIDEO;
+        return (MediaPicker.MEDIA_TYPE_IMAGE
+                | MediaPicker.MEDIA_TYPE_VIDEO
+                | MediaPicker.MEDIA_TYPE_AUDIO);
     }
 
     @Override
