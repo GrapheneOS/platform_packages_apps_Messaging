@@ -17,6 +17,7 @@ package com.android.messaging.ui.mediapicker;
 
 import android.content.Context;
 import android.database.Cursor;
+import android.graphics.PorterDuff;
 import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
@@ -25,6 +26,9 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.android.messaging.R;
 import com.android.messaging.datamodel.DataModel;
@@ -54,6 +58,11 @@ public class GalleryGridItemView extends FrameLayout {
     GalleryGridItemData mData;
     private AsyncImageView mImageView;
     private CheckBox mCheckBox;
+    private RelativeLayout mAdditionalInfo;
+    private ImageView mIcon;
+    private LinearLayout mFileInfo;
+    private TextView mFileName;
+    private TextView mFileType;
     private HostInterface mHostInterface;
     private final OnClickListener mOnClickListener = new OnClickListener() {
         @Override
@@ -70,9 +79,14 @@ public class GalleryGridItemView extends FrameLayout {
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
-        mImageView = (AsyncImageView) findViewById(R.id.image);
+        mImageView = (AsyncImageView) findViewById(R.id.thumbnail);
         mCheckBox = (CheckBox) findViewById(R.id.checkbox);
         mCheckBox.setOnClickListener(mOnClickListener);
+        mAdditionalInfo = (RelativeLayout) findViewById(R.id.additional_info);
+        mIcon = (ImageView) findViewById(R.id.icon);
+        mFileInfo = (LinearLayout) findViewById(R.id.file_info);
+        mFileName = (TextView) findViewById(R.id.file_name);
+        mFileType = (TextView) findViewById(R.id.file_type);
         setOnClickListener(mOnClickListener);
         final OnLongClickListener longClickListener = new OnLongClickListener() {
             @Override
@@ -136,32 +150,59 @@ public class GalleryGridItemView extends FrameLayout {
     }
 
     private void updateImageView() {
-        ImageView playButton = (ImageView) findViewById(R.id.video_thumbnail_play_button);
         if (mData.isDocumentPickerItem()) {
-            mImageView.setScaleType(ImageView.ScaleType.CENTER);
             setBackgroundColor(ConversationDrawables.get().getConversationThemeColor());
-            mImageView.setImageResourceId(null);
-            mImageView.setImageResource(R.drawable.ic_photo_library_light);
-            playButton.setVisibility(GONE);
-            mImageView.setContentDescription(getResources().getString(
-                    R.string.pick_image_from_document_library_content_description));
+            mIcon.setImageResource(R.drawable.ic_photo_library_light);
+            mIcon.clearColorFilter();
+            mImageView.setVisibility(GONE);
+            mIcon.setVisibility(VISIBLE);
+            mFileInfo.setVisibility(GONE);
+            mAdditionalInfo.setVisibility(VISIBLE);
         } else {
-            mImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            setBackgroundColor(getResources().getColor(R.color.gallery_image_default_background));
-            mImageView.setImageResourceId(mData.getImageRequestDescriptor());
-            if (ContentType.isVideoType(mData.getContentType())) {
-                playButton.setVisibility(VISIBLE);
-            } else {
-                playButton.setVisibility(GONE);
+            final String contentType = mData.getContentType();
+            if (ContentType.isAudioType(contentType)) {
+                final Context context = getContext();
+                setBackgroundColor(
+                        getResources().getColor(R.color.gallery_image_default_background));
+                mIcon.setImageDrawable(
+                        context.getContentResolver()
+                                .getTypeInfo(contentType)
+                                .getIcon()
+                                .loadDrawable(context));
+                mIcon.setColorFilter(
+                        ConversationDrawables.get().getConversationThemeColor(),
+                        PorterDuff.Mode.SRC_IN);
+                mFileName.setText(mData.getFileName());
+                String[] type = contentType.split("/");
+                mFileType.setText(type[1].toUpperCase() + " " + type[0]);
+                mImageView.setVisibility(GONE);
+                mIcon.setVisibility(VISIBLE);
+                mFileInfo.setVisibility(VISIBLE);
+                mAdditionalInfo.setVisibility(VISIBLE);
+            } else { // For image and video types
+                mImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+                setBackgroundColor(
+                        getResources().getColor(R.color.gallery_image_default_background));
+                mImageView.setImageResourceId(mData.getImageRequestDescriptor());
+                mImageView.setVisibility(VISIBLE);
+                if (ContentType.isVideoType(mData.getContentType())) {
+                    mIcon.setImageResource(R.drawable.ic_video_play_light);
+                    mIcon.clearColorFilter();
+                    mIcon.setVisibility(VISIBLE);
+                } else {
+                    mIcon.setVisibility(GONE);
+                }
+                mFileInfo.setVisibility(GONE);
+                mAdditionalInfo.setVisibility(VISIBLE);
+                final long dateSeconds = mData.getDateSeconds();
+                final boolean isValidDate = (dateSeconds > 0);
+                final int templateId = isValidDate ?
+                        R.string.mediapicker_gallery_image_item_description :
+                        R.string.mediapicker_gallery_image_item_description_no_date;
+                String contentDescription = String.format(getResources().getString(templateId),
+                        dateSeconds * TimeUnit.SECONDS.toMillis(1));
+                mImageView.setContentDescription(contentDescription);
             }
-            final long dateSeconds = mData.getDateSeconds();
-            final boolean isValidDate = (dateSeconds > 0);
-            final int templateId = isValidDate ?
-                    R.string.mediapicker_gallery_image_item_description :
-                    R.string.mediapicker_gallery_image_item_description_no_date;
-            String contentDescription = String.format(getResources().getString(templateId),
-                    dateSeconds * TimeUnit.SECONDS.toMillis(1));
-            mImageView.setContentDescription(contentDescription);
         }
     }
 }
