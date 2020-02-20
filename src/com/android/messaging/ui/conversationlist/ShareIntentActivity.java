@@ -103,7 +103,7 @@ public class ShareIntentActivity extends BaseBugleActivity implements
                 }
                 mDraftMessage =
                         sharedText != null ? MessageData.createSharedMessage(sharedText) : null;
-            } else if (ContentType.isMediaType(contentType)) {
+            } else if (PendingAttachmentData.isSupportedMediaType(contentType)) {
                 if (contentUri != null) {
                     mDraftMessage = MessageData.createSharedMessage(null);
                     addSharedPartToDraft(contentType, contentUri);
@@ -139,7 +139,7 @@ public class ShareIntentActivity extends BaseBugleActivity implements
                             }
                             strBuffer.append(sharedText);
                         }
-                    } else if (ContentType.isMediaType(actualContentType)) {
+                    } else if (PendingAttachmentData.isSupportedMediaType(actualContentType)) {
                         uriMap.put(uri, actualContentType);
                     } else {
                         // Unsupported content type.
