@@ -22,7 +22,7 @@
         <option name="test-file-name" value="messaging.apk" />
     </target_preparer>
 
-    <test class="com.android.tradefed.testtype.InstrumentationTest" >
+    <test class="com.android.tradefed.testtype.AndroidJUnitTest" >
         <option name="package" value="com.android.messaging.test" />
         <option name="runner" value="android.test.InstrumentationTestRunner" />
     </test>
