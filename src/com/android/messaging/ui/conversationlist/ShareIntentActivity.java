@@ -81,6 +81,12 @@ public class ShareIntentActivity extends BaseBugleActivity implements
     public void onAttachFragment(final Fragment fragment) {
         final Intent intent = getIntent();
         final String action = intent.getAction();
+
+        String sharedSubject = intent.getStringExtra(Intent.EXTRA_SUBJECT);
+        if (sharedSubject == null) {
+            sharedSubject = intent.getStringExtra(Intent.EXTRA_TITLE);
+        }
+
         if (Intent.ACTION_SEND.equals(action)) {
             final Uri contentUri = (Uri) intent.getParcelableExtra(Intent.EXTRA_STREAM);
             if (UriUtil.isFileUri(contentUri)) {
@@ -101,11 +107,14 @@ public class ShareIntentActivity extends BaseBugleActivity implements
                     // Try to get text string from content uri.
                     sharedText = getTextStringFromContentUri(contentUri);
                 }
-                mDraftMessage =
-                        sharedText != null ? MessageData.createSharedMessage(sharedText) : null;
+                if (sharedText != null) {
+                    mDraftMessage = MessageData.createSharedMessage(sharedText, sharedSubject);
+                } else {
+                    mDraftMessage = null;
+                }
             } else if (PendingAttachmentData.isSupportedMediaType(contentType)) {
                 if (contentUri != null) {
-                    mDraftMessage = MessageData.createSharedMessage(null);
+                    mDraftMessage = MessageData.createSharedMessage(null, sharedSubject);
                     addSharedPartToDraft(contentType, contentUri);
                 } else {
                     mDraftMessage = null;
@@ -149,7 +158,8 @@ public class ShareIntentActivity extends BaseBugleActivity implements
                 }
 
                 if (strBuffer.length() > 0 || !uriMap.isEmpty()) {
-                    mDraftMessage = MessageData.createSharedMessage(strBuffer.toString());
+                    mDraftMessage =
+                            MessageData.createSharedMessage(strBuffer.toString(), sharedSubject);
                     for (final Map.Entry<Uri, String> e : uriMap.entrySet()) {
                         addSharedPartToDraft(e.getValue(), e.getKey());
                     }
