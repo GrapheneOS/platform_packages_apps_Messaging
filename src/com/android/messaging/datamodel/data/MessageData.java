@@ -297,9 +297,11 @@ public class MessageData implements Parcelable {
     /**
      * Create a message not yet associated with a particular conversation
      */
-    public static MessageData createSharedMessage(final String messageText) {
+    public static MessageData createSharedMessage(final String messageText,
+            final String subjectText) {
         final MessageData message = new MessageData();
         message.mStatus = BUGLE_STATUS_OUTGOING_DRAFT;
+        message.mMmsSubject = subjectText;
         if (!TextUtils.isEmpty(messageText)) {
             message.mParts.add(MessagePartData.createTextMessagePart(messageText));
         }
