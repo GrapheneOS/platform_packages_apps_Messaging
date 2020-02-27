@@ -88,8 +88,8 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <!-- Contains compose message bubble and character counter for SMS which should be left
-            aligned -->
+            <!-- Contains compose message bubble and character counter for SMS or attachments size
+                 for MMS which should be left aligned -->
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_weight="1"
@@ -128,8 +128,8 @@
                 </LinearLayout>
 
                 <TextView
-                    android:id="@+id/char_counter"
-                    style="@style/ComposeMessageViewTextCounterStyle"
+                    android:id="@+id/message_body_size"
+                    style="@style/ComposeMessageViewMessageBodySizeStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:singleLine="true"

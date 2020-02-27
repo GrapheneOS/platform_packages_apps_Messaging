@@ -279,7 +279,7 @@ public class TestDataFactory {
                 new Object[] { Long.valueOf(1), "/sdcard/image2", 200, 200, "image/png" },
                 new Object[] { Long.valueOf(2), "/sdcard/image3", 300, 300, "image/jpeg" },
         };
-        return new FakeCursor(GalleryGridItemData.IMAGE_PROJECTION, sGalleryCursorColumns,
+        return new FakeCursor(GalleryGridItemData.MEDIA_PROJECTION, sGalleryCursorColumns,
                 cursorData);
     }
 

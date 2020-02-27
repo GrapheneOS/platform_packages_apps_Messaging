@@ -210,19 +210,15 @@
             <intent-filter
                 android:label="@string/share_intent_label">
                 <action android:name="android.intent.action.SEND" />
+                <action android:name="android.intent.action.SEND_MULTIPLE" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <data android:mimeType="text/plain" />
                 <data android:mimeType="text/x-vCard" />
                 <data android:mimeType="text/x-vcard" />
                 <data android:mimeType="image/*" />
                 <data android:mimeType="audio/*" />
+                <data android:mimeType="video/*" />
                 <data android:mimeType="application/ogg" />
-            </intent-filter>
-            <intent-filter
-                    android:label="@string/share_intent_label">
-                <action android:name="android.intent.action.SEND_MULTIPLE" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <data android:mimeType="image/*" />
             </intent-filter>
         </activity>
 
@@ -488,9 +484,6 @@
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
-            <intent-filter>
-                <action android:name="com.android.Bugle.intent.action.ACTION_NOTIFY_CONVERSATIONS_CHANGED" />
-            </intent-filter>
             <meta-data android:name="android.appwidget.provider"
                        android:resource="@xml/widget_conversation_list" />
         </receiver>
@@ -500,9 +493,6 @@
                 android:label="@string/widget_conversation_name">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="com.android.Bugle.intent.action.ACTION_NOTIFY_MESSAGES_CHANGED" />
             </intent-filter>
             <meta-data android:name="android.appwidget.provider"
                        android:resource="@xml/widget_conversation" />

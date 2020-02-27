@@ -39,7 +39,7 @@ import com.android.messaging.util.Assert;
 import com.android.messaging.util.OsUtil;
 
 /**
- * Chooser which allows the user to select one or more existing images or videos
+ * Chooser which allows the user to select one or more existing images or videos or audios.
  */
 class GalleryMediaChooser extends MediaChooser implements
         GalleryGridView.GalleryGridViewListener, MediaPickerDataListener {
@@ -54,7 +54,9 @@ class GalleryMediaChooser extends MediaChooser implements
 
     @Override
     public int getSupportedMediaTypes() {
-        return MediaPicker.MEDIA_TYPE_IMAGE | MediaPicker.MEDIA_TYPE_VIDEO;
+        return (MediaPicker.MEDIA_TYPE_IMAGE
+                | MediaPicker.MEDIA_TYPE_VIDEO
+                | MediaPicker.MEDIA_TYPE_AUDIO);
     }
 
     @Override
@@ -63,7 +65,7 @@ class GalleryMediaChooser extends MediaChooser implements
         mAdapter.setHostInterface(null);
         // The loader is started only if startMediaPickerDataLoader() is called
         if (OsUtil.hasStoragePermission()) {
-            mBindingRef.getData().destroyLoader(MediaPickerData.GALLERY_IMAGE_LOADER);
+            mBindingRef.getData().destroyLoader(MediaPickerData.GALLERY_MEDIA_LOADER);
         }
         return super.destroyView();
     }
@@ -121,7 +123,7 @@ class GalleryMediaChooser extends MediaChooser implements
     protected View createView(final ViewGroup container) {
         final LayoutInflater inflater = getLayoutInflater();
         final View view = inflater.inflate(
-                R.layout.mediapicker_image_chooser,
+                R.layout.mediapicker_gallery_chooser,
                 container /* root */,
                 false /* attachToRoot */);
 
@@ -167,7 +169,7 @@ class GalleryMediaChooser extends MediaChooser implements
     public void onMediaPickerDataUpdated(final MediaPickerData mediaPickerData, final Object data,
             final int loaderId) {
         mBindingRef.ensureBound(mediaPickerData);
-        Assert.equals(MediaPickerData.GALLERY_IMAGE_LOADER, loaderId);
+        Assert.equals(MediaPickerData.GALLERY_MEDIA_LOADER, loaderId);
         Cursor rawCursor = null;
         if (data instanceof Cursor) {
             rawCursor = (Cursor) data;
@@ -202,8 +204,9 @@ class GalleryMediaChooser extends MediaChooser implements
     }
 
     private void startMediaPickerDataLoader() {
-        mBindingRef.getData().startLoader(MediaPickerData.GALLERY_IMAGE_LOADER, mBindingRef, null,
-                this);
+        mBindingRef
+                .getData()
+                .startLoader(MediaPickerData.GALLERY_MEDIA_LOADER, mBindingRef, null, this);
     }
 
     @Override

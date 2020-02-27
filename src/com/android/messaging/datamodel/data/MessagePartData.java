@@ -52,9 +52,22 @@ import java.util.concurrent.TimeUnit;
  */
 public class MessagePartData implements Parcelable {
     public static final int UNSPECIFIED_SIZE = MessagingContentProvider.UNSPECIFIED_SIZE;
-    public static final String[] ACCEPTABLE_IMAGE_TYPES =
-            new String[] { ContentType.IMAGE_JPEG, ContentType.IMAGE_JPG, ContentType.IMAGE_PNG,
-                ContentType.IMAGE_GIF };
+
+    public static final String[] ACCEPTABLE_GALLERY_MEDIA_TYPES =
+            new String[] {
+                // Acceptable image types
+                ContentType.IMAGE_JPEG, ContentType.IMAGE_JPG, ContentType.IMAGE_PNG,
+                ContentType.IMAGE_GIF, ContentType.IMAGE_WBMP, ContentType.IMAGE_X_MS_BMP,
+                // Acceptable video types
+                ContentType.VIDEO_3GP, ContentType.VIDEO_3GPP, ContentType.VIDEO_3G2,
+                ContentType.VIDEO_H263, ContentType.VIDEO_M4V, ContentType.VIDEO_MP4,
+                ContentType.VIDEO_MPEG, ContentType.VIDEO_MPEG4, ContentType.VIDEO_WEBM,
+                // Acceptable audio types
+                ContentType.AUDIO_MP3, ContentType.AUDIO_MP4, ContentType.AUDIO_MIDI,
+                ContentType.AUDIO_MID, ContentType.AUDIO_AMR, ContentType.AUDIO_X_WAV,
+                ContentType.AUDIO_AAC, ContentType.AUDIO_X_MIDI, ContentType.AUDIO_X_MID,
+                ContentType.AUDIO_X_MP3
+            };
 
     private static final String[] sProjection = {
         PartColumns._ID,
@@ -328,6 +341,11 @@ public class MessagePartData implements Parcelable {
         return mHeight;
     }
 
+    public static boolean isSupportedMediaType(final String contentType) {
+        return ContentType.isVCardType(contentType)
+                || Arrays.asList(ACCEPTABLE_GALLERY_MEDIA_TYPES).contains(contentType);
+    }
+
     /**
     *
     * @return true if this part can only exist by itself, with no other attachments
@@ -492,16 +510,8 @@ public class MessagePartData implements Parcelable {
             }
             // Other images should be arbitrarily resized by ImageResizer before sending.
             return MmsUtils.MIN_IMAGE_BYTE_SIZE;
-        } else if (isAudio()) {
-            // Audios are already recorded with the lowest sampling settings (AMR_NB), so just
-            // return the file size as the minimum size.
-            return UriUtil.getContentSize(mContentUri);
-        } else if (isVideo()) {
-            final int mediaDurationMs = UriUtil.getMediaDurationMs(mContentUri);
-            return MmsUtils.MIN_VIDEO_BYTES_PER_SECOND * mediaDurationMs
-                    / TimeUnit.SECONDS.toMillis(1);
-        } else if (isVCard()) {
-            // We can't compress vCards.
+        } else if (isMedia()) {
+            // We can't compress attachments except images.
             return UriUtil.getContentSize(mContentUri);
         } else {
             // This is some unknown media type that we don't know how to handle. Log an error

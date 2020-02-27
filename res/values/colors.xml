@@ -128,7 +128,7 @@
     <color name="fab_pressed_color">#3ea4dc</color>
     <color name="fab_ripple">#40ffffff</color>
 
-    <color name="message_text_counter_color">#555555</color>
+    <color name="message_body_size_text_color">#555555</color>
     <color name="mms_indicator_color">#8BC34A</color>
     <color name="list_empty_text">#6d6d6d</color>
     <color name="low_storage_action_item_color">#ff000000</color>

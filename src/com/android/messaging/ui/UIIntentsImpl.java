@@ -236,11 +236,11 @@ public class UIIntentsImpl extends UIIntents {
     @Override
     public void launchDocumentImagePicker(final Fragment fragment) {
         final Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-        intent.putExtra(Intent.EXTRA_MIME_TYPES, MessagePartData.ACCEPTABLE_IMAGE_TYPES);
+        intent.putExtra(Intent.EXTRA_MIME_TYPES, MessagePartData.ACCEPTABLE_GALLERY_MEDIA_TYPES);
         intent.addCategory(Intent.CATEGORY_OPENABLE);
-        intent.setType(ContentType.IMAGE_UNSPECIFIED);
+        intent.setType(ContentType.ANY_TYPE);
 
-        fragment.startActivityForResult(intent, REQUEST_PICK_IMAGE_FROM_DOCUMENT_PICKER);
+        fragment.startActivityForResult(intent, REQUEST_PICK_MEDIA_FROM_DOCUMENT_PICKER);
     }
 
     @Override

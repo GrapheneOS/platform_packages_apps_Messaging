@@ -43,16 +43,16 @@ import java.util.Iterator;
 import java.util.Map;
 
 /**
- * Shows a list of galley images from external storage in a GridView with multi-select
- * capabilities, and with the option to intent out to a standalone image picker.
+ * Shows a list of galley mediae from external storage in a GridView with multi-select capabilities,
+ * and with the option to intent out to a standalone media picker.
  */
 public class GalleryGridView extends MediaPickerGridView implements
         GalleryGridItemView.HostInterface,
         PersistentInstanceState,
         DraftMessageDataListener {
     /**
-     * Implemented by the owner of this GalleryGridView instance to communicate on image
-     * picking and multi-image selection events.
+     * Implemented by the owner of this GalleryGridView instance to communicate on media picking and
+     * multi-media selection events.
      */
     public interface GalleryGridViewListener {
         void onDocumentPickerItemClicked();
@@ -127,7 +127,7 @@ public class GalleryGridView extends MediaPickerGridView implements
             final MessagePartData item = mSelectedImages.remove(data.getImageUri());
             mListener.onItemUnselected(item);
             if (mSelectedImages.size() == 0) {
-                // No image is selected any more, turn off multi-select mode.
+                // No media is selected any more, turn off multi-select mode.
                 setMultiSelectEnabled(false);
             }
         } else {

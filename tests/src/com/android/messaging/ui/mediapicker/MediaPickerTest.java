@@ -97,7 +97,7 @@ public class MediaPickerTest extends FragmentTestCase<MediaPicker> {
     public void testDefaultTabs() {
         Mockito.when(mMockMediaPickerData.getSelectedChooserIndex()).thenReturn(0);
         initFragment(MediaPicker.MEDIA_TYPE_ALL, new Integer[] {
-                MediaPickerData.GALLERY_IMAGE_LOADER },
+                MediaPickerData.GALLERY_MEDIA_LOADER },
                 false);
         final MediaPicker mediaPicker = getFragment();
         final View view = mediaPicker.getView();
@@ -114,7 +114,7 @@ public class MediaPickerTest extends FragmentTestCase<MediaPicker> {
     public void testFilterTabsBeforeAttach() {
         Mockito.when(mMockMediaPickerData.getSelectedChooserIndex()).thenReturn(0);
         initFragment(MediaPicker.MEDIA_TYPE_IMAGE, new Integer[] {
-                MediaPickerData.GALLERY_IMAGE_LOADER },
+                MediaPickerData.GALLERY_MEDIA_LOADER },
                 true);
         final MediaPicker mediaPicker = getFragment();
         final View view = mediaPicker.getView();

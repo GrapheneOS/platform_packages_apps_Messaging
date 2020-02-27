@@ -24,6 +24,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 
+import androidx.collection.ArrayMap;
+
 import com.android.messaging.Factory;
 import com.android.messaging.datamodel.data.ConversationListItemData;
 import com.android.messaging.datamodel.data.MessageData;
@@ -37,8 +39,13 @@ import com.android.messaging.util.MediaMetadataRetrieverWrapper;
 import com.android.messaging.util.FileUtil;
 import com.android.messaging.util.UriUtil;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Map;
 
 public class ShareIntentActivity extends BaseBugleActivity implements
         ShareIntentFragment.HostInterface {
@@ -74,6 +81,12 @@ public class ShareIntentActivity extends BaseBugleActivity implements
     public void onAttachFragment(final Fragment fragment) {
         final Intent intent = getIntent();
         final String action = intent.getAction();
+
+        String sharedSubject = intent.getStringExtra(Intent.EXTRA_SUBJECT);
+        if (sharedSubject == null) {
+            sharedSubject = intent.getStringExtra(Intent.EXTRA_TITLE);
+        }
+
         if (Intent.ACTION_SEND.equals(action)) {
             final Uri contentUri = (Uri) intent.getParcelableExtra(Intent.EXTRA_STREAM);
             if (UriUtil.isFileUri(contentUri)) {
@@ -89,56 +102,111 @@ public class ShareIntentActivity extends BaseBugleActivity implements
                         contentUri, intent.getType(), contentType));
             }
             if (ContentType.TEXT_PLAIN.equals(contentType)) {
-                final String sharedText = intent.getStringExtra(Intent.EXTRA_TEXT);
+                String sharedText = intent.getStringExtra(Intent.EXTRA_TEXT);
+                if (sharedText == null) {
+                    // Try to get text string from content uri.
+                    sharedText = getTextStringFromContentUri(contentUri);
+                }
                 if (sharedText != null) {
-                    mDraftMessage = MessageData.createSharedMessage(sharedText);
+                    mDraftMessage = MessageData.createSharedMessage(sharedText, sharedSubject);
                 } else {
                     mDraftMessage = null;
                 }
-            } else if (ContentType.isImageType(contentType) ||
-                    ContentType.isVCardType(contentType) ||
-                    ContentType.isAudioType(contentType) ||
-                    ContentType.isVideoType(contentType)) {
+            } else if (PendingAttachmentData.isSupportedMediaType(contentType)) {
                 if (contentUri != null) {
-                    mDraftMessage = MessageData.createSharedMessage(null);
-                    addSharedImagePartToDraft(contentType, contentUri);
+                    mDraftMessage = MessageData.createSharedMessage(null, sharedSubject);
+                    addSharedPartToDraft(contentType, contentUri);
                 } else {
                     mDraftMessage = null;
                 }
             } else {
                 // Unsupported content type.
-                Assert.fail("Unsupported shared content type for " + contentUri + ": " + contentType
-                        + " (" + intent.getType() + ")");
+                LogUtil.e(LogUtil.BUGLE_TAG, "Unsupported shared content type for " + contentUri
+                        + ": " + contentType + " (" + intent.getType() + ")");
+                mDraftMessage = null;
             }
         } else if (Intent.ACTION_SEND_MULTIPLE.equals(action)) {
             final String contentType = intent.getType();
-            if (ContentType.isImageType(contentType)) {
-                // Handle sharing multiple images.
-                final ArrayList<Uri> imageUris = intent.getParcelableArrayListExtra(
-                        Intent.EXTRA_STREAM);
-                if (imageUris != null && imageUris.size() > 0) {
-                    mDraftMessage = MessageData.createSharedMessage(null);
-                    for (final Uri imageUri : imageUris) {
-                        if (UriUtil.isFileUri(imageUri)) {
-                            LogUtil.i(
-                                LogUtil.BUGLE_TAG,
+            // Handle sharing multiple contents.
+            final ArrayList<Uri> uris = intent.getParcelableArrayListExtra(Intent.EXTRA_STREAM);
+            if (uris != null && !uris.isEmpty()) {
+                ArrayMap<Uri, String> uriMap = new ArrayMap<Uri, String>();
+                StringBuffer strBuffer = new StringBuffer();
+                for (final Uri uri : uris) {
+                    if (UriUtil.isFileUri(uri)) {
+                        LogUtil.i(LogUtil.BUGLE_TAG,
                                 "Ignoring attachment from file URI which are no longer supported.");
-                            continue;
-                        }
-                        final String actualContentType = extractContentType(imageUri, contentType);
-                        addSharedImagePartToDraft(actualContentType, imageUri);
+                        continue;
                     }
-                } else {
-                    mDraftMessage = null;
+                    final String actualContentType = extractContentType(uri, contentType);
+                    if (ContentType.TEXT_PLAIN.equals(actualContentType)) {
+                        // Try to get text string from content uri.
+                        String sharedText = getTextStringFromContentUri(uri);
+                        if (sharedText != null) {
+                            if (strBuffer.length() > 0) {
+                                strBuffer.append("\n");
+                            }
+                            strBuffer.append(sharedText);
+                        }
+                    } else if (PendingAttachmentData.isSupportedMediaType(actualContentType)) {
+                        uriMap.put(uri, actualContentType);
+                    } else {
+                        // Unsupported content type.
+                        LogUtil.e(LogUtil.BUGLE_TAG, "Unsupported shared content type for " + uri
+                                + ": " + actualContentType);
+                    }
+                }
+
+                if (strBuffer.length() > 0 || !uriMap.isEmpty()) {
+                    mDraftMessage =
+                            MessageData.createSharedMessage(strBuffer.toString(), sharedSubject);
+                    for (final Map.Entry<Uri, String> e : uriMap.entrySet()) {
+                        addSharedPartToDraft(e.getValue(), e.getKey());
+                    }
                 }
             } else {
-                // Unsupported content type.
-                Assert.fail("Unsupported shared content type: " + contentType);
+                // No EXTRA_STREAM.
+                LogUtil.e(LogUtil.BUGLE_TAG, "No shared URI.");
+                mDraftMessage = null;
             }
         } else {
             // Unsupported action.
             Assert.fail("Unsupported action type for sharing: " + action);
         }
+    }
+
+    private static String getTextStringFromContentUri(final Uri contentUri) {
+        if (contentUri == null) {
+            return null;
+        }
+        final ContentResolver resolver = Factory.get().getApplicationContext().getContentResolver();
+        BufferedReader reader = null;
+        try {
+            final InputStream in = resolver.openInputStream(contentUri);
+            reader = new BufferedReader(new InputStreamReader(in));
+            String line = reader.readLine();
+            if (line == null) {
+                return null;
+            }
+            StringBuffer strBuffer = new StringBuffer(line);
+            while ((line = reader.readLine()) != null) {
+                strBuffer.append("\n").append(line);
+            }
+            return strBuffer.toString();
+        } catch (FileNotFoundException e) {
+            LogUtil.w(LogUtil.BUGLE_TAG, "Can not find contentUri " + contentUri);
+        } catch (IOException e) {
+            LogUtil.w(LogUtil.BUGLE_TAG, "Can not read contentUri", e);
+        } finally {
+            try {
+                if (reader != null) {
+                    reader.close();
+                }
+            } catch (IOException e) {
+                // Ignore
+            }
+        }
+        return null;
     }
 
     private static String extractContentType(final Uri uri, final String contentType) {
@@ -171,12 +239,12 @@ public class ShareIntentActivity extends BaseBugleActivity implements
         return contentType;
     }
 
-    private void addSharedImagePartToDraft(final String contentType, final Uri imageUri) {
-        if (FileUtil.isInPrivateDir(imageUri)) {
-            Assert.fail("Cannot send private file " + imageUri.toString());
+    private void addSharedPartToDraft(final String contentType, final Uri uri) {
+        if (FileUtil.isInPrivateDir(uri)) {
+            Assert.fail("Cannot send private file " + uri.toString());
         } else {
-            mDraftMessage.addPart(PendingAttachmentData.createPendingAttachmentData(contentType,
-                    imageUri));
+            mDraftMessage.addPart(
+                    PendingAttachmentData.createPendingAttachmentData(contentType, uri));
         }
     }
 
