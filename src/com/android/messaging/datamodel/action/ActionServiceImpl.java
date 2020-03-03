@@ -28,7 +28,6 @@ import androidx.core.app.JobIntentService;
 
 import com.android.messaging.Factory;
 import com.android.messaging.datamodel.DataModel;
-import com.android.messaging.util.ConnectivityUtil;
 import com.android.messaging.util.LogUtil;
 import com.android.messaging.util.LoggingTimer;
 import com.google.common.annotations.VisibleForTesting;
@@ -134,7 +133,6 @@ public class ActionServiceImpl extends JobIntentService {
     protected static final String BUNDLE_ACTION = "bundle_action";
 
     private BackgroundWorker mBackgroundWorker;
-    private ConnectivityUtil mConnectivityUtil;
 
     /**
      * Allocate an intent with a specific opcode.
@@ -213,14 +211,11 @@ public class ActionServiceImpl extends JobIntentService {
     public void onCreate() {
         super.onCreate();
         mBackgroundWorker = DataModel.get().getBackgroundWorkerForActionService();
-        mConnectivityUtil = DataModel.get().getConnectivityUtil();
-        mConnectivityUtil.registerForSignalStrength();
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        mConnectivityUtil.unregisterForSignalStrength();
     }
 
     /**

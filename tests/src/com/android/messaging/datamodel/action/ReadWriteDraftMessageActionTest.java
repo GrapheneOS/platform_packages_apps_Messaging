@@ -36,7 +36,6 @@ import com.android.messaging.datamodel.MediaScratchFileProvider;
 import com.android.messaging.datamodel.MessagingContentProvider;
 import com.android.messaging.datamodel.action.ActionTestHelpers.StubActionService;
 import com.android.messaging.datamodel.action.ActionTestHelpers.StubActionService.StubActionServiceCallLog;
-import com.android.messaging.datamodel.action.ActionTestHelpers.StubConnectivityUtil;
 import com.android.messaging.datamodel.action.ReadDraftDataAction.ReadDraftDataActionListener;
 import com.android.messaging.datamodel.data.MessageData;
 import com.android.messaging.datamodel.data.MessagePartData;
@@ -473,8 +472,7 @@ public class ReadWriteDraftMessageActionTest extends BugleTestCase {
 
         mService = new StubActionService();
         final FakeDataModel fakeDataModel = new FakeDataModel(context)
-                .withActionService(mService)
-                .withConnectivityUtil(new StubConnectivityUtil(context));
+                .withActionService(mService);
         FakeFactory.registerWithFakeContext(getTestContext(), context)
                 .withDataModel(fakeDataModel);
 
