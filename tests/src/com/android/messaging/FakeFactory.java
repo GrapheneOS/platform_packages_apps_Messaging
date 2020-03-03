@@ -46,6 +46,7 @@ import org.mockito.Mockito;
 import org.mockito.invocation.InvocationOnMock;
 import org.mockito.stubbing.Answer;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class FakeFactory extends Factory {
@@ -121,7 +122,8 @@ public class FakeFactory extends Factory {
 
                         @Override
                         public List<SubscriptionInfo> getActiveSubscriptionInfoList() {
-                            return null;
+                            // Return empty list
+                            return new ArrayList<>();
                         }
 
                         @Override
