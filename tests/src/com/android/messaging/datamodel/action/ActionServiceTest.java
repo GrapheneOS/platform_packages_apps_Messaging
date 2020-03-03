@@ -35,7 +35,6 @@ import com.android.messaging.datamodel.action.ActionMonitor.ActionCompletedListe
 import com.android.messaging.datamodel.action.ActionMonitor.ActionStateChangedListener;
 import com.android.messaging.datamodel.action.ActionTestHelpers.ResultTracker;
 import com.android.messaging.datamodel.action.ActionTestHelpers.StubBackgroundWorker;
-import com.android.messaging.datamodel.action.ActionTestHelpers.StubConnectivityUtil;
 import com.android.messaging.datamodel.action.ActionTestHelpers.StubLoader;
 
 import java.util.ArrayList;
@@ -145,8 +144,7 @@ public class ActionServiceTest extends BugleServiceTestCase<ActionServiceImpl>
         FakeFactory.registerWithFakeContext(getContext(),mContext)
                 .withDataModel(new FakeDataModel(mContext)
                 .withBackgroundWorkerForActionService(mWorker)
-                .withActionService(new ActionService())
-                .withConnectivityUtil(new StubConnectivityUtil(mContext)));
+                .withActionService(new ActionService()));
 
         mStates = new ArrayList<Integer>();
         setContext(Factory.get().getApplicationContext());

@@ -118,7 +118,6 @@ public class InsertNewMessageAction extends Action implements Parcelable {
      */
     @Override
     protected Object executeAction() {
-        LogUtil.i(TAG, "InsertNewMessageAction: inserting new message");
         MessageData message = actionParameters.getParcelable(KEY_MESSAGE);
         if (message == null) {
             LogUtil.i(TAG, "InsertNewMessageAction: Creating MessageData with provided data");
@@ -151,6 +150,8 @@ public class InsertNewMessageAction extends Action implements Parcelable {
             return null;
         }
         final int subId = self.getSubId();
+        LogUtil.i(TAG, "InsertNewMessageAction: inserting new message for subId " + subId);
+        actionParameters.putInt(KEY_SUB_ID, subId);
 
         // TODO: Work out whether to send with SMS or MMS (taking into account recipients)?
         final boolean isSms = (message.getProtocol() == MessageData.PROTOCOL_SMS);
