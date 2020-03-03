@@ -22,9 +22,11 @@ import android.database.Cursor;
 import android.graphics.Color;
 import android.os.Parcel;
 import android.os.Parcelable;
-import androidx.appcompat.mms.MmsManager;
 import android.telephony.SubscriptionInfo;
 import android.text.TextUtils;
+
+import androidx.appcompat.mms.MmsManager;
+import androidx.collection.ArrayMap;
 
 import com.android.ex.chips.RecipientEntry;
 import com.android.messaging.Factory;
@@ -41,6 +43,10 @@ import com.android.messaging.util.TextUtil;
  * A class that encapsulates all of the data for a specific participant in a conversation.
  */
 public class ParticipantData implements Parcelable {
+
+    private static final ArrayMap<Integer, String> sSubIdtoParticipantIdCache =
+            new ArrayMap<Integer, String>();
+
     // We always use -1 as default/invalid sub id although system may give us anything negative
     public static final int DEFAULT_SELF_SUB_ID = MmsManager.DEFAULT_SUB_ID;
 
@@ -280,6 +286,34 @@ public class ParticipantData implements Parcelable {
         pd.mSubscriptionColor = Color.TRANSPARENT;
         pd.mSubscriptionName = null;
         return pd;
+    }
+
+    public static String getParticipantId(final DatabaseWrapper db, final int subId) {
+        String id;
+        synchronized (sSubIdtoParticipantIdCache) {
+            id = sSubIdtoParticipantIdCache.get(subId);
+        }
+
+        if (id != null) {
+            return id;
+        }
+
+        try (final Cursor cursor =
+                    db.query(DatabaseHelper.PARTICIPANTS_TABLE,
+                            new String[] {ParticipantColumns._ID},
+                            ParticipantColumns.SUB_ID + " =?",
+                            new String[] {Integer.toString(subId)}, null, null, null)) {
+
+            if (cursor.moveToFirst()) {
+                // We found an existing participant in the database
+                id = cursor.getString(0);
+                synchronized (sSubIdtoParticipantIdCache) {
+                    // Add it to the cache for next time
+                    sSubIdtoParticipantIdCache.put(subId, id);
+                }
+            }
+        }
+        return id;
     }
 
     private void maybeSetupUnknownSender() {

@@ -35,10 +35,10 @@ public class DataModelTest extends BugleTestCase {
 
     @Override
     protected void setUp() throws Exception {
-      super.setUp();
-      dataModel = new DataModelImpl(getTestContext());
-      FakeFactory.register(mContext)
-              .withDataModel(dataModel);
+        super.setUp();
+        FakeFactory factory = FakeFactory.register(mContext);
+        dataModel = new DataModelImpl(getTestContext());
+        factory.withDataModel(dataModel);
     }
 
     @SmallTest

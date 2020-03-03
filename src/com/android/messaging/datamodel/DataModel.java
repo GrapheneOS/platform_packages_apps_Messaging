@@ -50,7 +50,6 @@ import com.android.messaging.datamodel.data.SettingsData.SettingsDataListener;
 import com.android.messaging.datamodel.data.SubscriptionListData;
 import com.android.messaging.datamodel.data.VCardContactItemData;
 import com.android.messaging.util.Assert.DoesNotRunOnMainThread;
-import com.android.messaging.util.ConnectivityUtil;
 
 public abstract class DataModel {
     private String mFocusedConversation;
@@ -151,8 +150,6 @@ public abstract class DataModel {
     }
 
     public abstract void onApplicationCreated();
-
-    public abstract ConnectivityUtil getConnectivityUtil();
 
     public abstract SyncManager getSyncManager();
 }

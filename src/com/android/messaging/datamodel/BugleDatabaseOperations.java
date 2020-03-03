@@ -965,7 +965,7 @@ public class BugleDatabaseOperations {
         return participant;
     }
 
-    static int getSelfSubscriptionId(final DatabaseWrapper dbWrapper,
+    public static int getSelfSubscriptionId(final DatabaseWrapper dbWrapper,
             final String selfParticipantId) {
         final ParticipantData selfParticipant = BugleDatabaseOperations.getExistingParticipant(
                 dbWrapper, selfParticipantId);
