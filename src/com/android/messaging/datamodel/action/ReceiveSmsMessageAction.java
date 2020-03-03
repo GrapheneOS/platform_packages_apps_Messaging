@@ -44,6 +44,7 @@ public class ReceiveSmsMessageAction extends Action implements Parcelable {
     private static final String TAG = LogUtil.BUGLE_DATAMODEL_TAG;
 
     private static final String KEY_MESSAGE_VALUES = "message_values";
+    private static final String KEY_SUB_ID = "sub_id";
 
     /**
      * Create a message received from a particular number in a particular conversation
@@ -158,6 +159,7 @@ public class ReceiveSmsMessageAction extends Action implements Parcelable {
                     + " in conversation " + message.getConversationId()
                     + ", uri = " + messageUri);
 
+            actionParameters.putInt(KEY_SUB_ID, subId);
             ProcessPendingMessagesAction.scheduleProcessPendingMessagesAction(false, this);
         } else {
             if (LogUtil.isLoggable(TAG, LogUtil.DEBUG)) {

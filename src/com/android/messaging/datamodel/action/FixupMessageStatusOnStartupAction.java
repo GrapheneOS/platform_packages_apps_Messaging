@@ -60,13 +60,12 @@ public class FixupMessageStatusOnStartupAction extends Action implements Parcela
             final ContentValues values = new ContentValues();
             values.put(DatabaseHelper.MessageColumns.STATUS,
                     MessageData.BUGLE_STATUS_INCOMING_DOWNLOAD_FAILED);
-            downloadFailedCnt += db.update(DatabaseHelper.MESSAGES_TABLE, values,
+            downloadFailedCnt = db.update(DatabaseHelper.MESSAGES_TABLE, values,
                     DatabaseHelper.MessageColumns.STATUS + " IN (?, ?)",
                     new String[]{
                             Integer.toString(MessageData.BUGLE_STATUS_INCOMING_AUTO_DOWNLOADING),
                             Integer.toString(MessageData.BUGLE_STATUS_INCOMING_MANUAL_DOWNLOADING)
                     });
-            values.clear();
 
             values.clear();
             values.put(DatabaseHelper.MessageColumns.STATUS,

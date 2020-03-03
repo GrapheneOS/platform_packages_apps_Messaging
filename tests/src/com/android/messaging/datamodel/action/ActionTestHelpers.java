@@ -21,8 +21,6 @@ import android.database.ContentObserver;
 import android.net.Uri;
 import android.os.Bundle;
 
-import com.android.messaging.util.ConnectivityUtil;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -172,20 +170,6 @@ public class ActionTestHelpers {
             synchronized(this) {
                 this.notifyAll();
             }
-        }
-    }
-
-    public static class StubConnectivityUtil extends ConnectivityUtil {
-        public StubConnectivityUtil(final Context context) {
-            super(context);
-        }
-
-        @Override
-        public void registerForSignalStrength() {
-        }
-
-        @Override
-        public void unregisterForSignalStrength() {
         }
     }
 }
