@@ -36,7 +36,9 @@ import com.android.messaging.util.LogUtil;
  */
 public class RedownloadMmsAction extends Action implements Parcelable {
     private static final String TAG = LogUtil.BUGLE_DATAMODEL_TAG;
-    private static final int REQUEST_CODE_PENDING_INTENT = 102;
+    private static final int REQUEST_CODE_PENDING_INTENT = 101;
+
+    private static final String KEY_SUB_ID = "sub_id";
 
     /**
      * Download an MMS message
@@ -90,7 +92,8 @@ public class RedownloadMmsAction extends Action implements Parcelable {
             BugleDatabaseOperations.updateMessageRow(db, message.getMessageId(), values);
 
             MessagingContentProvider.notifyMessagesChanged(message.getConversationId());
-
+            actionParameters.putInt(KEY_SUB_ID,
+                    BugleDatabaseOperations.getSelfSubscriptionId(db, message.getSelfId()));
             // Whether we succeeded or failed we will check and maybe schedule some more work
             ProcessPendingMessagesAction.scheduleProcessPendingMessagesAction(false, this);
         } else {

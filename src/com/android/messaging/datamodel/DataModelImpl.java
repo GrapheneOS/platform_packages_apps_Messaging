@@ -57,13 +57,20 @@ import com.android.messaging.util.LogUtil;
 import com.android.messaging.util.OsUtil;
 import com.android.messaging.util.PhoneUtils;
 
+import java.util.concurrent.ConcurrentHashMap;
+
 public class DataModelImpl extends DataModel {
     private final Context mContext;
     private final ActionService mActionService;
     private final BackgroundWorker mDataModelWorker;
     private final DatabaseHelper mDatabaseHelper;
-    private final ConnectivityUtil mConnectivityUtil;
     private final SyncManager mSyncManager;
+
+    // Cached ConnectivityUtil instance for Pre-L_MR1
+    private static ConnectivityUtil sConnectivityUtilInstanceCachePreLMR1 = null;
+    // Cached ConnectivityUtil subId->instance for L_MR1 and beyond
+    private static final ConcurrentHashMap<Integer, ConnectivityUtil>
+            sConnectivityUtilInstanceCacheLMR1 = new ConcurrentHashMap<>();
 
     public DataModelImpl(final Context context) {
         super();
@@ -71,8 +78,12 @@ public class DataModelImpl extends DataModel {
         mActionService = new ActionService();
         mDataModelWorker = new BackgroundWorker();
         mDatabaseHelper = DatabaseHelper.getInstance(context);
-        mConnectivityUtil = new ConnectivityUtil(context);
         mSyncManager = new SyncManager();
+        if (OsUtil.isAtLeastL_MR1()) {
+            createConnectivityUtilForLMR1();
+        } else {
+            sConnectivityUtilInstanceCachePreLMR1 = new ConnectivityUtil(context);
+        }
     }
 
     @Override
@@ -185,11 +196,6 @@ public class DataModelImpl extends DataModel {
     }
 
     @Override
-    public ConnectivityUtil getConnectivityUtil() {
-        return mConnectivityUtil;
-    }
-
-    @Override
     public SyncManager getSyncManager() {
         return mSyncManager;
     }
@@ -218,7 +224,8 @@ public class DataModelImpl extends DataModel {
         SyncManager.immediateSync();
 
         if (OsUtil.isAtLeastL_MR1()) {
-            // Start listening for subscription change events for refreshing self participants.
+            // Start listening for subscription change events for refreshing any data associated
+            // with subscriptions.
             PhoneUtils.getDefault().toLMr1().registerOnSubscriptionsChangedListener(
                     new SubscriptionManager.OnSubscriptionsChangedListener() {
                         @Override
@@ -229,8 +236,31 @@ public class DataModelImpl extends DataModel {
                             // gracefully
                             MmsConfig.loadAsync();
                             ParticipantRefresh.refreshSelfParticipants();
+                            createConnectivityUtilForLMR1();
                         }
                     });
+        }
+    }
+
+    private void createConnectivityUtilForLMR1() {
+        PhoneUtils.forEachActiveSubscription(new PhoneUtils.SubscriptionRunnable() {
+            @Override
+            public void runForSubscription(int subId) {
+                // Create the ConnectivityUtil instance for given subId if absent.
+                if (subId <= ParticipantData.DEFAULT_SELF_SUB_ID) {
+                    subId = PhoneUtils.getDefault().getDefaultSmsSubscriptionId();
+                }
+                sConnectivityUtilInstanceCacheLMR1.computeIfAbsent(
+                        subId, key -> new ConnectivityUtil(mContext, key));
+            }
+        });
+    }
+
+    public static ConnectivityUtil getConnectivityUtil(final int subId) {
+        if (OsUtil.isAtLeastL_MR1()) {
+            return sConnectivityUtilInstanceCacheLMR1.get(subId);
+        } else {
+            return sConnectivityUtilInstanceCachePreLMR1;
         }
     }
 }
