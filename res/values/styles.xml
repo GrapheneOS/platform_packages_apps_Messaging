@@ -217,6 +217,11 @@
         <item name="android:paddingLeft">16dp</item>
     </style>
 
+    <style name="ContactPickerHintText">
+        <item name="android:textSize">@dimen/contact_picker_text_size</item>
+        <item name="android:textColor">@color/contact_picker_hint_text_color</item>
+    </style>
+
     <style name="VcardAttachmentSingleStyle">
         <item name="android:paddingRight">@dimen/message_text_left_right_padding</item>
         <item name="android:paddingLeft">@dimen/message_text_left_right_padding</item>
