@@ -57,6 +57,8 @@ public class AttachmentPreview extends ScrollView implements OnAttachmentClickLi
     private Runnable mHideRunnable;
     private boolean mPendingHideCanceled;
 
+    private PopupTransitionAnimation mPopupTransitionAnimation;
+
     private static final int CLOSE_BUTTON_REVEAL_STAGGER_MILLIS = 300;
 
     public AttachmentPreview(final Context context, final AttributeSet attrs) {
@@ -132,6 +134,7 @@ public class AttachmentPreview extends ScrollView implements OnAttachmentClickLi
                             public void run() {
                                 // Only hide if we are didn't get overruled by showing
                                 if (!mPendingHideCanceled) {
+                                    stopPopupAnimation();
                                     mAttachmentView.removeAllViews();
                                     setVisibility(GONE);
                                 }
@@ -280,10 +283,19 @@ public class AttachmentPreview extends ScrollView implements OnAttachmentClickLi
         mHideRunnable.run();
     }
 
-    static void tryAnimateViewIn(final MessagePartData attachmentData, final View view) {
+    private void tryAnimateViewIn(final MessagePartData attachmentData, final View view) {
         if (attachmentData instanceof MediaPickerMessagePartData) {
             final Rect startRect = ((MediaPickerMessagePartData) attachmentData).getStartRect();
-            new PopupTransitionAnimation(startRect, view).startAfterLayoutComplete();
+            stopPopupAnimation();
+            mPopupTransitionAnimation = new PopupTransitionAnimation(startRect, view);
+            mPopupTransitionAnimation.startAfterLayoutComplete();
+        }
+    }
+
+    private void stopPopupAnimation() {
+        if (mPopupTransitionAnimation != null) {
+            mPopupTransitionAnimation.cancel();
+            mPopupTransitionAnimation = null;
         }
     }
 
