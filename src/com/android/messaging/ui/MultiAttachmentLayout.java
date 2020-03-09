@@ -33,6 +33,7 @@ import com.android.messaging.datamodel.data.MessagePartData;
 import com.android.messaging.datamodel.data.PendingAttachmentData;
 import com.android.messaging.datamodel.media.ImageRequestDescriptor;
 import com.android.messaging.ui.AsyncImageView.AsyncImageViewDelayLoader;
+import com.android.messaging.ui.animation.PopupTransitionAnimation;
 import com.android.messaging.util.AccessibilityUtil;
 import com.android.messaging.util.Assert;
 import com.android.messaging.util.UiUtils;
@@ -275,7 +276,11 @@ public class MultiAttachmentLayout extends FrameLayout {
             // views will slide from their previous position to their new position within the
             // layout
             if (i == 0) {
-                AttachmentPreview.tryAnimateViewIn(attachment, attachmentWrapper.view);
+                if (attachment instanceof MediaPickerMessagePartData) {
+                    final Rect startRect = ((MediaPickerMessagePartData) attachment).getStartRect();
+                    new PopupTransitionAnimation(startRect, attachmentWrapper.view)
+                            .startAfterLayoutComplete();
+                }
             }
             attachmentWrapper.needsSlideAnimation = i > 0;
         }
