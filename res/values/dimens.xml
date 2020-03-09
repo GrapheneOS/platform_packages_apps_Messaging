@@ -100,6 +100,9 @@
     <dimen name="audio_picker_text_size">16sp</dimen>
     <dimen name="audio_attachment_text_size">14sp</dimen>
     <dimen name="audio_progress_bar_height">6dp</dimen>
+
+    <dimen name="contact_picker_text_size">16sp</dimen>
+
     <!-- Videos in the message list view should at least be this big in the smallest dimension -->
     <dimen name="video_message_min_size">320dp</dimen>
     <dimen name="attachment_rounded_corner_radius">3dp</dimen>
