@@ -111,6 +111,8 @@
     <color name="audio_attachment_timer_text_color">#323232</color>
     <color name="audio_progress_bar_color">@color/primary_color</color>
 
+    <color name="contact_picker_hint_text_color">#40000000</color>
+
     <color name="notification_sender_text">#9A9A9A</color>
     <color name="notification_secondary_text">#FFFFFF</color>
     <color name="notification_tertiary_text">#FFFFFF</color>

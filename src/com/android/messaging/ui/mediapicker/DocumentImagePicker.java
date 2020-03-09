@@ -15,7 +15,6 @@
  */
 package com.android.messaging.ui.mediapicker;
 
-import android.app.Activity;
 import android.app.Fragment;
 import android.content.Intent;
 import android.net.Uri;
@@ -79,30 +78,27 @@ public class DocumentImagePicker {
      * Must be called from the fragment/activity's onActivityResult().
      */
     public void onActivityResult(final int requestCode, final int resultCode, final Intent data) {
-        if (requestCode == UIIntents.REQUEST_PICK_MEDIA_FROM_DOCUMENT_PICKER
-                && resultCode == Activity.RESULT_OK) {
-            // Sometimes called after media item has been picked from the document picker.
-            String url = data.getStringExtra(EXTRA_PHOTO_URL);
+        // Sometimes called after media item has been picked from the document picker.
+        String url = data.getStringExtra(EXTRA_PHOTO_URL);
+        if (url == null) {
+            // we're using the builtin photo picker which supplies the return
+            // url as it's "data"
+            url = data.getDataString();
             if (url == null) {
-                // we're using the builtin photo picker which supplies the return
-                // url as it's "data"
-                url = data.getDataString();
-                if (url == null) {
-                    final Bundle extras = data.getExtras();
-                    if (extras != null) {
-                        final Uri uri = (Uri) extras.getParcelable(Intent.EXTRA_STREAM);
-                        if (uri != null) {
-                            url = uri.toString();
-                        }
+                final Bundle extras = data.getExtras();
+                if (extras != null) {
+                    final Uri uri = (Uri) extras.getParcelable(Intent.EXTRA_STREAM);
+                    if (uri != null) {
+                        url = uri.toString();
                     }
                 }
             }
+        }
 
-            // Guard against null uri cases for when the activity returns a null/invalid intent.
-            if (url != null) {
-                final Uri uri = Uri.parse(url);
-                prepareDocumentForAttachment(uri);
-            }
+        // Guard against null uri cases for when the activity returns a null/invalid intent.
+        if (url != null) {
+            final Uri uri = Uri.parse(url);
+            prepareDocumentForAttachment(uri);
         }
     }
 
