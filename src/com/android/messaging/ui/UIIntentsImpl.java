@@ -244,6 +244,19 @@ public class UIIntentsImpl extends UIIntents {
     }
 
     @Override
+    public void launchContactCardPicker(final Fragment fragment) {
+        final Intent intent = new Intent(Intent.ACTION_PICK);
+        intent.setType(Contacts.CONTENT_TYPE);
+
+        try {
+            fragment.startActivityForResult(intent, REQUEST_PICK_CONTACT_CARD);
+        } catch (final ActivityNotFoundException ex) {
+            LogUtil.w(LogUtil.BUGLE_TAG, "Couldn't find activity:", ex);
+            UiUtils.showToastAtBottom(R.string.activity_not_found_message);
+        }
+    }
+
+    @Override
     public void launchPeopleAndOptionsActivity(final Activity activity,
             final String conversationId) {
         final Intent intent = new Intent(activity, PeopleAndOptionsActivity.class);
