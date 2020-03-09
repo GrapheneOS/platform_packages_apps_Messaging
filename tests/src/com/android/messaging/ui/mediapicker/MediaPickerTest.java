@@ -103,7 +103,7 @@ public class MediaPickerTest extends FragmentTestCase<MediaPicker> {
         final View view = mediaPicker.getView();
         assertNotNull(view);
         final ViewGroup tabStrip = (ViewGroup) view.findViewById(R.id.mediapicker_tabstrip);
-        assertEquals(tabStrip.getChildCount(), 3);
+        assertEquals(tabStrip.getChildCount(), 4);
         for (int i = 0; i < tabStrip.getChildCount(); i++) {
             final ImageButton tabButton = (ImageButton) tabStrip.getChildAt(i);
             assertEquals(View.VISIBLE, tabButton.getVisibility());
@@ -120,7 +120,7 @@ public class MediaPickerTest extends FragmentTestCase<MediaPicker> {
         final View view = mediaPicker.getView();
         assertNotNull(view);
         final ViewGroup tabStrip = (ViewGroup) view.findViewById(R.id.mediapicker_tabstrip);
-        assertEquals(tabStrip.getChildCount(), 3);
+        assertEquals(tabStrip.getChildCount(), 4);
         for (int i = 0; i < tabStrip.getChildCount(); i++) {
             final ImageButton tabButton = (ImageButton) tabStrip.getChildAt(i);
             assertEquals(i == 0, tabButton.isSelected());
