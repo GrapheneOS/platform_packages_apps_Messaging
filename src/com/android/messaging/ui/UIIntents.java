@@ -47,6 +47,9 @@ public abstract class UIIntents {
     // The request code for picking a media from the Document picker.
     public static final int REQUEST_PICK_MEDIA_FROM_DOCUMENT_PICKER = 1400;
 
+    // The request code for picking a contact card from existing Contacts apps.
+    public static final int REQUEST_PICK_CONTACT_CARD = 1500;
+
     // Indicates what type of notification this applies to (See BugleNotifications:
     // UPDATE_NONE, UPDATE_MESSAGES, UPDATE_ERRORS, UPDATE_ALL)
     public static final String UI_INTENT_EXTRA_NOTIFICATIONS_UPDATE = "notifications_update";
@@ -166,11 +169,18 @@ public abstract class UIIntents {
     public abstract void launchAddContactActivity(final Context context, final String destination);
 
     /**
-     * Launch an activity to show the document picker to pick an image/video.
+     * Launch an activity to show the document picker to pick an image/video/audio.
      *
      * @param fragment the requesting fragment
      */
     public abstract void launchDocumentImagePicker(final Fragment fragment);
+
+    /**
+     * Launch an activity to show the contacts list to pick one.
+     *
+     * @param fragment the requesting fragment
+     */
+    public abstract void launchContactCardPicker(final Fragment fragment);
 
     /**
      * Launch an activity to show people & options for a given conversation.
