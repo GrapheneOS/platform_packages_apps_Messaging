@@ -53,6 +53,7 @@
     <string name="mediapicker_cameraChooserDescription">Capture pictures or video</string>
     <string name="mediapicker_galleryChooserDescription">Choose images from this device</string>
     <string name="mediapicker_audioChooserDescription">Record audio</string>
+    <string name="mediapicker_contactChooserDescription">Choose a contact from this device</string>
     <string name="mediapicker_gallery_title">Choose media</string>
     <string name="mediapicker_gallery_item_selected_content_description">The media is selected.</string>
     <string name="mediapicker_gallery_item_unselected_content_description">The media is unselected.</string>
@@ -61,6 +62,9 @@
     <string name="mediapicker_gallery_image_item_description">image <xliff:g id="date">%1$tB %1$te %1$tY %1$tl %1$tM %1$tp</xliff:g></string>
     <string name="mediapicker_gallery_image_item_description_no_date">image</string>
     <string name="mediapicker_audio_title">Record audio</string>
+    <string name="mediapicker_contact_title">Choose a contact</string>
+    <!-- Hint text on the contact picker -->
+    <string name="contact_picker_hint_text">Click to open contacts list on this device</string>
 
     <string name="action_share">Share</string>
 

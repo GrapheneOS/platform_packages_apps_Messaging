@@ -17,6 +17,8 @@
 package com.android.messaging.ui.mediapicker;
 
 import android.Manifest;
+import android.app.Activity;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.database.MatrixCursor;
@@ -35,6 +37,9 @@ import com.android.messaging.datamodel.data.GalleryGridItemData;
 import com.android.messaging.datamodel.data.MediaPickerData;
 import com.android.messaging.datamodel.data.MessagePartData;
 import com.android.messaging.datamodel.data.MediaPickerData.MediaPickerDataListener;
+import com.android.messaging.datamodel.data.PendingAttachmentData;
+import com.android.messaging.ui.UIIntents;
+import com.android.messaging.ui.mediapicker.DocumentImagePicker.SelectionListener;
 import com.android.messaging.util.Assert;
 import com.android.messaging.util.OsUtil;
 
@@ -47,9 +52,21 @@ class GalleryMediaChooser extends MediaChooser implements
     private GalleryGridView mGalleryGridView;
     private View mMissingPermissionView;
 
+    /** Handles picking a media from the document picker. */
+    private DocumentImagePicker mDocumentImagePicker;
+
     GalleryMediaChooser(final MediaPicker mediaPicker) {
         super(mediaPicker);
         mAdapter = new GalleryGridAdapter(Factory.get().getApplicationContext(), null);
+        mDocumentImagePicker = new DocumentImagePicker(mMediaPicker,
+                new SelectionListener() {
+                    @Override
+                    public void onDocumentSelected(final PendingAttachmentData data) {
+                        if (mBindingRef.isBound()) {
+                            mMediaPicker.dispatchPendingItemAdded(data);
+                        }
+                    }
+                });
     }
 
     @Override
@@ -148,7 +165,8 @@ class GalleryMediaChooser extends MediaChooser implements
 
     @Override
     public void onDocumentPickerItemClicked() {
-        mMediaPicker.launchDocumentPicker();
+        // Launch an external picker to pick item from document picker as attachment.
+        mDocumentImagePicker.launchPicker();
     }
 
     @Override
@@ -229,5 +247,14 @@ class GalleryMediaChooser extends MediaChooser implements
 
         mGalleryGridView.setVisibility(granted ? View.VISIBLE : View.GONE);
         mMissingPermissionView.setVisibility(granted ? View.GONE : View.VISIBLE);
+    }
+
+    @Override
+    protected void onActivityResult(
+            final int requestCode, final int resultCode, final Intent data) {
+        if (requestCode == UIIntents.REQUEST_PICK_MEDIA_FROM_DOCUMENT_PICKER
+                && resultCode == Activity.RESULT_OK) {
+            mDocumentImagePicker.onActivityResult(requestCode, resultCode, data);
+        }
     }
 }
