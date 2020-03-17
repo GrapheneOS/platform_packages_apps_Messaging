@@ -20,6 +20,7 @@ import android.content.Context;
 import android.content.Intent;
 
 import com.android.messaging.datamodel.BugleNotifications;
+import com.android.messaging.datamodel.action.MarkAsReadAction;
 import com.android.messaging.datamodel.action.MarkAsSeenAction;
 import com.android.messaging.ui.UIIntents;
 import com.android.messaging.util.ConversationIdSet;
@@ -50,6 +51,15 @@ public class NotificationReceiver extends BroadcastReceiver {
                         ConversationIdSet.createSet(conversationIdSetString)) {
                     MarkAsSeenAction.markAsSeen(conversationId);
                     BugleNotifications.resetLastMessageDing(conversationId);
+                }
+            }
+        } else if (intent.getAction().equals(UIIntents.ACTION_MARK_AS_READ)) {
+            final String conversationIdSetString =
+                    intent.getStringExtra(UIIntents.UI_INTENT_EXTRA_CONVERSATION_ID_SET);
+            if (conversationIdSetString != null) {
+                for (final String conversationId :
+                        ConversationIdSet.createSet(conversationIdSetString)) {
+                        MarkAsReadAction.markAsRead(conversationId);
                 }
             }
         }
