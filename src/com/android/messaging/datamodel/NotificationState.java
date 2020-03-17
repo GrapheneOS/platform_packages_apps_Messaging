@@ -43,7 +43,8 @@ import java.util.HashSet;
 public abstract class NotificationState {
     private static final int CONTENT_INTENT_REQUEST_CODE_OFFSET = 0;
     private static final int CLEAR_INTENT_REQUEST_CODE_OFFSET = 1;
-    private static final int NUM_REQUEST_CODES_NEEDED = 2;
+    private static final int READ_INTENT_REQUEST_CODE_OFFSET = 2;
+    private static final int NUM_REQUEST_CODES_NEEDED = 3;
 
     public interface FailedMessageQuery {
         static final String FAILED_MESSAGES_WHERE_CLAUSE =
@@ -77,6 +78,11 @@ public abstract class NotificationState {
      * The intent to be triggered when the notification is dismissed.
      */
     public abstract PendingIntent getClearIntent();
+
+    /**
+     * The intent to be triggered when mark as read is pressed.
+     */
+    public abstract PendingIntent getReadIntent();
 
     protected Uri getAttachmentUri() {
         return null;
@@ -114,6 +120,10 @@ public abstract class NotificationState {
 
     public int getClearIntentRequestCode() {
         return mBaseRequestCode + CLEAR_INTENT_REQUEST_CODE_OFFSET;
+    }
+
+    public int getReadIntentRequestCode() {
+        return mBaseRequestCode + READ_INTENT_REQUEST_CODE_OFFSET;
     }
 
     /**
