@@ -350,6 +350,14 @@ public abstract class MessageNotificationState extends NotificationState {
                     getClearIntentRequestCode());
     }
 
+    @Override
+    public PendingIntent getReadIntent() {
+        return UIIntents.get().getPendingIntentForMarkingAsRead(
+                    Factory.get().getApplicationContext(),
+                    mConversationIds,
+                    getReadIntentRequestCode());
+    }
+
     /**
      * Notification for multiple messages in at least 2 different conversations.
      */
