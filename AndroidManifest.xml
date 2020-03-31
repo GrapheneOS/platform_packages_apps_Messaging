@@ -69,6 +69,7 @@
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:screenOrientation="user"
             android:label="@string/app_name"
+            android:exported="true"
             android:theme="@style/BugleTheme.ConversationListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -90,6 +91,7 @@
             android:screenOrientation="user"
             android:theme="@style/Invisible"
             android:noHistory="true"
+            android:exported="true"
             android:documentLaunchMode="always">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -191,6 +193,7 @@
             android:parentActivityName="com.android.messaging.ui.appsettings.SettingsActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
+                android:exported="true"
                 android:value="com.android.messaging.ui.appsettings.SettingsActivity" />
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -206,6 +209,7 @@
             android:screenOrientation="user"
             android:theme="@style/BugleTheme.DialogActivity"
             android:excludeFromRecents="true"
+            android:exported="true"
             android:documentLaunchMode="always">
             <intent-filter
                 android:label="@string/share_intent_label">
@@ -336,6 +340,7 @@
         <!-- Registered with the highest possible priority (max_int) -->
         <receiver android:name=".receiver.MmsWapPushReceiver"
                   android:enabled="false"
+                  android:exported="true"
                   android:permission="android.permission.BROADCAST_WAP_PUSH">
             <intent-filter android:priority="2147483647">
                 <action android:name="android.provider.Telephony.WAP_PUSH_RECEIVED" />
@@ -344,6 +349,7 @@
         </receiver>
         <receiver android:name=".receiver.SmsReceiver"
                   android:enabled="false"
+                  android:exported="true"
                   android:permission="android.permission.BROADCAST_SMS">
             <intent-filter android:priority="2147483647">
                 <action android:name="android.provider.Telephony.SMS_RECEIVED" />
@@ -357,6 +363,7 @@
         <!-- Registered for a priority just ahead of inbox Messaging apps (2) -->
         <receiver android:name=".receiver.AbortMmsWapPushReceiver"
                   android:enabled="false"
+                  android:exported="true"
                   android:permission="android.permission.BROADCAST_WAP_PUSH">
             <intent-filter android:priority="3">
                 <action android:name="android.provider.Telephony.WAP_PUSH_RECEIVED" />
@@ -365,6 +372,7 @@
         </receiver>
         <receiver android:name=".receiver.AbortSmsReceiver"
                   android:enabled="false"
+                  android:exported="true"
                   android:permission="android.permission.BROADCAST_SMS">
             <intent-filter android:priority="3">
                 <action android:name="android.provider.Telephony.SMS_RECEIVED" />
@@ -373,6 +381,7 @@
 
         <!-- Intents for KLP+ Delivery -->
         <receiver android:name=".receiver.MmsWapPushDeliverReceiver"
+                  android:exported="true"
                   android:permission="android.permission.BROADCAST_WAP_PUSH">
             <intent-filter>
                 <action android:name="android.provider.Telephony.WAP_PUSH_DELIVER" />
@@ -380,6 +389,7 @@
             </intent-filter>
         </receiver>
         <receiver android:name=".receiver.SmsDeliverReceiver"
+                  android:exported="true"
                   android:permission="android.permission.BROADCAST_SMS">
             <intent-filter>
                 <action android:name="android.provider.Telephony.SMS_DELIVER" />
@@ -441,7 +451,8 @@
                   android:theme="@style/BugleTheme"
                   android:parentActivityName="com.android.messaging.ui.appsettings.ApnSettingsActivity"/>
 
-        <receiver android:name=".receiver.StorageStatusReceiver">
+        <receiver android:name=".receiver.StorageStatusReceiver"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.DEVICE_STORAGE_LOW" />
             </intent-filter>
@@ -450,11 +461,12 @@
             </intent-filter>
         </receiver>
 
-        <receiver android:name=".receiver.BootAndPackageReplacedReceiver">
+        <receiver android:name=".receiver.BootAndPackageReplacedReceiver"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED"/>
                 <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
-                </intent-filter>
+            </intent-filter>
         </receiver>
 
         <!-- Broadcast receiver that will be notified to reset notifications -->
@@ -472,7 +484,8 @@
             </intent-filter>
         </receiver>
 
-        <receiver android:name=".receiver.DefaultSmsSubscriptionChangeReceiver">
+        <receiver android:name=".receiver.DefaultSmsSubscriptionChangeReceiver"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.telephony.action.DEFAULT_SMS_SUBSCRIPTION_CHANGED"/>
             </intent-filter>
@@ -480,6 +493,7 @@
 
         <!-- Widget that displays the conversation list -->
         <receiver android:name=".widget.BugleWidgetProvider"
+                android:exported="true"
                 android:label="@string/widget_conversation_name">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
@@ -490,6 +504,7 @@
 
         <!-- Widget that displays the messages of a single conversation -->
         <receiver android:name=".widget.WidgetConversationProvider"
+                android:exported="true"
                 android:label="@string/widget_conversation_name">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
@@ -508,6 +523,7 @@
 
         <activity android:name=".ui.WidgetPickConversationActivity"
             android:theme="@style/BugleTheme"
+                android:exported="true"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
