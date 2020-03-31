@@ -339,11 +339,23 @@ public class DraftMessageData extends BindableData implements ReadDraftDataActio
      */
     private boolean addOneAttachmentNoNotify(final MessagePartData attachment) {
         Assert.isTrue(attachment.isAttachment());
+        // Check duplication.
+        for (final MessagePartData existingAttachment : mAttachments) {
+            if (existingAttachment.getContentUri().equals(attachment.getContentUri())) {
+                // Destroy existing attachment and replace with new attachment instead of destroying
+                // new one so that mSelectedImages in GalleryGridView could be maintained correctly.
+                mAttachments.remove(existingAttachment);
+                existingAttachment.destroyAsync();
+                addAttachment(attachment, null /*pendingAttachment*/);
+                return false;
+            }
+        }
+
         final boolean reachedLimit = getAttachmentCount() >= getAttachmentLimit();
-        if (reachedLimit || containsAttachment(attachment.getContentUri())) {
-            // Never go over the limit. Never add duplicated attachments.
+        if (reachedLimit) {
+            // Never go over the limit.
             attachment.destroyAsync();
-            return reachedLimit;
+            return true;
         } else {
             addAttachment(attachment, null /*pendingAttachment*/);
             return false;
