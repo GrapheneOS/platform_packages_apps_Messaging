@@ -25,6 +25,7 @@ import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.MeasureSpec;
+import android.view.View.OnAttachStateChangeListener;
 import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
@@ -85,6 +86,23 @@ public class SnackBarManager {
             dismiss();
         }
     };
+
+    private final OnAttachStateChangeListener mAttachStateChangeListener =
+            new OnAttachStateChangeListener() {
+                @Override
+                public void onViewDetachedFromWindow(View v) {
+                    // Dismiss the PopupWindow and clear SnackBarManager state.
+                    mHideHandler.removeCallbacks(mDismissRunnable);
+                    mPopupWindow.dismiss();
+
+                    mCurrentSnackBar = null;
+                    mNextSnackBar = null;
+                    mIsCurrentlyDismissing = false;
+                }
+
+                @Override
+                public void onViewAttachedToWindow(View v) {}
+            };
 
     private final int mTranslationDurationMs;
     private final Handler mHideHandler;
@@ -181,6 +199,7 @@ public class SnackBarManager {
             mPopupWindow.showAsDropDown(anchorView, 0, getRelativeOffset(snackBar));
         }
 
+        snackBar.getParentView().addOnAttachStateChangeListener(mAttachStateChangeListener);
 
         // Animate the toast bar into view.
         placeSnackBarOffScreen(snackBar);
@@ -238,6 +257,8 @@ public class SnackBarManager {
                     // PopupWindow.dismiss() will fire an IllegalArgumentException if the activity
                     // has already ended while we were animating
                 }
+                snackBar.getParentView()
+                        .removeOnAttachStateChangeListener(mAttachStateChangeListener);
 
                 mCurrentSnackBar = null;
                 mIsCurrentlyDismissing = false;
