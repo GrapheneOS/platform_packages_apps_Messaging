@@ -330,6 +330,7 @@ public class WidgetConversationService extends RemoteViewsService {
                     // FALL THROUGH HERE
 
                 case MessageData.BUGLE_STATUS_OUTGOING_COMPLETE:
+                case MessageData.BUGLE_STATUS_OUTGOING_DELIVERED:
                 case MessageData.BUGLE_STATUS_INCOMING_COMPLETE:
                 default:
                     if (!message.getCanClusterWithNextMessage()) {
