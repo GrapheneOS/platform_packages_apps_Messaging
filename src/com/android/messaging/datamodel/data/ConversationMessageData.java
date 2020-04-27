@@ -523,7 +523,8 @@ public class ConversationMessageData {
     }
 
     public boolean getIsSendComplete() {
-        return mStatus == MessageData.BUGLE_STATUS_OUTGOING_COMPLETE;
+        return (mStatus == MessageData.BUGLE_STATUS_OUTGOING_COMPLETE
+                || mStatus == MessageData.BUGLE_STATUS_OUTGOING_DELIVERED);
     }
 
     public String getSenderFullName() {
@@ -575,8 +576,9 @@ public class ConversationMessageData {
     public boolean getCanForwardMessage() {
         // Even for outgoing messages, we only allow forwarding if the message has finished sending
         // as media often has issues when send isn't complete
-        return (mStatus == MessageData.BUGLE_STATUS_OUTGOING_COMPLETE ||
-                mStatus == MessageData.BUGLE_STATUS_INCOMING_COMPLETE);
+        return (mStatus == MessageData.BUGLE_STATUS_OUTGOING_COMPLETE
+                || mStatus == MessageData.BUGLE_STATUS_OUTGOING_DELIVERED
+                || mStatus == MessageData.BUGLE_STATUS_INCOMING_COMPLETE);
     }
 
     public boolean getCanCopyMessageToClipboard() {
