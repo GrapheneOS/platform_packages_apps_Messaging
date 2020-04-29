@@ -183,7 +183,9 @@ public class PerSubscriptionSettingsActivity extends BugleActionBarActivity {
                 autoRetrieveMmsPreference.setEnabled(false);
                 final Preference deliveryReportsPreference =
                         findPreference(getString(R.string.delivery_reports_pref_key));
-                deliveryReportsPreference.setEnabled(false);
+                if (deliveryReportsPreference != null) {
+                    deliveryReportsPreference.setEnabled(false);
+                }
             }
         }
 
