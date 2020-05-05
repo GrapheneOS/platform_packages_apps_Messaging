@@ -28,9 +28,11 @@ import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceScreen;
-import androidx.core.app.NavUtils;
 import android.text.TextUtils;
 import android.view.MenuItem;
+
+import androidx.appcompat.mms.MmsManager;
+import androidx.core.app.NavUtils;
 
 import com.android.messaging.Factory;
 import com.android.messaging.R;
@@ -159,17 +161,18 @@ public class PerSubscriptionSettingsActivity extends BugleActionBarActivity {
             }
 
             // Access Point Names (APNs)
-            final Preference apnsPref = findPreference(getString(R.string.sms_apns_key));
+            final PreferenceScreen apnsScreen =
+                    (PreferenceScreen) findPreference(getString(R.string.sms_apns_key));
 
-            if (MmsUtils.useSystemApnTable() && !ApnDatabase.doesDatabaseExist()) {
-                // Don't remove the ability to edit the local APN prefs if this device lets us
+            if (!MmsManager.shouldUseLegacyMms()
+                    || (MmsUtils.useSystemApnTable() && !ApnDatabase.doesDatabaseExist())) {
+                // 1) Remove the ability to edit the local APN prefs if it doesn't use legacy APIs.
+                // 2) Don't remove the ability to edit the local APN prefs if this device lets us
                 // access the system APN, but we can't find the MCC/MNC in the APN table and we
                 // created the local APN table in case the MCC/MNC was in there. In other words,
                 // if the local APN table exists, let the user edit it.
-                advancedCategory.removePreference(apnsPref);
+                advancedCategory.removePreference((Preference) apnsScreen);
             } else {
-                final PreferenceScreen apnsScreen = (PreferenceScreen) findPreference(
-                        getString(R.string.sms_apns_key));
                 apnsScreen.setIntent(UIIntents.get()
                         .getApnSettingsIntent(getPreferenceScreen().getContext(), mSubId));
             }
