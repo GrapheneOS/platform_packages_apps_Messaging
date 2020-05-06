@@ -78,6 +78,17 @@ LOCAL_MODULE_PATH := $(TARGET_OUT_PRODUCT_APPS)
 
 LOCAL_COMPATIBILITY_SUITE := general-tests
 
+LOCAL_REQUIRED_MODULES += com.android.messaging_whitelist.xml
+
 include $(BUILD_PACKAGE)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := com.android.messaging_whitelist.xml
+LOCAL_MODULE_CLASS := ETC
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_PATH := $(TARGET_OUT_PRODUCT_ETC)/sysconfig
+LOCAL_PRODUCT_MODULE := true
+LOCAL_SRC_FILES := $(LOCAL_MODULE)
+include $(BUILD_PREBUILT)
 
 include $(call all-makefiles-under, $(LOCAL_PATH))
