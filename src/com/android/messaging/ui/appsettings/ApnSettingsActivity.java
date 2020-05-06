@@ -274,7 +274,7 @@ public class ApnSettingsActivity extends BugleActionBarActivity {
             if (!mUnavailable) {
                 menu.add(0, MENU_NEW, 0,
                         getResources().getString(R.string.menu_new_apn))
-                        .setIcon(R.drawable.ic_add_gray)
+                        .setIcon(R.drawable.ic_add_white)
                         .setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
                 menu.add(0, MENU_RESTORE, 0,
                         getResources().getString(R.string.menu_restore_default_apn))
