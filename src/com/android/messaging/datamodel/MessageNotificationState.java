@@ -100,7 +100,6 @@ public abstract class MessageNotificationState extends NotificationState {
     protected CharSequence mContent = null;
     protected Uri mAttachmentUri = null;
     protected String mAttachmentType = null;
-    protected boolean mTickerNoContent;
 
     @Override
     protected Uri getAttachmentUri() {
@@ -1088,8 +1087,10 @@ public abstract class MessageNotificationState extends NotificationState {
         }
         if (state != null && LogUtil.isLoggable(TAG, LogUtil.VERBOSE)) {
             LogUtil.v(TAG, "MessageNotificationState: Notification state created"
-                    + ", title = " + LogUtil.sanitizePII(state.mTitle)
-                    + ", content = " + LogUtil.sanitizePII(state.mContent.toString()));
+                    + ", title = "
+                    + (state.mTickerSender != null ? state.mTickerSender : state.mTitle)
+                    + ", content = "
+                    + (state.mTickerText != null ? state.mTickerText : state.mContent));
         }
         return state;
     }
@@ -1129,8 +1130,9 @@ public abstract class MessageNotificationState extends NotificationState {
     protected CharSequence getTicker() {
         return BugleNotifications.buildColonSeparatedMessage(
                 mTickerSender != null ? mTickerSender : mTitle,
-                mTickerText != null ? mTickerText : (mTickerNoContent ? null : mContent), null,
-                        null);
+                mTickerText != null ? mTickerText : mContent,
+                null,
+                null);
     }
 
     private static CharSequence convertHtmlAndStripUrls(final String s) {
