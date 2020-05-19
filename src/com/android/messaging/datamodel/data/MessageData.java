@@ -582,7 +582,7 @@ public class MessageData implements Parcelable {
             // primary user.
             return false;
         }
-        // Should show option for manual download iff status is manual download or failed
+        // Should show option for manual download if status is manual download or failed
         return (status == BUGLE_STATUS_INCOMING_DOWNLOAD_FAILED ||
                 status == BUGLE_STATUS_INCOMING_YET_TO_MANUAL_DOWNLOAD ||
                 // If debug is enabled, allow to download an expired or unavailable message.
@@ -596,7 +596,7 @@ public class MessageData implements Parcelable {
             // primary user.
             return false;
         }
-        // Can download iff status is retrying auto/manual downloading
+        // Can download if status is retrying auto/manual downloading
         return (mStatus == BUGLE_STATUS_INCOMING_RETRYING_MANUAL_DOWNLOAD ||
                 mStatus == BUGLE_STATUS_INCOMING_RETRYING_AUTO_DOWNLOAD);
     }
@@ -607,7 +607,7 @@ public class MessageData implements Parcelable {
             // primary user.
             return false;
         }
-        // Can redownload iff status is manual download not started or download failed
+        // Can redownload if status is manual download not started or download failed
         return (mStatus == BUGLE_STATUS_INCOMING_DOWNLOAD_FAILED ||
                 mStatus == BUGLE_STATUS_INCOMING_YET_TO_MANUAL_DOWNLOAD ||
                 // If debug is enabled, allow to download an expired or unavailable message.
@@ -616,12 +616,12 @@ public class MessageData implements Parcelable {
     }
 
     static boolean getShowResendMessage(final int status) {
-        // Should show option to resend iff status is failed
+        // Should show option to resend if status is failed
         return (status == BUGLE_STATUS_OUTGOING_FAILED);
     }
 
     static boolean getOneClickResendMessage(final int status, final int rawStatus) {
-        // Should show option to resend iff status is failed
+        // Should show option to resend if status is failed
         return (status == BUGLE_STATUS_OUTGOING_FAILED
                 && rawStatus == RAW_TELEPHONY_STATUS_UNDEFINED);
     }

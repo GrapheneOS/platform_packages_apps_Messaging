@@ -83,7 +83,7 @@ public class ProcessDownloadedMmsAction extends Action {
     // Set when message downloaded by us (legacy)
     private static final String KEY_STATUS = "status";
     private static final String KEY_RAW_STATUS = "raw_status";
-    private static final String KEY_MMS_URI =  "mms_uri";
+    private static final String KEY_MMS_URI = "mms_uri";
 
     // Used to send a deferred response in response to auto-download failure
     private static final String KEY_SEND_DEFERRED_RESP_STATUS = "send_deferred_resp_status";
@@ -329,6 +329,8 @@ public class ProcessDownloadedMmsAction extends Action {
         if (response == null) {
             // No message download to process; doBackgroundWork sent a notify deferred response
             Assert.isTrue(actionParameters.getBoolean(KEY_SEND_DEFERRED_RESP_STATUS));
+            ProcessPendingMessagesAction.scheduleProcessPendingMessagesAction(
+                    true /* failed */, this);
             return null;
         }
 
@@ -343,7 +345,9 @@ public class ProcessDownloadedMmsAction extends Action {
 
         final int subId = actionParameters.getInt(KEY_SUB_ID, ParticipantData.DEFAULT_SELF_SUB_ID);
         // If we were trying to auto-download but have failed need to send the deferred response
-        if (autoDownload && message == null && status == MmsUtils.MMS_REQUEST_MANUAL_RETRY) {
+        final boolean needToSendDeferredResp =
+                autoDownload && (status == MmsUtils.MMS_REQUEST_MANUAL_RETRY);
+        if (needToSendDeferredResp) {
             final String transactionId = actionParameters.getString(KEY_TRANSACTION_ID);
             final String contentLocation = actionParameters.getString(KEY_CONTENT_LOCATION);
             sendDeferredRespStatus(messageId, transactionId, contentLocation, subId);
@@ -373,7 +377,11 @@ public class ProcessDownloadedMmsAction extends Action {
         }
 
         final boolean failed = (messageUri == null);
-        ProcessPendingMessagesAction.scheduleProcessPendingMessagesAction(failed, this);
+        // Scheduling pending messages. If auto downloading is failed and it needs to send the
+        // deferred response, Skip it here and it will be scheduled after sending the response.
+        if (!needToSendDeferredResp) {
+            ProcessPendingMessagesAction.scheduleProcessPendingMessagesAction(failed, this);
+        }
         if (failed) {
             BugleNotifications.update(false, BugleNotifications.UPDATE_ERRORS);
         }
