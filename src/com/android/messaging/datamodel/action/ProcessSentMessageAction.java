@@ -207,6 +207,8 @@ public class ProcessSentMessageAction extends Action {
         if (message == null) {
             LogUtil.w(TAG, "ProcessSentMessageAction: Sent message " + messageId
                     + " missing from local database");
+            ProcessPendingMessagesAction.scheduleProcessPendingMessagesAction(
+                    true /* failed */, processingAction);
             return;
         }
         final String conversationId = message.getConversationId();
