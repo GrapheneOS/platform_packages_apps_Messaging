@@ -236,8 +236,6 @@
         <item quantity="one">New message</item>
         <item quantity="other"><xliff:g id="messages">%d</xliff:g> new messages</item>
     </plurals>
-    <!-- Mark message as read -->
-    <string name="notification_mark_as_read">Mark as read</string>
 
     <!-- Text for starting a new conversation button in the compose UI -->
     <string name="start_conversation">Start</string>
