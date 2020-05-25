@@ -979,4 +979,7 @@
     <string name="selected_sim_content_message"><xliff:g id="selected_sim">%s</xliff:g> selected</string>
 
     <string name="work_directory_display_name">Work Profile contacts</string>
+
+    <!-- When making a call to emergency numbers, show this toast -->
+    <string name="disallow_emergency_call">Can\'t make a voice call to emergency services here.</string>
 </resources>
