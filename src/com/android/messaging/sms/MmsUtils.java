@@ -1925,10 +1925,9 @@ public class MmsUtils {
             final long expiry, final RetrieveConf retrieveConf) {
         final byte[] notificationTransactionId = stringToBytes(transactionId, "UTF-8");
         Uri messageUri = null;
-        int status = MMS_REQUEST_MANUAL_RETRY;
-        int retrieveStatus = PDU_HEADER_VALUE_UNDEFINED;
+        final int status;
+        final int retrieveStatus = retrieveConf.getRetrieveStatus();
 
-        retrieveStatus = retrieveConf.getRetrieveStatus();
         if (retrieveStatus == PduHeaders.RETRIEVE_STATUS_OK) {
             status = MMS_REQUEST_SUCCEEDED;
         } else if (retrieveStatus >= PduHeaders.RETRIEVE_STATUS_ERROR_TRANSIENT_FAILURE &&
@@ -1963,17 +1962,9 @@ public class MmsUtils {
             final Uri inboxUri = MmsUtils.insertReceivedMmsMessage(context, retrieveConf, subId,
                     subPhoneNumber, receivedTimestampInSeconds, expiry, transactionId);
             messageUri = ContentUris.withAppendedId(Mms.CONTENT_URI, ContentUris.parseId(inboxUri));
-        } else if (status == MMS_REQUEST_AUTO_RETRY) {
-            // For a retry do nothing
-        } else if (status == MMS_REQUEST_MANUAL_RETRY && autoDownload) {
-            // Failure from autodownload - just treat like manual download
-            sendNotifyResponseForMmsDownload(
-                    context,
-                    subId,
-                    notificationTransactionId,
-                    contentLocation,
-                    PduHeaders.STATUS_DEFERRED);
         }
+        // Do nothing for MMS_REQUEST_AUTO_RETRY and MMS_REQUEST_NO_RETRY.
+
         return new StatusPlusUri(status, retrieveStatus, messageUri);
     }
 
