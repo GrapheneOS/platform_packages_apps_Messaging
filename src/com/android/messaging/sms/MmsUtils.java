@@ -2143,7 +2143,7 @@ public class MmsUtils {
 
     public static StatusPlusUri updateSentMmsMessageStatus(final Context context,
             final Uri messageUri, final SendConf sendConf) {
-        int status = MMS_REQUEST_MANUAL_RETRY;
+        final int status;
         final int respStatus = sendConf.getResponseStatus();
 
         final ContentValues values = new ContentValues(2);
@@ -2156,12 +2156,16 @@ public class MmsUtils {
                 messageUri, values, null, null);
         if (respStatus == PduHeaders.RESPONSE_STATUS_OK) {
             status = MMS_REQUEST_SUCCEEDED;
-        } else if (respStatus == PduHeaders.RESPONSE_STATUS_ERROR_TRANSIENT_FAILURE ||
-                respStatus == PduHeaders.RESPONSE_STATUS_ERROR_TRANSIENT_NETWORK_PROBLEM ||
-                respStatus == PduHeaders.RESPONSE_STATUS_ERROR_TRANSIENT_PARTIAL_SUCCESS) {
+        } else if (respStatus >= PduHeaders.RESPONSE_STATUS_ERROR_TRANSIENT_FAILURE
+                && respStatus < PduHeaders.RESPONSE_STATUS_ERROR_PERMANENT_FAILURE) {
+            // Only RESPONSE_STATUS_ERROR_TRANSIENT_FAILURE and RESPONSE_STATUS_ERROR_TRANSIENT
+            // _NETWORK_PROBLEM are used in the M-Send.conf. But for others transient failures
+            // including reserved values for future purposes, it should work same as transient
+            // failure always. (OMA-MMS-ENC-V1_2, 7.2.37. X-Mms-Response-Status field)
             status = MMS_REQUEST_AUTO_RETRY;
         } else {
             // else permanent failure
+            status = MMS_REQUEST_MANUAL_RETRY;
             LogUtil.e(TAG, "MmsUtils: failed to send message; respStatus = "
                     + String.format("0x%X", respStatus));
         }
