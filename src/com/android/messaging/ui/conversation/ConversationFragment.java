@@ -51,6 +51,7 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.RecyclerView.ViewHolder;
+import android.telephony.PhoneNumberUtils;
 import android.text.TextUtils;
 import android.view.ActionMode;
 import android.view.Display;
@@ -774,20 +775,27 @@ public class ConversationFragment extends Fragment implements ConversationDataLi
             case R.id.action_call:
                 final String phoneNumber = mBinding.getData().getParticipantPhoneNumber();
                 Assert.notNull(phoneNumber);
-                final View targetView = getActivity().findViewById(R.id.action_call);
-                Point centerPoint;
-                if (targetView != null) {
-                    final int screenLocation[] = new int[2];
-                    targetView.getLocationOnScreen(screenLocation);
-                    final int centerX = screenLocation[0] + targetView.getWidth() / 2;
-                    final int centerY = screenLocation[1] + targetView.getHeight() / 2;
-                    centerPoint = new Point(centerX, centerY);
+                // Can't make a call to emergency numbers using ACTION_CALL.
+                if (PhoneNumberUtils.isEmergencyNumber(phoneNumber)) {
+                    UiUtils.showToast(R.string.disallow_emergency_call);
                 } else {
-                    // In the overflow menu, just use the center of the screen.
-                    final Display display = getActivity().getWindowManager().getDefaultDisplay();
-                    centerPoint = new Point(display.getWidth() / 2, display.getHeight() / 2);
+                    final View targetView = getActivity().findViewById(R.id.action_call);
+                    Point centerPoint;
+                    if (targetView != null) {
+                        final int screenLocation[] = new int[2];
+                        targetView.getLocationOnScreen(screenLocation);
+                        final int centerX = screenLocation[0] + targetView.getWidth() / 2;
+                        final int centerY = screenLocation[1] + targetView.getHeight() / 2;
+                        centerPoint = new Point(centerX, centerY);
+                    } else {
+                        // In the overflow menu, just use the center of the screen.
+                        final Display display =
+                                getActivity().getWindowManager().getDefaultDisplay();
+                        centerPoint = new Point(display.getWidth() / 2, display.getHeight() / 2);
+                    }
+                    UIIntents.get()
+                            .launchPhoneCallActivity(getActivity(), phoneNumber, centerPoint);
                 }
-                UIIntents.get().launchPhoneCallActivity(getActivity(), phoneNumber, centerPoint);
                 return true;
 
             case R.id.action_archive:
