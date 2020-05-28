@@ -61,7 +61,12 @@ public class LaunchConversationActivity extends Activity implements
         final Intent intent = getIntent();
         final String action = intent.getAction();
         if (Intent.ACTION_SENDTO.equals(action) || Intent.ACTION_VIEW.equals(action)) {
-            String[] recipients = UriUtil.parseRecipientsFromSmsMmsUri(intent.getData());
+            String[] recipients = null;
+            final String commaSeparatedRecipients =
+                    UriUtil.parseRecipientsFromSmsMmsUri(intent.getData());
+            if (commaSeparatedRecipients != null) {
+                recipients = commaSeparatedRecipients.split(",");
+            }
             final boolean haveAddress = !TextUtils.isEmpty(intent.getStringExtra(ADDRESS));
             final boolean haveEmail = !TextUtils.isEmpty(intent.getStringExtra(Intent.EXTRA_EMAIL));
             if (recipients == null && (haveAddress || haveEmail)) {
