@@ -1111,37 +1111,6 @@ public class MmsUtils {
         return subject;
     }
 
-    // return a semicolon separated list of phone numbers from a smsto: uri.
-    public static String getSmsRecipients(final Uri uri) {
-        String recipients = uri.getSchemeSpecificPart();
-        final int pos = recipients.indexOf('?');
-        if (pos != -1) {
-            recipients = recipients.substring(0, pos);
-        }
-        recipients = replaceUnicodeDigits(recipients).replace(',', ';');
-        return recipients;
-    }
-
-    // This function was lifted from Telephony.PhoneNumberUtils because it was @hide
-    /**
-     * Replace arabic/unicode digits with decimal digits.
-     * @param number
-     *            the number to be normalized.
-     * @return the replaced number.
-     */
-    private static String replaceUnicodeDigits(final String number) {
-        final StringBuilder normalizedDigits = new StringBuilder(number.length());
-        for (final char c : number.toCharArray()) {
-            final int digit = Character.digit(c, 10);
-            if (digit != -1) {
-                normalizedDigits.append(digit);
-            } else {
-                normalizedDigits.append(c);
-            }
-        }
-        return normalizedDigits.toString();
-    }
-
     /**
      * @return Whether the data roaming is enabled
      */
