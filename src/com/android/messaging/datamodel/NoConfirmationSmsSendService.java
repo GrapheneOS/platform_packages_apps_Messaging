@@ -28,10 +28,10 @@ import com.android.messaging.datamodel.action.InsertNewMessageAction;
 import com.android.messaging.datamodel.action.UpdateMessageNotificationAction;
 import com.android.messaging.datamodel.data.MessageData;
 import com.android.messaging.datamodel.data.ParticipantData;
-import com.android.messaging.sms.MmsUtils;
 import com.android.messaging.ui.UIIntents;
 import com.android.messaging.ui.conversationlist.ConversationListActivity;
 import com.android.messaging.util.LogUtil;
+import com.android.messaging.util.UriUtil;
 
 /**
  * Respond to a special intent and send an SMS message without the user's intervention, unless
@@ -83,8 +83,8 @@ public class NoConfirmationSmsSendService extends IntentService {
         final String subject = getText(intent, Intent.EXTRA_SUBJECT);
         final int subId = extras.getInt(EXTRA_SUBSCRIPTION, ParticipantData.DEFAULT_SELF_SUB_ID);
 
-        final Uri intentUri = intent.getData();
-        final String recipients = intentUri != null ? MmsUtils.getSmsRecipients(intentUri) : null;
+        // Get a comma-separated list of recipients
+        final String recipients = UriUtil.parseRecipientsFromSmsMmsUri(intent.getData());
 
         if (TextUtils.isEmpty(recipients) && TextUtils.isEmpty(conversationId)) {
             if (LogUtil.isLoggable(TAG, LogUtil.VERBOSE)) {
