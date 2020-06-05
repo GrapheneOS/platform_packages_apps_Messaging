@@ -72,6 +72,7 @@ import com.android.messaging.util.SafeAsyncTask;
 import com.android.messaging.util.UiUtils;
 import com.android.messaging.util.UriUtil;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -683,7 +684,8 @@ public class ComposeMessageView extends LinearLayout
         final boolean hasWorkingDraft = hasMessageText || hasSubject ||
                 mBinding.getData().hasAttachments();
 
-        final List<MessagePartData> attachments = draftMessageData.getReadOnlyAttachments();
+        final List<MessagePartData> attachments =
+                new ArrayList<MessagePartData>(draftMessageData.getReadOnlyAttachments());
         if (draftMessageData.getIsMms()) { // MMS case
             if (draftMessageData.hasAttachments()) {
                 if (hasAttachmentsChanged) {
