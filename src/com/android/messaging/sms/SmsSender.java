@@ -64,9 +64,6 @@ public class SmsSender {
 
     private static final Random RANDOM = new Random();
 
-    // Whether we should send multipart SMS as separate messages
-    private static Boolean sSendMultipartSmsAsSeparateMessages = null;
-
     /**
      * Class that holds the sent status for all parts of a multipart message sending
      */
@@ -180,7 +177,7 @@ public class SmsSender {
     }
 
     // This should be called from a RequestWriter queue thread
-    public static SendResult sendMessage(final Context context,  final int subId, String dest,
+    public static SendResult sendMessage(final Context context, final int subId, String dest,
             String message, final String serviceCenter, final boolean requireDeliveryReport,
             final Uri messageUri) throws SmsException {
         if (LogUtil.isLoggable(TAG, LogUtil.VERBOSE)) {
@@ -281,12 +278,8 @@ public class SmsSender {
                             messageUri, partId, subId),
                     0/*flag*/));
         }
-        if (sSendMultipartSmsAsSeparateMessages == null) {
-            sSendMultipartSmsAsSeparateMessages = MmsConfig.get(subId)
-                    .getSendMultipartSmsAsSeparateMessages();
-        }
         try {
-            if (sSendMultipartSmsAsSeparateMessages) {
+            if (MmsConfig.get(subId).getSendMultipartSmsAsSeparateMessages()) {
                 // If multipart sms is not supported, send them as separate messages
                 for (int i = 0; i < messageCount; i++) {
                     smsManager.sendTextMessage(dest,
