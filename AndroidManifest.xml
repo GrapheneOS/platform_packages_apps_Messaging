@@ -62,6 +62,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:appCategory="social"
         android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
         android:theme="@style/BugleTheme"
         android:supportsRtl="true">
 
