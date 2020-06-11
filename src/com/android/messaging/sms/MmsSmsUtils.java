@@ -100,25 +100,29 @@ public class MmsSmsUtils {
         return match.matches();
     }
 
-    /** True if c is ISO-LATIN characters 0-9, *, # , + */
-    public static final boolean isDialable(char c) {
-        return (c >= '0' && c <= '9') || c == '*' || c == '#' || c == '+';
-    }
+    /**
+     * This pattern is intended for searching for carrier specific phone numbers starting with star
+     * sign and digits such as the voice mail number.
+     * (e.g. *20 Chile Claro)
+     */
+    private static final Pattern PHONE_NUMBER_STARTING_WITH_STAR_PATTERN =
+            Pattern.compile("\\*[0-9]+");
 
     /**
-     * Returns true if the address is a dialable phone number.
+     * Returns true if the number is a Phone number
      *
-     * @param address the input address to be tested
-     * @return true if address is a dialable phone number
+     * @param number the input number to be tested
+     * @return true if number is a Phone number
      */
-    public static boolean isDialable(final String address) {
-        if (TextUtils.isEmpty(address)) {
+    public static boolean isPhoneNumber(final String number) {
+        if (TextUtils.isEmpty(number)) {
             return false;
         }
-        for (int i = 0, count = address.length(); i < count; i++) {
-            if (!isDialable(address.charAt(i))) {
-                return false;
-            }
+
+        Matcher match = Patterns.PHONE.matcher(number);
+        if (!match.matches()) {
+            match = PHONE_NUMBER_STARTING_WITH_STAR_PATTERN.matcher(number);
+            return match.matches();
         }
         return true;
     }
