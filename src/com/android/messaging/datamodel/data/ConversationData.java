@@ -700,7 +700,7 @@ public class ConversationData extends BindableData {
         final ParticipantData participant = this.getOtherParticipant();
         if (participant != null) {
             final String phoneNumber = participant.getSendDestination();
-            if (!TextUtils.isEmpty(phoneNumber) && MmsSmsUtils.isDialable(phoneNumber)) {
+            if (!TextUtils.isEmpty(phoneNumber) && MmsSmsUtils.isPhoneNumber(phoneNumber)) {
                 return phoneNumber;
             }
         }
