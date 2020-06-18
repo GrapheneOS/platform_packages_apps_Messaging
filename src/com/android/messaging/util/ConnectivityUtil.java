@@ -23,6 +23,16 @@ import android.telephony.TelephonyManager;
 
 import com.android.messaging.datamodel.data.ParticipantData;
 
+/**
+ * ConnectivityUtil listens to the network service state changes.
+ *
+ * On N and beyond, This class instance can be created via ConnectivityUtil(context, subId), use
+ * ConnectivityUtil(context) for others.
+ *
+ * Note that TelephonyManager has createForSubscriptionId() for a specific subId from N but listen()
+ * does not use the subId on the manager, and uses the default subId on PhoneStateListener. From O,
+ * the manager uses its' own subId in listen().
+ */
 public class ConnectivityUtil {
     // Assume not connected until informed differently
     private volatile int mCurrentServiceState = ServiceState.STATE_POWER_OFF;
@@ -40,6 +50,7 @@ public class ConnectivityUtil {
     }
 
     public ConnectivityUtil(final Context context, final int subId) {
+        Assert.isTrue(OsUtil.isAtLeastN());
         mTelephonyManager =
                 ((TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE))
                         .createForSubscriptionId(subId);
