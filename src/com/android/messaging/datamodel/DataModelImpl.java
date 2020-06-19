@@ -252,8 +252,10 @@ public class DataModelImpl extends DataModel {
                 if (subId <= ParticipantData.DEFAULT_SELF_SUB_ID) {
                     subId = PhoneUtils.getDefault().getDefaultSmsSubscriptionId();
                 }
-                sConnectivityUtilInstanceCacheN.computeIfAbsent(
-                        subId, key -> new ConnectivityUtil(mContext, key));
+                if (!sConnectivityUtilInstanceCacheN.containsKey(subId)) {
+                    sConnectivityUtilInstanceCacheN.put(
+                            subId, new ConnectivityUtil(mContext, subId));
+                }
             }
         });
     }
