@@ -87,7 +87,7 @@ public class SendStatusReceiver extends BroadcastReceiver {
                 final String format = intent.getStringExtra("format");
                 status = smsMessage.getStatus();
                 // Simple matching up CDMA status with GSM status.
-                if (SmsMessage.FORMAT_3GPP2.equals(format)) {
+                if ("3gpp2".equals(format)) {
                     final int errorClass = (status >> 24) & 0x03;
                     final int statusCode = (status >> 16) & 0x3f;
                     switch (errorClass) {
