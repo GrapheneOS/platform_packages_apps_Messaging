@@ -79,11 +79,6 @@ public class DataModelImpl extends DataModel {
         mDataModelWorker = new BackgroundWorker();
         mDatabaseHelper = DatabaseHelper.getInstance(context);
         mSyncManager = new SyncManager();
-        if (OsUtil.isAtLeastN()) {
-            createConnectivityUtilForEachActiveSubscription();
-        } else {
-            sConnectivityUtilInstanceCachePreN = new ConnectivityUtil(context);
-        }
     }
 
     @Override
@@ -219,6 +214,12 @@ public class DataModelImpl extends DataModel {
 
     @Override
     public void onApplicationCreated() {
+        if (OsUtil.isAtLeastN()) {
+            createConnectivityUtilForEachActiveSubscription();
+        } else {
+            sConnectivityUtilInstanceCachePreN = new ConnectivityUtil(mContext);
+        }
+
         FixupMessageStatusOnStartupAction.fixupMessageStatus();
         ProcessPendingMessagesAction.processFirstPendingMessage();
         SyncManager.immediateSync();
