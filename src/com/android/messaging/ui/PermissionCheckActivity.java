@@ -106,10 +106,7 @@ public class PermissionCheckActivity extends Activity {
         if (requestCode == REQUIRED_PERMISSIONS_REQUEST_CODE) {
             // We do not use grantResults as some of the granted permissions might have been
             // revoked while the permissions dialog box was being shown for the missing permissions.
-            if (OsUtil.hasRequiredPermissions()) {
-                Factory.get().onRequiredPermissionsAcquired();
-                redirect();
-            } else {
+            if (!redirectIfNeeded()) {
                 final long currentTimeMillis = SystemClock.elapsedRealtime();
                 // If the permission request completes very quickly, it must be because the system
                 // automatically denied. This can happen if the user had previously denied it
@@ -130,6 +127,7 @@ public class PermissionCheckActivity extends Activity {
             return false;
         }
 
+        Factory.get().onRequiredPermissionsAcquired();
         redirect();
         return true;
     }
