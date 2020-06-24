@@ -31,6 +31,7 @@ public class ConversationListActivity extends AbstractConversationListActivity {
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         Trace.beginSection("ConversationListActivity.onCreate");
+        setTheme(R.style.BugleTheme_ConversationListActivity);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.conversation_list_activity);
         Trace.endSection();
