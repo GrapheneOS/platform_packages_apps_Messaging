@@ -190,6 +190,10 @@ public class PerSubscriptionSettingsActivity extends BugleActionBarActivity {
                     deliveryReportsPreference.setEnabled(false);
                 }
             }
+
+            if (advancedCategory.getPreferenceCount() == 0) {
+                getPreferenceScreen().removePreference(advancedCategory);
+            }
         }
 
         private boolean isCellBroadcastAppLinkEnabled() {
