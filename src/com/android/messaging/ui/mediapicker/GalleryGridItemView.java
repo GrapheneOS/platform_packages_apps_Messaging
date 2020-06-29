@@ -161,14 +161,9 @@ public class GalleryGridItemView extends FrameLayout {
         } else {
             final String contentType = mData.getContentType();
             if (ContentType.isAudioType(contentType)) {
-                final Context context = getContext();
                 setBackgroundColor(
                         getResources().getColor(R.color.gallery_image_default_background));
-                mIcon.setImageDrawable(
-                        context.getContentResolver()
-                                .getTypeInfo(contentType)
-                                .getIcon()
-                                .loadDrawable(context));
+                mIcon.setImageResource(R.drawable.ic_music);
                 mIcon.setColorFilter(
                         ConversationDrawables.get().getConversationThemeColor(),
                         PorterDuff.Mode.SRC_IN);
