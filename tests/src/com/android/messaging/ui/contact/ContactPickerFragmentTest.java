@@ -18,6 +18,7 @@ package com.android.messaging.ui.contact;
 
 import android.content.Context;
 import android.database.Cursor;
+import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 import android.test.suitebuilder.annotation.LargeTest;
 import android.view.View;
