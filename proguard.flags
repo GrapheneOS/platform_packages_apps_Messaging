@@ -21,7 +21,9 @@
 -keepclassmembers class * {
   @com.google.common.annotations.VisibleForTesting *;
 }
--keep class com.android.messaging.ui.contact.* { *; }
+-keep class com.android.messaging.* { *; }
+-keep class com.android.messaging.*.* { *; }
+-keep class com.android.messaging.*.*.* { *; }
 
 # Keep methods that have the @VisibleForAnimation annotation
 -keep @interface com.android.messaging.annotation.VisibleForAnimation
@@ -39,10 +41,13 @@
 -keep public class * extends androidx.fragment.app.Fragment
 -keep public class com.android.vcard.* { *; }
 
+-keep class androidx.collection.* { *; }
 -keep class androidx.core.* { *; }
 -keep class androidx.core.*.* { *; }
 -keep class androidx.appcompat.* { *; }
 -keep class androidx.appcompat.*.* { *; }
+-keep class androidx.recyclerview.widget.* { *; }
+-keep class androidx.viewpager.widget.* { *; }
 
 # Keep rastermill classes that need to be accessed from native code (JNI)
 -keep class android.support.rastermill.** { *; }
