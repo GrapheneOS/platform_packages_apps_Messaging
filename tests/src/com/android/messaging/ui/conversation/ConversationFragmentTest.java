@@ -20,6 +20,7 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.database.Cursor;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView.Adapter;
 import android.test.suitebuilder.annotation.LargeTest;
 
 import com.android.messaging.FakeFactory;
