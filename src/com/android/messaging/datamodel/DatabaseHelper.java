@@ -603,7 +603,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
      */
     @VisibleForTesting
     static DatabaseHelper getNewInstanceForTest(final Context context) {
-        Assert.isEngBuild();
         Assert.isTrue(BugleApplication.isRunningTests());
         return new DatabaseHelper(context);
     }
