@@ -19,7 +19,7 @@ import com.android.messaging.datamodel.binding.BindableOnceData;
 import com.android.messaging.datamodel.media.MediaResourceManager.MediaResourceLoadListener;
 
 /**
- * The {@link MediaRequest} interface is threading-model-blind, allowing the implementations to
+ * The {@link MediaRequest} interface is threading-model-oblivious, allowing the implementations to
  * be processed synchronously or asynchronously.
  * This is a {@link MediaRequest} implementation that includes functionalities such as binding and
  * event callbacks for multi-threaded media request processing.

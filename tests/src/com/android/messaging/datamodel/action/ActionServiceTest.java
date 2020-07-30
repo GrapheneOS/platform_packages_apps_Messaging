@@ -80,7 +80,7 @@ public class ActionServiceTest extends BugleServiceTestCase<ActionServiceImpl>
     }
 
     /**
-     * For a dummy action verify that the service intent is constructed and queued correctly and
+     * For a chat action verify that the service intent is constructed and queued correctly and
      * that when that intent is processed it actually executes the action.
      */
     public void testChatServiceCreatesIntentAndExecutesAction() {
