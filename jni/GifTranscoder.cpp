@@ -173,7 +173,7 @@ bool GifTranscoder::resizeBoxFilter(GifFileType* gifIn, GifFileType* gifOut) {
                     return false;
                 }
 
-                // Sanity-check the current image position.
+                // Check the current image position.
                 if (gifIn->Image.Left < 0 ||
                         gifIn->Image.Top < 0 ||
                         gifIn->Image.Left + gifIn->Image.Width > gifIn->SWidth ||

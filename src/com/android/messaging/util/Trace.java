@@ -101,7 +101,7 @@ public final class Trace {
     }
 
     /**
-     * Dummy class that we use if we aren't really tracing.
+     * Placeholder class that we use if we aren't really tracing.
      */
     private static final class TraceShim extends AbstractTrace {
         @Override
