@@ -21,7 +21,7 @@ import java.util.List;
  * Keeps track of a media loading request. MediaResourceManager uses this interface to load, encode,
  * decode, and cache different types of media resource.
  *
- * This interface defines a media request class that's threading-model-blind. Wrapper classes
+ * This interface defines a media request class that's threading-model-oblivious. Wrapper classes
  * (such as {@link AsyncMediaRequestWrapper} wraps around any base media request to offer async
  * extensions).
  */
