@@ -46,7 +46,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Shows the "master" settings activity that contains two parts, one for application-wide settings
+ * Shows the "primary" settings activity that contains two parts, one for application-wide settings
  * (dubbed "General settings"), and one or more for per-subscription settings (dubbed "Messaging
  * settings" for single-SIM, and the actual SIM name for multi-SIM). Clicking on either item
  * (e.g. "General settings") will open the detail settings activity (ApplicationSettingsActivity

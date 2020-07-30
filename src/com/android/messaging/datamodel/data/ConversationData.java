@@ -780,8 +780,8 @@ public class ConversationData extends BindableData {
     }
 
     /**
-     * A dummy implementation of {@link ConversationDataListener} so that subclasses may opt to
-     * implement some, but not all, of the interface methods.
+     * A placeholder implementation of {@link ConversationDataListener} so that subclasses may opt
+     * to implement some, but not all, of the interface methods.
      */
     public static class SimpleConversationDataListener implements ConversationDataListener {
 
