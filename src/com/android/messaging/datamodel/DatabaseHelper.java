@@ -49,10 +49,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return Integer.parseInt(context.getResources().getString(R.string.database_version));
     }
 
-    /** Table containing names of all other tables and views */
-    private static final String MASTER_TABLE = "sqlite_master";
+    /**
+     * Table containing names of all other tables and views.
+     * TODO(rtenneti): Fix the following special SQLLite table name when SQLLite changes.
+     */
+    private static final String PRIMARY_TABLE = "sqlite_master";
     /** Column containing the name of the tables and views */
-    private static final String[] MASTER_COLUMNS = new String[] { "name", };
+    private static final String[] PRIMARY_COLUMNS = new String[] { "name", };
 
     // Table names
     public static final String CONVERSATIONS_TABLE = "conversations";
@@ -682,7 +685,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
      */
     private static void dropAllTables(final SQLiteDatabase db) {
         final Cursor tableCursor =
-                db.query(MASTER_TABLE, MASTER_COLUMNS, "type='table'", null, null, null, null);
+                db.query(PRIMARY_TABLE, PRIMARY_COLUMNS, "type='table'", null, null, null, null);
         if (tableCursor != null) {
             try {
                 final String dropPrefix = "DROP TABLE IF EXISTS ";
@@ -713,7 +716,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
      */
     private static void dropAllTriggers(final SQLiteDatabase db) {
         final Cursor triggerCursor =
-                db.query(MASTER_TABLE, MASTER_COLUMNS, "type='trigger'", null, null, null, null);
+                db.query(PRIMARY_TABLE, PRIMARY_COLUMNS, "type='trigger'", null, null, null, null);
         if (triggerCursor != null) {
             try {
                 final String dropPrefix = "DROP TRIGGER IF EXISTS ";
@@ -744,7 +747,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
      */
     public static void dropAllViews(final SQLiteDatabase db) {
         final Cursor viewCursor =
-                db.query(MASTER_TABLE, MASTER_COLUMNS, "type='view'", null, null, null, null);
+                db.query(PRIMARY_TABLE, PRIMARY_COLUMNS, "type='view'", null, null, null, null);
         if (viewCursor != null) {
             try {
                 while (viewCursor.moveToNext()) {
@@ -762,7 +765,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
      */
     private static void dropAllIndexes(final SQLiteDatabase db) {
         final Cursor indexCursor =
-                db.query(MASTER_TABLE, MASTER_COLUMNS, "type='index'", null, null, null, null);
+                db.query(PRIMARY_TABLE, PRIMARY_COLUMNS, "type='index'", null, null, null, null);
         if (indexCursor != null) {
             try {
                 final String dropPrefix = "DROP INDEX IF EXISTS ";

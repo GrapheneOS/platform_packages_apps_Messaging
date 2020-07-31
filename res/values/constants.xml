@@ -33,7 +33,7 @@
     <string name="advanced_pref_key" translatable="false">advanced_prefs</string>
 
     <!-- Subscription-specific settings. The values of these pref keys must be prefixed with
-         "buglesub_" to allow for runtime sanity checks -->
+         "buglesub_" to allow for runtime checks -->
     <string name="delivery_reports_pref_key" translatable="false">buglesub_delivery_reports</string>
     <bool name="delivery_reports_pref_default" translatable="false">false</bool>
     <string name="auto_retrieve_mms_pref_key" translatable="false">buglesub_auto_retrieve_mms</string>
