@@ -1415,11 +1415,11 @@ public class PduPersister {
 
                     // For received messages (whether group MMS is enabled or not) we want to
                     // associate this message with the thread composed of all the recipients
-                    // EXCLUDING our own number. This includes the person who sent the
-                    // message (the FROM field above) in addition to the other people the message
-                    // was addressed TO (or CC fields to address group messaging compatibility
-                    // issues with devices that place numbers in this field). Typically our own
-                    // number is in the TO/CC field so we have to remove it in loadRecipients.
+                    // EXCLUDING our own number. This includes the person who sent the message
+                    // (the FROM field above) in addition to the other people the message was
+                    // addressed TO (or CC fields to address group messaging compatibility issues
+                    // with devices that place numbers in this field). Typically our own number is
+                    // in the TO/CC field so we have to remove it in checkAndLoadToCcRecipients.
                     checkAndLoadToCcRecipients(recipients, addressMap, subPhoneNumber);
                     break;
                 case PduHeaders.MESSAGE_TYPE_SEND_REQ:
@@ -1582,9 +1582,17 @@ public class PduPersister {
                 }
             }
         }
+
+        // If selfNumber is unavailable and there is only a single address in all TO and CC, we can
+        // skip adding it into recipients as assuming it is my own phone number.
+        final boolean isSelfNumberUnavailable = TextUtils.isEmpty(selfNumber);
+        if (isSelfNumberUnavailable && numbers.size() == 1) {
+            return;
+        }
+
         for (final String number : numbers) {
             // Only add numbers which aren't my own number.
-            if (TextUtils.isEmpty(selfNumber) || !PhoneNumberUtils.compare(number, selfNumber)) {
+            if (isSelfNumberUnavailable || !PhoneNumberUtils.compare(number, selfNumber)) {
                 if (!recipients.contains(number)) {
                     // Only add numbers which aren't already included.
                     recipients.add(number);
