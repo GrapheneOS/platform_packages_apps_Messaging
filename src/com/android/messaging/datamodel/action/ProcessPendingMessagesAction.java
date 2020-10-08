@@ -335,7 +335,7 @@ public class ProcessPendingMessagesAction extends Action implements Parcelable {
                         selfId}
                     );
 
-            // Look for messages we cound send
+            // Look for messages we could send
             cursor = db.query(DatabaseHelper.MESSAGES_TABLE,
                     MessageData.getProjection(),
                     DatabaseHelper.MessageColumns.STATUS + " IN (?, ?) AND "
@@ -354,43 +354,34 @@ public class ProcessPendingMessagesAction extends Action implements Parcelable {
             values.put(DatabaseHelper.MessageColumns.STATUS,
                     MessageData.BUGLE_STATUS_OUTGOING_FAILED);
 
+            // Prior to L_MR1, isActiveSubscription is true always
+            boolean isActiveSubscription = true;
+            if (OsUtil.isAtLeastL_MR1()) {
+                final ParticipantData messageSelf =
+                        BugleDatabaseOperations.getExistingParticipant(db, selfId);
+                if (messageSelf == null || !messageSelf.isActiveSubscription()) {
+                    isActiveSubscription = false;
+                }
+            }
             while (cursor.moveToNext()) {
                 final MessageData message = new MessageData();
                 message.bind(cursor);
-                if (message.getInResendWindow(now)) {
-                    // If no messages currently sending
-                    if (sendingCnt == 0) {
-                        // Resend this message
-                        toSendMessageId = message.getMessageId();
-                        // Before queuing the message for resending, check if the message's self is
-                        // active. If not, switch back to the system's default subscription.
-                        if (OsUtil.isAtLeastL_MR1()) {
-                            final ParticipantData messageSelf = BugleDatabaseOperations
-                                    .getExistingParticipant(db, selfId);
-                            if (messageSelf == null || !messageSelf.isActiveSubscription()) {
-                                final ParticipantData defaultSelf = BugleDatabaseOperations
-                                        .getOrCreateSelf(db, PhoneUtils.getDefault()
-                                                .getDefaultSmsSubscriptionId());
-                                if (defaultSelf != null) {
-                                    message.bindSelfId(defaultSelf.getId());
-                                    final ContentValues selfValues = new ContentValues();
-                                    selfValues.put(MessageColumns.SELF_PARTICIPANT_ID,
-                                            defaultSelf.getId());
-                                    BugleDatabaseOperations.updateMessageRow(db,
-                                            message.getMessageId(), selfValues);
-                                    MessagingContentProvider.notifyMessagesChanged(
-                                            message.getConversationId());
-                                }
-                            }
-                        }
-                    }
-                    break;
-                } else {
+
+                // Mark this message as failed if the message's self is inactive or the message is
+                // outside of resend window
+                if (!isActiveSubscription || !message.getInResendWindow(now)) {
                     failedCnt++;
 
                     // Mark message as failed
                     BugleDatabaseOperations.updateMessageRow(db, message.getMessageId(), values);
                     MessagingContentProvider.notifyMessagesChanged(message.getConversationId());
+                } else {
+                    // If no messages currently sending
+                    if (sendingCnt == 0) {
+                        // Send this message
+                        toSendMessageId = message.getMessageId();
+                    }
+                    break;
                 }
             }
             db.setTransactionSuccessful();
