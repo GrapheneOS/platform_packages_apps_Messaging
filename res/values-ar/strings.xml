@@ -183,8 +183,6 @@
     <string name="action_delete" msgid="4076795795307486019">"حذف"</string>
     <string name="action_archive" msgid="5437034800324083170">"أرشيف"</string>
     <string name="action_unarchive" msgid="139681611159869493">"إزالة من الأرشيف"</string>
-    <string name="action_notification_off" msgid="4823658797441716246">"إيقاف الإشعارات"</string>
-    <string name="action_notification_on" msgid="8244389452685364211">"تشغيل الإشعارات"</string>
     <string name="action_add_contact" msgid="8248615862739848672">"إضافة جهة اتصال"</string>
     <string name="action_download" msgid="7786338136368564146">"تنزيل"</string>
     <string name="action_send" msgid="377635240181672039">"إرسال"</string>
@@ -331,9 +329,7 @@
     <string name="advanced_category_pref_title" msgid="6411454224069259687">"إعدادات متقدمة"</string>
     <string name="debug_category_pref_title" msgid="8765138968242505061">"تصحيح الأخطاء"</string>
     <string name="notifications_pref_title" msgid="4127288731844373795">"الإشعارات"</string>
-    <string name="notification_sound_pref_title" msgid="3685506528957337849">"الصوت"</string>
     <string name="silent_ringtone" msgid="8073534180322059814">"صامت"</string>
-    <string name="notification_vibrate_pref_title" msgid="6668564570045187390">"اهتزاز"</string>
     <string name="blocked_pref_title" msgid="2560554234438548817">"محظور"</string>
     <string name="delivery_reports_pref_title" msgid="5115727259825309087">"‏تقارير تسليم الرسائل القصيرة SMS"</string>
     <string name="delivery_reports_pref_summary" msgid="4272502420621500421">"‏طلب تقرير تسليم لكل رسالة قصيرة SMS ترسلها"</string>

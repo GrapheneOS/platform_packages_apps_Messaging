@@ -147,8 +147,6 @@
     <string name="action_delete" msgid="4076795795307486019">"Fshi"</string>
     <string name="action_archive" msgid="5437034800324083170">"Arkivo"</string>
     <string name="action_unarchive" msgid="139681611159869493">"Hiq nga arkiva"</string>
-    <string name="action_notification_off" msgid="4823658797441716246">"Çaktivizo njoftimet"</string>
-    <string name="action_notification_on" msgid="8244389452685364211">"Aktivizo njoftimet"</string>
     <string name="action_add_contact" msgid="8248615862739848672">"Shto kontakt"</string>
     <string name="action_download" msgid="7786338136368564146">"Shkarko"</string>
     <string name="action_send" msgid="377635240181672039">"Dërgo"</string>
@@ -259,9 +257,7 @@
     <string name="advanced_category_pref_title" msgid="6411454224069259687">"Të përparuara"</string>
     <string name="debug_category_pref_title" msgid="8765138968242505061">"Korrigjo"</string>
     <string name="notifications_pref_title" msgid="4127288731844373795">"Njoftime"</string>
-    <string name="notification_sound_pref_title" msgid="3685506528957337849">"Zëri"</string>
     <string name="silent_ringtone" msgid="8073534180322059814">"Hesht"</string>
-    <string name="notification_vibrate_pref_title" msgid="6668564570045187390">"Dridh"</string>
     <string name="blocked_pref_title" msgid="2560554234438548817">"I bllokuar"</string>
     <string name="delivery_reports_pref_title" msgid="5115727259825309087">"Raportet e dorëzimit të SMS"</string>
     <string name="delivery_reports_pref_summary" msgid="4272502420621500421">"Kërko një raport dorëzimi për çdo SMS që dërgon"</string>

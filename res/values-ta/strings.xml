@@ -147,8 +147,6 @@
     <string name="action_delete" msgid="4076795795307486019">"நீக்கு"</string>
     <string name="action_archive" msgid="5437034800324083170">"காப்பிடு"</string>
     <string name="action_unarchive" msgid="139681611159869493">"காப்பிட வேண்டாம்"</string>
-    <string name="action_notification_off" msgid="4823658797441716246">"அறிவிப்புகளை முடக்கு"</string>
-    <string name="action_notification_on" msgid="8244389452685364211">"அறிவிப்புகளை இயக்கு"</string>
     <string name="action_add_contact" msgid="8248615862739848672">"தொடர்பைச் சேர்"</string>
     <string name="action_download" msgid="7786338136368564146">"இறக்கு"</string>
     <string name="action_send" msgid="377635240181672039">"அனுப்பு"</string>
@@ -259,9 +257,7 @@
     <string name="advanced_category_pref_title" msgid="6411454224069259687">"மேம்பட்டவை"</string>
     <string name="debug_category_pref_title" msgid="8765138968242505061">"பிழைத்திருத்து"</string>
     <string name="notifications_pref_title" msgid="4127288731844373795">"அறிவிப்புகள்"</string>
-    <string name="notification_sound_pref_title" msgid="3685506528957337849">"ஒலி"</string>
     <string name="silent_ringtone" msgid="8073534180322059814">"நிசப்தம்"</string>
-    <string name="notification_vibrate_pref_title" msgid="6668564570045187390">"அதிர்வு"</string>
     <string name="blocked_pref_title" msgid="2560554234438548817">"தடுக்கப்பட்டது"</string>
     <string name="delivery_reports_pref_title" msgid="5115727259825309087">"SMS டெலிவரி அறிக்கைகள்"</string>
     <string name="delivery_reports_pref_summary" msgid="4272502420621500421">"நீங்கள் அனுப்பும் ஒவ்வொரு SMS க்கும் வழங்கல் அறிக்கையைக் கோரவும்"</string>

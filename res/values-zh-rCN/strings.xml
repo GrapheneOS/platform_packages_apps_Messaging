@@ -147,8 +147,6 @@
     <string name="action_delete" msgid="4076795795307486019">"删除"</string>
     <string name="action_archive" msgid="5437034800324083170">"归档"</string>
     <string name="action_unarchive" msgid="139681611159869493">"取消归档"</string>
-    <string name="action_notification_off" msgid="4823658797441716246">"关闭通知"</string>
-    <string name="action_notification_on" msgid="8244389452685364211">"开启通知"</string>
     <string name="action_add_contact" msgid="8248615862739848672">"添加到通讯录"</string>
     <string name="action_download" msgid="7786338136368564146">"下载"</string>
     <string name="action_send" msgid="377635240181672039">"发送"</string>
@@ -259,9 +257,7 @@
     <string name="advanced_category_pref_title" msgid="6411454224069259687">"高级"</string>
     <string name="debug_category_pref_title" msgid="8765138968242505061">"调试"</string>
     <string name="notifications_pref_title" msgid="4127288731844373795">"通知"</string>
-    <string name="notification_sound_pref_title" msgid="3685506528957337849">"提示音"</string>
     <string name="silent_ringtone" msgid="8073534180322059814">"静音"</string>
-    <string name="notification_vibrate_pref_title" msgid="6668564570045187390">"振动"</string>
     <string name="blocked_pref_title" msgid="2560554234438548817">"已屏蔽"</string>
     <string name="delivery_reports_pref_title" msgid="5115727259825309087">"短信送达情况报告"</string>
     <string name="delivery_reports_pref_summary" msgid="4272502420621500421">"了解您发的每条短信的送达情况"</string>

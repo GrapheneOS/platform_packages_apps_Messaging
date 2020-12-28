@@ -147,8 +147,6 @@
     <string name="action_delete" msgid="4076795795307486019">"मेटाउनुहोस्"</string>
     <string name="action_archive" msgid="5437034800324083170">"अभिलेख"</string>
     <string name="action_unarchive" msgid="139681611159869493">"अभिलेखबाट निकाल्नुहोस्"</string>
-    <string name="action_notification_off" msgid="4823658797441716246">"सूचनाहरू बन्द गर्नुहोस्"</string>
-    <string name="action_notification_on" msgid="8244389452685364211">"सूचनाहरू सुचारु गर्नुहोस्"</string>
     <string name="action_add_contact" msgid="8248615862739848672">"सम्पर्क थप्नुहोस्"</string>
     <string name="action_download" msgid="7786338136368564146">"डाउनलोड गर्नुहोस्"</string>
     <string name="action_send" msgid="377635240181672039">"पठाउनुहोस्"</string>
@@ -259,9 +257,7 @@
     <string name="advanced_category_pref_title" msgid="6411454224069259687">"उन्नत"</string>
     <string name="debug_category_pref_title" msgid="8765138968242505061">"डिबग"</string>
     <string name="notifications_pref_title" msgid="4127288731844373795">"सूचनाहरू"</string>
-    <string name="notification_sound_pref_title" msgid="3685506528957337849">"आवाज"</string>
     <string name="silent_ringtone" msgid="8073534180322059814">"मौन"</string>
-    <string name="notification_vibrate_pref_title" msgid="6668564570045187390">"कम्पन गर्नुहोस्"</string>
     <string name="blocked_pref_title" msgid="2560554234438548817">"अवरूद्ध गरियो"</string>
     <string name="delivery_reports_pref_title" msgid="5115727259825309087">"SMS वितरण प्रतिवेदनहरू"</string>
     <string name="delivery_reports_pref_summary" msgid="4272502420621500421">"तपाईँले पठाउनु हुने हरेक SMS को लागि पुगेको खबर अनुरोध गर्नुहोस्"</string>

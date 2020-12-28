@@ -147,8 +147,6 @@
     <string name="action_delete" msgid="4076795795307486019">"Suprimeix"</string>
     <string name="action_archive" msgid="5437034800324083170">"Arxiu"</string>
     <string name="action_unarchive" msgid="139681611159869493">"Treu de l\'arxiu"</string>
-    <string name="action_notification_off" msgid="4823658797441716246">"Desactiva les notificacions"</string>
-    <string name="action_notification_on" msgid="8244389452685364211">"Activa les notificacions"</string>
     <string name="action_add_contact" msgid="8248615862739848672">"Afegeix un contacte"</string>
     <string name="action_download" msgid="7786338136368564146">"Baixa"</string>
     <string name="action_send" msgid="377635240181672039">"Envia"</string>
@@ -259,9 +257,7 @@
     <string name="advanced_category_pref_title" msgid="6411454224069259687">"Avançada"</string>
     <string name="debug_category_pref_title" msgid="8765138968242505061">"Depuració"</string>
     <string name="notifications_pref_title" msgid="4127288731844373795">"Notificacions"</string>
-    <string name="notification_sound_pref_title" msgid="3685506528957337849">"So"</string>
     <string name="silent_ringtone" msgid="8073534180322059814">"Silenci"</string>
-    <string name="notification_vibrate_pref_title" msgid="6668564570045187390">"Vibració"</string>
     <string name="blocked_pref_title" msgid="2560554234438548817">"S\'ha bloquejat"</string>
     <string name="delivery_reports_pref_title" msgid="5115727259825309087">"Informes d\'entrega de SMS"</string>
     <string name="delivery_reports_pref_summary" msgid="4272502420621500421">"Sol·licita un informe d\'entrega per a cada SMS enviat"</string>

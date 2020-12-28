@@ -147,8 +147,6 @@
     <string name="action_delete" msgid="4076795795307486019">"O‘chirish"</string>
     <string name="action_archive" msgid="5437034800324083170">"Arxivlash"</string>
     <string name="action_unarchive" msgid="139681611159869493">"Arxivdan chiqarish"</string>
-    <string name="action_notification_off" msgid="4823658797441716246">"Bildirishnomalarni o‘chirib qo‘yish"</string>
-    <string name="action_notification_on" msgid="8244389452685364211">"Bildirishnomalarni yoqish"</string>
     <string name="action_add_contact" msgid="8248615862739848672">"Kontakt qo‘shish"</string>
     <string name="action_download" msgid="7786338136368564146">"Yuklab olish"</string>
     <string name="action_send" msgid="377635240181672039">"Yuborish"</string>
@@ -259,9 +257,7 @@
     <string name="advanced_category_pref_title" msgid="6411454224069259687">"Qo‘shimcha"</string>
     <string name="debug_category_pref_title" msgid="8765138968242505061">"Tuzatish"</string>
     <string name="notifications_pref_title" msgid="4127288731844373795">"Bildirishnomalar"</string>
-    <string name="notification_sound_pref_title" msgid="3685506528957337849">"Ovoz"</string>
     <string name="silent_ringtone" msgid="8073534180322059814">"Ovozsiz"</string>
-    <string name="notification_vibrate_pref_title" msgid="6668564570045187390">"Tebranish"</string>
     <string name="blocked_pref_title" msgid="2560554234438548817">"Bloklandi"</string>
     <string name="delivery_reports_pref_title" msgid="5115727259825309087">"SMS xabarlarning yetkazilganlik hisobotlari"</string>
     <string name="delivery_reports_pref_summary" msgid="4272502420621500421">"Yuborilgan har bir SMS uchun yetkazilganlik hisobotini talab qilish"</string>

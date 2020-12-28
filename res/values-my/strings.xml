@@ -147,8 +147,6 @@
     <string name="action_delete" msgid="4076795795307486019">"ဖျက်ရန်"</string>
     <string name="action_archive" msgid="5437034800324083170">"မော်ကွန်း"</string>
     <string name="action_unarchive" msgid="139681611159869493">"မော်ကွန်းမှထုတ်ယူရန်"</string>
-    <string name="action_notification_off" msgid="4823658797441716246">"အက​ြောင်းကြားချက်များ ပိတ်ရန်"</string>
-    <string name="action_notification_on" msgid="8244389452685364211">"အကြောင်းကြားချက်များ ဖွင့်ရန်"</string>
     <string name="action_add_contact" msgid="8248615862739848672">"အဆက်အသွယ် ထည့်ရန်"</string>
     <string name="action_download" msgid="7786338136368564146">"ဒေါင်းလုဒ် လုပ်ရန်"</string>
     <string name="action_send" msgid="377635240181672039">"ပို့ရန်"</string>
@@ -259,9 +257,7 @@
     <string name="advanced_category_pref_title" msgid="6411454224069259687">"အဆင့်မြင့်"</string>
     <string name="debug_category_pref_title" msgid="8765138968242505061">"ဒီဘာဂ်"</string>
     <string name="notifications_pref_title" msgid="4127288731844373795">"အကြောင်းကြားချက်များ"</string>
-    <string name="notification_sound_pref_title" msgid="3685506528957337849">"အသံ"</string>
     <string name="silent_ringtone" msgid="8073534180322059814">"အသံတိတ်ရန်"</string>
-    <string name="notification_vibrate_pref_title" msgid="6668564570045187390">"တုန်ခါရန်"</string>
     <string name="blocked_pref_title" msgid="2560554234438548817">"ပိတ်ဆို့ထား"</string>
     <string name="delivery_reports_pref_title" msgid="5115727259825309087">"SMS ဖြန့်ဝေမှု အစီရင်ခံစာများ"</string>
     <string name="delivery_reports_pref_summary" msgid="4272502420621500421">"သင် ပို့လိုက်သော စာတိုင်း အတွက် ပို့ပြီးကြောင်း အစီရင်ခံစာကို တောင်းဆိုမည်"</string>

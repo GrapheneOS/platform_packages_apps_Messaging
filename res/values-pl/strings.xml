@@ -165,8 +165,6 @@
     <string name="action_delete" msgid="4076795795307486019">"Usuń"</string>
     <string name="action_archive" msgid="5437034800324083170">"Archiwizuj"</string>
     <string name="action_unarchive" msgid="139681611159869493">"Przywróć z archiwum"</string>
-    <string name="action_notification_off" msgid="4823658797441716246">"Wyłącz powiadomienia"</string>
-    <string name="action_notification_on" msgid="8244389452685364211">"Włącz powiadomienia"</string>
     <string name="action_add_contact" msgid="8248615862739848672">"Dodaj kontakt"</string>
     <string name="action_download" msgid="7786338136368564146">"Pobierz"</string>
     <string name="action_send" msgid="377635240181672039">"Wyślij"</string>
@@ -295,9 +293,7 @@
     <string name="advanced_category_pref_title" msgid="6411454224069259687">"Zaawansowane"</string>
     <string name="debug_category_pref_title" msgid="8765138968242505061">"Debugowanie"</string>
     <string name="notifications_pref_title" msgid="4127288731844373795">"Powiadomienia"</string>
-    <string name="notification_sound_pref_title" msgid="3685506528957337849">"Dźwięk"</string>
     <string name="silent_ringtone" msgid="8073534180322059814">"Cichy"</string>
-    <string name="notification_vibrate_pref_title" msgid="6668564570045187390">"Wibracje"</string>
     <string name="blocked_pref_title" msgid="2560554234438548817">"Zablokowany"</string>
     <string name="delivery_reports_pref_title" msgid="5115727259825309087">"Raporty doręczeń SMS-ów"</string>
     <string name="delivery_reports_pref_summary" msgid="4272502420621500421">"Otrzymuj raport o dostarczeniu każdego wysłanego SMS-a"</string>

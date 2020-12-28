@@ -147,8 +147,6 @@
     <string name="action_delete" msgid="4076795795307486019">"ഇല്ലാതാക്കുക"</string>
     <string name="action_archive" msgid="5437034800324083170">"ആര്‍ക്കൈവുചെയ്യുക"</string>
     <string name="action_unarchive" msgid="139681611159869493">"ആർക്കൈവുചെയ്‌തത് മാറ്റുക"</string>
-    <string name="action_notification_off" msgid="4823658797441716246">"അറിയിപ്പുകൾ ഓഫാക്കുക"</string>
-    <string name="action_notification_on" msgid="8244389452685364211">"അറിയിപ്പുകൾ ഓണാക്കുക"</string>
     <string name="action_add_contact" msgid="8248615862739848672">"കോൺടാക്റ്റ് ചേർക്കുക"</string>
     <string name="action_download" msgid="7786338136368564146">"ഡൗൺലോഡ്"</string>
     <string name="action_send" msgid="377635240181672039">"അയയ്‌ക്കുക"</string>
@@ -259,9 +257,7 @@
     <string name="advanced_category_pref_title" msgid="6411454224069259687">"വിപുലം"</string>
     <string name="debug_category_pref_title" msgid="8765138968242505061">"ഡീബഗ്"</string>
     <string name="notifications_pref_title" msgid="4127288731844373795">"അറിയിപ്പുകൾ"</string>
-    <string name="notification_sound_pref_title" msgid="3685506528957337849">"ശബ്‌ദം"</string>
     <string name="silent_ringtone" msgid="8073534180322059814">"നിശബ്‌ദം"</string>
-    <string name="notification_vibrate_pref_title" msgid="6668564570045187390">"വൈബ്രേറ്റുചെയ്യുക"</string>
     <string name="blocked_pref_title" msgid="2560554234438548817">"തടഞ്ഞിരിക്കുന്നു"</string>
     <string name="delivery_reports_pref_title" msgid="5115727259825309087">"SMS ഡെലിവറി റിപ്പോർട്ടുകൾ"</string>
     <string name="delivery_reports_pref_summary" msgid="4272502420621500421">"അയയ്‌ക്കുന്ന ഓരോ SMS-നും ഒരു ഡെലിവറി റിപ്പോർട്ട് അഭ്യർത്ഥിക്കുക"</string>

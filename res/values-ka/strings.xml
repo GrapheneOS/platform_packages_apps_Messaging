@@ -147,8 +147,6 @@
     <string name="action_delete" msgid="4076795795307486019">"წაშლა"</string>
     <string name="action_archive" msgid="5437034800324083170">"დაარქივება"</string>
     <string name="action_unarchive" msgid="139681611159869493">"დეარქივაცია"</string>
-    <string name="action_notification_off" msgid="4823658797441716246">"შეტყობინებების გამორთვა"</string>
-    <string name="action_notification_on" msgid="8244389452685364211">"შეტყობინებების ჩართვა"</string>
     <string name="action_add_contact" msgid="8248615862739848672">"კონტაქტის დამატება"</string>
     <string name="action_download" msgid="7786338136368564146">"ჩამოტვირთვა"</string>
     <string name="action_send" msgid="377635240181672039">"გაგზავნა"</string>
@@ -259,9 +257,7 @@
     <string name="advanced_category_pref_title" msgid="6411454224069259687">"გაფართოებული"</string>
     <string name="debug_category_pref_title" msgid="8765138968242505061">"გამართვა"</string>
     <string name="notifications_pref_title" msgid="4127288731844373795">"შეტყობინებები"</string>
-    <string name="notification_sound_pref_title" msgid="3685506528957337849">"ხმა"</string>
     <string name="silent_ringtone" msgid="8073534180322059814">"დადუმებული"</string>
-    <string name="notification_vibrate_pref_title" msgid="6668564570045187390">"ვიბრაცია"</string>
     <string name="blocked_pref_title" msgid="2560554234438548817">"დაბლოკილი"</string>
     <string name="delivery_reports_pref_title" msgid="5115727259825309087">"SMS მისვლის შეტყობინებები"</string>
     <string name="delivery_reports_pref_summary" msgid="4272502420621500421">"ყოველ გაგზავნილ SMS-ზე მიწოდების დადასტურების მოთხოვნა"</string>

@@ -147,8 +147,6 @@
     <string name="action_delete" msgid="4076795795307486019">"Vee uit"</string>
     <string name="action_archive" msgid="5437034800324083170">"Argiveer"</string>
     <string name="action_unarchive" msgid="139681611159869493">"Deargiveer"</string>
-    <string name="action_notification_off" msgid="4823658797441716246">"Skakel kennisgewings af"</string>
-    <string name="action_notification_on" msgid="8244389452685364211">"Skakel kennisgewings aan"</string>
     <string name="action_add_contact" msgid="8248615862739848672">"Voeg kontak by"</string>
     <string name="action_download" msgid="7786338136368564146">"Laai af"</string>
     <string name="action_send" msgid="377635240181672039">"Stuur"</string>
@@ -259,9 +257,7 @@
     <string name="advanced_category_pref_title" msgid="6411454224069259687">"Gevorderd"</string>
     <string name="debug_category_pref_title" msgid="8765138968242505061">"Ontfout"</string>
     <string name="notifications_pref_title" msgid="4127288731844373795">"Kennisgewings"</string>
-    <string name="notification_sound_pref_title" msgid="3685506528957337849">"Klank"</string>
     <string name="silent_ringtone" msgid="8073534180322059814">"Stil"</string>
-    <string name="notification_vibrate_pref_title" msgid="6668564570045187390">"Vibreer"</string>
     <string name="blocked_pref_title" msgid="2560554234438548817">"Geblokkeer"</string>
     <string name="delivery_reports_pref_title" msgid="5115727259825309087">"SMS-afleweringverslae"</string>
     <string name="delivery_reports_pref_summary" msgid="4272502420621500421">"Versoek \'n afleweringsverslag vir elke SMS wat jy stuur"</string>

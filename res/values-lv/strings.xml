@@ -156,8 +156,6 @@
     <string name="action_delete" msgid="4076795795307486019">"Dzēst"</string>
     <string name="action_archive" msgid="5437034800324083170">"Arhivēt"</string>
     <string name="action_unarchive" msgid="139681611159869493">"Izņemt no arhīva"</string>
-    <string name="action_notification_off" msgid="4823658797441716246">"Izslēgt paziņojumus"</string>
-    <string name="action_notification_on" msgid="8244389452685364211">"Ieslēgt paziņojumus"</string>
     <string name="action_add_contact" msgid="8248615862739848672">"Pievienot kontaktpersonu"</string>
     <string name="action_download" msgid="7786338136368564146">"Lejupielādēt"</string>
     <string name="action_send" msgid="377635240181672039">"Sūtīt"</string>
@@ -277,9 +275,7 @@
     <string name="advanced_category_pref_title" msgid="6411454224069259687">"Papildu"</string>
     <string name="debug_category_pref_title" msgid="8765138968242505061">"Atkļūdot"</string>
     <string name="notifications_pref_title" msgid="4127288731844373795">"Paziņojumi"</string>
-    <string name="notification_sound_pref_title" msgid="3685506528957337849">"Signāls"</string>
     <string name="silent_ringtone" msgid="8073534180322059814">"Klusums"</string>
-    <string name="notification_vibrate_pref_title" msgid="6668564570045187390">"Vibrozvans"</string>
     <string name="blocked_pref_title" msgid="2560554234438548817">"Bloķēts"</string>
     <string name="delivery_reports_pref_title" msgid="5115727259825309087">"Īsziņu piegādes atskaites"</string>
     <string name="delivery_reports_pref_summary" msgid="4272502420621500421">"Pieprasiet piegādes atskaiti par katru sūtīto īsziņu."</string>

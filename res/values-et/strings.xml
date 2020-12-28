@@ -147,8 +147,6 @@
     <string name="action_delete" msgid="4076795795307486019">"Kustutamine"</string>
     <string name="action_archive" msgid="5437034800324083170">"Arhiivimine"</string>
     <string name="action_unarchive" msgid="139681611159869493">"Arhiivimise tühistamine"</string>
-    <string name="action_notification_off" msgid="4823658797441716246">"Märguannete väljalülitamine"</string>
-    <string name="action_notification_on" msgid="8244389452685364211">"Märguannete sisselülitamine"</string>
     <string name="action_add_contact" msgid="8248615862739848672">"Kontakti lisamine"</string>
     <string name="action_download" msgid="7786338136368564146">"Laadi alla"</string>
     <string name="action_send" msgid="377635240181672039">"Saada"</string>
@@ -259,9 +257,7 @@
     <string name="advanced_category_pref_title" msgid="6411454224069259687">"Täpsem"</string>
     <string name="debug_category_pref_title" msgid="8765138968242505061">"Silumine"</string>
     <string name="notifications_pref_title" msgid="4127288731844373795">"Märguanded"</string>
-    <string name="notification_sound_pref_title" msgid="3685506528957337849">"Heli"</string>
     <string name="silent_ringtone" msgid="8073534180322059814">"Hääletu"</string>
-    <string name="notification_vibrate_pref_title" msgid="6668564570045187390">"Vibratsioon"</string>
     <string name="blocked_pref_title" msgid="2560554234438548817">"Blokeeritud"</string>
     <string name="delivery_reports_pref_title" msgid="5115727259825309087">"SMS-i edastamisaruanded"</string>
     <string name="delivery_reports_pref_summary" msgid="4272502420621500421">"Edastamisaruande taotlus iga saadetud SMS-i kohta"</string>
