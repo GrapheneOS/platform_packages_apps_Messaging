@@ -80,8 +80,6 @@ public class ResendMessageAction extends Action implements Parcelable {
 
             final ContentValues values = new ContentValues();
             values.put(MessageColumns.STATUS, MessageData.BUGLE_STATUS_OUTGOING_YET_TO_SEND);
-            values.put(MessageColumns.RECEIVED_TIMESTAMP, timestamp);
-            values.put(MessageColumns.SENT_TIMESTAMP, timestamp);
             values.put(MessageColumns.RETRY_START_TIMESTAMP, timestamp);
 
             // Row must exist as was just loaded above (on ActionService thread)
