@@ -25,6 +25,8 @@ LOCAL_C_INCLUDES := \
 	external/giflib
 
 LOCAL_MODULE    := libgiftranscode
+LOCAL_LICENSE_KINDS := SPDX-license-identifier-Apache-2.0
+LOCAL_LICENSE_CONDITIONS := notice
 LOCAL_SRC_FILES := GifTranscoder.cpp
 
 LOCAL_CFLAGS += -Wall -Werror -Wno-unused-parameter -Wno-switch
