@@ -72,7 +72,7 @@ public abstract class UIIntents {
     // Sending VCard uri to VCard detail activity
     public static final String UI_INTENT_EXTRA_VCARD_URI = "vcard_uri";
 
-    public static final String CMAS_COMPONENT = "com.android.cellbroadcastreceiver";
+    public static final String CMAS_COMPONENT = "com.android.cellbroadcastreceiver.module";
 
     // Intent action for local broadcast receiver for conversation self id change.
     public static final String CONVERSATION_SELF_ID_CHANGE_BROADCAST_ACTION =
