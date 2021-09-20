@@ -74,7 +74,7 @@ public class MediaMetadataRetrieverWrapper {
     public void release() {
         try {
             mRetriever.release();
-        } catch (RuntimeException e) {
+        } catch (RuntimeException | IOException e) {
             LogUtil.e(LogUtil.BUGLE_TAG, "MediaMetadataRetriever.release failed", e);
         }
     }
