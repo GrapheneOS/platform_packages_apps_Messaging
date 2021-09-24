@@ -708,6 +708,7 @@ public class ConversationMessageView extends FrameLayout implements View.OnClick
                 textBottomPadding = textBottomPaddingDefault;
                 textLeftPadding = messageTextLeftRightPadding;
                 textRightPadding = messageTextLeftRightPadding;
+                mMessageTextView.setTextIsSelectable(isSelected());
             } else {
                 // Attachment(s) only
                 contentLeftPadding = incoming ? arrowWidth : 0;
@@ -733,6 +734,7 @@ public class ConversationMessageView extends FrameLayout implements View.OnClick
             textTopMargin = 0;
             textTopPadding = textTopPaddingDefault;
             textBottomPadding = textBottomPaddingDefault;
+            mMessageTextView.setTextIsSelectable(isSelected());
             if (showArrow && incoming) {
                 textLeftPadding = messageTextLeftRightPadding + arrowWidth;
             } else {
@@ -1030,6 +1032,11 @@ public class ConversationMessageView extends FrameLayout implements View.OnClick
     @Override
     public boolean onLongClick(final View view) {
         if (view == mMessageTextView) {
+            // Avoid trying to reselect the message
+            if (isSelected()) {
+                return false;
+            }
+
             // Preemptively handle the long click event on message text so it's not handled by
             // the link spans.
             return performLongClick();
@@ -1195,7 +1202,7 @@ public class ConversationMessageView extends FrameLayout implements View.OnClick
                 // This touch event is a long click, preemptively handle this touch event so that
                 // the link span won't get a onClicked() callback.
                 mIsLongClick = false;
-                return true;
+                return false;
             }
 
             if (event.getActionMasked() == MotionEvent.ACTION_DOWN) {
