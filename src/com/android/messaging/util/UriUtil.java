@@ -94,8 +94,12 @@ public class UriUtil {
         return TextUtils.equals(scheme, ContentResolver.SCHEME_ANDROID_RESOURCE);
     }
 
+    /** Returns whether the given Uri is a file. */
     public static boolean isFileUri(final Uri uri) {
-        return uri != null && TextUtils.equals(uri.getScheme(), ContentResolver.SCHEME_FILE);
+        return uri != null &&
+                uri.getScheme() != null &&
+                TextUtils.equals(uri.getScheme().toLowerCase(),
+                        ContentResolver.SCHEME_FILE);
     }
 
     /**
