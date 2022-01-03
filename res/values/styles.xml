@@ -38,6 +38,8 @@
          <item name="android:textColorHighlight">@color/text_highlight_color</item>
          <item name="actionBarStyle">@style/BugleActionBar</item>
          <item name="apnPreferenceStyle">@style/ApnPreference</item>
+         <item name="android:forceDarkAllowed">true</item>
+         <item name="android:navigationBarColor">@android:color/transparent</item>
     </style>
 
     <style name="BugleTheme.ConversationActivity"
