@@ -98,7 +98,7 @@ public class UriUtil {
     public static boolean isFileUri(final Uri uri) {
         return uri != null &&
                 uri.getScheme() != null &&
-                TextUtils.equals(uri.getScheme().toLowerCase(),
+                TextUtils.equals(uri.getScheme().trim().toLowerCase(),
                         ContentResolver.SCHEME_FILE);
     }
 
