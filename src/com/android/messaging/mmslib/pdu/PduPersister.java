@@ -52,6 +52,7 @@ import com.android.messaging.util.Assert;
 import com.android.messaging.util.ContentType;
 import com.android.messaging.util.LogUtil;
 import com.android.messaging.util.OsUtil;
+import com.android.messaging.util.UriUtil;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -1018,8 +1019,7 @@ public class PduPersister {
         String path = null;
         if (null != uri) {
             final String scheme = uri.getScheme();
-            if (null == scheme || scheme.equals("") ||
-                    scheme.equals(ContentResolver.SCHEME_FILE)) {
+            if (null == scheme || scheme.equals("") || UriUtil.isFileUri(uri)) {
                 path = uri.getPath();
 
             } else if (scheme.equals("http")) {
