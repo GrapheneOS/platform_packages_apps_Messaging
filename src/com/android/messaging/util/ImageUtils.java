@@ -480,7 +480,7 @@ public class ImageUtils {
             if (MediaScratchFileProvider.isMediaScratchSpaceUri(mUri)) {
                 inputFilePath = MediaScratchFileProvider.getFileFromUri(mUri).getAbsolutePath();
             } else {
-                if (!TextUtils.equals(mUri.getScheme(), ContentResolver.SCHEME_FILE)) {
+                if (!UriUtil.isFileUri(mUri)) {
                     Assert.fail("Expected a GIF file uri, but actual uri = " + mUri.toString());
                 }
                 inputFilePath = mUri.getPath();
