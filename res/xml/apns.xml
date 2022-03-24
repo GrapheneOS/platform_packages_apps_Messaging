@@ -836,10 +836,10 @@
       <apn mcc="310" mnc="120" carrier="Sprint" apn="sprint" mmsc="http://mms.sprintpcs.com" mmsproxy="68.28.31.7" mmsport="80" type="default,supl,mms,ims,cbs,dun" bearer="8"></apn>
       <apn mcc="310" mnc="120" carrier="Sprint CdmaNai" apn="CdmaNai" mmsc="http://mms.sprintpcs.com" mmsproxy="68.28.31.7" mmsport="80" type="mms" authtype="0" protocol="IPV4V6" bearer="6" roaming_protocol="IPV4V6" carrier_enabled="FALSE"></apn>
       <apn mcc="310" mnc="120" carrier="Sprint CdmaNai" apn="CdmaNai" mmsc="http://mms.sprintpcs.com" mmsproxy="68.28.31.7" mmsport="80" type="mms" authtype="0" protocol="IPV4V6" bearer="6" roaming_protocol="IPV4V6" carrier_enabled="TRUE"></apn>
-      <apn mcc="310" mnc="130" carrier="Carolina west" apn="VZWINTERNET" mmsc="http://mms.cwwmms.com/cww/mms.php" mmsproxy="204.117.091.161" mmsport="80" type="default,mms,dun,supl" mvno_match_data="carolinawest" mvno_type="spn" protocol="IPV4V6" bearer="13" roaming_protocol="IPV4V6"></apn>
-      <apn mcc="310" mnc="130" carrier="Carolina west" apn="VZWINTERNET" mmsc="http://mms.cwwmms.com/cww/mms.php" mmsproxy="204.117.091.161" mmsport="80" type="default,mms,dun,supl" mvno_match_data="carolinawest" mvno_type="spn" protocol="IPV4V6" bearer="14" roaming_protocol="IPV4V6"></apn>
-      <apn mcc="310" mnc="130" carrier="My Multi Media" apn="mms.c1.ama" mmsc="http://mms.iot1.com/amarillo/mms.php" type="mms" user="cell1mms" password="cell1"></apn>
-      <apn mcc="310" mnc="130" carrier="carolinawest" apn="CdmaNai" mmsc="http://mms.cwwmms.com/cww/mms.php" mmsproxy="204.117.091.161" mmsport="80" type="mms" mvno_match_data="carolinawest" mvno_type="spn" protocol="IPV4V6" bearer="6" roaming_protocol="IPV4V6" carrier_enabled="false"></apn>
+      <apn mcc="310" mnc="130" carrier="Carolina West Wireless" apn="home.cww.com" mmsc="" mmsproxy="" mmsport="" type="default,supl,fota"></apn>
+      <apn mcc="310" mnc="130" carrier="Carolina West Wireless IMS" apn="ims" mmsc="" mmsproxy="" mmsport="" type="ims"></apn>
+      <apn mcc="310" mnc="130" carrier="Carolina West Wireless MMS" apn="mms" mmsc="http://mms.cwwmms.com/cww/mms.php" mmsproxy="" mmsport="" type="mms"></apn>
+      <apn mcc="310" mnc="130" carrier="Carolina West Wireless Tethering" apn="tethering.cww.com" mmsc="" mmsproxy="" mmsport="80" type="dun"></apn>
       <apn mcc="310" mnc="150" carrier="internet" apn="ndo" mmsc="http://mmsc.aiowireless.net" mmsproxy="proxy.aiowireless.net" mmsport="80" type="default,mms,fota,hipri,supl"></apn>
       <apn mcc="310" mnc="160" carrier="MetroPCS 160" apn="fast.metropcs.com" mmsc="http://metropcs.mmsmvno.com/mms/wapenc" type="default,supl,mms" mvno_match_data="6D" mvno_type="gid" protocol="IPV6" roaming_protocol="IP"></apn>
       <apn mcc="310" mnc="160" carrier="T-Mobile US 160" apn="epc.tmobile.com" mmsc="http://mms.msg.eng.t-mobile.com/mms/wapenc"></apn>
