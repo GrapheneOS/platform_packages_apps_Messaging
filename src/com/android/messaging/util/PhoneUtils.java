@@ -26,7 +26,6 @@ import android.database.Cursor;
 import android.net.ConnectivityManager;
 import android.provider.Settings;
 import android.provider.Telephony;
-import androidx.collection.ArrayMap;
 import android.telephony.PhoneNumberUtils;
 import android.telephony.SmsManager;
 import android.telephony.SubscriptionInfo;
@@ -34,14 +33,18 @@ import android.telephony.SubscriptionManager;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 
+import androidx.collection.ArrayMap;
+import androidx.core.os.BuildCompat;
+
 import com.android.messaging.Factory;
 import com.android.messaging.R;
 import com.android.messaging.datamodel.data.ParticipantData;
 import com.android.messaging.sms.MmsSmsUtils;
+
 import com.google.i18n.phonenumbers.NumberParseException;
-import com.google.i18n.phonenumbers.Phonenumber.PhoneNumber;
 import com.google.i18n.phonenumbers.PhoneNumberUtil;
 import com.google.i18n.phonenumbers.PhoneNumberUtil.PhoneNumberFormat;
+import com.google.i18n.phonenumbers.Phonenumber.PhoneNumber;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -369,6 +372,9 @@ public abstract class PhoneUtils {
         @Override
         @SuppressWarnings("deprecation")
         public boolean isDataRoamingEnabled() {
+            if (BuildCompat.isAtLeastT()) {
+                return mTelephonyManager.isDataRoamingEnabled();
+            }
             boolean dataRoamingEnabled = false;
             final ContentResolver cr = mContext.getContentResolver();
             if (OsUtil.isAtLeastJB_MR1()) {
