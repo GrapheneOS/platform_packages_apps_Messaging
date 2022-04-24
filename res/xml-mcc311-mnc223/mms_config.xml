@@ -10,6 +10,7 @@
     <int name="maxImageWidth">2592</int>
     <bool name="enableMultipartSMS">false</bool>
     <string name="emailGatewayNumber">6245</string>
+    <int name="emailGatewaySmsToMmsTextThreshold">0</int>
     <bool name="allowAttachAudio">true</bool>
     <bool name="enableMMSReadReports">false</bool>
     <int name="maxSubjectLength">80</int>
