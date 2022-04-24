@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<mms_config version="7">
+<mms_config version="8">
     <int name="maxMessageSize">512000</int>
     <int name="maxImageHeight">1944</int>
     <int name="maxImageWidth">2592</int>
@@ -8,4 +8,5 @@
     <bool name="enableWapPushSI">true</bool>
     <bool name="enableGroupMms">true</bool>
     <bool name="groupChatDefaultsToMMS">true</bool>
+    <bool name="useCustomUserAgent">true</bool>
 </mms_config>
