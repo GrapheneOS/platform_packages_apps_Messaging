@@ -49,6 +49,8 @@ public class UriUtil {
     private static final String SCHEME_MMSTO = "smsto";
     public static final HashSet<String> SMS_MMS_SCHEMES = new HashSet<String>(
         Arrays.asList(SCHEME_SMS, SCHEME_MMS, SCHEME_SMSTO, SCHEME_MMSTO));
+    private static final String SCHEME_HTTP = "http";
+    private static final String SCHEME_HTTPS = "https";
 
     public static final String SCHEME_BUGLE = "bugle";
     public static final HashSet<String> SUPPORTED_SCHEME = new HashSet<String>(
@@ -98,8 +100,7 @@ public class UriUtil {
     public static boolean isFileUri(final Uri uri) {
         return uri != null &&
                 uri.getScheme() != null &&
-                TextUtils.equals(uri.getScheme().trim().toLowerCase(),
-                        ContentResolver.SCHEME_FILE);
+                uri.getScheme().trim().toLowerCase().contains(ContentResolver.SCHEME_FILE);
     }
 
     /**
@@ -216,9 +217,10 @@ public class UriUtil {
                 inputStream = context.getContentResolver().openInputStream(sourceUri);
             } else {
                 // The content is remote. Download it.
-                final URL url = new URL(sourceUri.toString());
-                final URLConnection ucon = url.openConnection();
-                inputStream = new BufferedInputStream(ucon.getInputStream());
+                inputStream = getInputStreamFromRemoteUri(sourceUri);
+                if (inputStream == null) {
+                    return null;
+                }
             }
             return persistContentToScratchSpace(inputStream);
         } catch (final Exception ex) {
@@ -233,6 +235,23 @@ public class UriUtil {
                 }
             }
         }
+    }
+
+    @DoesNotRunOnMainThread
+    private static InputStream getInputStreamFromRemoteUri(final Uri sourceUri)
+            throws IOException {
+        if (isRemoteUri(sourceUri)) {
+            final URL url = new URL(sourceUri.toString());
+            final URLConnection ucon = url.openConnection();
+            return new BufferedInputStream(ucon.getInputStream());
+        } else {
+            return null;
+        }
+    }
+
+    private static boolean isRemoteUri(final Uri sourceUri) {
+        return sourceUri.getScheme().equals(SCHEME_HTTP)
+            || sourceUri.getScheme().equals(SCHEME_HTTPS);
     }
 
     /**
@@ -273,9 +292,10 @@ public class UriUtil {
                 inputStream = context.getContentResolver().openInputStream(sourceUri);
             } else {
                 // The content is remote. Download it.
-                final URL url = new URL(sourceUri.toString());
-                final URLConnection ucon = url.openConnection();
-                inputStream = new BufferedInputStream(ucon.getInputStream());
+                inputStream = getInputStreamFromRemoteUri(sourceUri);
+                if (inputStream == null) {
+                    return null;
+                }
             }
             return persistContent(inputStream, outputDir, contentType);
         } catch (final Exception ex) {
