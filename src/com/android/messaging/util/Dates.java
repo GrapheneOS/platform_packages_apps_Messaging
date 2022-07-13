@@ -18,13 +18,16 @@ package com.android.messaging.util;
 
 import android.content.Context;
 import android.text.format.DateUtils;
-import android.text.format.Time;
 
 import com.android.messaging.Factory;
 import com.android.messaging.R;
 import com.google.common.annotations.VisibleForTesting;
 
 import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
+import java.time.ZoneId;
 import java.util.Date;
 import java.util.Locale;
 
@@ -265,16 +268,11 @@ public class Dates {
         return String.format(format, count);
     }
 
-    private static synchronized long getNumberOfDaysPassed(final long date1, final long date2) {
-        if (sThenTime == null) {
-            sThenTime = new Time();
-        }
-        sThenTime.set(date1);
-        final int day1 = Time.getJulianDay(date1, sThenTime.gmtoff);
-        sThenTime.set(date2);
-        final int day2 = Time.getJulianDay(date2, sThenTime.gmtoff);
-        return Math.abs(day2 - day1);
+    private static long getNumberOfDaysPassed(final long date1, final long date2) {
+        LocalDateTime dateTime1 = LocalDateTime.ofInstant(Instant.ofEpochMilli(date1),
+                                                          ZoneId.systemDefault());
+        LocalDateTime dateTime2 = LocalDateTime.ofInstant(Instant.ofEpochMilli(date2),
+                                                          ZoneId.systemDefault());
+        return Math.abs(ChronoUnit.DAYS.between(dateTime2, dateTime1));
     }
-
-    private static Time sThenTime;
 }
