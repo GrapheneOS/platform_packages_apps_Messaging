@@ -89,6 +89,7 @@ android_app {
     required: [
         "libframesequence",
         "libgiftranscode",
+        "allowlist_com.android.messaging.xml",
     ],
     optimize: {
         obfuscate: true,
@@ -99,4 +100,12 @@ android_app {
     sdk_version: "current",
 
     product_specific: true,
+}
+
+prebuilt_etc {
+    name: "allowlist_com.android.messaging.xml",
+    product_specific: true,
+    sub_dir: "sysconfig",
+    src: "allowlist_com.android.messaging.xml",
+    filename_from_src: true,
 }
