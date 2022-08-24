@@ -131,7 +131,7 @@ public class ContactUtilTest extends BugleTestCase {
                 } while (cur.moveToNext());
             }
         } catch (final Exception e) {
-            System.out.println(e.getStackTrace());
+            LogUtil.e(LogUtil.BUGLE_TAG, "Failed to delete test contacts", e);
         }
     }
 
