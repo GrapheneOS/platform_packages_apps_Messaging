@@ -21,7 +21,7 @@ import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
-import androidx.appcompat.graphics.drawable.DrawableWrapper;
+import androidx.appcompat.graphics.drawable.DrawableWrapperCompat;
 import androidx.appcompat.widget.SwitchCompat;
 import android.util.TypedValue;
 
@@ -53,8 +53,8 @@ public class SwitchCompatUtils {
     private static Drawable getColorTintedDrawable(Drawable oldDrawable,
             final ColorStateList colorStateList, final PorterDuff.Mode mode) {
         final int[] thumbState = oldDrawable.isStateful() ? oldDrawable.getState() : null;
-        if (oldDrawable instanceof DrawableWrapper) {
-            oldDrawable = ((DrawableWrapper) oldDrawable).getWrappedDrawable();
+        if (oldDrawable instanceof DrawableWrapperCompat) {
+            oldDrawable = ((DrawableWrapperCompat) oldDrawable).getDrawable();
         }
         final Drawable newDrawable = new TintDrawableWrapper(oldDrawable, colorStateList, mode);
         if (thumbState != null) {
