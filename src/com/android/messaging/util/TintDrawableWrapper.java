@@ -20,16 +20,16 @@ import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
-import androidx.appcompat.graphics.drawable.DrawableWrapper;
+import androidx.appcompat.graphics.drawable.DrawableWrapperCompat;
 
 /*
  * This is directly copied from v7/appcompat/src/androidx.appcompat.internal/widget/TintManager.java
  */
 
 /**
- * A {@link DrawableWrapper} which updates it's color filter using a {@link ColorStateList}.
+ * A {@link DrawableWrapperCompat} which updates it's color filter using a {@link ColorStateList}.
  */
-class TintDrawableWrapper extends DrawableWrapper {
+class TintDrawableWrapper extends DrawableWrapperCompat {
     private final ColorStateList mTintStateList;
     private final PorterDuff.Mode mTintMode;
     private int mCurrentColor;
