@@ -1,0 +1,43 @@
+name: Update MMS configs
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 1 * *'
+
+jobs:
+  vvm:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install apkeep
+        run: cargo install apkeep
+      - name: Install aapt
+        run: |
+          sudo apt update
+          sudo apt -y install aapt
+      - name: Install Apktool
+        run: |
+          wget https://bitbucket.org/iBotPeaches/apktool/downloads/apktool_2.6.1.jar
+          wget https://connortumbleson.com/apktool/sha256.shasum
+          sha256sum apktool_2.6.1.jar --check sha256.shasum --ignore-missing | grep "OK"
+      - name: Download Messaging APK from Google Play
+        env:
+          LOGIN: ${{ secrets.GOOGLE_EMAIL }}
+          PASSWORD: ${{ secrets.GOOGLE_PASSWORD }}
+        run: apkeep -a com.google.android.apps.messaging -o device=walleye -d google-play -u "$LOGIN" -p "$PASSWORD" .
+      - name: Decomiple Messaging using apktool
+        run: java -jar apktool_2.6.1.jar decode com.google.android.apps.messaging.apk -o dump
+      - name: Copy MMS configs
+        run: |
+          rm -rv res/xml-mcc*
+          cp -rv dump/res/xml-mcc* res/
+          rm -rv res/xml-mcc*/*_config_override.xml
+      - name: Commit changes
+        run: |
+          git config --global user.name "GrapheneOS"
+          git config --global user.name "grapheneos@grapheneos.org"
+          git add res/
+          git commit -m "CI: update MMS configs from $(aapt dump badging com.google.android.apps.messaging.apk | grep "VersionName" | sed -e "s/.*versionName='//" -e "s/' .*//")"
+          git push
