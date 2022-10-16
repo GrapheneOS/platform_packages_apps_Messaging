@@ -44,10 +44,14 @@ public class CameraManagerTest extends BugleTestCase {
         CameraManager.setCameraWrapper(MockCameraFactory.createCameraWrapper());
         assertEquals(false, CameraManager.get().hasAnyCamera());
         assertEquals(false, CameraManager.get().hasFrontAndBackCamera());
+        boolean threw = false;
         try {
             CameraManager.get().selectCamera(CameraInfo.CAMERA_FACING_BACK);
-            fail("selectCamera should have thrown");
         } catch (AssertionError e) {
+            threw = true;
+        }
+        if (!threw) {
+            fail("selectCamera should have thrown");
         }
     }
 

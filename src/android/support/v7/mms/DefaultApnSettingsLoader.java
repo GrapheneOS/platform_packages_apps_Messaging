@@ -394,7 +394,7 @@ class DefaultApnSettingsLoader implements ApnSettingsLoader {
     private void loadFromResources(final int subId, final String apnName, final List<Apn> apns) {
         Log.i(MmsService.TAG, "Loading APNs from resources, apnName=" + apnName);
         final int[] mccMnc = Utils.getMccMnc(mContext, subId);
-        if (mccMnc[0] == 0 && mccMnc[0] == 0) {
+        if (mccMnc[0] == 0) {
             Log.w(MmsService.TAG, "Can not get valid mcc/mnc from system");
             return;
         }
