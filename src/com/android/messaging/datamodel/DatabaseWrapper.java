@@ -190,7 +190,7 @@ public class DatabaseWrapper {
         }
         if (mLog) {
             printTiming(t1, String.format(Locale.US,
-                    "insertWithOnConflict with ", searchTable));
+                    "insertWithOnConflict with %s", searchTable));
         }
     }
 

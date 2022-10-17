@@ -360,6 +360,7 @@ public class ConversationActivity extends BugleActionBarActivity
         return mUiState.shouldResumeComposeMessage();
     }
 
+    @SuppressWarnings("MissingSuperCall") // TODO: fix me
     @Override
     protected void onActivityResult(final int requestCode, final int resultCode,
             final Intent data) {
