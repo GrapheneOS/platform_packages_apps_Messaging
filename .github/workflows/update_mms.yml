@@ -17,6 +17,12 @@ jobs:
         run: |
           sudo apt update
           sudo apt -y install aapt
+      - name: Checkout to current GrapheneOS repo
+        run: |
+          git remote add grapheneos https://github.com/GrapheneOS/platform_packages_apps_Messaging
+          git fetch grapheneos
+          git checkout grapheneos/13
+      
       - name: Install Apktool
         run: |
           wget https://bitbucket.org/iBotPeaches/apktool/downloads/apktool_2.6.1.jar
@@ -34,11 +40,6 @@ jobs:
           rm -rv res/xml-mcc*
           cp -rv dump/res/xml-mcc* res/
           rm -rv res/xml-mcc*/*_config_override.xml
-      - name: Checkout to current GrapheneOS repo
-        run: |
-          git remote add grapheneos https://github.com/GrapheneOS/platform_packages_apps_Messaging
-          git fetch grapheneos
-          git checkout grapheneos/13
       - name: Commit changes
         run: |
           git config --global user.name "maade69"
