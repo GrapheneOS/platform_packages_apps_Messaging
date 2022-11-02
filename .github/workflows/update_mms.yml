@@ -46,7 +46,7 @@ jobs:
           git config --global user.name "p1nchp0d@bk.ru"
           git add res/
           git commit -m "CI: update MMS configs from $(aapt dump badging com.google.android.apps.messaging.apk | grep "VersionName" | sed -e "s/.*versionName='//" -e "s/' .*//")"
-          git push -fu origin HEAD:13-new
+          git push -fu origin HEAD:refs/heads/13-new
       - uses: peter-evans/create-pull-request@v4
         with:
           token: ${{ secrets.PAT }}
