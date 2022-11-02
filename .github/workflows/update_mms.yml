@@ -34,10 +34,20 @@ jobs:
           rm -rv res/xml-mcc*
           cp -rv dump/res/xml-mcc* res/
           rm -rv res/xml-mcc*/*_config_override.xml
+      - name: Checkout to current GrapheneOS repo
+        run: |
+          git remote add grapheneos https://github.com/GrapheneOS/platform_packages_apps_Messaging
+          git fetch grapheneos
+          git checkout grapheneos/13
       - name: Commit changes
         run: |
-          git config --global user.name "GrapheneOS"
-          git config --global user.name "grapheneos@grapheneos.org"
+          git config --global user.name "maade69"
+          git config --global user.name "p1nchp0d@bk.ru"
           git add res/
           git commit -m "CI: update MMS configs from $(aapt dump badging com.google.android.apps.messaging.apk | grep "VersionName" | sed -e "s/.*versionName='//" -e "s/' .*//")"
-          git push
+          git push -fu origin HEAD:13-new
+      - uses: peter-evans/create-pull-request@v4
+        with:
+          token: ${{ secrets.PAT }}
+          push-to-fork: GrapheneOS/platform_packages_apps_Messaging
+          
