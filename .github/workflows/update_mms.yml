@@ -11,18 +11,15 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.PAT }}
+          repository: GrapheneOS/platform_packages_apps_Messaging
       - name: Install apkeep
         run: cargo install apkeep
       - name: Install aapt
         run: |
           sudo apt update
           sudo apt -y install aapt
-      - name: Checkout to current GrapheneOS repo
-        run: |
-          git remote add grapheneos https://github.com/GrapheneOS/platform_packages_apps_Messaging
-          git fetch grapheneos
-          git checkout grapheneos/13
-      
       - name: Install Apktool
         run: |
           wget https://bitbucket.org/iBotPeaches/apktool/downloads/apktool_2.6.1.jar
@@ -50,5 +47,3 @@ jobs:
       - uses: peter-evans/create-pull-request@v4
         with:
           token: ${{ secrets.PAT }}
-          push-to-fork: GrapheneOS/platform_packages_apps_Messaging
-          
