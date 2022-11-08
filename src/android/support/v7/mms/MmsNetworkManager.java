@@ -324,8 +324,7 @@ class MmsNetworkManager {
 
     private void registerConnectivityChangeReceiverLocked() {
         if (!mReceiverRegistered) {
-            mContext.registerReceiver(mConnectivityChangeReceiver, mConnectivityIntentFilter,
-                    Context.RECEIVER_EXPORTED/*UNAUDITED*/);
+            mContext.registerReceiver(mConnectivityChangeReceiver, mConnectivityIntentFilter);
             mReceiverRegistered = true;
         }
     }
