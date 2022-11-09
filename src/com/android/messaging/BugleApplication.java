@@ -132,7 +132,8 @@ public class BugleApplication extends Application implements UncaughtExceptionHa
                 LogUtil.i(TAG, "Carrier config changed. Reloading MMS config.");
                 MmsConfig.loadAsync();
             }
-        }, new IntentFilter(CarrierConfigManager.ACTION_CARRIER_CONFIG_CHANGED));
+        }, new IntentFilter(CarrierConfigManager.ACTION_CARRIER_CONFIG_CHANGED),
+        Context.RECEIVER_EXPORTED/*UNAUDITED*/);
     }
 
     private static void initMmsLib(final Context context, final BugleGservices bugleGservices,
