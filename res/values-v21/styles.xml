@@ -15,6 +15,10 @@
     limitations under the License.
 -->
 <resources>
+    <style name="BugleBaseTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:forceDarkAllowed">true</item>
+    </style>
+
     <style name="BugleTheme.ConversationActivity"
         parent="@style/BugleTheme.ConversationActivityBase">
         <item name="android:colorEdgeEffect">@color/conversation_edge_effect</item>
