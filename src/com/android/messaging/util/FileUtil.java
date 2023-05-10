@@ -20,6 +20,7 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Environment;
+import android.os.ParcelFileDescriptor;
 import android.text.TextUtils;
 
 import com.android.messaging.Factory;
@@ -28,6 +29,8 @@ import com.google.common.io.Files;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -121,11 +124,33 @@ public class FileUtil {
     // We're told it's possible to create world readable hardlinks to other apps private data
     // so we ban all /data file uris.
     public static boolean isInPrivateDir(Uri uri) {
+        return isFileUriInPrivateDir(uri) || isContentUriInPrivateDir(uri);
+    }
+
+    private static boolean isFileUriInPrivateDir(Uri uri) {
         if (!UriUtil.isFileUri(uri)) {
             return false;
         }
         final File file = new File(uri.getPath());
         return FileUtil.isSameOrSubDirectory(Environment.getDataDirectory(), file);
+    }
+
+    private static boolean isContentUriInPrivateDir(Uri uri) {
+        if (!uri.getScheme().equals(ContentResolver.SCHEME_CONTENT)) {
+            return false;
+        }
+        try {
+            Context context = Factory.get().getApplicationContext();
+            ParcelFileDescriptor pfd = context.getContentResolver().openFileDescriptor(uri, "r");
+            int fd = pfd.getFd();
+            // Use the file descriptor to find out the read file path through symbolic link.
+            Path fdPath = Paths.get("/proc/self/fd/" + fd);
+            Path filePath = java.nio.file.Files.readSymbolicLink(fdPath);
+            pfd.close();
+            return FileUtil.isSameOrSubDirectory(Environment.getDataDirectory(), filePath.toFile());
+        } catch (Exception e) {
+            return false;
+        }
     }
 
     /**
