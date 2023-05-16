@@ -37,6 +37,8 @@ import com.android.messaging.util.UriUtil;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Launches ConversationActivity for sending a message to, or viewing messages from, a specific
@@ -46,6 +48,7 @@ import java.net.URLDecoder;
  */
 public class LaunchConversationActivity extends Activity implements
         LaunchConversationData.LaunchConversationDataListener {
+    private static final int MAX_RECIPIENT_LENGTH = 100;
     static final String SMS_BODY = "sms_body";
     static final String ADDRESS = "address";
     final Binding<LaunchConversationData> mBinding = BindingBase.createBinding(this);
@@ -76,6 +79,9 @@ public class LaunchConversationActivity extends Activity implements
                     recipients = new String[] { intent.getStringExtra(Intent.EXTRA_EMAIL) };
                 }
             }
+            if (recipients != null) {
+                recipients = trimInvalidRecipients(recipients);
+            }
             mSmsBody = intent.getStringExtra(SMS_BODY);
             if (TextUtils.isEmpty(mSmsBody)) {
                 // Used by intents sent from the web YouTube (and perhaps others).
@@ -101,6 +107,20 @@ public class LaunchConversationActivity extends Activity implements
         }
         // As of M, activities without a visible window must finish before onResume completes.
         finish();
+    }
+
+    private String[] trimInvalidRecipients(String[] recipients) {
+        List<String> trimmedRecipients = new ArrayList<>();
+        for (String recipient : recipients) {
+            if (recipient.length() < MAX_RECIPIENT_LENGTH) {
+                trimmedRecipients.add(recipient);
+            }
+        }
+        if (trimmedRecipients.size() > 0) {
+            return trimmedRecipients.toArray(new String[0]);
+        } else {
+            return null;
+        }
     }
 
     private String getBody(final Uri uri) {
