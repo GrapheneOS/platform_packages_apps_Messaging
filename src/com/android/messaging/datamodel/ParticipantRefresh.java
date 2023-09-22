@@ -46,6 +46,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
+import java.util.Objects;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicBoolean;
 
@@ -391,7 +392,7 @@ public class ParticipantRefresh {
             for (final Integer subId : activeSubscriptionIdToRecordMap.keySet()) {
                 final SubscriptionInfo record = activeSubscriptionIdToRecordMap.get(subId);
                 final String displayName =
-                        DatabaseUtils.sqlEscapeString(record.getDisplayName().toString());
+                        DatabaseUtils.sqlEscapeString(Objects.toString(record.getDisplayName(), ""));
                 db.execSQL(getUpdateSelfParticipantSubscriptionInfoSql(record.getSimSlotIndex(),
                         record.getIconTint(), displayName,
                         ParticipantColumns.SUB_ID + " = " + subId));
