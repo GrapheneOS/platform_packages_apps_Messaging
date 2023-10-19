@@ -19,7 +19,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.graphics.Rect;
 import android.os.AsyncTask;
-import androidx.appcompat.R;
 import android.text.Editable;
 import android.text.TextPaint;
 import android.text.TextWatcher;
@@ -33,6 +32,7 @@ import android.widget.TextView;
 import com.android.ex.chips.RecipientEditTextView;
 import com.android.ex.chips.RecipientEntry;
 import com.android.ex.chips.recipientchip.DrawableRecipientChip;
+import com.android.messaging.R;
 import com.android.messaging.datamodel.data.ParticipantData;
 import com.android.messaging.util.ContactRecipientEntryUtils;
 import com.android.messaging.util.ContactUtil;
@@ -114,7 +114,7 @@ public class ContactRecipientAutoCompleteView extends RecipientEditTextView {
         setOnFocusListShrinkRecipients(false);
 
         setBackground(context.getResources().getDrawable(
-                R.drawable.abc_textfield_search_default_mtrl_alpha));
+                androidx.appcompat.R.drawable.abc_textfield_search_default_mtrl_alpha));
     }
 
     public void setContactChipsListener(final ContactChipsChangeListener listener) {
