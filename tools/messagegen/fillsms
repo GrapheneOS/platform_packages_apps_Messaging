@@ -100,9 +100,11 @@ image_list_file=$1
 shift
 sql_file=$1
 shift
+echo $image_list_file
 
 dict_lines=`wc -l < $DICT`
 image_files=`wc -l < $image_list_file`
+echo $image_files
 
 if [ $mms_per_thread -gt "0" ]; then
   if [ ! -f $image_list_file ]; then
@@ -123,7 +125,7 @@ random_value ()
 
 dict_word ()
 {
-  local v=$(random_value 30000)
+  local v=$(random_value $dict_lines)
   sed $v"q;d" $DICT
 }
 
@@ -156,6 +158,11 @@ adb_sql ()
   adb shell sqlite3 data/data/com.android.providers.telephony/databases/mmssms.db "$1"
 }
 
+adb_sql_with_quotes ()
+{
+  echo $1
+  adb shell "sqlite3 data/data/com.android.providers.telephony/databases/mmssms.db \"$1\""
+}
 ######################################################################################
 ######################################################################################
 
@@ -163,6 +170,7 @@ if [ $opt_exec_only -eq "0" ]; then
   # clean up sql file
   rm -f $sql_file
 
+  add_sql "PRAGMA trusted_schema=1;"
   # add sql to clean up database
   add_sql "delete from pdu where _id>=$TABLE_SMS_START_ID;"
   add_sql "delete from part where _id>=$TABLE_SMS_START_ID;"
@@ -197,6 +205,7 @@ if [ $opt_exec_only -eq "0" ]; then
 
     # Generate SMS
     if [ $sms_per_thread -gt "0" ]; then
+      add_sql "PRAGMA trusted_schema=1;"
       half_timestamp_inc=$(( 500 + ((($sms_per_thread + $mms_per_thread) * $TIMESTAMP_INC_IN_SECONDS) * 500 / $sms_per_thread) ))
       for j in `seq 1 $sms_per_thread`;
       do
@@ -268,20 +277,22 @@ if [ $opt_sql_only -eq "0" ]; then
   echo
   adb_sql ".read /data/fillsms"
   echo
-  adb_sql "select count(*) from canonical_addresses where _id>=$TABLE_CANONICAL_ADDRESSES_START_ID;"
+  add_sql "PRAGMA trusted_schema=1;"
   echo
-  adb_sql "select count(*) from threads where _id>=$TABLE_THREADS_START_ID;"
+  adb_sql_with_quotes "select count(*) from canonical_addresses where _id>=$TABLE_CANONICAL_ADDRESSES_START_ID;"
+  echo
+  adb_sql_with_quotes "select count(*) from threads where _id>=$TABLE_THREADS_START_ID;"
   echo
   if [ $sms_per_thread -gt "0" ]; then
-    adb_sql "select count(*) from sms where _id>=$TABLE_SMS_START_ID;"
+    adb_sql_with_quotes "select count(*) from sms where _id>=$TABLE_SMS_START_ID;"
     echo
   fi
   if [ $mms_per_thread -gt "0" ]; then
-    adb_sql "select count(*) from pdu where _id>=$TABLE_SMS_START_ID;"
+    adb_sql_with_quotes "select count(*) from pdu where _id>=$TABLE_SMS_START_ID;"
     echo
-    adb_sql "select count(*) from part where _id>=$TABLE_SMS_START_ID;"
+    adb_sql_with_quotes "select count(*) from part where _id>=$TABLE_SMS_START_ID;"
     echo
-    adb_sql "select count(*) from addr where _id>=$TABLE_SMS_START_ID;"
+    adb_sql_with_quotes "select count(*) from addr where _id>=$TABLE_SMS_START_ID;"
     echo
   fi
 fi
